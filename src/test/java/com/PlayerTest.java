@@ -1,6 +1,9 @@
+package com;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import com.Player;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.lang.RuntimeException;
 
@@ -19,15 +22,6 @@ class PlayerTest {
                 .characteristics("test")
                 .build();
     }
-
-    @Test
-    void isValidForProperty() {
-        assertThrows(RuntimeException.class, ()->{player.isValidForProperty(-1);} );
-        assertEquals(true, player.isValidForProperty(0101));
-        assertEquals(true, player.isValidForProperty(017));
-        assertThrows(RuntimeException.class, ()->{player.isValidForProperty(3.14);} );
-    }
-
     @Test
     void setPower() {
         assertThrows(RuntimeException.class, ()->{player.setPower(-1);});
