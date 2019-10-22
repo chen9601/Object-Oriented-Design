@@ -16,6 +16,10 @@ class BossTest {
                 .health(30)
                 .build();
     }
+    @Test
+    void getName(){
+        assertEquals(BossName.NYARLATHOTEP, boss.getName());
+    }
 
     @Test
     void setPower() {

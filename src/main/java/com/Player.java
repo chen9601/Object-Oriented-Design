@@ -6,6 +6,7 @@ import static com.Validator.isValidForProperty;
 @Data
 @Builder
 public class Player{
+    // TODO :
     private int power;
     private int health;
     private int mental;
@@ -64,7 +65,7 @@ public class Player{
                 this.mental = value;
             return this;
         }
-        // TODO : 특성별 문자열 유효성 검사 수행하기!
+        // TODO : 플레이어 특성 유효성 검사 수행하기!
         public PlayerBuilder characteristics(String value){
             this.characteristics = value;
             return this;
