@@ -52,7 +52,7 @@ class PlayerTest {
         assertThrows(RuntimeException.class, ()->{player.setMental(0x113);});
     }
 
-    // TODO : 특성별 문자열 유효성 검사 수행하기!
+    // TODO : 플레이어 특성 유효성 검사 수행하기!
     @Test
     void setCharacteristics() {
     }

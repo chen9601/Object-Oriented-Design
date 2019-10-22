@@ -3,6 +3,10 @@ import lombok.*;
 
 import static com.Validator.isValidForProperty;
 
+enum BossName {
+    AZATHOTH, CHUTHULU, NYARLATHOTEP
+}
+
 @Data
 @Builder
 public class Boss {
