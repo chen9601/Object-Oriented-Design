@@ -11,14 +11,14 @@ class BossTest {
     public static void makeInstance() throws Exception {
         boss = Boss
                 .builder()
-                .name(BossName.NYARLATHOTEP)
+                .name(BossType.NYARLATHOTEP)
                 .power(10)
                 .health(30)
                 .build();
     }
     @Test
     void getName(){
-        assertEquals(BossName.NYARLATHOTEP, boss.getName());
+        assertEquals(BossType.NYARLATHOTEP, boss.getName());
     }
 
     @Test
