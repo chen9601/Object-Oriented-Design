@@ -9,7 +9,7 @@ enum BossType {
     NYARLATHOTEP("니알라토텝");
 
     final private String name;
-    private BossType(String name){
+    BossType(String name){
         this.name = name;
     }
     public String getName(){
