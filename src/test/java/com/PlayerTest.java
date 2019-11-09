@@ -2,7 +2,7 @@ package com;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.Player;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.lang.RuntimeException;
@@ -22,38 +22,9 @@ class PlayerTest {
                 .characteristics("test")
                 .build();
     }
-    @Test
-    void setPower() {
-        assertThrows(RuntimeException.class, ()->{player.setPower(-1);});
-        assertThrows(RuntimeException.class, ()->{player.setPower(0x113);});
-    }
 
     @Test
-    void setDexterity() {
-        assertThrows(RuntimeException.class, ()->{player.setDexterity(-1);});
-        assertThrows(RuntimeException.class, ()->{player.setDexterity(0x113);});
-    }
-
-    @Test
-    void setIntelligence() {
-        assertThrows(RuntimeException.class, ()->{player.setIntelligence(-1);});
-        assertThrows(RuntimeException.class, ()->{player.setIntelligence(0x113);});
-    }
-
-    @Test
-    void setHealth() {
-        assertThrows(RuntimeException.class, ()->{player.setHealth(-1);});
-        assertThrows(RuntimeException.class, ()->{player.setHealth(0x113);});
-    }
-
-    @Test
-    void setMental() {
-        assertThrows(RuntimeException.class, ()->{player.setMental(-1);});
-        assertThrows(RuntimeException.class, ()->{player.setMental(0x113);});
-    }
-
-    // TODO : 플레이어 특성 유효성 검사 수행하기!
-    @Test
-    void setCharacteristics() {
+    void test_moveTo(){
+        assertEquals(TileType.C, player.moveTo(TileType.C));
     }
 }
