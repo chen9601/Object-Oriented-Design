@@ -1,11 +1,6 @@
 package com;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import java.lang.RuntimeException;
 
 class PlayerTest {
     public static Player player;
@@ -23,8 +18,4 @@ class PlayerTest {
                 .build();
     }
 
-    @Test
-    void test_moveTo(){
-        assertEquals(TileType.C, player.moveTo(TileType.C));
-    }
 }

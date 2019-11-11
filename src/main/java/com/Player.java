@@ -12,7 +12,7 @@ public class Player{
     private int dexterity;
     private int intelligence;
     @Builder.Default
-    private TileType pos = TileType.A;
+    private TileType pos = null;
     private String characteristics;
 
 
