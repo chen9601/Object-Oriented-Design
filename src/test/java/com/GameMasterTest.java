@@ -7,19 +7,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameMasterTest {
     public static GameMaster gamemaster;
-    public static Player[] players = new Player[2];
-
+    public static Player cur_player;
+    
     @BeforeEach
     void setUp() {
         gamemaster = GameMaster
                 .builder()
                 .build();
         gamemaster.initiateGame();
+        cur_player = gamemaster.getCurrentPlayer();
     }
 
     @Test
     void test_moveTo(){
-        Player cur_player = gamemaster.getCurrentPlayer();
+
         // moveTo() method should return where current player is.
         assertEquals(
                 TileType.C,
@@ -28,7 +29,10 @@ class GameMasterTest {
                         TileType.C
                 )
         );
+
         // after moveTo() method, player should be position used at moveTo().
         assertEquals(cur_player.getPos(), TileType.C);
     }
+
+
 }

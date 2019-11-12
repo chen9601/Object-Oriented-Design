@@ -6,13 +6,17 @@ import static com.Validator.isValidForProperty;
 @Data
 @Builder
 public class Player{
+
+    @Builder.Default
+    private TileType pos = null;
+    @Builder.Default
+    private int money=0;
+
     private int power;
     private int health;
     private int mental;
     private int dexterity;
     private int intelligence;
-    @Builder.Default
-    private TileType pos = null;
     private String characteristics;
 
 
@@ -20,4 +24,5 @@ public class Player{
         pos = here;
         return pos;
     }
+
 }
