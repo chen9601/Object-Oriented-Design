@@ -3,12 +3,15 @@ import lombok.*;
 
 import static com.Validator.isValidForProperty;
 
+/**
+ * 보스 객체의 모델
+ * @author Se-Ok Jeon
+ * @version 1.0
+ */
 @Data
 @Builder
 public class Boss {
-    /**
-     * 보스에 관한
-     */
+
     public enum BossType {
         AZATHOTH("아자투스"),
         CHUTHULU("크툴루"),
