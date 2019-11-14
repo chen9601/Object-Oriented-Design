@@ -6,6 +6,12 @@ import java.util.ArrayList;
 
 import static com.Validator.isValidForProperty;
 
+
+/**
+ * 플레이어 객체 모델
+ * @author Se-Ok Jeon
+ * @version 1.0
+ */
 @Data
 @Builder
 public class Player{
