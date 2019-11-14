@@ -3,7 +3,6 @@ package com;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.Validator.isValidForProperty;
 
@@ -23,7 +22,7 @@ public class Player{
     private int intelligence;
     private String characteristics;
     @Builder.Default
-    private List<Item> items = new ArrayList<Item>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     // TODO : 이 메소드를 GameMaster로 옮기는게 한 객체가 하나의 역할만 하는 방법일 것 같다.
     public TileType moveTo(TileType here) {
