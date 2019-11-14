@@ -3,6 +3,7 @@ package com;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -23,7 +24,7 @@ public class Shop {
     public void sellItem(Item item, Player player) throws RuntimeException {
         if(!Shop.isAffordable(player, item))
             throw new RuntimeException("현재 플레이어는 해당 아이템을 구매할 수 없습니다.");
-        List<Item> player_items = player.getItems();
+        ArrayList<Item> player_items = player.getItems();
         player_items.add(item);
         player.setMoney(getChange(player, item));
         player.setItems(player_items);
