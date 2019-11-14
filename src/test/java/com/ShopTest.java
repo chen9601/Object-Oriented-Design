@@ -32,21 +32,16 @@ class ShopTest {
     void test_isAffordable(){
         assertEquals(
                 cur_player.getMoney() > item.getPrice(),
-                shop.isAffordable(cur_player, item)
+                Shop.isAffordable(cur_player, item)
                 );
     }
 
     @Test
-    void test_getChange(){
-        int real_change = cur_player.getMoney() - item.getPrice();
-        assertEquals(
-                real_change,
-                shop.getChange(cur_player, item)
-        );
-
-        assertEquals(
-                real_change,
-                cur_player.getMoney()
-        );
+    void test_sellItem(){
+        int realchange = Shop.getChange(cur_player, item);
+        shop.sellItem(item, cur_player);
+        assertTrue(cur_player.getMoney() >= 0); // isAffordable이 잘 적용 되었는지
+        assertEquals(realchange, cur_player.getMoney());
+        assertTrue(cur_player.hasItem(item));
     }
 }

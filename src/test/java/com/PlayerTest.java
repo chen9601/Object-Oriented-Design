@@ -1,12 +1,16 @@
 package com;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
     public static Player player;
 
     @BeforeAll
-    public static void makeInstance() throws Exception {
+    public static void makeInstance(){
         player = Player
                 .builder()
                 .power(10)
@@ -16,6 +20,11 @@ class PlayerTest {
                 .mental(50)
                 .characteristics("test")
                 .build();
+    }
+
+    @Test
+    void test_getItems(){
+        assertEquals(player.getItems(), new ArrayList<Item>());
     }
 
 }

@@ -3,6 +3,8 @@ package com;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Builder
 public class Shop {
@@ -15,5 +17,15 @@ public class Shop {
 
     public static int getChange(Player player, Item item) {
         return player.getMoney() - item.getPrice();
+    }
+
+
+    public void sellItem(Item item, Player player) throws RuntimeException {
+        if(!Shop.isAffordable(player, item))
+            throw new RuntimeException("현재 플레이어는 해당 아이템을 구매할 수 없습니다.");
+        List<Item> player_items = player.getItems();
+        player_items.add(item);
+        player.setMoney(getChange(player, item));
+        player.setItems(player_items);
     }
 }
