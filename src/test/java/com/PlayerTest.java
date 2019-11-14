@@ -1,17 +1,16 @@
 package com;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.lang.RuntimeException;
 
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
     public static Player player;
 
     @BeforeAll
-    public static void makeInstance() throws Exception {
+    public static void makeInstance(){
         player = Player
                 .builder()
                 .power(10)
@@ -24,7 +23,8 @@ class PlayerTest {
     }
 
     @Test
-    void test_moveTo(){
-        assertEquals(TileType.C, player.moveTo(TileType.C));
+    void test_getItems(){
+        assertEquals(player.getItems(), new ArrayList<Item>());
     }
+
 }
