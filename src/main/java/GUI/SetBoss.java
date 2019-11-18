@@ -1,0 +1,122 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+/** 새로 게임을 생성할 때 보스를 설정하는 페이지이다.*/
+public class SetBoss extends JFrame {
+	ImagePanel panel = new ImagePanel();
+	Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/OrientedPG/src/images/backgroundImage.jpg").getImage();
+
+	SetBoss() {
+		
+		setBounds(0, 0, 1200, 960);
+		getContentPane().setLayout(null);
+		
+		JPanel movetab = new JPanel();
+		JButton next = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/next.png"));
+		JButton prev = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/prev.png"));
+		
+		
+		movetab.setLayout(null);
+		
+		next.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				SetStatus next = new SetStatus();
+				next.setVisible(true);
+				dispose();
+			}
+		});
+
+		prev.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Startpage prev = new Startpage();
+				prev.setVisible(true);
+				dispose();
+			}
+		});
+		
+		
+		movetab.setBounds(0, 0, 1182, 186);
+		next.setBounds(935, 32, 180, 70);
+		prev.setBounds(78, 32, 180, 70);
+		
+		getContentPane().add(movetab);
+		movetab.add(next);
+		movetab.add(prev);
+
+		boss Test1 = new boss("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/azatoth.png","ũ����");
+		boss Test2 = new boss("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/ghoul.png","��������");
+		boss Test3 = new boss("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/azatoth.png","�Ͼ˶�����");
+		
+		JPanel boss1 = new JPanel();
+		boss1.setBounds(0, 183, 394, 741);
+		getContentPane().add(boss1);
+		boss1.add(Test1);
+
+		
+		
+		JPanel boss2 = new JPanel();
+		boss2.setBounds(394, 183, 394, 741);
+		getContentPane().add(boss2);
+		boss2.add(Test2);
+
+		JPanel boss3 = new JPanel();
+		boss3.setBounds(788, 183, 394, 741);
+		getContentPane().add(boss3);
+		boss3.add(Test3);
+	}
+
+	class ImagePanel extends JPanel {
+
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(img, 0, 0, 1200, 960, this);
+
+		}
+	}
+
+	public static void main(String[] args) {
+
+		SetBoss frame = new SetBoss();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	class boss extends JPanel {
+
+		
+
+		public boss(String img_path,String name) {
+			JButton bossbtn = new JButton(name);
+			setLayout(new BorderLayout());
+			Image temp = new ImageIcon(img_path).getImage();
+			Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
+
+			ImageIcon real = new ImageIcon(temp_2); //Image�� ImageIcon ����
+			
+			JLabel bossimg = new JLabel(real);
+			JTextArea bosstxt = new JTextArea();
+			
+			add(bossimg,BorderLayout.NORTH);
+			add(bossbtn,BorderLayout.CENTER);
+			add(bosstxt,BorderLayout.SOUTH);
+
+		}
+
+	}
+}
