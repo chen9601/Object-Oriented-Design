@@ -14,11 +14,11 @@ import javax.swing.JPanel;
 /** New Game Load Game EXIT 3개의 버튼으로 게임 시작 및 종료를 담당하는 페이지이다.*/
 public class Startpage extends JFrame {
 	ImagePanel panel = new ImagePanel();
-	Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/main_title.png").getImage();
+	Image img = new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\main_title.png").getImage();
 	
-	JButton newgame = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/NewGame.png"));
-	JButton loadgame = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/Loadgame.png"));
-	JButton exitgame = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/EXIT.png"));
+	JButton newgame = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\NewGame.png"));
+	JButton loadgame = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\Loadgame.png"));
+	JButton exitgame = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\EXIT.png"));
 
 	Startpage() {
 		getContentPane().add(panel);

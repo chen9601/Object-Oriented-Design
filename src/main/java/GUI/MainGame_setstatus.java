@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 /** 게임을 진행하면서 바뀌는 플레이어의 현재 스테이터스와 아이템을 보여주는 페이지이다.*/
+
 public class MainGame_setstatus extends JFrame {
 	ImagePanel panel = new ImagePanel();
 	Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/backgroundImage.jpg").getImage();
@@ -33,6 +34,8 @@ public class MainGame_setstatus extends JFrame {
 				dispose();
 			}
 		});
+
+
 
 		getContentPane().add(movetab);
 		movetab.setLayout(null);
@@ -136,5 +139,6 @@ public class MainGame_setstatus extends JFrame {
 		SetStatus frame = new SetStatus();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 }

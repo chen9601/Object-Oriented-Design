@@ -1,6 +1,6 @@
 package GUI;
 
-/** ������ �����ӵ��� ������ Ȱ���� ����ϴ� Ŭ�����̴�.*/
+/** */
 public class View {
 	
 	public void show_player() {}
