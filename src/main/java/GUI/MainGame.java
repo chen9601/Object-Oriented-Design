@@ -215,25 +215,33 @@ public class MainGame extends JFrame {
         getContentPane().add(city_btn_12);
 
 
-        JLabel player1_img = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_img.png"));
-        player1_img.setBounds(61, 84, 62, 18);
-		add(player1_img);
+		JLabel player1_img = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player.png"));
+		player1_img.setBounds(650, 620, 240, 163);
+		getContentPane().add(player1_img);
 
-        JLabel player1_name = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_name.png"));
-        player1_name.setBounds(61, 151, 62, 18);
-		add(player1_name);
+		JLabel player1_name = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_name.png"));
+		player1_name.setBounds(650, 780, 240, 61);
+		getContentPane().add(player1_name);
 
         p_simplestat player1 = new p_simplestat();
         JPanel player1_temp = new JPanel();
-        player1_temp.setBounds(738, 654, 444, 259);
+        player1_temp.setBounds(290, 670, 318, 225);
         getContentPane().add(player1_temp);
         player1_temp.add(player1);
 
+		JLabel player2_img = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player.png"));
+		player2_img.setBounds(41, 620, 240, 163);
+		getContentPane().add(player2_img);
+
+		JLabel player2_name = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_name.png"));
+		player2_name.setBounds(41, 780, 240, 61);
+		getContentPane().add(player2_name);
+
         p_simplestat player2 = new p_simplestat();
         JPanel player2_temp = new JPanel();
-        player1_temp.setBounds(738, 654, 444, 259);
-        getContentPane().add(player1_temp);
-        player1_temp.add(player1);
+        player2_temp.setBounds(864, 670, 318, 225);
+        getContentPane().add(player2_temp);
+        player2_temp.add(player2);
     }
 
     public static void main(String[] args) {
@@ -253,26 +261,26 @@ public class MainGame extends JFrame {
             JLabel health = new JLabel("체력");
             health.setPreferredSize(new Dimension(40, 30));
             JTextPane health_text = new JTextPane();
-            health_text.setPreferredSize(new Dimension(200, 30));
+            health_text.setPreferredSize(new Dimension(100, 30));
 
 
             JPanel mental_panel = new JPanel();
             JLabel mental = new JLabel("정신력");
             mental.setPreferredSize(new Dimension(40, 30));
             JTextPane mental_text = new JTextPane();
-            mental_text.setPreferredSize(new Dimension(200, 30));
+            mental_text.setPreferredSize(new Dimension(100, 30));
 
             JPanel energy_panel = new JPanel();
             JLabel energy = new JLabel("행동치");
             energy.setPreferredSize(new Dimension(40, 30));
             JTextPane energy_text = new JTextPane();
-            energy_text.setPreferredSize(new Dimension(200, 30));
+            energy_text.setPreferredSize(new Dimension(100, 30));
 
             JPanel money_panel = new JPanel();
             JLabel money = new JLabel("money");
             money.setPreferredSize(new Dimension(40, 30));
             JTextArea money_text = new JTextArea();
-            money_text.setPreferredSize(new Dimension(200, 30));
+            money_text.setPreferredSize(new Dimension(100, 30));
 
             health_panel.add(health);
             health_panel.add(health_text);
@@ -285,7 +293,12 @@ public class MainGame extends JFrame {
             energy_panel.add(energy);
             energy_panel.add(energy_text);
             add(energy_panel);
-            setLayout(new GridLayout(3, 2, 20, 0));
+
+			money_panel.add(money);
+			money_panel.add(money_text);
+			add(money_panel);
+
+            setLayout(new GridLayout(4, 2, 20, 0));
         }
     }
 }
