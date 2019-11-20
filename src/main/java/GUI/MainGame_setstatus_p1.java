@@ -14,11 +14,11 @@ import javax.swing.JTextPane;
 
 /** 게임을 진행하면서 바뀌는 플레이어의 현재 스테이터스와 아이템을 보여주는 페이지이다.*/
 
-public class MainGame_setstatus extends JFrame {
+public class MainGame_setstatus_p1 extends JFrame {
 	ImagePanel panel = new ImagePanel();
 	Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/backgroundImage.jpg").getImage();
 
-	MainGame_setstatus() {
+	MainGame_setstatus_p1() {
 		getContentPane().setLayout(null);
 		setBounds(0, 0, 1200, 960);
 
@@ -51,6 +51,16 @@ public class MainGame_setstatus extends JFrame {
 		JButton player2 = new JButton("player2");
 		player2.setBounds(494, 40, 144, 54);
 		movetab.add(player2);
+
+		player2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				MainGame_setstatus_p2 temp = new MainGame_setstatus_p2();
+				temp.setVisible(true);
+				dispose();
+			}
+		});
 
 		JLabel lblMoney = new JLabel("money");
 		lblMoney.setBounds(694, 58, 62, 18);
@@ -136,7 +146,7 @@ public class MainGame_setstatus extends JFrame {
 
 	public static void main(String[] args) {
 
-		MainGame_setstatus frame = new MainGame_setstatus();
+		MainGame_setstatus_p1 frame = new MainGame_setstatus_p1();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

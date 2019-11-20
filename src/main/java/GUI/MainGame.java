@@ -30,7 +30,7 @@ public class MainGame extends JFrame {
         status.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGame_setstatus temp = new MainGame_setstatus();
+                MainGame_setstatus_p1 temp = new MainGame_setstatus_p1();
                 dispose();
                 temp.setVisible(true);
             }
