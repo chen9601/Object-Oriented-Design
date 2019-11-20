@@ -1,17 +1,11 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.Flow;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 /**
  * 새로 게임을 생성할 때 보스를 설정하는 페이지이다.
@@ -106,7 +100,7 @@ public class SetBoss extends JFrame {
             Image temp = new ImageIcon(img_path).getImage();
             Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
 
-            ImageIcon real = new ImageIcon(temp_2); //Image�� ImageIcon ����
+            ImageIcon real = new ImageIcon(temp_2);
 
             JLabel bossimg = new JLabel(real);
             JTextArea bosstxt = new JTextArea();
