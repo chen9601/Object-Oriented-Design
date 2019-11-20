@@ -77,7 +77,7 @@ public class MainGame extends JFrame {
 		player1.setBounds(0, 654, 586, 259);
 		getContentPane().add(player1);
 		player1.setLayout(null);
-		
+		//player 1 page
 		JLabel player_img = new JLabel("player_img");
 		player_img.setBounds(61, 84, 62, 18);
 		player1.add(player_img);
@@ -122,12 +122,12 @@ public class MainGame extends JFrame {
 		player2.setLayout(null);
 		player2.setBounds(590, 654, 592, 259);
 		getContentPane().add(player2);
-		
+		// player2 page
 		JLabel label = new JLabel("player_img");
 		label.setBounds(61, 84, 62, 18);
 		player2.add(label);
 		
-		JLabel label_1 = new JLabel("player_1");
+		JLabel label_1 = new JLabel("player_2");
 		label_1.setBounds(61, 151, 62, 18);
 		player2.add(label_1);
 		
@@ -135,7 +135,7 @@ public class MainGame extends JFrame {
 		label_2.setBounds(218, 34, 62, 18);
 		player2.add(label_2);
 		
-		JLabel label_3 = new JLabel("New label");
+		JLabel label_3 = new JLabel("\uC815\uC2E0\uB825");
 		label_3.setBounds(218, 84, 62, 18);
 		player2.add(label_3);
 		

@@ -20,8 +20,7 @@ public class Tile {
     private ArrayList<PortalGate> summoned_portals = new ArrayList<>();
     @Builder.Default
     private ArrayList<Monster> summoned_monsters = new ArrayList<>();
-    @NonNull
-    private final String name;
+    private String name;
 
     // TODO : 테스팅
     void add_Summoned_monsters(Monster monster){

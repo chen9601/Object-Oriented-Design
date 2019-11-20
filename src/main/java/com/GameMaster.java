@@ -18,8 +18,7 @@ public class GameMaster {
 
     private void initiatePlayers() {
         for(int i = 0; i<2; i++){
-            players[i] = Player
-                    .builder()
+            players[i] = Player.builder()
                     .power(10)
                     .dexterity(20)
                     .health(30)

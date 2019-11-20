@@ -13,9 +13,6 @@ import java.util.ArrayList;
  */
 @Data
 public final class Map {
-    static final Map map = new Map();
-
-    private Tile[] tiles; // tiles의 인덱스 == TileType의 인덱스 : 각 타일 접근성 향상을 위해
 
     static final private Map map = new Map();
     static private ArrayList<Tile> tiles; // tiles의 인덱스 == TileType의 인덱스 : 각 타일 접근성 향상을 위해
