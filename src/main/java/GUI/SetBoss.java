@@ -100,7 +100,6 @@ public class SetBoss extends JFrame {
 
     class boss extends JPanel {
 
-
         public boss(String img_path, String name) {
             JButton bossbtn = new JButton(name);
             setLayout(new BorderLayout());

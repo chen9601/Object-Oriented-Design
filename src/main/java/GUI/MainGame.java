@@ -25,16 +25,16 @@ public class MainGame extends JFrame {
 	public MainGame() {
 		setBounds(100, 100, 1200, 960);
 		getContentPane().setLayout(null);
-		
+
 		JPanel tab = new JPanel();
 		tab.setBounds(0, 0, 1182, 140);
 		getContentPane().add(tab);
 		tab.setLayout(null);
-		
+
 		JButton status = new JButton("Status");
 		status.setBounds(126, 36, 173, 53);
 		tab.add(status);
-		
+
 		status.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -43,36 +43,36 @@ public class MainGame extends JFrame {
 				temp.setVisible(true);
 			}
 		});
-		
+
 		JLabel token = new JLabel("token");
 		token.setBounds(692, 36, 160, 45);
 		tab.add(token);
-		
+
 		JLabel turn = new JLabel("Turn");
 		turn.setBounds(866, 40, 195, 36);
 		tab.add(turn);
-		
+
 		JTextPane textPane_8 = new JTextPane();
 		textPane_8.setBounds(780, 36, 76, 45);
 		tab.add(textPane_8);
-		
+
 		JTextPane textPane_9 = new JTextPane();
 		textPane_9.setBounds(938, 36, 123, 45);
 		tab.add(textPane_9);
-		
-		
+
+
 		JButton button_1 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
 		button_1.setBorderPainted(false); button_1.setFocusPainted(false); button_1.setContentAreaFilled(false);
-		button_1.setBounds(244, 209, 105, 54);
+		button_1.setBounds(355, 209, 105, 54);
 		getContentPane().add(button_1);
-		
-		
-		
+
+
+
 		JPanel Dialog = new JPanel();
-		Dialog.setBounds(700, 175, 451, 414);
+		Dialog.setBounds(599, 165, 569, 430);
 		getContentPane().add(Dialog);
 		Dialog.setLayout(null);
-		
+
 		JPanel player1 = new JPanel();
 		player1.setBounds(0, 654, 586, 259);
 		getContentPane().add(player1);
@@ -81,178 +81,252 @@ public class MainGame extends JFrame {
 		JLabel player_img = new JLabel("player_img");
 		player_img.setBounds(61, 84, 62, 18);
 		player1.add(player_img);
-		
+
 		JLabel player_1 = new JLabel("player_1");
 		player_1.setBounds(61, 151, 62, 18);
 		player1.add(player_1);
-		
+
 		JLabel health = new JLabel("\uCCB4\uB825");
 		health.setBounds(218, 34, 62, 18);
 		player1.add(health);
-		
+
 		JLabel mental = new JLabel("\uC815\uC2E0\uB825");
 		mental.setBounds(218, 84, 62, 18);
 		player1.add(mental);
-		
+
 		JLabel Doing = new JLabel("\uD589\uB3D9\uCE58");
 		Doing.setBounds(218, 131, 62, 18);
 		player1.add(Doing);
-		
+
 		JLabel money = new JLabel("money");
 		money.setBounds(218, 181, 62, 18);
 		player1.add(money);
-		
+
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(353, 12, 167, 39);
 		player1.add(textPane);
-		
+
 		JTextPane textPane_1 = new JTextPane();
 		textPane_1.setBounds(353, 63, 167, 39);
 		player1.add(textPane_1);
-		
+
 		JTextPane textPane_2 = new JTextPane();
 		textPane_2.setBounds(353, 114, 167, 39);
 		player1.add(textPane_2);
-		
+
 		JTextPane textPane_3 = new JTextPane();
 		textPane_3.setBounds(353, 160, 167, 39);
 		player1.add(textPane_3);
-		
-		JPanel player2 = new JPanel();
-		player2.setLayout(null);
-		player2.setBounds(590, 654, 592, 259);
-		getContentPane().add(player2);
-		// player2 page
-		JLabel label = new JLabel("player_img");
-		label.setBounds(61, 84, 62, 18);
-		player2.add(label);
-		
-		JLabel label_1 = new JLabel("player_2");
-		label_1.setBounds(61, 151, 62, 18);
-		player2.add(label_1);
-		
-		JLabel label_2 = new JLabel("\uCCB4\uB825");
-		label_2.setBounds(218, 34, 62, 18);
-		player2.add(label_2);
-		
-		JLabel label_3 = new JLabel("\uC815\uC2E0\uB825");
-		label_3.setBounds(218, 84, 62, 18);
-		player2.add(label_3);
-		
-		JLabel label_4 = new JLabel("New label");
-		label_4.setBounds(218, 131, 62, 18);
-		player2.add(label_4);
-		
-		JLabel label_5 = new JLabel("New label");
-		label_5.setBounds(218, 181, 62, 18);
-		player2.add(label_5);
-		
-		JTextPane textPane_4 = new JTextPane();
-		textPane_4.setBounds(353, 12, 167, 39);
-		player2.add(textPane_4);
-		
-		JTextPane textPane_5 = new JTextPane();
-		textPane_5.setBounds(353, 63, 167, 39);
-		player2.add(textPane_5);
-		
-		JTextPane textPane_6 = new JTextPane();
-		textPane_6.setBounds(353, 114, 167, 39);
-		player2.add(textPane_6);
-		
-		JTextPane textPane_7 = new JTextPane();
-		textPane_7.setBounds(353, 160, 167, 39);
-		player2.add(textPane_7);
-
-		JButton city_btn_1 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		city_btn_1.setFocusPainted(false);
-		city_btn_1.setContentAreaFilled(false);
-		city_btn_1.setBorderPainted(false);
-		city_btn_1.setBounds(244, 315, 105, 54);
-		getContentPane().add(city_btn_1);
 
 		JButton city_btn_0 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		city_btn_0.setFocusPainted(false);
 		city_btn_0.setContentAreaFilled(false);
 		city_btn_0.setBorderPainted(false);
-		city_btn_0.setBounds(244, 413, 105, 54);
+		city_btn_0.setBounds(244, 315, 105, 54);
+		getContentPane().add(city_btn_0);
+
+		JButton blank = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		blank.setFocusPainted(false);
+		blank.setContentAreaFilled(false);
+		blank.setBorderPainted(false);
+		blank.setBounds(244, 413, 105, 54);
+		getContentPane().add(city_btn_0);
+
+		JButton city_btn_8 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_8.setFocusPainted(false);
+		city_btn_8.setContentAreaFilled(false);
+		city_btn_8.setBorderPainted(false);
+		city_btn_8.setBounds(114, 165, 105, 54);
+		getContentPane().add(city_btn_8);
+
+		JButton city_btn_2 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_2.setFocusPainted(false);
+		city_btn_2.setContentAreaFilled(false);
+		city_btn_2.setBorderPainted(false);
+		city_btn_2.setBounds(145, 268, 105, 54);
+		getContentPane().add(city_btn_2);
+
+		JButton city_btn_3 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_3.setFocusPainted(false);
+		city_btn_3.setContentAreaFilled(false);
+		city_btn_3.setBorderPainted(false);
+		city_btn_3.setBounds(145, 370, 105, 54);
+		getContentPane().add(city_btn_3);
+
+		JButton city_btn_10 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_10.setFocusPainted(false);
+		city_btn_10.setContentAreaFilled(false);
+		city_btn_10.setBorderPainted(false);
+		city_btn_10.setBounds(114, 473, 105, 54);
+		getContentPane().add(city_btn_10);
+
+		JButton city_btn_11 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_11.setFocusPainted(false);
+		city_btn_11.setContentAreaFilled(false);
+		city_btn_11.setBorderPainted(false);
+		city_btn_11.setBounds(399, 473, 105, 54);
+		getContentPane().add(city_btn_11);
+
+		JButton city_btn_5 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		city_btn_5.setFocusPainted(false);
+		city_btn_5.setContentAreaFilled(false);
+		city_btn_5.setBorderPainted(false);
+		city_btn_5.setBounds(355, 370, 105, 54);
+		getContentPane().add(city_btn_5);
+
+		JButton city_btn_6 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_6.setFocusPainted(false);
+		city_btn_6.setContentAreaFilled(false);
+		city_btn_6.setBorderPainted(false);
+		city_btn_6.setBounds(355, 268, 105, 54);
+		getContentPane().add(city_btn_6);
+
+		JButton city_btn_7 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_7.setFocusPainted(false);
+		city_btn_7.setContentAreaFilled(false);
+		city_btn_7.setBorderPainted(false);
+		city_btn_7.setBounds(399, 165, 105, 54);
+		getContentPane().add(city_btn_7);
+
+		JButton city_btn_12 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_12.setFocusPainted(false);
+		city_btn_12.setContentAreaFilled(false);
+		city_btn_12.setBorderPainted(false);
+		city_btn_12.setBounds(501, 315, 105, 54);
+		getContentPane().add(city_btn_12);
+
+		JButton city_btn_9 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_9.setFocusPainted(false);
+		city_btn_9.setContentAreaFilled(false);
+		city_btn_9.setBorderPainted(false);
+		city_btn_9.setBounds(14, 315, 105, 54);
+		getContentPane().add(city_btn_9);
+
+		JButton city_btn_1 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_1.setFocusPainted(false);
+		city_btn_1.setContentAreaFilled(false);
+		city_btn_1.setBorderPainted(false);
+		city_btn_1.setBounds(244, 209, 105, 54);
 		getContentPane().add(city_btn_1);
 
-		JButton button_3 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_3.setFocusPainted(false);
-		button_3.setContentAreaFilled(false);
-		button_3.setBorderPainted(false);
-		button_3.setBounds(125, 165, 105, 54);
-		getContentPane().add(button_3);
+		JButton city_btn_4 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		city_btn_4.setFocusPainted(false);
+		city_btn_4.setContentAreaFilled(false);
+		city_btn_4.setBorderPainted(false);
+		city_btn_4.setBounds(244, 431, 105, 54);
+		getContentPane().add(city_btn_4);
 
-		JButton button_4 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_4.setFocusPainted(false);
-		button_4.setContentAreaFilled(false);
-		button_4.setBorderPainted(false);
-		button_4.setBounds(125, 268, 105, 54);
-		getContentPane().add(button_4);
+		JPanel player_2 = new JPanel();
+		player_2.setLayout(null);
+		player_2.setBounds(582, 654, 586, 259);
+		getContentPane().add(player_2);
 
-		JButton button_5 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_5.setFocusPainted(false);
-		button_5.setContentAreaFilled(false);
-		button_5.setBorderPainted(false);
-		button_5.setBounds(125, 370, 105, 54);
-		getContentPane().add(button_5);
+		JLabel label = new JLabel("player_img");
+		label.setBounds(61, 84, 62, 18);
+		player_2.add(label);
 
-		JButton button_6 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_6.setFocusPainted(false);
-		button_6.setContentAreaFilled(false);
-		button_6.setBorderPainted(false);
-		button_6.setBounds(125, 473, 105, 54);
-		getContentPane().add(button_6);
+		JLabel label_1 = new JLabel("player_2");
+		label_1.setBounds(61, 151, 62, 18);
+		player_2.add(label_1);
 
-		JButton button_7 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_7.setFocusPainted(false);
-		button_7.setContentAreaFilled(false);
-		button_7.setBorderPainted(false);
-		button_7.setBounds(382, 473, 105, 54);
-		getContentPane().add(button_7);
+		JLabel label_2 = new JLabel("체력");
+		label_2.setBounds(218, 34, 62, 18);
+		player_2.add(label_2);
 
-		JButton button_8 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_8.setFocusPainted(false);
-		button_8.setContentAreaFilled(false);
-		button_8.setBorderPainted(false);
-		button_8.setBounds(382, 370, 105, 54);
-		getContentPane().add(button_8);
+		JLabel label_3 = new JLabel("정신력");
+		label_3.setBounds(218, 84, 62, 18);
+		player_2.add(label_3);
 
-		JButton button_9 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_9.setFocusPainted(false);
-		button_9.setContentAreaFilled(false);
-		button_9.setBorderPainted(false);
-		button_9.setBounds(382, 268, 105, 54);
-		getContentPane().add(button_9);
+		JLabel label_4 = new JLabel("행동치");
+		label_4.setBounds(218, 131, 62, 18);
+		player_2.add(label_4);
 
-		JButton button_10 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_10.setFocusPainted(false);
-		button_10.setContentAreaFilled(false);
-		button_10.setBorderPainted(false);
-		button_10.setBounds(382, 165, 105, 54);
-		getContentPane().add(button_10);
+		JLabel label_5 = new JLabel("money");
+		label_5.setBounds(218, 181, 62, 18);
+		player_2.add(label_5);
 
-		JButton button_11 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_11.setFocusPainted(false);
-		button_11.setContentAreaFilled(false);
-		button_11.setBorderPainted(false);
-		button_11.setBounds(501, 315, 105, 54);
-		getContentPane().add(button_11);
+		JTextPane textPane_4 = new JTextPane();
+		textPane_4.setBounds(353, 12, 167, 39);
+		player_2.add(textPane_4);
 
-		JButton button_12 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
-		button_12.setFocusPainted(false);
-		button_12.setContentAreaFilled(false);
-		button_12.setBorderPainted(false);
-		button_12.setBounds(14, 315, 105, 54);
-		getContentPane().add(button_12);
+		JTextPane textPane_5 = new JTextPane();
+		textPane_5.setBounds(353, 63, 167, 39);
+		player_2.add(textPane_5);
+
+		JTextPane textPane_6 = new JTextPane();
+		textPane_6.setBounds(353, 114, 167, 39);
+		player_2.add(textPane_6);
+
+		JTextPane textPane_7 = new JTextPane();
+		textPane_7.setBounds(353, 160, 167, 39);
+		player_2.add(textPane_7);
 	}
-	class ImagePanel extends JPanel {
 
-		public void paintComponent(Graphics g) {
-			super.paintComponent(g);
-			g.drawImage(img, 0, 0, 1200, 960, this);
+	class p_info extends JPanel {
+		JLabel label = new JLabel("player_img");
+		JLabel label_1 = new JLabel("player_2");
+		JLabel label_2 = new JLabel("체력");
+		JLabel label_3 = new JLabel("정신력");
+		JLabel label_4 = new JLabel("행동치");
+		JLabel label_5 = new JLabel("money");
 
-		}
+
+		JTextPane textPane_4 = new JTextPane();
+		JTextPane textPane_5 = new JTextPane();
+		JTextPane textPane_6 = new JTextPane();
+		JTextPane textPane_7 = new JTextPane();
+
 	}
 }
