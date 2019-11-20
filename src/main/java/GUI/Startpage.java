@@ -35,10 +35,13 @@ public class Startpage extends JFrame {
 			}
 		});
 		loadgame.addActionListener(new ActionListener() {
+			// 아직 Load기능이 구현되지 않아 냄겨둡니다.
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
+
+
 		});
 		exitgame.addActionListener(new ActionListener() {
 			@Override
@@ -54,7 +57,7 @@ public class Startpage extends JFrame {
 		loadgame.setBounds(500, 600, 200, 70);
 		exitgame.setBounds(500, 720, 200, 70);
 	}
-
+/** To paint background */
 	class ImagePanel extends JPanel {
 
 		public void paintComponent(Graphics g) {
