@@ -60,69 +60,69 @@ public class MainGame_setstatus extends JFrame {
 		lblToken.setBounds(892, 58, 62, 18);
 		movetab.add(lblToken);
 
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(770, 58, 98, 18);
-		movetab.add(textPane);
+		JTextPane money_tesxt = new JTextPane();
+		money_tesxt.setBounds(770, 58, 98, 18);
+		movetab.add(money_tesxt);
 
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setBounds(968, 58, 124, 24);
-		movetab.add(textPane_1);
+		JTextPane token_text = new JTextPane();
+		token_text.setBounds(968, 58, 124, 24);
+		movetab.add(token_text);
 
-		JLabel lblNewLabel = new JLabel("\uD798");
-		lblNewLabel.setBounds(546, 282, 116, 39);
-		getContentPane().add(lblNewLabel);
+		JLabel status_power = new JLabel("\uD798");
+		status_power.setBounds(546, 282, 116, 39);
+		getContentPane().add(status_power);
 
-		JTextPane textPane_2 = new JTextPane();
-		textPane_2.setBounds(622, 282, 164, 39);
-		getContentPane().add(textPane_2);
+		JTextPane power_text = new JTextPane();
+		power_text.setBounds(622, 282, 164, 39);
+		getContentPane().add(power_text);
 
-		JLabel label = new JLabel("\uBBFC\uCCA9");
-		label.setBounds(546, 365, 116, 39);
-		getContentPane().add(label);
+		JLabel status_dex = new JLabel("\uBBFC\uCCA9");
+		status_dex.setBounds(546, 365, 116, 39);
+		getContentPane().add(status_dex);
 
-		JTextPane textPane_3 = new JTextPane();
-		textPane_3.setBounds(622, 365, 164, 39);
-		getContentPane().add(textPane_3);
+		JTextPane dex_text = new JTextPane();
+		dex_text.setBounds(622, 365, 164, 39);
+		getContentPane().add(dex_text);
 
-		JLabel label_1 = new JLabel("\uC9C0\uB2A5");
-		label_1.setBounds(546, 457, 116, 39);
-		getContentPane().add(label_1);
+		JLabel status_intelligence = new JLabel("\uC9C0\uB2A5");
+		status_intelligence.setBounds(546, 457, 116, 39);
+		getContentPane().add(status_intelligence);
 
-		JTextPane textPane_4 = new JTextPane();
-		textPane_4.setBounds(622, 457, 164, 39);
-		getContentPane().add(textPane_4);
+		JTextPane intelligence_text = new JTextPane();
+		intelligence_text.setBounds(622, 457, 164, 39);
+		getContentPane().add(intelligence_text);
 
-		JLabel label_2 = new JLabel("\uC815\uC2E0\uB825");
-		label_2.setBounds(546, 544, 116, 39);
-		getContentPane().add(label_2);
+		JLabel status_mental = new JLabel("\uC815\uC2E0\uB825");
+		status_mental.setBounds(546, 544, 116, 39);
+		getContentPane().add(status_mental);
 
-		JTextPane textPane_5 = new JTextPane();
-		textPane_5.setBounds(622, 544, 164, 39);
-		getContentPane().add(textPane_5);
+		JTextPane mental_text = new JTextPane();
+		mental_text.setBounds(622, 544, 164, 39);
+		getContentPane().add(mental_text);
 
-		JLabel label_3 = new JLabel("\uCCB4\uB825");
-		label_3.setBounds(870, 282, 116, 39);
-		getContentPane().add(label_3);
+		JLabel status_health = new JLabel("\uCCB4\uB825");
+		status_health.setBounds(870, 282, 116, 39);
+		getContentPane().add(status_health);
 
-		JTextPane textPane_6 = new JTextPane();
-		textPane_6.setBounds(946, 282, 164, 39);
-		getContentPane().add(textPane_6);
+		JTextPane health_text = new JTextPane();
+		health_text.setBounds(946, 282, 164, 39);
+		getContentPane().add(health_text);
 
-		JLabel label_4 = new JLabel("Item");
-		label_4.setBounds(870, 365, 240, 39);
-		getContentPane().add(label_4);
+		JLabel item = new JLabel("Item");
+		item.setBounds(870, 365, 240, 39);
+		getContentPane().add(item);
 
-		JTextPane textPane_7 = new JTextPane();
-		textPane_7.setBounds(865, 410, 245, 173);
-		getContentPane().add(textPane_7);
+		JTextPane item_text = new JTextPane();
+		item_text.setBounds(865, 410, 245, 173);
+		getContentPane().add(item_text);
 		
-		JLabel label_5 = new JLabel(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/player_name.png"));
-		label_5.setBounds(113, 559, 365, 155);
-		getContentPane().add(label_5);
+		JLabel player_name = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_name.png"));
+		player_name.setBounds(113, 559, 365, 155);
+		getContentPane().add(player_name);
 		
-		JLabel label_6 = new JLabel(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/player.png"));
-		label_6.setBounds(120, 209, 358, 356);
-		getContentPane().add(label_6);
+		JLabel playerimg = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player.png"));
+		playerimg.setBounds(120, 209, 358, 356);
+		getContentPane().add(playerimg);
 
 	}
 
@@ -136,7 +136,7 @@ public class MainGame_setstatus extends JFrame {
 
 	public static void main(String[] args) {
 
-		SetStatus frame = new SetStatus();
+		MainGame_setstatus frame = new MainGame_setstatus();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
