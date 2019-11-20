@@ -162,85 +162,85 @@ public class MainGame extends JFrame {
 		JTextPane textPane_7 = new JTextPane();
 		textPane_7.setBounds(353, 160, 167, 39);
 		player2.add(textPane_7);
-		
-		JButton button = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
-		button.setFocusPainted(false);
-		button.setContentAreaFilled(false);
-		button.setBorderPainted(false);
-		button.setBounds(244, 315, 105, 54);
-		getContentPane().add(button);
-		
-		JButton button_2 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
-		button_2.setFocusPainted(false);
-		button_2.setContentAreaFilled(false);
-		button_2.setBorderPainted(false);
-		button_2.setBounds(244, 413, 105, 54);
-		getContentPane().add(button_2);
-		
-		JButton button_3 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton city_btn_1 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_1.setFocusPainted(false);
+		city_btn_1.setContentAreaFilled(false);
+		city_btn_1.setBorderPainted(false);
+		city_btn_1.setBounds(244, 315, 105, 54);
+		getContentPane().add(city_btn_1);
+
+		JButton city_btn_0 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+		city_btn_0.setFocusPainted(false);
+		city_btn_0.setContentAreaFilled(false);
+		city_btn_0.setBorderPainted(false);
+		city_btn_0.setBounds(244, 413, 105, 54);
+		getContentPane().add(city_btn_1);
+
+		JButton button_3 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_3.setFocusPainted(false);
 		button_3.setContentAreaFilled(false);
 		button_3.setBorderPainted(false);
 		button_3.setBounds(125, 165, 105, 54);
 		getContentPane().add(button_3);
-		
-		JButton button_4 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_4 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_4.setFocusPainted(false);
 		button_4.setContentAreaFilled(false);
 		button_4.setBorderPainted(false);
 		button_4.setBounds(125, 268, 105, 54);
 		getContentPane().add(button_4);
-		
-		JButton button_5 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_5 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_5.setFocusPainted(false);
 		button_5.setContentAreaFilled(false);
 		button_5.setBorderPainted(false);
 		button_5.setBounds(125, 370, 105, 54);
 		getContentPane().add(button_5);
-		
-		JButton button_6 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_6 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_6.setFocusPainted(false);
 		button_6.setContentAreaFilled(false);
 		button_6.setBorderPainted(false);
 		button_6.setBounds(125, 473, 105, 54);
 		getContentPane().add(button_6);
-		
-		JButton button_7 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_7 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_7.setFocusPainted(false);
 		button_7.setContentAreaFilled(false);
 		button_7.setBorderPainted(false);
 		button_7.setBounds(382, 473, 105, 54);
 		getContentPane().add(button_7);
-		
-		JButton button_8 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_8 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_8.setFocusPainted(false);
 		button_8.setContentAreaFilled(false);
 		button_8.setBorderPainted(false);
 		button_8.setBounds(382, 370, 105, 54);
 		getContentPane().add(button_8);
-		
-		JButton button_9 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_9 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_9.setFocusPainted(false);
 		button_9.setContentAreaFilled(false);
 		button_9.setBorderPainted(false);
 		button_9.setBounds(382, 268, 105, 54);
 		getContentPane().add(button_9);
-		
-		JButton button_10 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_10 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_10.setFocusPainted(false);
 		button_10.setContentAreaFilled(false);
 		button_10.setBorderPainted(false);
 		button_10.setBounds(382, 165, 105, 54);
 		getContentPane().add(button_10);
-		
-		JButton button_11 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_11 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_11.setFocusPainted(false);
 		button_11.setContentAreaFilled(false);
 		button_11.setBorderPainted(false);
 		button_11.setBounds(501, 315, 105, 54);
 		getContentPane().add(button_11);
-		
-		JButton button_12 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+
+		JButton button_12 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
 		button_12.setFocusPainted(false);
 		button_12.setContentAreaFilled(false);
 		button_12.setBorderPainted(false);
