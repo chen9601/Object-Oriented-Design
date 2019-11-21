@@ -42,7 +42,7 @@ public class Monster
     private int monster_result;
     private MonsterType name;
 
-    public decreaseHealth(int damage_from_player){
+    public void decreaseHealth(int damage_from_player){
         health -= damage_from_player;
     }
 }
