@@ -1,3 +1,5 @@
+package src;
+
 /**
  * 아이템이 소유한 플레이어에게 가산해줄 능력치를 정의한 클래스
  * @author Chanho Park
