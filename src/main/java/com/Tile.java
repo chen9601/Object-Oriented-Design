@@ -14,17 +14,10 @@ import java.util.ArrayList;
 @Data
 @Builder
 public class Tile {
-    @Builder.Default
-    private ArrayList<Event> internal_events = new ArrayList<>();
-    @Builder.Default
-    private ArrayList<PortalGate> summoned_portals = new ArrayList<>();
-    @Builder.Default
-    private ArrayList<Monster> summoned_monsters = new ArrayList<>();
-    @NonNull
-    private final String name;
-
-    // TODO : 테스팅
-    void add_Summoned_monsters(Monster monster){
-        this.summoned_monsters.add(monster);
-    }
+    // TODO : 우리 병원인거 확인은 그냥 if문으로 해야 하나? Tile내에 병원 같은 이벤트 여부를 확인하는 것 보다? 그게 편하려나?
+//    @Builder.Default
+//    private ArrayList<Event> internal_events = new ArrayList<>();
+    private boolean summoned_portal;
+    private Monster summoned_monster;
+    private final TileType name;
 }
