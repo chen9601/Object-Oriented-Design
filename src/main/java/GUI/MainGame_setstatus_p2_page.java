@@ -64,9 +64,9 @@ public class MainGame_setstatus_p2_page extends JFrame {
         lblToken.setBounds(892, 58, 62, 18);
         movetab.add(lblToken);
 
-        JTextPane money_tesxt = new JTextPane();
-        money_tesxt.setBounds(770, 58, 98, 18);
-        movetab.add(money_tesxt);
+        JTextPane money_test = new JTextPane();
+        money_test.setBounds(770, 58, 98, 18);
+        movetab.add(money_test);
 
         JTextPane token_text = new JTextPane();
         token_text.setBounds(968, 58, 124, 24);
