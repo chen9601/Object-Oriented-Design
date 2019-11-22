@@ -10,5 +10,7 @@ class MainGame_statusPage extends JPanel{}
 
 public class Main_combining extends JFrame{
 
-    public void change(String panelName){}
+    public void change(String panelName){
+        if(panelName.equals("MainGamePage"))
+    }
 }
