@@ -15,11 +15,11 @@ import javax.swing.JPanel;
 /**
  * 각각의 플레이어들의 초기 스탯 분배하는 페이지이다.
  */
-public class SetStatus extends JFrame {
+public class SetStatus_page extends JFrame {
     ImagePanel panel = new ImagePanel();
     Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/backgroundImage.jpg").getImage();
 
-    SetStatus() {
+    SetStatus_page() {
 
         getContentPane().setLayout(null);
         setBounds(0, 0, 1200, 960);
@@ -35,7 +35,7 @@ public class SetStatus extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                MainGame next = new MainGame();
+                MainGame_page next = new MainGame_page();
                 next.setVisible(true);
                 dispose();
             }
@@ -45,7 +45,7 @@ public class SetStatus extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                SetBoss prev = new SetBoss();
+                SetBoss_page prev = new SetBoss_page();
                 prev.setVisible(true);
                 dispose();
             }
@@ -128,7 +128,7 @@ public class SetStatus extends JFrame {
 
     public static void main(String[] args) {
 
-        SetStatus frame = new SetStatus();
+        SetStatus_page frame = new SetStatus_page();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

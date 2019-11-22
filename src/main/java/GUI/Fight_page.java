@@ -11,15 +11,15 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 /** boss나 monster와의 전투를 나타내는 페이지이다.*/
 
-public class Fight extends JFrame {
+public class Fight_page extends JFrame {
 
 	public static void main(String[] args) {
-		Fight frame = new Fight();
+		Fight_page frame = new Fight_page();
 		frame.setVisible(true);
 	}
 
 
-	public Fight() {
+	public Fight_page() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 960);
 		getContentPane().setLayout(null);
@@ -83,7 +83,7 @@ public class Fight extends JFrame {
 		getContentPane().add(textPane_3);
 		
 		
-		Dice dice = new Dice();
+		Dice_page dice = new Dice_page();
 		
 		
 		JLabel label = new JLabel(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/player_name.png"));

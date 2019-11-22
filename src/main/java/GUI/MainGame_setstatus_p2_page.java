@@ -9,11 +9,11 @@ import java.awt.event.ActionListener;
  * 게임을 진행하면서 바뀌는 플레이어의 현재 스테이터스와 아이템을 보여주는 페이지이다.
  */
 
-public class MainGame_setstatus_p2 extends JFrame {
+public class MainGame_setstatus_p2_page extends JFrame {
     ImagePanel panel = new ImagePanel();
     Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/backgroundImage.jpg").getImage();
 
-    MainGame_setstatus_p2() {
+    MainGame_setstatus_p2_page() {
         getContentPane().setLayout(null);
         setBounds(0, 0, 1200, 960);
 
@@ -24,7 +24,7 @@ public class MainGame_setstatus_p2 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                MainGame temp = new MainGame();
+                MainGame_page temp = new MainGame_page();
                 temp.setVisible(true);
                 dispose();
             }
@@ -44,7 +44,7 @@ public class MainGame_setstatus_p2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				MainGame_setstatus_p1 temp = new MainGame_setstatus_p1();
+				MainGame_setstatus_p1_page temp = new MainGame_setstatus_p1_page();
 				temp.setVisible(true);
 				dispose();
 			}
@@ -140,7 +140,7 @@ public class MainGame_setstatus_p2 extends JFrame {
 
     public static void main(String[] args) {
 
-        MainGame_setstatus_p2 frame = new MainGame_setstatus_p2();
+        MainGame_setstatus_p2_page frame = new MainGame_setstatus_p2_page();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

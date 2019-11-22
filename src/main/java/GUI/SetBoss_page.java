@@ -3,18 +3,17 @@ package GUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.Flow;
 
 import javax.swing.*;
 
 /**
  * 새로 게임을 생성할 때 보스를 설정하는 페이지이다.
  */
-public class SetBoss extends JFrame {
+public class SetBoss_page extends JFrame {
     ImagePanel panel = new ImagePanel();
     Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/OrientedPG/src/images/backgroundImage.jpg").getImage();
 
-    SetBoss() {
+    SetBoss_page() {
 
         setBounds(0, 0, 1200, 960);
         getContentPane().setLayout(null);
@@ -30,7 +29,7 @@ public class SetBoss extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                SetStatus next = new SetStatus();
+                SetStatus_page next = new SetStatus_page();
                 next.setVisible(true);
                 dispose();
             }
@@ -40,7 +39,7 @@ public class SetBoss extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Startpage prev = new Startpage();
+                Start_page prev = new Start_page();
                 prev.setVisible(true);
                 dispose();
             }
@@ -87,7 +86,7 @@ public class SetBoss extends JFrame {
 
     public static void main(String[] args) {
 
-        SetBoss frame = new SetBoss();
+        SetBoss_page frame = new SetBoss_page();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
