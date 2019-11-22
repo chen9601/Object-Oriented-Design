@@ -15,17 +15,17 @@ public class Item {
     static private Item[] items;
 
     enum ItemType {
-        Excalibur("엑스칼리버", 2, 1, 0, 1, 0,1000),
-        Necronomicon("네크로노미", 0, 0, 4, 0, 1,1000),
-        shiningAnisotropicAmy("빛나는 부등변다면체", 1, 1, 1, 1, 1,2000),
-        goldenHoneyLiquor("황금의 벌꿀술", 2, 0, 0, 2, 0,4000),
-        problemOfTime("시간의문제", 0, 0, 2, 0, 2,4110),
-        powderOfEvenBranch("이븐의 가지 분말", 1, 1, 1, 0, 0,3000),
-        amuletOfHoward("사냥개 부적", 2, 2, 2, -2, -2,1210),
-        keyOfWisdom("지혜의 열쇠", 0, 0, 3, 0, 0,451),
-        sweetLiquorOfSpace("우주의 감로주", 1, 1, 0, 2, 0,1215),
-        headOfBlackPharaoh("검은파라오의 단장", 0, 0, 0, 0, 1,3501),
-        lampOfAlHazard("알하자드의 램프", 0, 2, 1, 0, 0,4512;
+        EXCALIBUR("엑스칼리버", 2, 1, 0, 1, 0,1000),
+        NECRONOMICON("네크로노미", 0, 0, 4, 0, 1,1000),
+        SHININGANISOTROPICAMY("빛나는 부등변다면체", 1, 1, 1, 1, 1,2000),
+        GOLDENHONEYLIQUOR("황금의 벌꿀술", 2, 0, 0, 2, 0,4000),
+        PROBLEMOFTIME("시간의문제", 0, 0, 2, 0, 2,4110),
+        POWDEROFEVENBRANCH("이븐의 가지 분말", 1, 1, 1, 0, 0,3000),
+        AMULETOFHOWARD("사냥개 부적", 2, 2, 2, -2, -2,1210),
+        KEYOFWISDOM("지혜의 열쇠", 0, 0, 3, 0, 0,451),
+        SWEETLIQUOROFSPACE("우주의 감로주", 1, 1, 0, 2, 0,1215),
+        HEADOFBLACKPHARAOH("검은파라오의 단장", 0, 0, 0, 0, 1,3501),
+        LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0,4512;
         private int p_power;
         private int p_dex;
         private int p_int;
