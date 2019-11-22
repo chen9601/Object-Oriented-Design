@@ -8,5 +8,7 @@ class SetStatusPage extends JPanel{}
 class StartPage extends JPanel {}
 class MainGame_statusPage extends JPanel{}
 
-public class Main_combining {
+public class Main_combining extends JFrame{
+
+    public void change(String panelName){}
 }
