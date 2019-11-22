@@ -30,7 +30,7 @@ public class MainGame_page extends JFrame {
         status.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGame_setstatus_p1_page temp = new MainGame_setstatus_p1_page();
+                MainGame_status_p1_page temp = new MainGame_status_p1_page();
                 dispose();
                 temp.setVisible(true);
             }
@@ -44,22 +44,13 @@ public class MainGame_page extends JFrame {
         turn.setBounds(866, 40, 195, 36);
         tab.add(turn);
 
-        JTextPane textPane_8 = new JTextPane();
-        textPane_8.setBounds(780, 36, 76, 45);
-        tab.add(textPane_8);
+        JTextPane token_text = new JTextPane();
+        token_text.setBounds(780, 36, 76, 45);
+        tab.add(token_text);
 
-        JTextPane textPane_9 = new JTextPane();
-        textPane_9.setBounds(938, 36, 123, 45);
-        tab.add(textPane_9);
-
-
-        JButton button_1 = new JButton(new ImageIcon("src/imgaes/stage.png"));
-        button_1.setBorderPainted(false);
-        button_1.setFocusPainted(false);
-        button_1.setContentAreaFilled(false);
-        button_1.setBounds(355, 209, 105, 54);
-        getContentPane().add(button_1);
-
+        JTextPane turn_text = new JTextPane();
+        turn_text.setBounds(938, 36, 123, 45);
+        tab.add(turn_text);
 
         JPanel Dialog = new JPanel();
         Dialog.setBounds(599, 165, 569, 430);
