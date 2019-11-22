@@ -1,7 +1,8 @@
 package com;
 
-import GUI.Start_page;
-import GUI.Start_page.*;
+import GUI.StartFrame;
+
+import javax.swing.*;
 
 import static com.Player.*;
 
@@ -24,7 +25,7 @@ public class GameMaster {
     private ConstantEventHandler constant_event_handler;
 
     public static void main(String[] args) {
-        Start_page.Start_pageView();
+        StartFrame startframe = new StartFrame();
     }
 
     private void initiatePlayers() {

@@ -24,7 +24,9 @@ public class Item {
             return name;
         }
     }
-// TODO : 아래 항목을 위에 ItemType으로 옮겨야 함. 단, index는 ordinal()메소드를 활용하기로 하고 나머지만 옮길 것!
+
+    // TODO : 아이템 리스트로 업데이트하고, 상점 다이얼로그 창에 띄워줄 항목들은 어떻게 결정할 지 정해야함.
+    // TODO : 아래 항목을 위에 ItemType으로 옮겨야 함. 단, index는 ordinal()메소드를 활용하기로 하고 나머지만 옮길 것!
 
 //    itemlist[0].name="엑스칼리버";itemlist[0].p_power=2;itemlist[0].p_dex=1;itemlist[0].p_int=0;itemlist[0].p_health=1;itemlist[0].p_mental=0;
 //​

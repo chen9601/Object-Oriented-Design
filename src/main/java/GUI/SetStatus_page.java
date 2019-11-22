@@ -45,7 +45,7 @@ public class SetStatus_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                SetBoss_page prev = new SetBoss_page();
+                SetBossView prev = new SetBossView();
                 prev.setVisible(true);
                 dispose();
             }

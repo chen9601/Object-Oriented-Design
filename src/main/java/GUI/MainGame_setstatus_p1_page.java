@@ -16,7 +16,7 @@ import javax.swing.JTextPane;
 
 public class MainGame_setstatus_p1_page extends JFrame {
 	ImagePanel panel = new ImagePanel();
-	Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/backgroundImage.jpg").getImage();
+	Image img = new ImageIcon("src/imgaes/backgroundImage.jpg").getImage();
 
 	MainGame_setstatus_p1_page() {
 		getContentPane().setLayout(null);
