@@ -16,9 +16,9 @@ public class Start_page extends JFrame {
 	ImagePanel panel = new ImagePanel();
 	Image img = new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\main_title.png").getImage();
 	
-	JButton newgame = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\NewGame.png"));
-	JButton loadgame = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\Loadgame.png"));
-	JButton exitgame = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\EXIT.png"));
+	JButton newgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\NewGame.png"));
+	JButton loadgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\Loadgame.png"));
+	JButton exitgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\EXIT.png"));
 
 	Start_page() {
 		getContentPane().add(panel);
