@@ -1,5 +1,8 @@
 package com;
 
+import GUI.Start_page;
+import GUI.Start_page.*;
+
 import static com.Player.*;
 
 /**
@@ -20,10 +23,13 @@ public class GameMaster {
 
     private ConstantEventHandler constant_event_handler;
 
+    public static void main(String[] args) {
+        Start_page.Start_pageView();
+    }
+
     private void initiatePlayers() {
         for(int i = 0; i<2; i++){
-            players[i] = Player
-                    .builder()
+            players[i] = Player.builder()
                     .power(10)
                     .dexterity(20)
                     .health(30)
