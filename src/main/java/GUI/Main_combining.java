@@ -11,6 +11,6 @@ class MainGame_statusPage extends JPanel{}
 public class Main_combining extends JFrame{
 
     public void change(String panelName){
-        if(panelName.equals("MainGamePage"))
+        //마지막 커밋이다;
     }
 }
