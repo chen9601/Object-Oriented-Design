@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  */
 public class SetStatus_page extends JFrame {
     ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/backgroundImage.jpg").getImage();
+    Image img = new ImageIcon("src/imgaes/backgroundImage.jpg").getImage();
 
     SetStatus_page() {
 
@@ -62,39 +62,39 @@ public class SetStatus_page extends JFrame {
         movetab.add(prev);
 
 
-        JLabel player_name = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_name.png"));
+        JLabel player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
         player_name.setBounds(121, 566, 365, 155);
         getContentPane().add(player_name);
 
-        JLabel player_img = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player.png"));
+        JLabel player_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
         player_img.setBounds(128, 216, 358, 356);
         getContentPane().add(player_img);
 
-        perstatus_set status_power = new perstatus_set("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\1.png");
+        perstatus_set status_power = new perstatus_set("src\\main\\java\\GUI\\imgaes\\1.png");
         JPanel perstatus = new JPanel();
         perstatus.setBounds(592, 206, 590, 82);
         getContentPane().add(perstatus);
         perstatus.add(status_power);
 
-        perstatus_set status_dex = new perstatus_set("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\2.png");
+        perstatus_set status_dex = new perstatus_set("src\\main\\java\\GUI\\imgaes\\2.png");
         JPanel perstatus_1 = new JPanel();
         perstatus_1.setBounds(592, 477, 590, 82);
         getContentPane().add(perstatus_1);
         perstatus_1.add(status_dex);
 
-        perstatus_set status_intelligence = new perstatus_set("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\3.png");
+        perstatus_set status_intelligence = new perstatus_set("src\\main\\java\\GUI\\imgaes\\3.png");
         JPanel perstatus_2 = new JPanel();
         perstatus_2.setBounds(592, 345, 590, 82);
         getContentPane().add(perstatus_2);
         perstatus_2.add(status_intelligence);
 
-        perstatus_set status_mental = new perstatus_set("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\4.png");
+        perstatus_set status_mental = new perstatus_set("src\\main\\java\\GUI\\imgaes\\4.png");
         JPanel perstatus_3 = new JPanel();
         perstatus_3.setBounds(592, 602, 590, 82);
         getContentPane().add(perstatus_3);
         perstatus_3.add(status_mental);
 
-        perstatus_set statuts_health = new perstatus_set("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\5.png");
+        perstatus_set statuts_health = new perstatus_set("src\\main\\java\\GUI\\imgaes\\5.png");
         JPanel perstatus_4 = new JPanel();
         perstatus_4.setBounds(592, 728, 590, 82);
         getContentPane().add(perstatus_4);

@@ -54,9 +54,9 @@ public class SetBoss_page extends JFrame {
         movetab.add(next);
         movetab.add(prev);
 
-        boss Test1 = new boss("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\azatoth.png", "아자투스");
-        boss Test2 = new boss("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\azatoth.png", "크툴루");
-        boss Test3 = new boss("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\azatoth.png", "고범수");
+        boss Test1 = new boss("src\\main\\java\\GUI\\imgaes\\azatoth.png", "아자투스");
+        boss Test2 = new boss("src\\main\\java\\GUI\\imgaes\\azatoth.png", "크툴루");
+        boss Test3 = new boss("src\\main\\java\\GUI\\imgaes\\azatoth.png", "고범수");
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);

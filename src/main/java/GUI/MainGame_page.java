@@ -11,7 +11,7 @@ import javax.swing.*;
  * Dialog 창, map. 플레이어들의 간략화 된 스탯 및 token을 보여주는 클래스이다.
  */
 public class MainGame_page extends JFrame {
-    Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/OrientedPG/src/images/backgroundImage.jpg").getImage();
+    Image img = new ImageIcon("src/images/backgroundImage.jpg").getImage();
 
 
     public MainGame_page() {
@@ -53,7 +53,7 @@ public class MainGame_page extends JFrame {
         tab.add(textPane_9);
 
 
-        JButton button_1 = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/stage.png"));
+        JButton button_1 = new JButton(new ImageIcon("src/imgaes/stage.png"));
         button_1.setBorderPainted(false);
         button_1.setFocusPainted(false);
         button_1.setContentAreaFilled(false);
@@ -66,10 +66,10 @@ public class MainGame_page extends JFrame {
         getContentPane().add(Dialog);
         Dialog.setLayout(null);
 
-
-        JButton city_btn_0 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                System.out.println("test");
             }
         });
         city_btn_0.setFocusPainted(false);
@@ -78,7 +78,7 @@ public class MainGame_page extends JFrame {
         city_btn_0.setBounds(244, 315, 105, 54);
         getContentPane().add(city_btn_0);
 
-        JButton city_btn_1 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -89,7 +89,7 @@ public class MainGame_page extends JFrame {
         city_btn_1.setBounds(244, 209, 105, 54);
         getContentPane().add(city_btn_1);
 
-        JButton city_btn_2 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -100,7 +100,7 @@ public class MainGame_page extends JFrame {
         city_btn_2.setBounds(145, 268, 105, 54);
         getContentPane().add(city_btn_2);
 
-        JButton city_btn_3 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -112,7 +112,7 @@ public class MainGame_page extends JFrame {
         getContentPane().add(city_btn_3);
 
 
-        JButton city_btn_4 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -123,7 +123,7 @@ public class MainGame_page extends JFrame {
         city_btn_4.setBounds(244, 431, 105, 54);
         getContentPane().add(city_btn_4);
 
-        JButton city_btn_5 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
             }
@@ -134,7 +134,7 @@ public class MainGame_page extends JFrame {
         city_btn_5.setBounds(355, 370, 105, 54);
         getContentPane().add(city_btn_5);
 
-        JButton city_btn_6 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -145,7 +145,7 @@ public class MainGame_page extends JFrame {
         city_btn_6.setBounds(355, 268, 105, 54);
         getContentPane().add(city_btn_6);
 
-        JButton city_btn_7 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -157,7 +157,7 @@ public class MainGame_page extends JFrame {
         getContentPane().add(city_btn_7);
 
 
-        JButton city_btn_8 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -169,7 +169,7 @@ public class MainGame_page extends JFrame {
         getContentPane().add(city_btn_8);
 
 
-        JButton city_btn_9 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_9.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -181,7 +181,7 @@ public class MainGame_page extends JFrame {
         getContentPane().add(city_btn_9);
 
 
-        JButton city_btn_10 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_10.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -192,7 +192,7 @@ public class MainGame_page extends JFrame {
         city_btn_10.setBounds(114, 473, 105, 54);
         getContentPane().add(city_btn_10);
 
-        JButton city_btn_11 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_11.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -203,7 +203,7 @@ public class MainGame_page extends JFrame {
         city_btn_11.setBounds(399, 473, 105, 54);
         getContentPane().add(city_btn_11);
 
-        JButton city_btn_12 = new JButton(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\stage.png"));
+        JButton city_btn_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
         city_btn_12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -215,11 +215,11 @@ public class MainGame_page extends JFrame {
         getContentPane().add(city_btn_12);
 
 
-		JLabel player1_img = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player.png"));
+		JLabel player1_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
 		player1_img.setBounds(650, 620, 240, 163);
 		getContentPane().add(player1_img);
 
-		JLabel player1_name = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_name.png"));
+		JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
 		player1_name.setBounds(650, 780, 240, 61);
 		getContentPane().add(player1_name);
 
@@ -229,11 +229,11 @@ public class MainGame_page extends JFrame {
         getContentPane().add(player1_temp);
         player1_temp.add(player1);
 
-		JLabel player2_img = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player.png"));
+		JLabel player2_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
 		player2_img.setBounds(41, 620, 240, 163);
 		getContentPane().add(player2_img);
 
-		JLabel player2_name = new JLabel(new ImageIcon("C:\\Users\\182899\\Documents\\GitHub\\Object-Oriented-Design\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\player_name.png"));
+		JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
 		player2_name.setBounds(41, 780, 240, 61);
 		getContentPane().add(player2_name);
 

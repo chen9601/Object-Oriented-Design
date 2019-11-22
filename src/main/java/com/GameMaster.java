@@ -1,5 +1,8 @@
 package com;
 
+import GUI.Start_page;
+import GUI.Start_page.*;
+
 import static com.Player.*;
 
 /**
@@ -19,6 +22,10 @@ public class GameMaster {
     public static int turn = 0;
 
     private ConstantEventHandler constant_event_handler;
+
+    public static void main(String[] args) {
+        Start_page.Start_pageView();
+    }
 
     private void initiatePlayers() {
         for(int i = 0; i<2; i++){
