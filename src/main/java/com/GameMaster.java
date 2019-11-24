@@ -1,7 +1,8 @@
 package com;
 
-import GUI.Start_page;
-import GUI.Start_page.*;
+import GUI.StartFrame;
+
+import javax.swing.*;
 
 import static com.Player.*;
 
@@ -25,7 +26,7 @@ public class GameMaster {
     private ConstantEventHandler constant_event_handler;
 
     public static void main(String[] args) {
-        Start_page.Start_pageView();
+        StartFrame startframe = new StartFrame();
     }
 
     private static void initiatePlayers() {
@@ -47,12 +48,18 @@ public class GameMaster {
         initMonsters();
     }
     private static void initItem(){
-//        지워도 될듯
+//        Player.items
     }
     private static void initMap(){}
     private static void initMonsters(){}
-    public static void setBoss(Boss selected_boss){
-        current_boss = selected_boss;
+    public static void setBoss(Boss.BossType selected_boss){
+        // 테스트 코드 TODO : 실제 보스는 객체로 적절한 스탯으로 생성해야 함. enum이 될 순 없다. health가 변경가능해야 하므로
+        current_boss = Boss
+                .builder()
+                .power(100)
+                .health(100)
+                .type(selected_boss)
+                .build();
     }
     public static boolean hasItem(Item item) {
         return true;

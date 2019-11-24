@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class MainGame_status_p2_page extends JFrame {
     ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/backgroundImage.jpg").getImage();
+    Image img = new ImageIcon("src/imgaes/backgroundImage.jpg").getImage();
 
     MainGame_status_p2_page() {
         getContentPane().setLayout(null);

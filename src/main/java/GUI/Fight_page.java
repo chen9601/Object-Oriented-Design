@@ -65,7 +65,7 @@ public class Fight_page extends JFrame {
 		textPane_2.setBounds(308, 768, 134, 34);
 		getContentPane().add(textPane_2);
 		
-		JLabel monster_img = new JLabel(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/azatoth.png"));
+		JLabel monster_img = new JLabel(new ImageIcon("src/imgaes/azatoth.png"));
 		monster_img.setBounds(732, 214, 108, 92);
 		getContentPane().add(monster_img);
 		
@@ -86,11 +86,11 @@ public class Fight_page extends JFrame {
 		Dice_page dice = new Dice_page();
 		
 		
-		JLabel label = new JLabel(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/player_name.png"));
+		JLabel label = new JLabel(new ImageIcon("src/imgaes/player_name.png"));
 		label.setBounds(32, 810, 162, 48);
 		getContentPane().add(label);
 		
-		JLabel label_1 = new JLabel((new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/player.png")));
+		JLabel label_1 = new JLabel((new ImageIcon("src/imgaes/player.png")));
 		label_1.setBounds(32, 627, 162, 159);
 		getContentPane().add(label_1);
 	}

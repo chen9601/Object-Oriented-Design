@@ -17,6 +17,7 @@ public class SetBoss_page extends JFrame {
     ImagePanel panel = new ImagePanel();
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
 
+
     SetBoss_page() {
 
         setBounds(0, 0, 1200, 960);
@@ -29,9 +30,9 @@ public class SetBoss_page extends JFrame {
 
         movetab.setLayout(null);
         // setstatus페이지로 이동
-        next.addActionListener(new ActionListener() {
+        next.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
                 SetStatus_page next = new SetStatus_page();
                 next.setVisible(true);
                 dispose();
@@ -46,8 +47,6 @@ public class SetBoss_page extends JFrame {
                 dispose();
             }
         });
-
-
         movetab.setBounds(0, 0, 1182, 186);
         next.setBounds(935, 32, 180, 70);
         prev.setBounds(78, 32, 180, 70);
@@ -125,6 +124,18 @@ public class SetBoss_page extends JFrame {
             add(bossimg, BorderLayout.NORTH);
             add(bossbtn, BorderLayout.CENTER);
             add(bosstxt, BorderLayout.SOUTH);
+
+            bossbtn.addActionListener(
+                    new ActionListener(){
+                        @Override
+                        public void actionPerformed(ActionEvent e){
+                            GameMaster.setBoss(boss);
+                            SetStatus_page next = new SetStatus_page();
+                            next.setVisible(true);
+                            dispose();
+                        }
+                    }
+            );
 
         }
 
