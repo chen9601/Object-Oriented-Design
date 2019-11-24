@@ -1,5 +1,7 @@
 package GUI;
 
+import com.GameMaster;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -28,7 +30,7 @@ public class Start_page extends JFrame {
 		newgame.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				GameMaster.initiateGame();
 				SetBoss_page test = new SetBoss_page();
 				test.setVisible(true);
 				dispose();

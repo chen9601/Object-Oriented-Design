@@ -38,7 +38,7 @@ public class ConstantEventHandler
 //            GenerateFight(player);
             if(player.getHealth() > 0)
             {
-                GameMaster.token++;                                                            // TODO : 토큰 어디 있는 속성인지 확인 요망
+                GameMaster.token++;
                 Map.tiles[tile.ordinal()].setSummoned_portal(false);
             }
         }
