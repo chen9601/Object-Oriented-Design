@@ -125,18 +125,6 @@ public class SetBoss_page extends JFrame {
             add(bossbtn, BorderLayout.CENTER);
             add(bosstxt, BorderLayout.SOUTH);
 
-            bossbtn.addActionListener(
-                    new ActionListener(){
-                        @Override
-                        public void actionPerformed(ActionEvent e){
-                            GameMaster.setBoss(boss);
-                            SetStatus_page next = new SetStatus_page();
-                            next.setVisible(true);
-                            dispose();
-                        }
-                    }
-            );
-
         }
 
     }
