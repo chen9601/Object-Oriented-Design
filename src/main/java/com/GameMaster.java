@@ -30,12 +30,11 @@ public class GameMaster {
 
     private static void initiatePlayers() {
         for(int i = 0; i<2; i++){
-            players[i] = Player.builder()
-                    .power(10)
-                    .dexterity(20)
-                    .health(30)
-                    .intelligence(40)
-                    .mental(50)
+            players[i] = Player
+                    .builder()
+                    .pos(TileType.A)
+                    .money(100)
+                    .items(null)
                     .characteristics("test")
                     .build();
         }
@@ -44,21 +43,29 @@ public class GameMaster {
         token = 0;
         turn = 0;
         initiatePlayers();
+        initMap();
+        initMonsters();
     }
     private static void initItem(){
-//        Player.items
+//        지워도 될듯
     }
     private static void initMap(){}
     private static void initMonsters(){}
     public static void setBoss(Boss selected_boss){
         current_boss = selected_boss;
-        System.out.println(current_boss.getType().getName());
     }
     public static boolean hasItem(Item item) {
         return true;
     }
     public static boolean checkEnergy(Player player){return true;}
-    public static void setInitializePlayerStats(int[][] combined_stats){}
+    public static void setInitializePlayerStats(int[] combined_stats){
+        Player player = getCurrentPlayer();
+        player.setPower(combined_stats[0]);
+        player.setDexterity(combined_stats[1]);
+        player.setIntelligence(combined_stats[2]);
+        player.setMental(combined_stats[3]);
+        player.setHealth(combined_stats[4]);
+    }
     public static void death(Player player){}
     private static void revive(Player player){}
     private static int turnEnd(){return 0;}

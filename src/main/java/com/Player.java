@@ -19,9 +19,10 @@ public class Player{
     static Player[] players = new Player[MAXIMUM_NUM_OF_PLAYERS];
 
     private TileType pos;
-    private int money;
+    private int money ;
     private int energy;
-    private int power;
+    @Builder.Default
+    private Integer power = null;
     private int health;
     private int mental;
     private int dexterity;
@@ -34,5 +35,8 @@ public class Player{
     }
     static public Player getCurrentPlayer(){
         return players[idx_of_cur_player];
+    }
+    static public void toggleCurrentPlayer(){
+        idx_of_cur_player = idx_of_cur_player == 1 ? 0: 1;
     }
 }
