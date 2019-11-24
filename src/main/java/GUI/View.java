@@ -1,7 +1,7 @@
 package GUI;
 
 /** */
-public class View {
+public class ViewController {
 	
 	public int combined_status[][];
 	public static void Renew_Dialog(){};
