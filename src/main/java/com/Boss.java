@@ -9,7 +9,6 @@ import lombok.*;
 @Data
 @Builder
 public class Boss {
-    static private Boss current_boss;
     public enum BossType {
         AZATHOTH("아자투스"),
         CHUTHULU("크툴루"),

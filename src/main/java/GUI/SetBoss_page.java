@@ -1,5 +1,8 @@
 package GUI;
 
+import com.Boss;
+import com.GameMaster;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,22 +16,23 @@ public class SetBoss_page extends JFrame {
     ImagePanel panel = new ImagePanel();
     Image img = new ImageIcon("C:/Users/182899/eclipse-workspace/OrientedPG/src/images/backgroundImage.jpg").getImage();
 
+
     SetBoss_page() {
 
         setBounds(0, 0, 1200, 960);
         getContentPane().setLayout(null);
 
         JPanel movetab = new JPanel();
-        JButton next = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/next.png"));
-        JButton prev = new JButton(new ImageIcon("C:/Users/182899/eclipse-workspace/ORG/src/imgaes/prev.png"));
+        JButton next = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\next.png"));
+        JButton prev = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\prev.png"));
+
 
 
         movetab.setLayout(null);
         // setstatus페이지로 이동
-        next.addActionListener(new ActionListener() {
+        next.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e) {
-
+            public void actionPerformed(ActionEvent e){
                 SetStatus_page next = new SetStatus_page();
                 next.setVisible(true);
                 dispose();
@@ -44,8 +48,6 @@ public class SetBoss_page extends JFrame {
                 dispose();
             }
         });
-
-
         movetab.setBounds(0, 0, 1182, 186);
         next.setBounds(935, 32, 180, 70);
         prev.setBounds(78, 32, 180, 70);
@@ -54,9 +56,9 @@ public class SetBoss_page extends JFrame {
         movetab.add(next);
         movetab.add(prev);
 
-        boss Test1 = new boss("src\\main\\java\\GUI\\imgaes\\azatoth.png", "아자투스");
-        boss Test2 = new boss("src\\main\\java\\GUI\\imgaes\\azatoth.png", "크툴루");
-        boss Test3 = new boss("src\\main\\java\\GUI\\imgaes\\azatoth.png", "고범수");
+        BossPanel Test1 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", Boss.BossType.AZATHOTH);
+        BossPanel Test2 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", Boss.BossType.CHUTHULU);
+        BossPanel Test3 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", Boss.BossType.NYARLATHOTEP);
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
@@ -91,10 +93,10 @@ public class SetBoss_page extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    class boss extends JPanel {
+    class BossPanel extends JPanel {
 
-        public boss(String img_path, String name) {
-            JButton bossbtn = new JButton(name);
+        public BossPanel(String img_path, Boss.BossType boss) {
+            JButton bossbtn = new JButton(boss.getName());
             setLayout(new BorderLayout());
             Image temp = new ImageIcon(img_path).getImage();
             Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
@@ -107,6 +109,18 @@ public class SetBoss_page extends JFrame {
             add(bossimg, BorderLayout.NORTH);
             add(bossbtn, BorderLayout.CENTER);
             add(bosstxt, BorderLayout.SOUTH);
+
+            bossbtn.addActionListener(
+                    new ActionListener(){
+                        @Override
+                        public void actionPerformed(ActionEvent e){
+                            GameMaster.setBoss(boss);
+                            SetStatus_page next = new SetStatus_page();
+                            next.setVisible(true);
+                            dispose();
+                        }
+                    }
+            );
 
         }
 

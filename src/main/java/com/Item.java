@@ -14,7 +14,7 @@ import lombok.Data;
 public class Item {
     static private Item[] items;
 
-    enum ItemType {
+    public enum ItemType {
         EXCALIBUR("엑스칼리버", 2, 1, 0, 1, 0,1000),
         NECRONOMICON("네크로노미", 0, 0, 4, 0, 1,1000),
         SHININGANISOTROPICAMY("빛나는 부등변다면체", 1, 1, 1, 1, 1,2000),
@@ -25,7 +25,7 @@ public class Item {
         KEYOFWISDOM("지혜의 열쇠", 0, 0, 3, 0, 0,451),
         SWEETLIQUOROFSPACE("우주의 감로주", 1, 1, 0, 2, 0,1215),
         HEADOFBLACKPHARAOH("검은파라오의 단장", 0, 0, 0, 0, 1,3501),
-        LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0,4512;
+        LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0,4512);
         private int p_power;
         private int p_dex;
         private int p_int;
@@ -68,7 +68,4 @@ public class Item {
 
     }
 // TODO : 아래 항목을 위에 ItemType으로 옮겨야 함. 단, index는 ordinal()메소드를 활용하기로 하고 나머지만 옮길 것!
-
-
-
 }
