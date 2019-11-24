@@ -20,6 +20,7 @@ public class GameMaster {
 
     public static int token = 0;
     public static int turn = 0;
+    public static Boss current_boss;
 
     private ConstantEventHandler constant_event_handler;
 
@@ -27,7 +28,7 @@ public class GameMaster {
         Start_page.Start_pageView();
     }
 
-    private void initiatePlayers() {
+    private static void initiatePlayers() {
         for(int i = 0; i<2; i++){
             players[i] = Player.builder()
                     .power(10)
@@ -39,29 +40,32 @@ public class GameMaster {
                     .build();
         }
     }
-    public void initiateGame(){
-        this.token = 0;
-        this.turn = 0;
+    public static void initiateGame(){
+        token = 0;
+        turn = 0;
         initiatePlayers();
     }
-    private void initItem(){
-        Player.items
+    private static void initItem(){
+//        Player.items
     }
-    private void initMap(){}
-    private void initMonsters(){}
-    public void setBoss(Boss.BossType selected_boss){}
-    public boolean hasItem(Item item) {
+    private static void initMap(){}
+    private static void initMonsters(){}
+    public static void setBoss(Boss selected_boss){
+        current_boss = selected_boss;
+        System.out.println(current_boss.getType().getName());
+    }
+    public static boolean hasItem(Item item) {
         return true;
     }
-    public boolean checkEnergy(Player player){return true;}
-    public void setInitializePlayerStats(int[][] combined_stats){}
-    public void death(Player player){}
-    private void revive(Player player){}
-    private int turnEnd(){return 0;}
-    private boolean check_num_of_token_for_win(){return true;}
-    private boolean check_player_status_for_lost(){return true;}
-    private boolean check_num_of_monsters_portals_for_boss(){return true;}
-    public String[] getGeneralDialogues(){return new String[0];}
-    public void setPortalGateRandomly(){}
-    public void generateBossFight(Boss boss){}
+    public static boolean checkEnergy(Player player){return true;}
+    public static void setInitializePlayerStats(int[][] combined_stats){}
+    public static void death(Player player){}
+    private static void revive(Player player){}
+    private static int turnEnd(){return 0;}
+    private static boolean check_num_of_token_for_win(){return true;}
+    private static boolean check_player_status_for_lost(){return true;}
+    private static boolean check_num_of_monsters_portals_for_boss(){return true;}
+    public static String[] getGeneralDialogues(){return new String[0];}
+    public static void setPortalGateRandomly(){}
+    public static void generateBossFight(Boss boss){}
 }
