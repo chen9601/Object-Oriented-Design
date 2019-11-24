@@ -7,6 +7,7 @@ import static com.Player.*;
 
 /**
  * 게임마스터 객체 모델로, 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정할 수 있다.
+ *
  * @author Se-Ok Jeon
  * @version 1.0
  */
@@ -28,7 +29,7 @@ public class GameMaster {
     }
 
     private void initiatePlayers() {
-        for(int i = 0; i<2; i++){
+        for (int i = 0; i < 2; i++) {
             players[i] = Player.builder()
                     .power(10)
                     .dexterity(20)
@@ -36,32 +37,67 @@ public class GameMaster {
                     .intelligence(40)
                     .mental(50)
                     .characteristics("test")
+                    .items(null)
                     .build();
         }
     }
-    public void initiateGame(){
+
+    public void initiateGame() {
         this.token = 0;
         this.turn = 0;
         initiatePlayers();
+
     }
-    private void initItem(){
-        Player.items
+
+    private void initMap() {
     }
-    private void initMap(){}
-    private void initMonsters(){}
-    public void setBoss(Boss.BossType selected_boss){}
+
+    private void initMonsters() {
+    }
+
+    public void setBoss(Boss.BossType selected_boss) {
+    }
+
     public boolean hasItem(Item item) {
         return true;
     }
-    public boolean checkEnergy(Player player){return true;}
-    public void setInitializePlayerStats(int[][] combined_stats){}
-    public void death(Player player){}
-    private void revive(Player player){}
-    private int turnEnd(){return 0;}
-    private boolean check_num_of_token_for_win(){return true;}
-    private boolean check_player_status_for_lost(){return true;}
-    private boolean check_num_of_monsters_portals_for_boss(){return true;}
-    public String[] getGeneralDialogues(){return new String[0];}
-    public void setPortalGateRandomly(){}
-    public void generateBossFight(Boss boss){}
+
+    public boolean checkEnergy(Player player) {
+        return true;
+    }
+
+    public void setInitializePlayerStats(int[][] combined_stats) {
+    }
+
+    public void death(Player player) {
+    }
+
+    private void revive(Player player) {
+    }
+
+    private int turnEnd() {
+        return 0;
+    }
+
+    private boolean check_num_of_token_for_win() {
+        return true;
+    }
+
+    private boolean check_player_status_for_lost() {
+        return true;
+    }
+
+    private boolean check_num_of_monsters_portals_for_boss() {
+        return true;
+    }
+
+    public String[] getGeneralDialogues() {
+        return new String[0];
+    }
+
+    public void setPortalGateRandomly() {
+    }
+
+    public void generateBossFight(Boss boss) {
+    }
 }
