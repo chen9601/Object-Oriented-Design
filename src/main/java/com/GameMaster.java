@@ -44,7 +44,9 @@ public class GameMaster {
         this.turn = 0;
         initiatePlayers();
     }
-    private void initItem(){}
+    private void initItem(){
+        Player.items
+    }
     private void initMap(){}
     private void initMonsters(){}
     public void setBoss(Boss.BossType selected_boss){}
