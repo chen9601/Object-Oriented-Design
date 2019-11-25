@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import GUI.View;
 
 import java.lang.Math;
-import static com.Item.*;
 
 /**
  * 특정 조건에서 반드시 일어나야하는 이벤트들을 정리한 클래스
@@ -281,17 +280,17 @@ public class ConstantEventHandler
         }
 
     }
-    void addItem(Player player, Item item)
+    void addItem(Player player, ItemType item)
     {
-        ArrayList<Item> tempitems=player.getItems();
+        ArrayList<ItemType> tempitems=player.getItems();
         tempitems.add(item);
         player.setItems(tempitems);
     }
 
 
-    void deleteItem(Player player, Item item)
+    void deleteItem(Player player, ItemType item)
     {
-        ArrayList<Item> tempitems=player.getItems();
+        ArrayList<ItemType> tempitems=player.getItems();
         for(int i=0;i<tempitems.size();i++)
         {
             if(tempitems.get(i)==item)
@@ -306,8 +305,8 @@ public class ConstantEventHandler
     void addRandomItem(Player player)
     {
         int tempRand=(int)Math.floor(Math.random()*15);
-        Item tempItem = Item.itemlist[tempRand];
-        ArrayList<Item> tempitems=player.getItems();
+        ItemType tempItem = ItemType.values()[tempRand];
+        ArrayList<ItemType> tempitems=player.getItems();
         tempitems.add(tempItem);
         player.setItems(tempitems);
     }
@@ -330,13 +329,13 @@ public class ConstantEventHandler
     }
     
     void generalFight(Monster monster){}
-    boolean isAffordable(Player player, Item.ItemType item)
+    boolean isAffordable(Player player, ItemType item)
     {
         return true;
     }
-    int getChange(Player player, Item.ItemType item){return 0;}
-    void sellItem(Player player, Item.ItemType item){}
-    Item getItem(Item.ItemType item){return null;}
-    Item[] getRandomItemList(){return null;}
+    int getChange(Player player, ItemType item){return 0;}
+    void sellItem(Player player, ItemType item){}
+    ItemType getItem(ItemType item){return null;}
+    ItemType[] getRandomItemList(){return null;}
 
 }
