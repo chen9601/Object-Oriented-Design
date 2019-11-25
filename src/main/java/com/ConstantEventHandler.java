@@ -282,7 +282,7 @@ public class ConstantEventHandler
     }
     void addItem(Player player, ItemType item)
     {
-        ArrayList<ItemType> tempitems=player.getItems();
+        ArrayList<ItemType> tempitems = player.getItems();
         tempitems.add(item);
         player.setItems(tempitems);
     }
@@ -336,6 +336,6 @@ public class ConstantEventHandler
     int getChange(Player player, ItemType item){return 0;}
     void sellItem(Player player, ItemType item){}
     ItemType getItem(ItemType item){return null;}
-    ItemType[] getRandomItemList(){return null;}
+    ArrayList<ItemType> getRandomItemList(){return null;}
 
 }

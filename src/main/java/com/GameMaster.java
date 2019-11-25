@@ -2,6 +2,9 @@ package com;
 
 import GUI.Start_page;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static com.Player.*;
 
 /**
@@ -36,7 +39,7 @@ public class GameMaster {
                     .money(100)
                     .items(null)
                     .characteristics("test")
-                    .items(new ItemType[]{ItemType.PROBLEM_OF_TIME, ItemType.AMULETOFHOWARD})
+                    .items(new ArrayList<ItemType>(Arrays.asList(ItemType.PROBLEM_OF_TIME, ItemType.AMULETOFHOWARD)))
                     .build();
         }
     }

@@ -30,7 +30,7 @@ public class Player{
     private int dexterity;
     private int intelligence;
     private String characteristics;
-    private ItemType[] items;
+    private ArrayList<ItemType> items;
 
     public void decreaseEnergy() {
         energy--;

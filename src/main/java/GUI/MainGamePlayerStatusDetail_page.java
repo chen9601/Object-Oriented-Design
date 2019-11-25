@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -134,7 +135,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		JTextPane item_text = new JTextPane();
 		item_text.setBounds(865, 410, 245, 173);
 		item_text.setEditable(false);
-		ItemType[] items = player.getItems();
+		ArrayList<ItemType> items = player.getItems();
 		StringBuilder item_sb = new StringBuilder();
 		for (ItemType cur_item : items) {
 			item_sb.append(cur_item.getName() + "\n");
