@@ -1,6 +1,19 @@
 package com;
 
 public class Answer{
-    public String message;
-    public String tag;
+    private String message;
+    private String tag;
+
+    Answer(String message, String tag)
+    {
+        this.message=message;
+        this.tag=tag;
+    }
+
+    /**
+     * @return the tag
+     */
+    public String getTag() {
+        return tag;
+    }
 }
