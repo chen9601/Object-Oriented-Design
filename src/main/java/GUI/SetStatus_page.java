@@ -97,10 +97,10 @@ public class SetStatus_page extends JFrame {
                 GameMaster.setInitializePlayerStats(total_value);
                 Player.toggleCurrentPlayer();
                 JFrame nextPage = null;
-                if (doesNextPlayerSetted())
-                    nextPage = new SetStatus_page();
-                else
+                if (doesNextPlayerStatusSetted())
                     nextPage = new MainGame_page();
+                else
+                nextPage = new SetStatus_page();
                 nextPage.setVisible(true);
                 dispose();
             }
@@ -116,8 +116,8 @@ public class SetStatus_page extends JFrame {
         });
     }
 
-    private boolean doesNextPlayerSetted() {
-        return Player.getCurrentPlayer().getPower() == null;
+    private boolean doesNextPlayerStatusSetted() {
+        return Player.getCurrentPlayer().getPower() != null;
     }
 
     @Data
