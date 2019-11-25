@@ -36,7 +36,7 @@ public class GameMaster {
                     .money(100)
                     .items(null)
                     .characteristics("test")
-                    .items(null)
+                    .items(new ItemType[]{ItemType.PROBLEM_OF_TIME, ItemType.AMULETOFHOWARD})
                     .build();
         }
     }

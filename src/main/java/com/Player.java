@@ -30,7 +30,7 @@ public class Player{
     private int dexterity;
     private int intelligence;
     private String characteristics;
-    private ArrayList<ItemType> items;
+    private ItemType[] items;
 
     public void decreaseEnergy() {
         energy--;
@@ -38,6 +38,7 @@ public class Player{
     static public Player getCurrentPlayer(){
         return players[idx_of_cur_player];
     }
+    static public Player getPlayer(int idx){return players[idx];}
     static public void toggleCurrentPlayer(){
         idx_of_cur_player = idx_of_cur_player == 1 ? 0: 1;
     }
