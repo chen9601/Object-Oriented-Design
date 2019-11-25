@@ -54,7 +54,7 @@ public class GameMaster {
         // 테스트 코드 TODO : 실제 보스는 객체로 적절한 스탯으로 생성해야 함. enum이 될 순 없다. health가 변경가능해야 하므로
         current_boss = selected_boss;
     }
-    public static boolean hasItem(Item item) {
+    public static boolean hasItem(ItemType item) {
         return true;
     }
     public static boolean checkEnergy(Player player){return true;}

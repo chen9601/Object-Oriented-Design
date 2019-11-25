@@ -67,16 +67,15 @@ public class ConstantEventHandler
         }
 
     }
-    void addItem(Player player, Item item){}
-    void deleteItem(Player player, Item item){}
+    void addItem(Player player, ItemType item){}
+    void deleteItem(Player player, ItemType item){}
     void addRandomItem(Player player){}
     void hospital(Player player){}
     void mospital(Player player){}
     void generalFight(Monster monster){}
-    boolean isAffordable(Player player, Item.ItemType item){return true;}
-    int getChange(Player player, Item.ItemType item){return 0;}
-    void sellItem(Player player, Item.ItemType item){}
-    Item getItem(Item.ItemType item){return null;}
-    Item[] getRandomItemList(){return null;}
-
+    boolean isAffordable(Player player, ItemType item){return true;}
+    int getChange(Player player, ItemType item){return 0;}
+    void sellItem(Player player, ItemType item){}
+    ItemType getItem(ItemType item){return null;}
+    ItemType[] getRandomItemList(){return null;}
 }
