@@ -34,6 +34,7 @@ public enum ItemType {
     private int price;
 
     ItemType(String name, int p_power, int p_dex, int p_int, int p_health, int p_mental, int price) {
+        this.name = name;
         this.p_power = p_power;
         this.p_dex = p_dex;
         this.p_int = p_int;

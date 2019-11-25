@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import GUI.View;
 
 import java.lang.Math;
-import static com.Item.*;
 
 
 public class ConstantEventHandler

@@ -38,7 +38,8 @@ public class MainGame_page extends JFrame {
         status.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGame_status_p1_page temp = new MainGame_status_p1_page();
+                final int FIRST_PLAYER_IDX = 0;
+                MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                 dispose();
                 temp.setVisible(true);
             }
@@ -245,6 +246,9 @@ public class MainGame_page extends JFrame {
         player2_temp.setBounds(864, 670, 318, 225);
         getContentPane().add(player2_temp);
         player2_temp.add(player2);
+
+
+
     }
 
     public static void main(String[] args) {
@@ -253,6 +257,7 @@ public class MainGame_page extends JFrame {
     }
 
     class p_simplestat extends JPanel {
+
         p_simplestat() {
             /*
              * 테스트 코드
