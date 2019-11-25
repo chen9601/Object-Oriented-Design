@@ -8,100 +8,92 @@ import GUI.View;
  */
 
 
-public class RandomEventHandler
+public static class RandomEventHandler
 {
-    View view;
 
     /**
      * 이벤트를 진행할 플레이어, 진행할 이벤트 종류를 지정하면 그에 맞는 이벤트를 불러오는 메소드
      * 
-     * @param player
-     *        이벤트를 진행할 플레이어
-     * @param event_num
-     *        이벤트 종류
+     * @param player    이벤트를 진행할 플레이어
+     * @param event_num 이벤트 종류
      */
 
-    public void RandomEventIndicator(Player player, int event_num)
-    {
-        switch(event_num)
-        {
-            case 0:
+    public static void RandomEventIndicator(Player player, int event_num) {
+        switch (event_num) {
+        case 0:
             Rev1(player);
             break;
-            case 1:
+        case 1:
             Rev2(player);
             break;
-            case 2:
+        case 2:
             Rev3(player);
             break;
-            case 3:
+        case 3:
             Rev4(player);
             break;
-            case 4:
+        case 4:
             Rev5(player);
             break;
-            case 5:
+        case 5:
             Rev6(player);
             break;
-            case 6:
+        case 6:
             Rev7(player);
             break;
-            case 7:
+        case 7:
             Rev8(player);
             break;
-            case 8:
+        case 8:
             Rev9(player);
             break;
-            case 9:
+        case 9:
             Rev10(player);
             break;
-            case 10:
+        case 10:
             Rev11(player);
             break;
-            case 11:
+        case 11:
             Rev12(player);
             break;
-            case 12:
+        case 12:
             Rev13(player);
             break;
-            case 13:
+        case 13:
             Rev14(player);
             break;
-            case 14:
+        case 14:
             Rev15(player);
             break;
-            case 15:
+        case 15:
             Rev16(player);
             break;
-            case 16:
+        case 16:
             Rev17(player);
             break;
-            case 17:
+        case 17:
             Rev18(player);
             break;
-            case 18:
+        case 18:
             Rev19(player);
             break;
-            case 19:
+        case 19:
             Rev20(player);
             break;
 
         }
     }
+
     /**
-     * 랜덤 이벤트1
-     * 당신은 비밀결사의 집회가 오늘 밤 이곳에서 열린다는 것을 들었다.
-     * 1. 참가한다.
-     * 2. 참가하지 않는다.
+     * 랜덤 이벤트1 당신은 비밀결사의 집회가 오늘 밤 이곳에서 열린다는 것을 들었다. 1. 참가한다. 2. 참가하지 않는다.
      * 
-     * 1)당신은 집회에 가보기로 했습니다. //Rev1_sub1 메소드 호출
-     * 2)위험해보입니다. 그런 곳은 가지 않는 것이 상책입니다. // 아무 일도 일어나지 않음
-     * @param player
-     *        이벤트를 진행할 플레이어
+     * 1)당신은 집회에 가보기로 했습니다. //Rev1_sub1 메소드 호출 2)위험해보입니다. 그런 곳은 가지 않는 것이 상책입니다. //
+     * 아무 일도 일어나지 않음
+     * 
+     * @param player 이벤트를 진행할 플레이어
      */
-    public void Rev1(Player player)
-    {
-        String message="당신은 비밀결사의 집회가 오늘 밤 이곳에서 열린다는 것을 들었다.";
+    public static void Rev1(Player player) {
+        String message = "당신은 비밀결사의 집회가 오늘 밤 이곳에서 열린다는 것을 들었다.";
         view.show_dialog(message);
         Answer answer1=new Answer("1. 참가한다.","1_1"); 
         Answer answer2=new Answer("2. 참가하지 않는다.","1_2");                                                                  
@@ -119,7 +111,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev1_sub1(Player player)
+    public static void Rev1_sub1(Player player)
     {
         String message="\"고통은 인간을 계몽시키지.\" 비밀 결사의 교주가 말한다. \"동의하는가?\"";
         view.show_dialog(message);     
@@ -141,7 +133,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev2(Player player)
+    public static void Rev2(Player player)
     {
         String message="정체를 알 수 없는 메아리 소리에 마음이 불안해졌습니다.";
         view.show_dialog(message);                
@@ -163,7 +155,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev3(Player player)
+    public static void Rev3(Player player)
     {
         String message="파이트 클럽의 회원들이 당신에게 비무장 싸움을 제안합니다.";
         view.show_dialog(message);          
@@ -187,7 +179,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev4(Player player)
+    public static void Rev4(Player player)
     {
         String message="기차역에서 터번을 둘러쓰고 얼굴에서 광기가 느껴지는 한 사람이 내렸습니다.";
         view.show_dialog(message);    
@@ -209,7 +201,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev5(Player player)
+    public static void Rev5(Player player)
     {
         String message="상점 뒤쪽을 어슬렁거리는 중에 뒤에서 소음이 들립니다. ";
         view.show_dialog(message);                             
@@ -229,7 +221,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev6(Player player)
+    public static void Rev6(Player player)
     {
         String message="기이한 조각상이 있다는 소문을 듣습니다.";
         view.show_dialog(message);           
@@ -251,7 +243,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev7(Player player)
+    public static void Rev7(Player player)
     {
         String message="기차역의 화물 적재 플랫폼에서 기이한 문장이 있는 커다란 상자를 발견했습니다.";
         view.show_dialog(message);          
@@ -273,7 +265,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev8(Player player)
+    public static void Rev8(Player player)
     {
         String message="신문사에서 신비한 이야기를 제보받고 있습니다.";
         view.show_dialog(message);            
@@ -299,7 +291,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev9(Player player)
+    public static void Rev9(Player player)
     {
         String message="\"우리 조직에 들어오겠소?\" 파이트 클럽의 회원들이 당신을 둘러싸며 묻습니다.";
         view.show_dialog(message);     
@@ -321,7 +313,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev10(Player player)
+    public static void Rev10(Player player)
     {
         String message="잘 차려입은 남자가 기차역 플랫폼에 서 있습니다. 그가 당신을 향해 돌아보며 당신의 이름을 부릅니다. 이상하게도 친숙해 보이지만 전에 어디서 만났는지 기억나지 않습니다. 기차가 빠르게 달려오는 기찻길로 그가 갑자기 떨어집니다.";
         view.show_dialog(message);         
@@ -339,7 +331,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev11(Player player)
+    public static void Rev11(Player player)
     {
         String message="한 길거리 가수가 기타를 치며 노래를 부르고 있습니다.";
         view.show_dialog(message);            
@@ -359,7 +351,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev12(Player player)
+    public static void Rev12(Player player)
     {
         String message="한 노인이 당신에게 말을 겁니다. \"신비한 물건을 찾고 있나?\"";
         view.show_dialog(message);                    
@@ -377,7 +369,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev13(Player player)
+    public static void Rev13(Player player)
     {
         String message="당신은 이 도시가 다른 차원의 존재에 의해서 건설된 것이라는 문서를 보았다.";
         view.show_dialog(message);                                         
@@ -399,7 +391,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev14(Player player)
+    public static void Rev14(Player player)
     {
         String message="\"앞, 뒤?\" 기괴한 차림새의 도박사가 묻는다.";
         view.show_dialog(message);                  
@@ -417,7 +409,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev15(Player player)
+    public static void Rev15(Player player)
     {
         String message="당신이 사는 아파트의 거주민 중 일부를 잘 보니 당신을 불쾌하게 만드는 물고기와 같은 특징이 있습니다. 경비원이 당신이 어디를 보고 있는지 눈치채고는 끄덕이며 말합니다. \"심해에서 건너온 것들이지. 옆에 있을 때 조심하시오.\"";
         view.show_dialog(message);     
@@ -433,7 +425,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev16(Player player)
+    public static void Rev16(Player player)
     {
         String message="폐가에 있는 오래된 일기를 읽고 무시무시하고 섬뜩한 비밀을 알게 되었습니다.";
         view.show_dialog(message);
@@ -449,7 +441,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev17(Player player)
+    public static void Rev17(Player player)
     {
         String message="뉴스 헤드라인:\"고대의 유령선이 도시 상공에 나타났다!\"";
         view.show_dialog(message);           
@@ -470,7 +462,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev18(Player player)
+    public static void Rev18(Player player)
     {
         String message="검은 정장의 사나이가 당신에게 거래를 제안합니다.";
         view.show_dialog(message);                              
@@ -488,7 +480,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev19(Player player)
+    public static void Rev19(Player player)
     {
         String message="뉴스 헤드라인:\"빈민가에서 연쇄살인 발생!\"";
         view.show_dialog(message);          
@@ -504,7 +496,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev20(Player player)
+    public static void Rev20(Player player)
     {
         String message="바로 전에 당신의 방에 살았던 손님이 급히 서둘러 떠나느라 무언가를 남겨놓았습니다.";
         view.show_dialog(message);           
@@ -524,7 +516,7 @@ public class RandomEventHandler
      * @param player
      *        이벤트를 진행할 플레이어
      */
-    public void Rev21(Player player)
+    public static void Rev21(Player player)
     {
         String message="무언가에 홀린듯한 호텔 지배인이 당신에게 스위트룸 숙박을 제안합니다. \"특가로 해드립죠.\"";
         view.show_dialog(message);       

@@ -10,17 +10,21 @@ import lombok.Data;
  * @version 1.0
  */
 public enum ItemType {
-    EXCALIBUR("엑스칼리버", 2, 1, 0, 1, 0, 1000),
-    NECRONOMICON("네크로노미", 0, 0, 4, 0, 1, 1000),
-    SHININGANISOTROPICAMY("빛나는 부등변다면체", 1, 1, 1, 1, 1, 2000),
-    GOLDENHONEYLIQUOR("황금의 벌꿀술", 2, 0, 0, 2, 0, 4000),
-    PROBLEMOFTIME("시간의문제", 0, 0, 2, 0, 2, 4110),
-    POWDEROFEVENBRANCH("이븐의 가지 분말", 1, 1, 1, 0, 0, 3000),
-    AMULETOFHOWARD("사냥개 부적", 2, 2, 2, -2, -2, 1210),
-    KEYOFWISDOM("지혜의 열쇠", 0, 0, 3, 0, 0, 451),
-    SWEETLIQUOROFSPACE("우주의 감로주", 1, 1, 0, 2, 0, 1215),
-    HEADOFBLACKPHARAOH("검은파라오의 단장", 0, 0, 0, 0, 1, 3501),
-    LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0, 4512);
+    EXCALIBUR("엑스칼리버", 2, 1, 0, 1, 0, 5),
+    NECRONOMICON("네크로노미", 0, 0, 4, 0, -1, 5),
+    SHININGANISOTROPICAMY("빛나는 부등변다면체", 1, 1, 1, 1, 1, 5),
+    GOLDENHONEYLIQUOR("황금의 벌꿀술", 2, 0, 0, 2, 0, 5),
+    PROBLEMOFTIME("시간의문제", 0, 0, 2, 0, 2, 5),
+    POWDEROFEVENBRANCH("이븐의 가지 분말", 1, 1, 1, 0, 0, 3),
+    AMULETOFHOWARD("사냥개 부적", 2, 2, 2, -2, -2, 4),
+    KEYOFWISDOM("지혜의 열쇠", 0, 0, 3, 0, 0, 3),
+    SWEETLIQUOROFSPACE("우주의 감로주", 1, 1, 0, 2, 0, 5),
+    HEADOFBLACKPHARAOH("검은파라오의 단장", 0, 0, 0, 0, 1, 1),
+    LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0, 4),
+    TOMMYGUN("토미건",2,0,0,0,0,3),
+    KNIFE("제사용 단검",1,0,0,0,1,2),
+    HANZOSWORD("핫토리한조의 검",2,2,0,0,0,5),
+    M16("M16",3,0,0,0,0,3);
     private int p_power;
     private int p_dex;
     private int p_int;
