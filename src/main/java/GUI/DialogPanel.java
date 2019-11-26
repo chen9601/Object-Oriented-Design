@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 public class DialogPanel extends JPanel {
 
     private JLabel lb_just_text = new JLabel("Mac morning");
-    ArrayList<JButton> btn_options;
+    ArrayList<JButton> btn_options = null;
 //    JButton turnEnd = new JButton("Turn End");
 //    JButton selectbtn3 = new JButton("Example3");
 //    JButton selectbtn2 = new JButton("Example2");
@@ -39,10 +39,12 @@ public class DialogPanel extends JPanel {
     // https://fora.tistory.com/31 여기 나온 것처럼 이 패널의 controller 만들어서 관리 해야 하나? 아니면 MainGame_page의 패널 만들어서 관리해야 하려나.. 고민해봐야 할 듯
 
     void AddComponents(){
-        this.add(lb_just_text); // TODO : 버튼만 있는 것도 있을 수 있으니 그거 고려해야 할 듯!
-        for (JButton btn : btn_options) {
-            this.add(btn);
-        }
+        if(lb_just_text != null)
+            this.add(lb_just_text); // TODO : 버튼만 있는 것도 있을 수 있으니 그거 고려해야 할 듯!
+        if(btn_options != null)
+            for (JButton btn : btn_options) {
+                this.add(btn);
+            }
     }
 
     void Clear(){
