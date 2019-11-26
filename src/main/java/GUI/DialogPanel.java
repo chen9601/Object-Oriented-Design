@@ -18,10 +18,7 @@ public class DialogPanel extends JPanel {
 //    JButton selectbtn1 = new JButton("Example1");
     public DialogPanel() {
 //        add(turnEnd);
-        add(lb_just_text);
-        add(selectbtn1);
-        add(selectbtn2);
-        add(selectbtn3);
+        AddComponents();
 
         // TODO : 레이아웃 적용해서 동적으로 위치 선정할 수 있게 변경하기
 //        showLabel.setBounds(35, 32, 497, 90);
