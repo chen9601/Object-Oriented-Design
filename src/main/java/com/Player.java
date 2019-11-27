@@ -23,12 +23,14 @@ public class Player{
     private int energy;
     @Builder.Default
     private Integer power = null;
-    private int health;
-    private int mental;
+    @Builder.Default
+    private int health = 1;
+    @Builder.Default
+    private int mental = 1;
     private int dexterity;
     private int intelligence;
     private String characteristics;
-    private ArrayList<Item> items;
+    private ArrayList<ItemType> items;
 
     public void decreaseEnergy() {
         energy--;
@@ -36,6 +38,7 @@ public class Player{
     static public Player getCurrentPlayer(){
         return players[idx_of_cur_player];
     }
+    static public Player getPlayer(int idx){return players[idx];}
     static public void toggleCurrentPlayer(){
         idx_of_cur_player = idx_of_cur_player == 1 ? 0: 1;
     }

@@ -1,5 +1,8 @@
 package GUI;
 
+import com.Answer;
+import com.ConstantEventAnswer;
+
 /** */
 public class View {
 	
@@ -13,7 +16,7 @@ public class View {
 
 //	public int setstatus_calculate(int s, String status){};
 	public void show_dialog(String s){};
-	public void show_dialog_answer(){};
+	public void show_dialog_answer(Answer answer){};
 
 	public void show_boss(){};
 	public void show_monster(){};
