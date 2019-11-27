@@ -21,7 +21,11 @@ public enum ItemType {
     KEYOFWISDOM("지혜의 열쇠", 0, 0, 3, 0, 0, 451),
     SWEETLIQUOROFSPACE("우주의 감로주", 1, 1, 0, 2, 0, 1215),
     HEADOFBLACKPHARAOH("검은파라오의 단장", 0, 0, 0, 0, 1, 3501),
-    LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0, 4512);
+    LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0, 4512),
+    TOMMYGUN("토미건",2,0,0,0,0,3),
+    KNIFE("제사용 단검",1,0,0,0,1,2),
+    HANZOSWORD("핫토리한조의 검",2,2,0,0,0,5),
+    M16("M16",3,0,0,0,0,3);
     private int p_power;
     private int p_dex;
     private int p_int;
