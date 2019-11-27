@@ -58,16 +58,30 @@ public class GameMaster {
     private static void initItem(){
 //        Player.items
     }
-    private static void initMap(){}
+    private static void initMap(){
+
+        Map.tiles = new Tile[12];
+        for(int i = 0;i<12;i++){
+            Map.tiles[i] = Tile
+                    .builder()
+                    .summoned_monster(null)
+                    .summoned_portal(false)
+                    .name(TileType.values()[i])
+                    .build();
+        }
+
+    }
     private static void initMonsters(){}
     public static void setBoss(Boss selected_boss){
         // 테스트 코드 TODO : 실제 보스는 객체로 적절한 스탯으로 생성해야 함. enum이 될 순 없다. health가 변경가능해야 하므로
         current_boss = selected_boss;
     }
     public static boolean hasItem(ItemType item) {
-        return true;
+        return getCurrentPlayer().getItems().indexOf(item) == -1 ? true:false;
     }
-    public static boolean checkEnergy(Player player){return true;}
+    public static boolean isEnergyLeft(Player player){
+        return getCurrentPlayer().getEnergy() == 0 ? true:false;
+    }
     public static void setInitializePlayerStats(int[] combined_stats){
         Player player = getCurrentPlayer();
         player.setPower(combined_stats[0]);
@@ -117,4 +131,7 @@ public class GameMaster {
     private static boolean check_num_of_monsters_portals_for_boss(){return true;}
     public static void setPortalGateRandomly(){}
     public static void generateBossFight(Boss boss){}
+    public static void canMoveTile(){
+
+    }
 }
