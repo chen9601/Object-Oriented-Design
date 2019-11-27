@@ -20,7 +20,9 @@ public class MainGame_page extends JFrame {
 
     // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
-
+    //버튼이랑 라벨들 리팩토링
+    //몬스터랑 포탈 출력가능하게 만들기
+    //
 
     static JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
     static JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
