@@ -150,8 +150,11 @@ public class ConstantEventHandler
 
     static void CreateMonster(MonsterType monster, TileType tile)
     {
-        Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
-        Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
+        if(Map.tiles[tile.ordinal()].getSummoned_monster()==null&&Map.tiles[tile.ordinal()].isSummoned_portal()==false)
+        {
+            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
+            Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
+        }
     }
 
     /**

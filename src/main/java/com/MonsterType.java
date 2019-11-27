@@ -2,7 +2,7 @@ package com;
 
 public enum MonsterType {
     Nightgaunt("나이트건트", 3, 3, 1, 1, 3),
-    Dark_Paraoh("검은 파라오", 1, 6, 2, 2, 5),
+    Dagon("다곤", 1, 6, 2, 2, 5),
     Byakhee("비야키", 2, 2, 1, 1, 1),
     Ghoul("구울", 4, 4, 2, 1, 4),
     Elder_Thing("옛 것", 5, 4, 1, 2, 5);
