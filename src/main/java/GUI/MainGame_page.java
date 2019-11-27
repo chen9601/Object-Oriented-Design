@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
@@ -21,20 +22,20 @@ public class MainGame_page extends JFrame {
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
 
 
-    JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    JButton dot_array[] = {reddot_0, reddot_1, reddot_2, reddot_3, reddot_4, reddot_5, reddot_6, reddot_7, reddot_8, reddot_9, reddot_10, reddot_11, reddot_12};
+    static JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton dot_array[] = {reddot_0, reddot_1, reddot_2, reddot_3, reddot_4, reddot_5, reddot_6, reddot_7, reddot_8, reddot_9, reddot_10, reddot_11, reddot_12};
 
     JButton city_btn_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
     JButton city_btn_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
@@ -66,7 +67,8 @@ public class MainGame_page extends JFrame {
     JLabel player1_img_10 = new JLabel(player1_Icon);
     JLabel player1_img_11 = new JLabel(player1_Icon);
     JLabel player1_img_12 = new JLabel(player1_Icon);
-    JLabel player1_array[] = {player1_img_0, player1_img_1, player1_img_2, player1_img_3, player1_img_4, player1_img_5, player1_img_6, player1_img_7, player1_img_8, player1_img_9, player1_img_10, player1_img_11, player1_img_12};
+    JLabel player1_array[] = {player1_img_0, player1_img_1, player1_img_2, player1_img_3, player1_img_4, player1_img_5,
+            player1_img_6, player1_img_7, player1_img_8, player1_img_9, player1_img_10, player1_img_11, player1_img_12};
 
     ImageIcon player2_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
 
@@ -83,7 +85,9 @@ public class MainGame_page extends JFrame {
     JLabel player2_img_10 = new JLabel(player2_Icon);
     JLabel player2_img_11 = new JLabel(player2_Icon);
     JLabel player2_img_12 = new JLabel(player2_Icon);
-    JLabel player2_array[] = {player2_img_0, player2_img_1, player2_img_2, player2_img_3, player2_img_4, player2_img_5, player2_img_6, player2_img_7, player2_img_8, player2_img_9, player2_img_10, player2_img_11, player2_img_12};
+
+    JLabel player2_array[] = {player2_img_0, player2_img_1, player2_img_2, player2_img_3, player2_img_4, player2_img_5,
+            player2_img_6, player2_img_7, player2_img_8, player2_img_9, player2_img_10, player2_img_11, player2_img_12};
 
     /*
         TODO : 각 타일 위에 출력할 수 있어야 하는 목록
@@ -93,6 +97,7 @@ public class MainGame_page extends JFrame {
         3. 상점과 같은 이벤트가 원래 있는 타일은 디폴트 배경 색을 다르게 한다.
      */
     public MainGame_page() {
+        //상단바
         {
             setBounds(100, 100, 1200, 960);
             getContentPane().setLayout(null);
@@ -141,7 +146,7 @@ public class MainGame_page extends JFrame {
             dialog_panel.setLayout(null);
             getContentPane().add(dialog_panel);
         }
-
+        //player2 이미지
         {
 
             player2_img_0.setBounds(264, 315, 40, 50);
@@ -184,6 +189,7 @@ public class MainGame_page extends JFrame {
             getContentPane().add(player2_img_12);
 
         }
+        //player1 이미지
         {
 
             player1_img_0.setBounds(284, 315, 40, 50);
@@ -213,7 +219,7 @@ public class MainGame_page extends JFrame {
             player1_img_8.setBounds(154, 165, 40, 50);
             getContentPane().add(player1_img_8);
 
-            player1_img_9.setBounds(64, 315, 40, 50);
+            player1_img_9.setBounds(57, 318, 40, 50);
             getContentPane().add(player1_img_9);
 
             player1_img_10.setBounds(154, 473, 40, 50);
@@ -224,8 +230,9 @@ public class MainGame_page extends JFrame {
 
             player1_img_12.setBounds(541, 315, 40, 50);
             getContentPane().add(player1_img_12);
-
+            show_players();
         }
+        // reddot 버튼
         {
 
             for (JButton button : dot_array) {
@@ -338,6 +345,7 @@ public class MainGame_page extends JFrame {
 
 
         }
+        // 타일 버튼
         {
             for (JButton button_city : city_array) {
                 button_city.setVisible(true);
@@ -349,7 +357,7 @@ public class MainGame_page extends JFrame {
             city_btn_0.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("test");
-                    show_reddot();
+
                 }
             });
 
@@ -463,6 +471,7 @@ public class MainGame_page extends JFrame {
             city_btn_12.setBounds(501, 315, 105, 54);
             getContentPane().add(city_btn_12);
         }
+        // 플레이어들의 스탯 요약
         {
             JLabel player1_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
             player1_img.setBounds(650, 620, 240, 163);
@@ -494,7 +503,6 @@ public class MainGame_page extends JFrame {
         }
 
 
-
     }
 
     public static void main(String[] args) {
@@ -502,10 +510,20 @@ public class MainGame_page extends JFrame {
         MainGame.setVisible(true);
     }
 
-    public void show_reddot() {
+    public static void show_reddot() {
         for (TileType tile : Map.getMovableTiles(Player.getCurrentPlayer())) {
             dot_array[tile.ordinal()].setVisible(true);
         }
+    }
+    public void show_players(){
+        for (JLabel label : player2_array) {
+            label.setVisible(false);
+        }
+        for (JLabel label : player1_array) {
+            label.setVisible(false);
+        }
+        player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
+        player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
     }
 
     class p_simplestat extends JPanel {
