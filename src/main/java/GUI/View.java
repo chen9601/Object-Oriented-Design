@@ -1,7 +1,6 @@
 package GUI;
 
-import com.Answer;
-import com.ConstantEventAnswer;
+import com.*;
 
 /** */
 public class View {
@@ -25,12 +24,11 @@ public class View {
 	public void show_boss(){};
 	public void show_monster(){};
 
-	/*
-	@Deprecated this method moved to DialogPanelController
-	 */
-//	public int Dice(){
-//		double randomValue = Math.random();
-//		int intValue=(int)(randomValue * 6)+1;
-//		return intValue;
-//	}
+
+
+	public int Dice() {
+		double randomValue = Math.random();
+		int intValue = (int) (randomValue * 6) + 1;
+		return intValue;
+	}
 }
