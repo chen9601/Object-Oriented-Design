@@ -14,7 +14,7 @@ import java.util.ArrayList;
 @Data
 @Builder
 public class Player{
-    static private int idx_of_cur_player = 0;
+    static int idx_of_cur_player = 0;
     static private final int MAXIMUM_NUM_OF_PLAYERS = 2;
     static Player[] players = new Player[MAXIMUM_NUM_OF_PLAYERS];
 
@@ -31,6 +31,7 @@ public class Player{
     private int intelligence;
     private String characteristics;
     private ArrayList<ItemType> items;
+    private int status=1;
 
     public void decreaseEnergy() {
         energy--;
@@ -38,6 +39,7 @@ public class Player{
     static public Player getCurrentPlayer(){
         return players[idx_of_cur_player];
     }
+    static public Player getPlayer(int idx){return players[idx];}
     static public void toggleCurrentPlayer(){
         idx_of_cur_player = idx_of_cur_player == 1 ? 0: 1;
     }

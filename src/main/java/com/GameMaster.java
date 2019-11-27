@@ -1,8 +1,13 @@
 package com;
 
 import GUI.Start_page;
+import GUI.View;
 
-import static com.Player.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static com.Player.getCurrentPlayer;
+import static com.Player.players;
 
 /**
  * 게임마스터 객체 모델로, 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정할 수 있다.
@@ -11,6 +16,8 @@ import static com.Player.*;
  * @version 1.0
  */
 public class GameMaster {
+    private static GUI.Dice_page DICE;
+
     private final int GAME_WIN = 0;
     private final int GAME_LOST = 1;
     private final int GAME_KEEPGOING = 2;
@@ -19,6 +26,7 @@ public class GameMaster {
     private final int PLAYER_BOSS_DEATH = 5;
 
     public static int token = 0;
+    public static int death_count=3;
     public static int turn = 0;
     public static Boss current_boss;
 
@@ -36,7 +44,7 @@ public class GameMaster {
                     .money(100)
                     .items(null)
                     .characteristics("test")
-                    .items(null)
+                    .items(new ArrayList<ItemType>(Arrays.asList(ItemType.PROBLEM_OF_TIME, ItemType.AMULETOFHOWARD)))
                     .build();
         }
     }
@@ -50,16 +58,30 @@ public class GameMaster {
     private static void initItem(){
 //        Player.items
     }
-    private static void initMap(){}
+    private static void initMap(){
+
+        Map.tiles = new Tile[13];
+        for(int i = 0;i<13;i++){
+            Map.tiles[i] = Tile
+                    .builder()
+                    .summoned_monster(null)
+                    .summoned_portal(false)
+                    .name(TileType.values()[i])
+                    .build();
+        }
+
+    }
     private static void initMonsters(){}
     public static void setBoss(Boss selected_boss){
         // 테스트 코드 TODO : 실제 보스는 객체로 적절한 스탯으로 생성해야 함. enum이 될 순 없다. health가 변경가능해야 하므로
         current_boss = selected_boss;
     }
     public static boolean hasItem(ItemType item) {
-        return true;
+        return getCurrentPlayer().getItems().indexOf(item) == -1 ? true:false;
     }
-    public static boolean checkEnergy(Player player){return true;}
+    public static boolean isEnergyLeft(Player player){
+        return getCurrentPlayer().getEnergy() == 0 ? true:false;
+    }
     public static void setInitializePlayerStats(int[] combined_stats){
         Player player = getCurrentPlayer();
         player.setPower(combined_stats[0]);
@@ -76,13 +98,38 @@ public class GameMaster {
         else // 플레이어가 죽었으면 움직일 수 없다.
             player.setEnergy(0);
     }
-    public static void death(Player player){}
-    private static void revive(Player player){}
+    public static void death(Player player)
+    {
+        for(int i=0;i<death_count;i++)
+        {
+           if(DICE.Dice()>5)
+           {
+               revive(player);
+               death_count--;
+               break;
+           }
+        }
+        if(player.getHealth()<0||player.getMental()<0)
+            player.setStatus(2);
+    }
+    private static void revive(Player player)
+    {
+        if(player.getMental()<0)
+        {
+            player.setMental(1);
+            player.setPos(TileType.MENTAL_HOSTPITAL);
+        }
+        if(player.getHealth()<0)
+        {
+            player.setHealth(1);
+            player.setPos(TileType.HOSPITAL);
+        }
+    }
     private static int turnEnd(){return 0;}
     private static boolean check_num_of_token_for_win(){return true;}
     private static boolean check_player_status_for_lost(){return true;}
     private static boolean check_num_of_monsters_portals_for_boss(){return true;}
-    public static String[] getGeneralDialogues(){return new String[0];}
     public static void setPortalGateRandomly(){}
     public static void generateBossFight(Boss boss){}
+
 }

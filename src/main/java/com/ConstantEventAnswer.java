@@ -2,23 +2,9 @@ package com;
 
 public class ConstantEventAnswer{
 
-    Answer hospital1;
-    Answer hospital2;
-    Answer mospital1;
-    Answer mospital2;
+    static Answer hospital1=new Answer("1. 치료한다","hospital1");
+    static Answer hospital2=new Answer("2. 떠난다","mospital1");
+    static Answer mospital1=new Answer("1. 치료한다","hospital1");
+    static Answer mospital2=new Answer("2. 떠난다","mospital1");
 
-    ConstantEventAnswer()
-    {
-        hospital1.message="1. 치료한다";
-        hospital1.tag="hospital1";
-
-        hospital2.message="2. 치료하지 않는다";
-        hospital2.tag="hospital2";
-
-        mospital1.message="1. 치료한다";
-        mospital1.tag="mospital1";
-
-        mospital2.message="2. 치료하지 않는다";
-        mospital2.tag="mospital2";
-    }
 }

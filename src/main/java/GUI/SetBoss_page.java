@@ -56,8 +56,8 @@ public class SetBoss_page extends JFrame {
         movetab.add(prev);
 
         BossPanel Test1 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", BossType.AZATHOTH);
-        BossPanel Test2 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", BossType.CHUTHULU);
-        BossPanel Test3 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", BossType.NYARLATHOTEP);
+        BossPanel Test2 = new BossPanel("src\\main\\java\\GUI\\imgaes\\CHUTHULU.png", BossType.CHUTHULU);
+        BossPanel Test3 = new BossPanel("src\\main\\java\\GUI\\imgaes\\NYARLATHOTEP.png", BossType.NYARLATHOTEP);
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
@@ -104,7 +104,8 @@ public class SetBoss_page extends JFrame {
                                 .builder()
                                 .type(bosstype)
                                 .health(100)
-                                .power(100)
+                                .damage(100)
+                                .requireVal(100)
                                 .build()
                     );
                     SetStatus_page next = new SetStatus_page();
