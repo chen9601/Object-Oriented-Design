@@ -5,8 +5,7 @@ import com.ConstantEventAnswer;
 
 /** */
 public class View {
-	
-	public int combined_status[][];
+
 	public static void Renew_Dialog(){};
 	public static void Renew_map(){};
 	public static void Renew_status(){};
