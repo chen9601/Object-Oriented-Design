@@ -31,6 +31,7 @@ public class Player{
     private int intelligence;
     private String characteristics;
     private ArrayList<ItemType> items;
+    private int status=1;
 
     public void decreaseEnergy() {
         energy--;
