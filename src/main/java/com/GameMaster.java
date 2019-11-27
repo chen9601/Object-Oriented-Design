@@ -16,7 +16,6 @@ import static com.Player.players;
  * @version 1.0
  */
 public class GameMaster {
-    private static GUI.Dice_page DICE;
 
     private final int GAME_WIN = 0;
     private final int GAME_LOST = 1;
@@ -103,7 +102,7 @@ public class GameMaster {
     {
         for(int i=0;i<death_count;i++)
         {
-           if(DICE.Dice()>5)
+           if(DialogPanelController.Dice()>5)
            {
                revive(player);
                death_count--;
@@ -153,6 +152,7 @@ public class GameMaster {
             if(getCurrentPlayer().getEnergy()==0&&getCurrentPlayer().getStatus()!=2)
                 getCurrentPlayer().setEnergy(1);
 
+            Player.toggleCurrentPlayer();
             turn++;
             turn_switch=false;
         }

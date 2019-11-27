@@ -324,6 +324,7 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         DialogPanelController.show_dialog("여기가...어디지?");
         Answer answer1=new Answer("1. 낯선 곳에서의 새로운 사건이 발생합니다.","5_1_1_1");
+        DialogPanelController.show_dialog_answer1(answer1);
 
     }
     public static void Ans5_2_SubResult(Player player)
@@ -331,7 +332,6 @@ public class RandomEventAnswer{
         int temp=(int)Math.floor(Math.random()*13);
         ConstantEventHandler.movebyTeleport(player, TileType.values()[temp]);
         ConstantEventHandler.generateRandomEvent(player);
-        DialogPanelController.generateGeneralDialogues();
     }
     public static void Ans6_1(Player player)
     {
