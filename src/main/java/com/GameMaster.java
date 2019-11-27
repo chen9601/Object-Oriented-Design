@@ -89,4 +89,7 @@ public class GameMaster {
     private static boolean check_num_of_monsters_portals_for_boss(){return true;}
     public static void setPortalGateRandomly(){}
     public static void generateBossFight(Boss boss){}
+    public static void canMoveTile(){
+
+    }
 }

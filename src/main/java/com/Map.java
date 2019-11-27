@@ -48,4 +48,8 @@ public class Map {
     public static void setMonsterAt(TileType pos, Monster monster) {
         tiles[pos.ordinal()].setSummoned_monster(monster);
     }
+    public static int[] canmovetile(){
+        TileType cur_pos = Player.getCurrentPlayer().getPos();
+        return path_validating_data[cur_pos.ordinal()];
+    }
 }

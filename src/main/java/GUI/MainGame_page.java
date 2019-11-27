@@ -71,8 +71,158 @@ public class MainGame_page extends JFrame {
         dialog_panel.setBounds(599, 165, 569, 430);
         dialog_panel.setLayout(null);
         getContentPane().add(dialog_panel);
-
         {
+
+            JButton rdedot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            rdedot_0.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("test");
+                }
+            });
+            rdedot_0.setFocusPainted(false);
+            rdedot_0.setContentAreaFilled(false);
+            rdedot_0.setBorderPainted(false);
+            rdedot_0.setBounds(244, 315, 105, 54);
+            getContentPane().add(rdedot_0);
+
+            JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_1.setFocusPainted(false);
+            reddot_1.setContentAreaFilled(false);
+            reddot_1.setBorderPainted(false);
+            reddot_1.setBounds(244, 209, 105, 54);
+            getContentPane().add(reddot_1);
+
+            JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_2.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_2.setFocusPainted(false);
+            reddot_2.setContentAreaFilled(false);
+            reddot_2.setBorderPainted(false);
+            reddot_2.setBounds(145, 268, 105, 54);
+            getContentPane().add(reddot_2);
+
+            JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_3.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_3.setFocusPainted(false);
+            reddot_3.setContentAreaFilled(false);
+            reddot_3.setBorderPainted(false);
+            reddot_3.setBounds(145, 370, 105, 54);
+            getContentPane().add(reddot_3);
+
+
+            JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_4.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_4.setFocusPainted(false);
+            reddot_4.setContentAreaFilled(false);
+            reddot_4.setBorderPainted(false);
+            reddot_4.setBounds(244, 431, 105, 54);
+            getContentPane().add(reddot_4);
+
+            JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_5.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent arg0) {
+                }
+            });
+            reddot_5.setFocusPainted(false);
+            reddot_5.setContentAreaFilled(false);
+            reddot_5.setBorderPainted(false);
+            reddot_5.setBounds(355, 370, 105, 54);
+            getContentPane().add(reddot_5);
+
+            JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_6.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_6.setFocusPainted(false);
+            reddot_6.setContentAreaFilled(false);
+            reddot_6.setBorderPainted(false);
+            reddot_6.setBounds(355, 268, 105, 54);
+            getContentPane().add(reddot_6);
+
+            JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_7.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_7.setFocusPainted(false);
+            reddot_7.setContentAreaFilled(false);
+            reddot_7.setBorderPainted(false);
+            reddot_7.setBounds(399, 165, 105, 54);
+            getContentPane().add(reddot_7);
+
+
+            JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_8.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_8.setFocusPainted(false);
+            reddot_8.setContentAreaFilled(false);
+            reddot_8.setBorderPainted(false);
+            reddot_8.setBounds(114, 165, 105, 54);
+            getContentPane().add(reddot_8);
+
+
+            JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_9.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_9.setFocusPainted(false);
+            reddot_9.setContentAreaFilled(false);
+            reddot_9.setBorderPainted(false);
+            reddot_9.setBounds(14, 315, 105, 54);
+            getContentPane().add(reddot_9);
+
+
+            JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_10.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_10.setFocusPainted(false);
+            reddot_10.setContentAreaFilled(false);
+            reddot_10.setBorderPainted(false);
+            reddot_10.setBounds(114, 473, 105, 54);
+            getContentPane().add(reddot_10);
+
+            JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_11.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_11.setFocusPainted(false);
+            reddot_11.setContentAreaFilled(false);
+            reddot_11.setBorderPainted(false);
+            reddot_11.setBounds(399, 473, 105, 54);
+            getContentPane().add(reddot_11);
+
+            JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+            reddot_12.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            reddot_12.setFocusPainted(false);
+            reddot_12.setContentAreaFilled(false);
+            reddot_12.setBorderPainted(false);
+            reddot_12.setBounds(501, 315, 105, 54);
+            getContentPane().add(reddot_12);
+        }
+        {
+
             JButton city_btn_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
             city_btn_0.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
