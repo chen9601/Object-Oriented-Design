@@ -26,6 +26,7 @@ public class DialogPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Clear();
+                // 다른 다이얼로그가 출력되도록 해야 함.
             }
         });
 
