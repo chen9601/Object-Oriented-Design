@@ -17,7 +17,8 @@ public class Tile {
     // TODO : 우리 병원인거 확인은 그냥 if문으로 해야 하나? Tile내에 병원 같은 이벤트 여부를 확인하는 것 보다? 그게 편하려나? 그게 편할 듯 타일 타입으로 분기!
 //    @Builder.Default
 //    private ArrayList<Event> internal_events = new ArrayList<>();
-    private boolean summoned_portal;
-    private Monster summoned_monster;
+    private boolean summoned_portal=false;
+    @Builder.Default
+    private Monster summoned_monster=null;
     private final TileType name;
 }
