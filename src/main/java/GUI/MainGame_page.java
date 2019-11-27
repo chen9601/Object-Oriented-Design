@@ -1,5 +1,6 @@
 package GUI;
 
+import com.DialogPanelController;
 import com.GameMaster;
 import com.Player;
 
@@ -65,10 +66,12 @@ public class MainGame_page extends JFrame {
         turn_text.setText(Integer.toString(GameMaster.turn));
         tab.add(turn_text);
 
-        DialogPanel dialog_panel = new DialogPanel();
+        DialogPanelController dialog_panel_controller = new DialogPanelController();
+        JPanel dialog_panel = dialog_panel_controller.getDialog_panel();
         dialog_panel.setBounds(599, 165, 569, 430);
-        getContentPane().add(dialog_panel);
         dialog_panel.setLayout(null);
+        getContentPane().add(dialog_panel);
+
         {
             JButton city_btn_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
             city_btn_0.addActionListener(new ActionListener() {
