@@ -34,7 +34,7 @@ public class ConstantEventHandler
     }
     void movebyTeleport(Player player, TileType tile){}
     /**
-     * 움직일 플레이어와 목적지를 받아 이동가능 여부를 확인 후 이동시키는 메소드
+     * 플레이어가 움직인 이후 호출, 움직일 플레이어와 목적지를 받아 이동가능 여부를 확인 후 이동시키는 메소드
      * @param player
      *        해당 플레이어
      * @param tile
