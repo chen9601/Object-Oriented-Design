@@ -133,6 +133,18 @@ public class RandomEventAnswer{
             case "21_2":
                 Ans21_2(player);
                 break;
+            case "continue":
+                ContinueDialog();
+                break;
+            case "turnEnd":
+                TurnEnd();
+                break;
+            case "5_1_1":
+                Ans5_2_Sub1(player);
+                break;
+            case "5_1_1_1":
+                Ans5_2_SubResult(player);
+                break;
 
         }
     }
@@ -143,6 +155,7 @@ public class RandomEventAnswer{
         String message="당신은 집회에 가보기로 했습니다.";
         DialogPanelController.show_dialog(message);
         RandomEventHandler rando = new RandomEventHandler();
+        DialogPanelController.Clear();
         rando.Rev1_sub1(player);
     }
     public static void Ans1_1_1(Player player)
@@ -154,6 +167,10 @@ public class RandomEventAnswer{
         int tempMental=player.getMental();
         player.setHealth(tempHealth-2);
         player.setMental(tempMental+2);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans1_1_2(Player player)
     {
@@ -164,12 +181,20 @@ public class RandomEventAnswer{
         player.setHealth(tempHealth-1);
         int tempMental=player.getMental();
         player.setMental(tempMental-1);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans1_2(Player player)
     {
         DialogPanelController.Clear();
         String message="위험해보입니다. 그런 곳은 가지 않는 것이 상책입니다.";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans2_1(Player player)
     {
@@ -184,6 +209,10 @@ public class RandomEventAnswer{
         }
         else
             DialogPanelController.show_dialog(message1);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans2_2(Player player)
     {
@@ -191,6 +220,10 @@ public class RandomEventAnswer{
         String message="소리를 내는 기괴한 생물체를 발견했습니다.";
         DialogPanelController.show_dialog(message);
         ConstantEventHandler.generateFight(player, MonsterType.Nightgaunt);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans3_1(Player player)
     {
@@ -208,12 +241,20 @@ public class RandomEventAnswer{
             DialogPanelController.show_dialog(message1);
             player.setMoney(player.getMoney()+5);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans3_2(Player player)
     {
         DialogPanelController.Clear();
         String message="회원들이 당신에게 겁쟁이라고 욕했지만, 당신은 아랑곳하지 않고 자리를 떠났습니다.";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans4_1(Player player)
     {
@@ -231,6 +272,10 @@ public class RandomEventAnswer{
             DialogPanelController.show_dialog(message2);
             player.setHealth(player.getHealth()-tempDice);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans4_2(Player player)
     {
@@ -238,12 +283,20 @@ public class RandomEventAnswer{
         player.setMental(player.getMental()-1);
         String message="우연히 그와 눈이 마주치자 당신의 영혼의 일부가 손실된 것처럼 허전해집니다.";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans4_3(Player player)
     {
         DialogPanelController.Clear();
         String message="불길한 사람입니다. 자리에서 떠납니다.";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans5_1(Player player)
     {
@@ -251,14 +304,34 @@ public class RandomEventAnswer{
         String message1="당신을 가격하는 몽둥이를 피했습니다.";
         String message2="당신을 가격하는 몽둥이를 피하지 못했습니다. 눈앞이 캄캄해집니다.";
         if(DialogPanelController.Dice()>2 && player.getDexterity()>2)
+        {
             DialogPanelController.show_dialog(message1);
+            Answer answer1=new Answer("1. 계속","continue");
+            Answer answer2=new Answer("2. 턴 종료","turnEnd");
+            DialogPanelController.show_dialog_answer1(answer1);
+            DialogPanelController.show_dialog_answer2(answer2);
+        }
         else
         {
             DialogPanelController.show_dialog(message2);
-            int temp=(int)Math.floor(Math.random()*13);
-            ConstantEventHandler.movebyTeleport(player, TileType.values()[temp]);
-            ConstantEventHandler.generateRandomEvent(player);
+            Answer answer1=new Answer("1. 계속","5_1_1");
+            DialogPanelController.show_dialog_answer1(answer1);
         }
+
+    }
+    public static void Ans5_2_Sub1(Player player)
+    {
+        DialogPanelController.Clear();
+        DialogPanelController.show_dialog("여기가...어디지?");
+        Answer answer1=new Answer("1. 낯선 곳에서의 새로운 사건이 발생합니다.","5_1_1_1");
+
+    }
+    public static void Ans5_2_SubResult(Player player)
+    {
+        int temp=(int)Math.floor(Math.random()*13);
+        ConstantEventHandler.movebyTeleport(player, TileType.values()[temp]);
+        ConstantEventHandler.generateRandomEvent(player);
+        DialogPanelController.generateGeneralDialogues();
     }
     public static void Ans6_1(Player player)
     {
@@ -276,12 +349,20 @@ public class RandomEventAnswer{
             player.setDexterity(player.getDexterity()-1);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans6_2(Player player)
     {
         DialogPanelController.Clear();
         String message="불길한 소문입니다. 무시합니다.";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
 
@@ -301,6 +382,10 @@ public class RandomEventAnswer{
             ConstantEventHandler.movebyTeleport(player, TileType.values()[temp]);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans7_2(Player player)
@@ -308,6 +393,10 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message="호기심이 고양이를 죽이는 법입니다.";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans8_1(Player player)
     {
@@ -323,12 +412,20 @@ public class RandomEventAnswer{
         {
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans8_2(Player player)
     {
         DialogPanelController.Clear();
         String message="이런 이야기는 사람들에게 알려져서는 안됩니다. 제보하지 않습니다.";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans9_1(Player player)
@@ -353,6 +450,10 @@ public class RandomEventAnswer{
                 DialogPanelController.show_dialog(message3);
             }
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans9_2(Player player)
     {
@@ -366,6 +467,10 @@ public class RandomEventAnswer{
             player.setHealth(player.getHealth()-3);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans10_1(Player player)
     {
@@ -385,18 +490,30 @@ public class RandomEventAnswer{
             player.setHealth(player.getHealth()-tempDice);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans10_2(Player player)
     {
         DialogPanelController.Clear();
         String message="정말 그는 당신이 모르는 사람일까요?";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans11_1(Player player)
     {
         DialogPanelController.Clear();
         String message="그의 연주를 듣고 있으니 마음 한구석이 치유되는 것 같습니다.";
         player.setMental(player.getMental()+2);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans12_1(Player player)
     {
@@ -413,6 +530,10 @@ public class RandomEventAnswer{
         {
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans12_2(Player player)
     {
@@ -420,6 +541,10 @@ public class RandomEventAnswer{
         String message="\"존중할줄 아는 자세가 필요하겠군.\" 노인이 갑자기 사라지고 당신은 현기증을 느낍니다.";
         player.setMental(player.getMental()-1);
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans13_1(Player player)
@@ -428,6 +553,10 @@ public class RandomEventAnswer{
         String message="공포가 당신을 휘감습니다.";
         player.setMental(player.getMental()-1);
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans14_1(Player player)
@@ -445,6 +574,10 @@ public class RandomEventAnswer{
             player.setMoney(player.getMoney()-2);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans14_2(Player player)
@@ -462,6 +595,10 @@ public class RandomEventAnswer{
             player.setMoney(player.getMoney()-2);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans15_1(Player player)
@@ -470,6 +607,10 @@ public class RandomEventAnswer{
         String message="당신은 오싹한 기분을 느낍니다.";
         player.setMental(player.getMental()-1);
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans16_1(Player player)
@@ -479,6 +620,10 @@ public class RandomEventAnswer{
         player.setMental(player.getMental()-1);
         GameMaster.token++;
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans17_1(Player player)
@@ -492,6 +637,10 @@ public class RandomEventAnswer{
         ConstantEventHandler.CreateMonster(MonsterType.values()[tempMon], TileType.values()[tempPlace]);
         ConstantEventHandler.CreateMonster(MonsterType.values()[tempMon2], TileType.values()[tempPlace2]);
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans18_1(Player player)
@@ -508,7 +657,7 @@ public class RandomEventAnswer{
             if(player.getMental()==0)
             {
                 DialogPanelController.show_dialog(message1);
-                //player.setStatus(2);                                               //Status 2는 즉사 상태. 즉 즉사 체크 없이 즉사 처리함+status 구현 어떻게 되었는지??
+                player.setStatus(2);                                               //Status 2는 즉사 상태. 즉 즉사 체크 없이 즉사 처리함+status 구현 어떻게 되었는지??
                 break;
             }
         }
@@ -519,12 +668,20 @@ public class RandomEventAnswer{
             player.setMental(player.getMental()+1);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans18_2(Player player)
     {
         DialogPanelController.Clear();
         String message="\"안타깝군요. 다음에는 거래에 응해주시길.\"";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
 
@@ -540,6 +697,10 @@ public class RandomEventAnswer{
         }
 
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
 
@@ -549,6 +710,10 @@ public class RandomEventAnswer{
         String message="써도 괜찮은 물건일까요?";
         ConstantEventHandler.addRandomItem(player);
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 
     public static void Ans21_1(Player player)
@@ -569,11 +734,32 @@ public class RandomEventAnswer{
             player.setHealth(player.getHealth()-tempDice);
             DialogPanelController.show_dialog(message2);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
     public static void Ans21_2(Player player)
     {
         DialogPanelController.Clear();
         String message="정말 그는 당신이 모르는 사람일까요?";
         DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void ContinueDialog()
+    {
+        DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();
+    }
+
+    public static void TurnEnd()
+    {
+        DialogPanelController.Clear();
+        GameMaster.turnEnd();
+        DialogPanelController.generateGeneralDialogues();
     }
 }

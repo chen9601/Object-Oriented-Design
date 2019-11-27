@@ -27,7 +27,8 @@ public class GameMaster {
 
     public static int token = 0;
     public static int death_count=3;
-    public static int turn = 0;
+    public static int turn = 1;
+    public static boolean turn_switch=false;
     public static Boss current_boss;
 
     private ConstantEventHandler constant_event_handler;
@@ -74,7 +75,7 @@ public class GameMaster {
         player.setDexterity(combined_stats[1]);
         player.setIntelligence(combined_stats[2]);
         player.setMental(combined_stats[3]);
-        // 체력만 기존 체력 + SetStatus_page에서 추가한 포인트로 세팅한다.
+        // 체력만 1 + SetStatus_page에서 추가한 포인트로 세팅한다.
         player.setHealth(player.getHealth() + combined_stats[4]);
 
         if(player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
@@ -111,10 +112,118 @@ public class GameMaster {
             player.setPos(TileType.HOSPITAL);
         }
     }
-    private static int turnEnd(){return 0;}
-    private static boolean check_num_of_token_for_win(){return true;}
-    private static boolean check_player_status_for_lost(){return true;}
-    private static boolean check_num_of_monsters_portals_for_boss(){return true;}
-    public static void setPortalGateRandomly(){}
+    public static void turnEnd()
+    {
+        if(turn_switch)
+        {
+            if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
+                death(getCurrentPlayer());
+
+            if(check_num_of_token_for_win())
+            {
+                //승리 엔딩 출력
+            }
+            if(check_player_status_for_lost())
+            {
+                //패배 엔딩 출력
+            }
+            if(check_num_of_monsters_portals_for_boss())
+            {
+                generateBossFight(current_boss);
+            }
+
+            if(turn/3==0)
+                setPortalAndMonsterRandomly();
+
+            getCurrentPlayer().setEnergy(getCurrentPlayer().getHealth()/3);
+            if(getCurrentPlayer().getEnergy()==0&&getCurrentPlayer().getStatus()!=2)
+                getCurrentPlayer().setEnergy(1);
+
+            turn++;
+            turn_switch=false;
+        }
+        else
+        {
+            if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
+                death(getCurrentPlayer());
+
+            if(check_num_of_token_for_win())
+            {
+                //승리 엔딩 출력
+            }
+            if(check_player_status_for_lost())
+            {
+                //패배 엔딩 출력
+            }
+            if(check_num_of_monsters_portals_for_boss())
+            {
+                generateBossFight(current_boss);
+            }
+
+            Player.toggleCurrentPlayer();
+            turn_switch=true;
+        }
+
+
+    }
+    private static boolean check_num_of_token_for_win()
+    {
+        if(token==10)
+        return true;
+        else return false;
+    }
+    private static boolean check_player_status_for_lost()
+    {
+        if(players[0].getStatus()==2&&players[1].getStatus()==2)
+        return true;
+        else return false;
+    }
+    private static boolean check_num_of_monsters_portals_for_boss()
+    {
+        int tempNum=0;
+        int tempNum2=0;
+
+        for(int i=0;i<13;i++)
+        {
+            if (Map.tiles[i].getSummoned_monster()!=null)
+                tempNum++;
+        }
+        for(int j=0;j<13;j++)
+        {
+            if(Map.tiles[j].isSummoned_portal())
+                tempNum2++;
+        }
+
+        if(tempNum>6||tempNum2>4)
+        return true;
+        else return false;
+    }
+    public static void setPortalAndMonsterRandomly()
+    {
+        while(true)
+        {
+            int tempNum1=(int)Math.floor(Math.random()*13);
+            int tempNum2=(int)Math.floor(Math.random()*5);
+            MonsterType monster=MonsterType.values()[tempNum2];
+            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
+            if(Map.tiles[tempNum1].getSummoned_monster()==null&&Map.tiles[tempNum1].isSummoned_portal()==false)
+            {
+                Map.tiles[tempNum1].setSummoned_monster(tempMon);
+                break;
+            }
+            else continue;
+        }
+
+        while(true)
+        {
+            int tempNum1=(int)Math.floor(Math.random()*13);
+            if(Map.tiles[tempNum1].getSummoned_monster()==null&&Map.tiles[tempNum1].isSummoned_portal()==false)
+            {
+                Map.tiles[tempNum1].setSummoned_portal(true);
+                break;
+            }
+            else continue;
+        }
+    }
     public static void generateBossFight(Boss boss){}
 }
