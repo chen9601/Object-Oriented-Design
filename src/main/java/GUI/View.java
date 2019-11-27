@@ -15,10 +15,13 @@ public class View {
 	public static void Renew_turn(){};
 
 //	public int setstatus_calculate(int s, String status){};
-	public void show_dialog(String s){};
-	public void show_dialog_answer1(Answer answer){};
-	public void show_dialog_answer2(Answer answer){};
-	public void show_dialog_answer3(Answer answer){};
+/*
+	@Deprecated below three method moved to DialogPanelController
+ */
+//	public void show_dialog(String s){};
+//	public void show_dialog_answer1(Answer answer){};
+//	public void show_dialog_answer2(Answer answer){};
+//	public void show_dialog_answer3(Answer answer){};
 
 	public void show_boss(){};
 	public void show_monster(){};

@@ -8,36 +8,39 @@ import java.awt.event.ActionListener;
 
 @Data
 public class DialogPanelController {
-    private DialogPanel dialog_panel = new DialogPanel();
-    private JLabel lb_just_text = dialog_panel.getLb_just_text();
-    private JButton selectbtn1 = dialog_panel.getSelectbtn1();
-    private JButton selectbtn2 = dialog_panel.getSelectbtn2();
-    private JButton selectbtn3 = dialog_panel.getSelectbtn3();
+    static public DialogPanel dialog_panel;
+    static private JLabel lb_just_text;
+    static private JButton selectbtn1;
+    static private JButton selectbtn2;
+    static private JButton selectbtn3;
 
     public DialogPanelController(){
+        dialog_panel = new DialogPanel();
+        lb_just_text = dialog_panel.getLb_just_text();
+        selectbtn1 = dialog_panel.getSelectbtn1();
+        selectbtn2 = dialog_panel.getSelectbtn2();
+        selectbtn3 = dialog_panel.getSelectbtn3();
         generateGeneralDialogues();
     }
     // TODO : Clear의 의미를 재 정의 해야할 듯.. 뭔가 어떤 시점에서는 무조건 clear를 한다 이런거?
-    void Clear(){
+    static void Clear(){
         lb_just_text.setText("");
         selectbtn1.setText("");
         selectbtn2.setText("");
         selectbtn3.setText("");
 
-        lb_just_text.setVisible(false);
-        selectbtn1.setVisible(false);
-        selectbtn2.setVisible(false);
-        selectbtn3.setVisible(false);
+        // TODO : 테스트 중
+        if(selectbtn1.getActionListeners().length > 0)
+            selectbtn1.removeActionListener(selectbtn1.getActionListeners()[0]);
+        if(selectbtn2.getActionListeners().length > 0)
+            selectbtn2.removeActionListener(selectbtn2.getActionListeners()[0]);
+        if(selectbtn3.getActionListeners().length > 0)
+            selectbtn3.removeActionListener(selectbtn3.getActionListeners()[0]);
     }
 
-    void generateGeneralDialogues(){
+    static void generateGeneralDialogues(){
         Clear();
         // 플레이어가 맨 처음에 위치 이동, 랜덤 이벤트 실행, 턴 종료 총 세가지 이벤트를 처리할 수 있도록 기본적으로 출력되는 것을 세팅한다.
-
-        JLabel lb_just_text = dialog_panel.getLb_just_text();
-        JButton selectbtn1 = dialog_panel.getSelectbtn1();
-        JButton selectbtn2 = dialog_panel.getSelectbtn2();
-        JButton selectbtn3 = dialog_panel.getSelectbtn3();
 
         StringBuilder sb = new StringBuilder();
         sb.append(Player.idx_of_cur_player + 1);
@@ -62,6 +65,7 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 랜덤 이벤트 관련 메소드 호출
                 Clear();
+                ConstantEventHandler.generateRandomEvent(Player.getCurrentPlayer());
             }
         });
         selectbtn3.addActionListener(new ActionListener() {
@@ -76,6 +80,58 @@ public class DialogPanelController {
         selectbtn1.setVisible(true);
         selectbtn2.setVisible(true);
         selectbtn3.setVisible(true);
+    }
+
+    static public void show_dialog(String s){
+        lb_just_text.setText(s);
+        lb_just_text.setVisible(true);
+
+        dialog_panel.revalidate();
+        dialog_panel.repaint();
+    };
+
+    // TODO : Refactoring
+    static public void show_dialog_answer1(Answer answer){
+        selectbtn1.setText(answer.getMessage());
+        selectbtn1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                dialog_panel.revalidate();
+                dialog_panel.repaint();
+            }
+        });
+        selectbtn1.setVisible(true);
+    };
+    static public void show_dialog_answer2(Answer answer){
+        selectbtn2.setText(answer.getMessage());
+        selectbtn2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                dialog_panel.revalidate();
+                dialog_panel.repaint();
+            }
+        });
+        selectbtn2.setVisible(true);
+    };
+    static public void show_dialog_answer3(Answer answer){
+        selectbtn3.setText(answer.getMessage());
+        selectbtn3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                dialog_panel.revalidate();
+                dialog_panel.repaint();
+            }
+        });
+        selectbtn3.setVisible(true);
+    };
+
+    static public int Dice(){
+        double randomValue = Math.random();
+        int intValue=(int)(randomValue * 6)+1;
+        return intValue;
     }
 
     /*

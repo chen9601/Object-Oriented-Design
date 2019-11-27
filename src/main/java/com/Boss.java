@@ -12,5 +12,6 @@ public class Boss {
     static private Boss current_boss;
     private BossType type;
     private int health;
-    private int power;
+    private int damage;
+    private int requireVal;
 }

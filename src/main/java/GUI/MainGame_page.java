@@ -1,8 +1,6 @@
 package GUI;
 
-import com.DialogPanelController;
-import com.GameMaster;
-import com.Player;
+import com.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -85,7 +83,7 @@ public class MainGame_page extends JFrame {
         tab.add(turn_text);
 
         DialogPanelController dialog_panel_controller = new DialogPanelController();
-        JPanel dialog_panel = dialog_panel_controller.getDialog_panel();
+        JPanel dialog_panel = dialog_panel_controller.dialog_panel;
         dialog_panel.setBounds(599, 165, 569, 430);
         dialog_panel.setLayout(null);
         getContentPane().add(dialog_panel);

@@ -104,7 +104,8 @@ public class SetBoss_page extends JFrame {
                                 .builder()
                                 .type(bosstype)
                                 .health(100)
-                                .power(100)
+                                .damage(100)
+                                .requireVal(100)
                                 .build()
                     );
                     SetStatus_page next = new SetStatus_page();

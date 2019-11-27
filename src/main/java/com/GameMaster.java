@@ -1,11 +1,13 @@
 package com;
 
 import GUI.Start_page;
+import GUI.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.Player.*;
+import static com.Player.getCurrentPlayer;
+import static com.Player.players;
 
 /**
  * 게임마스터 객체 모델로, 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정할 수 있다.
@@ -14,6 +16,8 @@ import static com.Player.*;
  * @version 1.0
  */
 public class GameMaster {
+    private static GUI.Dice_page DICE;
+
     private final int GAME_WIN = 0;
     private final int GAME_LOST = 1;
     private final int GAME_KEEPGOING = 2;
@@ -22,6 +26,7 @@ public class GameMaster {
     private final int PLAYER_BOSS_DEATH = 5;
 
     public static int token = 0;
+    public static int death_count=3;
     public static int turn = 0;
     public static Boss current_boss;
 
@@ -81,8 +86,33 @@ public class GameMaster {
         else // 플레이어가 죽었으면 움직일 수 없다.
             player.setEnergy(0);
     }
-    public static void death(Player player){}
-    private static void revive(Player player){}
+    public static void death(Player player)
+    {
+        for(int i=0;i<death_count;i++)
+        {
+           if(DICE.Dice()>5)
+           {
+               revive(player);
+               death_count--;
+               break;
+           }
+        }
+        if(player.getHealth()<0||player.getMental()<0)
+            player.setStatus(2);
+    }
+    private static void revive(Player player)
+    {
+        if(player.getMental()<0)
+        {
+            player.setMental(1);
+            player.setPos(TileType.MENTAL_HOSTPITAL);
+        }
+        if(player.getHealth()<0)
+        {
+            player.setHealth(1);
+            player.setPos(TileType.HOSPITAL);
+        }
+    }
     private static int turnEnd(){return 0;}
     private static boolean check_num_of_token_for_win(){return true;}
     private static boolean check_player_status_for_lost(){return true;}

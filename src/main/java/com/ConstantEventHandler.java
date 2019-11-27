@@ -3,7 +3,6 @@ package com;
 import static com.Map.*;
 import java.util.ArrayList;
 
-import GUI.View;
 
 import java.lang.Math;
 
@@ -13,15 +12,12 @@ import java.lang.Math;
  */
 public class ConstantEventHandler
 {
-    View view;
-    ConstantEventAnswer cc;
-
-    void generateRandomEvent(Player player)
+    static void generateRandomEvent(Player player)
     {
         int event_num=(int)Math.floor(Math.random()*20);
         RandomEventHandler.RandomEventIndicator(player, event_num);
     }
-    public void move(Player player, TileType tile)
+    static public void move(Player player, TileType tile)
     {
         boolean valid = pathValid(player, tile);
 
@@ -35,7 +31,7 @@ public class ConstantEventHandler
 //            ShowDialog("이동할 수 없는 곳입니다");
         }
     }
-    void movebyTeleport(Player player, TileType tile){player.setPos(tile);}
+    static void movebyTeleport(Player player, TileType tile){player.setPos(tile);}
     /**
      * 플레이어가 움직인 이후 호출, 움직일 플레이어와 목적지를 받아 이동가능 여부를 확인 후 이동시키는 메소드
      * @param player
@@ -43,7 +39,7 @@ public class ConstantEventHandler
      * @param tile
      *        목적지
      */
-    public void CheckEventHere(Player player, TileType tile)
+    static public void CheckEventHere(Player player, TileType tile)
     {
         if(Map.getPortalAt(tile))
         {
@@ -80,7 +76,7 @@ public class ConstantEventHandler
         }
 
     }
-    void addItem(Player player, ItemType item)
+    static void addItem(Player player, ItemType item)
     {
         ArrayList<ItemType> tempitems = player.getItems();
         tempitems.add(item);
@@ -88,7 +84,7 @@ public class ConstantEventHandler
     }
 
 
-    void deleteItem(Player player, ItemType item)
+    static void deleteItem(Player player, ItemType item)
     {
         ArrayList<ItemType> tempitems=player.getItems();
         for(int i=0;i<tempitems.size();i++)
@@ -102,7 +98,7 @@ public class ConstantEventHandler
     }
 
 
-    void addRandomItem(Player player)
+    static void addRandomItem(Player player)
     {
         int tempRand=(int)Math.floor(Math.random()*15);
         ArrayList<ItemType> tempitems=player.getItems();
@@ -111,23 +107,23 @@ public class ConstantEventHandler
     }
 
 
-    void hospital(Player player)
+    static void hospital(Player player)
     {
         String message="병원에 도착했습니다. 치료받으시겠습니까?";
-        view.show_dialog(message);
-        view.show_dialog_answer1(cc.hospital1);
-        view.show_dialog_answer2(cc.hospital2);
+        DialogPanelController.show_dialog(message);
+        DialogPanelController.show_dialog_answer1(ConstantEventAnswer.hospital1);
+        DialogPanelController.show_dialog_answer2(ConstantEventAnswer.hospital2);
     }
 
-    void mospital(Player player)
+    static void mospital(Player player)
     {
         String message="정신병원에 도착했습니다. 치료받으시겠습니까?";
-        view.show_dialog(message);
-        view.show_dialog_answer1(cc.mospital1);
-        view.show_dialog_answer2(cc.mospital2);
+        DialogPanelController.show_dialog(message);
+        DialogPanelController.show_dialog_answer1(ConstantEventAnswer.mospital1);
+        DialogPanelController.show_dialog_answer2(ConstantEventAnswer.mospital2);
     }
-    
-    void generateFight(Player player, MonsterType monster){}
+
+    static void generateFight(Player player, MonsterType monster){}
     boolean isAffordable(Player player, ItemType item)
     {
         if(player.getMoney()<item.getPrice())
@@ -135,13 +131,13 @@ public class ConstantEventHandler
         else
             return true;
     }
-    int getChange(Player player, ItemType item)
+    static int getChange(Player player, ItemType item)
     {
         return player.getMoney()-item.getPrice();
     }
-    void sellItem(Player player, ItemType item){}
-    ItemType getItem(ItemType item){return null;}
-    ArrayList<ItemType> getRandomItemList()
+    static void sellItem(Player player, ItemType item){}
+    static ItemType getItem(ItemType item){return null;}
+    static ArrayList<ItemType> getRandomItemList()
     {
         ArrayList<ItemType> tempitemlist = null;
         for(int i=0;i<3;i++)
@@ -152,7 +148,7 @@ public class ConstantEventHandler
         return tempitemlist;
     }
 
-    void CreateMonster(MonsterType monster, TileType tile)
+    static void CreateMonster(MonsterType monster, TileType tile)
     {
         Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
         Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
@@ -166,7 +162,7 @@ public class ConstantEventHandler
      * <br>true=이벤트용
      * <br>false=상점용
      */
-    boolean AnswerChecker(Answer answer)
+    static boolean AnswerChecker(Answer answer)
     {
         if(answer.getItem()==null)
             return true;
@@ -174,16 +170,16 @@ public class ConstantEventHandler
             return false;
     }
 
-    void shop()
+    static void shop()
     {
         String message="상점에 도착했습니다. 구매하실게 있으신가요";
-        view.show_dialog(message);
+        DialogPanelController.show_dialog(message);
         ArrayList<ItemType> itemlist=getRandomItemList();
         Answer item1=new Answer(itemlist.get(0));
         Answer item2=new Answer(itemlist.get(1));
         Answer item3=new Answer(itemlist.get(2));
-        view.show_dialog_answer1(item1);
-        view.show_dialog_answer2(item2);
-        view.show_dialog_answer3(item3);
+        DialogPanelController.show_dialog_answer1(item1);
+        DialogPanelController.show_dialog_answer2(item2);
+        DialogPanelController.show_dialog_answer3(item3);
     }
 }
