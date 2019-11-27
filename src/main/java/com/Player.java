@@ -14,7 +14,7 @@ import java.util.ArrayList;
 @Data
 @Builder
 public class Player{
-    static private int idx_of_cur_player = 0;
+    static int idx_of_cur_player = 0;
     static private final int MAXIMUM_NUM_OF_PLAYERS = 2;
     static Player[] players = new Player[MAXIMUM_NUM_OF_PLAYERS];
 

@@ -87,7 +87,6 @@ public class GameMaster {
     private static boolean check_num_of_token_for_win(){return true;}
     private static boolean check_player_status_for_lost(){return true;}
     private static boolean check_num_of_monsters_portals_for_boss(){return true;}
-    public static String[] getGeneralDialogues(){return new String[0];}
     public static void setPortalGateRandomly(){}
     public static void generateBossFight(Boss boss){}
 }
