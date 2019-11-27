@@ -127,7 +127,7 @@ public class ConstantEventHandler
         view.show_dialog_answer2(cc.mospital2);
     }
     
-    void generateFight(Player player, Monster.MonsterType monster){}
+    void generateFight(Player player, MonsterType monster){}
     boolean isAffordable(Player player, ItemType item)
     {
         if(player.getMoney()<item.getPrice())
@@ -152,7 +152,7 @@ public class ConstantEventHandler
         return tempitemlist;
     }
 
-    void CreateMonster(Monster.MonsterType monster, TileType tile)
+    void CreateMonster(MonsterType monster, TileType tile)
     {
         Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
         Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
