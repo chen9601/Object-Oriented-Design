@@ -56,6 +56,7 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 플레이어 위치 이동 관련 메소드 타일에서 클릭 가능하게 하는 메소드 호출 이후,
                 // 현재 플레이어가 갈 수 있는 위치 출력하는 메소드 출력 등등
+                GUI.MainGame_page.show_reddot();
                 Clear();
             }
         });
