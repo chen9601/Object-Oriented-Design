@@ -58,7 +58,19 @@ public class GameMaster {
     private static void initItem(){
 //        Player.items
     }
-    private static void initMap(){}
+    private static void initMap(){
+
+        Map.tiles = new Tile[12];
+        for(int i = 0;i<12;i++){
+            Map.tiles[i] = Tile
+                    .builder()
+                    .summoned_monster(null)
+                    .summoned_portal(false)
+                    .name(TileType.values()[i])
+                    .build();
+        }
+
+    }
     private static void initMonsters(){}
     public static void setBoss(Boss selected_boss){
         // 테스트 코드 TODO : 실제 보스는 객체로 적절한 스탯으로 생성해야 함. enum이 될 순 없다. health가 변경가능해야 하므로

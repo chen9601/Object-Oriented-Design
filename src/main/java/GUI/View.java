@@ -1,8 +1,6 @@
 package GUI;
 
-import com.Answer;
-import com.Map;
-import com.ConstantEventAnswer;
+import com.*;
 
 /** */
 public class View {
@@ -27,16 +25,7 @@ public class View {
 	public void show_monster(){};
 
 
-	public static void show_reddot(){
-		for(int tile_condition:Map.canmovetile()){
-			if(tile_condition == 1){
-				MainGame_page.dot_array[tile_condition].setVisible(true);
-			}
-			else{
-				MainGame_page.dot_array[tile_condition].setVisible(false);
-			}
-		}
-	}
+
 	public int Dice() {
 		double randomValue = Math.random();
 		int intValue = (int) (randomValue * 6) + 1;

@@ -1,6 +1,4 @@
 package GUI;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,15 +9,15 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 /** boss나 monster와의 전투를 나타내는 페이지이다.*/
 
-public class Fight_page extends JFrame {
+public class Fight_monster_page extends JFrame {
 
 	public static void main(String[] args) {
-		Fight_page frame = new Fight_page();
+		Fight_monster_page frame = new Fight_monster_page();
 		frame.setVisible(true);
 	}
 
 
-	public Fight_page() {
+	public Fight_monster_page() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 960);
 		getContentPane().setLayout(null);
@@ -29,14 +27,7 @@ public class Fight_page extends JFrame {
 		panel.setBounds(0, 0, 1182, 146);
 		getContentPane().add(panel);
 		
-		JButton status = new JButton("prev");
-		status.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		status.setBounds(40, 32, 180, 70);
-		panel.add(status);
-		
+
 		JButton Exit = new JButton("exit");
 		Exit.setBounds(986, 40, 144, 54);
 		panel.add(Exit);
