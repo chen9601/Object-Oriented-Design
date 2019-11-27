@@ -21,20 +21,20 @@ public class MainGame_page extends JFrame {
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
 
 
-    static JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton dot_array[] = {reddot_0, reddot_1, reddot_2, reddot_3, reddot_4, reddot_5, reddot_6, reddot_7, reddot_8, reddot_9, reddot_10, reddot_11, reddot_12};
+    JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    JButton dot_array[] = {reddot_0, reddot_1, reddot_2, reddot_3, reddot_4, reddot_5, reddot_6, reddot_7, reddot_8, reddot_9, reddot_10, reddot_11, reddot_12};
 
     JButton city_btn_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
     JButton city_btn_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
@@ -50,6 +50,40 @@ public class MainGame_page extends JFrame {
     JButton city_btn_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
     JButton city_btn_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
     JButton city_array[] = {city_btn_0, city_btn_1, city_btn_2, city_btn_3, city_btn_4, city_btn_5, city_btn_6, city_btn_7, city_btn_8, city_btn_9, city_btn_10, city_btn_11, city_btn_12};
+
+    ImageIcon player1_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_img.png");
+
+    JLabel player1_img_0 = new JLabel(player1_Icon);
+    JLabel player1_img_1 = new JLabel(player1_Icon);
+    JLabel player1_img_2 = new JLabel(player1_Icon);
+    JLabel player1_img_3 = new JLabel(player1_Icon);
+    JLabel player1_img_4 = new JLabel(player1_Icon);
+    JLabel player1_img_5 = new JLabel(player1_Icon);
+    JLabel player1_img_6 = new JLabel(player1_Icon);
+    JLabel player1_img_7 = new JLabel(player1_Icon);
+    JLabel player1_img_8 = new JLabel(player1_Icon);
+    JLabel player1_img_9 = new JLabel(player1_Icon);
+    JLabel player1_img_10 = new JLabel(player1_Icon);
+    JLabel player1_img_11 = new JLabel(player1_Icon);
+    JLabel player1_img_12 = new JLabel(player1_Icon);
+    JLabel player1_array[] = {player1_img_0, player1_img_1, player1_img_2, player1_img_3, player1_img_4, player1_img_5, player1_img_6, player1_img_7, player1_img_8, player1_img_9, player1_img_10, player1_img_11, player1_img_12};
+
+    ImageIcon player2_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
+
+    JLabel player2_img_0 = new JLabel(player2_Icon);
+    JLabel player2_img_1 = new JLabel(player2_Icon);
+    JLabel player2_img_2 = new JLabel(player2_Icon);
+    JLabel player2_img_3 = new JLabel(player2_Icon);
+    JLabel player2_img_4 = new JLabel(player2_Icon);
+    JLabel player2_img_5 = new JLabel(player2_Icon);
+    JLabel player2_img_6 = new JLabel(player2_Icon);
+    JLabel player2_img_7 = new JLabel(player2_Icon);
+    JLabel player2_img_8 = new JLabel(player2_Icon);
+    JLabel player2_img_9 = new JLabel(player2_Icon);
+    JLabel player2_img_10 = new JLabel(player2_Icon);
+    JLabel player2_img_11 = new JLabel(player2_Icon);
+    JLabel player2_img_12 = new JLabel(player2_Icon);
+    JLabel player2_array[] = {player2_img_0, player2_img_1, player2_img_2, player2_img_3, player2_img_4, player2_img_5, player2_img_6, player2_img_7, player2_img_8, player2_img_9, player2_img_10, player2_img_11, player2_img_12};
 
     /*
         TODO : 각 타일 위에 출력할 수 있어야 하는 목록
@@ -106,6 +140,91 @@ public class MainGame_page extends JFrame {
             dialog_panel.setBounds(599, 165, 569, 430);
             dialog_panel.setLayout(null);
             getContentPane().add(dialog_panel);
+        }
+
+        {
+
+            player2_img_0.setBounds(244, 315, 80, 54);
+            getContentPane().add(player2_img_0);
+
+            player2_img_1.setBounds(244, 209, 80, 54);
+            getContentPane().add(player2_img_1);
+
+            player2_img_2.setBounds(145, 268, 80, 54);
+            getContentPane().add(player2_img_2);
+
+            player2_img_3.setBounds(145, 370, 80, 54);
+            getContentPane().add(player2_img_3);
+
+            player2_img_4.setBounds(244, 431, 80, 54);
+            getContentPane().add(player2_img_4);
+
+            player2_img_5.setBounds(355, 370, 80, 54);
+            getContentPane().add(player2_img_5);
+
+            player2_img_6.setBounds(355, 268, 80, 54);
+            getContentPane().add(player2_img_6);
+
+            player2_img_7.setBounds(399, 165, 80, 54);
+            getContentPane().add(player2_img_7);
+
+            player2_img_8.setBounds(114, 165, 80, 54);
+            getContentPane().add(player2_img_8);
+
+            player2_img_9.setBounds(14, 315, 80, 54);
+            getContentPane().add(player2_img_9);
+
+            player2_img_10.setBounds(114, 473, 80, 54);
+            getContentPane().add(player2_img_10);
+
+            player2_img_11.setBounds(399, 473, 80, 54);
+            getContentPane().add(player2_img_11);
+
+            player2_img_12.setBounds(501, 315, 80, 54);
+            getContentPane().add(player2_img_12);
+
+        }
+        {
+
+            player1_img_0.setBounds(244, 315, 80, 54);
+            getContentPane().add(player1_img_0);
+
+            player1_img_1.setBounds(244, 209, 80, 54);
+            getContentPane().add(player1_img_1);
+
+            player1_img_2.setBounds(145, 268, 80, 54);
+            getContentPane().add(player1_img_2);
+
+            player1_img_3.setBounds(145, 370, 80, 54);
+            getContentPane().add(player1_img_3);
+
+            player1_img_4.setBounds(244, 431, 80, 54);
+            getContentPane().add(player1_img_4);
+
+            player1_img_5.setBounds(355, 370, 80, 54);
+            getContentPane().add(player1_img_5);
+
+            player1_img_6.setBounds(355, 268, 80, 54);
+            getContentPane().add(player1_img_6);
+
+            player1_img_7.setBounds(399, 165, 80, 54);
+            getContentPane().add(player1_img_7);
+
+            player1_img_8.setBounds(114, 165, 80, 54);
+            getContentPane().add(player1_img_8);
+
+            player1_img_9.setBounds(14, 315, 80, 54);
+            getContentPane().add(player1_img_9);
+
+            player1_img_10.setBounds(114, 473, 80, 54);
+            getContentPane().add(player1_img_10);
+
+            player1_img_11.setBounds(399, 473, 80, 54);
+            getContentPane().add(player1_img_11);
+
+            player1_img_12.setBounds(501, 315, 80, 54);
+            getContentPane().add(player1_img_12);
+
         }
         {
 
@@ -221,7 +340,7 @@ public class MainGame_page extends JFrame {
         }
         {
             for (JButton button_city : city_array) {
-                button_city.setVisible(false);
+                button_city.setVisible(true);
                 button_city.setFocusPainted(false);
                 button_city.setContentAreaFilled(false);
                 button_city.setBorderPainted(false);
@@ -373,7 +492,9 @@ public class MainGame_page extends JFrame {
             getContentPane().add(player2_temp);
             player2_temp.add(player2);
         }
-        JLabel player1_img = new JLabel("src\\main\\java\\GUI\\imgaes\\player1_img.png");
+
+
+
     }
 
     public static void main(String[] args) {
@@ -381,7 +502,7 @@ public class MainGame_page extends JFrame {
         MainGame.setVisible(true);
     }
 
-    public static void show_reddot() {
+    public void show_reddot() {
         for (TileType tile : Map.getMovableTiles(Player.getCurrentPlayer())) {
             dot_array[tile.ordinal()].setVisible(true);
         }
