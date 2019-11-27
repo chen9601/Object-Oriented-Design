@@ -144,85 +144,85 @@ public class MainGame_page extends JFrame {
 
         {
 
-            player2_img_0.setBounds(244, 315, 80, 54);
+            player2_img_0.setBounds(264, 315, 40, 50);
             getContentPane().add(player2_img_0);
 
-            player2_img_1.setBounds(244, 209, 80, 54);
+            player2_img_1.setBounds(264, 209, 40, 50);
             getContentPane().add(player2_img_1);
 
-            player2_img_2.setBounds(145, 268, 80, 54);
+            player2_img_2.setBounds(165, 268, 40, 50);
             getContentPane().add(player2_img_2);
 
-            player2_img_3.setBounds(145, 370, 80, 54);
+            player2_img_3.setBounds(165, 370, 40, 50);
             getContentPane().add(player2_img_3);
 
-            player2_img_4.setBounds(244, 431, 80, 54);
+            player2_img_4.setBounds(264, 431, 40, 50);
             getContentPane().add(player2_img_4);
 
-            player2_img_5.setBounds(355, 370, 80, 54);
+            player2_img_5.setBounds(375, 370, 40, 50);
             getContentPane().add(player2_img_5);
 
-            player2_img_6.setBounds(355, 268, 80, 54);
+            player2_img_6.setBounds(375, 268, 40, 50);
             getContentPane().add(player2_img_6);
 
-            player2_img_7.setBounds(399, 165, 80, 54);
+            player2_img_7.setBounds(419, 165, 40, 50);
             getContentPane().add(player2_img_7);
 
-            player2_img_8.setBounds(114, 165, 80, 54);
+            player2_img_8.setBounds(134, 165, 40, 50);
             getContentPane().add(player2_img_8);
 
-            player2_img_9.setBounds(14, 315, 80, 54);
+            player2_img_9.setBounds(34, 315, 40, 50);
             getContentPane().add(player2_img_9);
 
-            player2_img_10.setBounds(114, 473, 80, 54);
+            player2_img_10.setBounds(134, 473, 40, 50);
             getContentPane().add(player2_img_10);
 
-            player2_img_11.setBounds(399, 473, 80, 54);
+            player2_img_11.setBounds(400, 473, 80, 54);
             getContentPane().add(player2_img_11);
 
-            player2_img_12.setBounds(501, 315, 80, 54);
+            player2_img_12.setBounds(502, 315, 80, 54);
             getContentPane().add(player2_img_12);
 
         }
         {
 
-            player1_img_0.setBounds(244, 315, 80, 54);
+            player1_img_0.setBounds(284, 315, 40, 50);
             getContentPane().add(player1_img_0);
 
-            player1_img_1.setBounds(244, 209, 80, 54);
+            player1_img_1.setBounds(284, 209, 40, 50);
             getContentPane().add(player1_img_1);
 
-            player1_img_2.setBounds(145, 268, 80, 54);
+            player1_img_2.setBounds(185, 268, 40, 50);
             getContentPane().add(player1_img_2);
 
-            player1_img_3.setBounds(145, 370, 80, 54);
+            player1_img_3.setBounds(185, 370, 40, 50);
             getContentPane().add(player1_img_3);
 
-            player1_img_4.setBounds(244, 431, 80, 54);
+            player1_img_4.setBounds(284, 431, 40, 50);
             getContentPane().add(player1_img_4);
 
-            player1_img_5.setBounds(355, 370, 80, 54);
+            player1_img_5.setBounds(395, 370, 40, 50);
             getContentPane().add(player1_img_5);
 
-            player1_img_6.setBounds(355, 268, 80, 54);
+            player1_img_6.setBounds(395, 268, 40, 50);
             getContentPane().add(player1_img_6);
 
-            player1_img_7.setBounds(399, 165, 80, 54);
+            player1_img_7.setBounds(440, 165, 40, 50);
             getContentPane().add(player1_img_7);
 
-            player1_img_8.setBounds(114, 165, 80, 54);
+            player1_img_8.setBounds(154, 165, 40, 50);
             getContentPane().add(player1_img_8);
 
-            player1_img_9.setBounds(14, 315, 80, 54);
+            player1_img_9.setBounds(64, 315, 40, 50);
             getContentPane().add(player1_img_9);
 
-            player1_img_10.setBounds(114, 473, 80, 54);
+            player1_img_10.setBounds(154, 473, 40, 50);
             getContentPane().add(player1_img_10);
 
-            player1_img_11.setBounds(399, 473, 80, 54);
+            player1_img_11.setBounds(439, 473, 40, 50);
             getContentPane().add(player1_img_11);
 
-            player1_img_12.setBounds(501, 315, 80, 54);
+            player1_img_12.setBounds(541, 315, 40, 50);
             getContentPane().add(player1_img_12);
 
         }
