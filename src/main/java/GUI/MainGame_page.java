@@ -17,6 +17,24 @@ import javax.swing.*;
 public class MainGame_page extends JFrame {
     // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+
+
+    static JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static JButton dot_array[] = {reddot_0, reddot_1, reddot_2, reddot_3, reddot_4, reddot_5, reddot_6, reddot_7, reddot_8, reddot_9, reddot_10, reddot_11, reddot_12};
+
+
     /*
         TODO : 각 타일 위에 출력할 수 있어야 하는 목록
         플레이어 2명, 포탈 1개, 몬스터 1마리
@@ -73,19 +91,18 @@ public class MainGame_page extends JFrame {
         getContentPane().add(dialog_panel);
         {
 
-            JButton rdedot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-            rdedot_0.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    System.out.println("test");
-                }
-            });
-            rdedot_0.setFocusPainted(false);
-            rdedot_0.setContentAreaFilled(false);
-            rdedot_0.setBorderPainted(false);
-            rdedot_0.setBounds(244, 315, 105, 54);
-            getContentPane().add(rdedot_0);
 
-            JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+//            reddot_0.addActionListener(new ActionListener() {
+//                public void actionPerformed(ActionEvent e) {
+//                    System.out.println("test");
+//                }
+//            });
+//            reddot_0.setFocusPainted(false);
+//            reddot_0.setContentAreaFilled(false);
+//            reddot_0.setBorderPainted(false);
+//            reddot_0.setBounds(244, 315, 105, 54);
+//            getContentPane().add(reddot_0);
+
             reddot_1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -96,7 +113,7 @@ public class MainGame_page extends JFrame {
             reddot_1.setBounds(244, 209, 105, 54);
             getContentPane().add(reddot_1);
 
-            JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_2.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -107,7 +124,6 @@ public class MainGame_page extends JFrame {
             reddot_2.setBounds(145, 268, 105, 54);
             getContentPane().add(reddot_2);
 
-            JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
             reddot_3.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -119,7 +135,7 @@ public class MainGame_page extends JFrame {
             getContentPane().add(reddot_3);
 
 
-            JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_4.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -130,7 +146,7 @@ public class MainGame_page extends JFrame {
             reddot_4.setBounds(244, 431, 105, 54);
             getContentPane().add(reddot_4);
 
-            JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_5.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                 }
@@ -141,7 +157,7 @@ public class MainGame_page extends JFrame {
             reddot_5.setBounds(355, 370, 105, 54);
             getContentPane().add(reddot_5);
 
-            JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_6.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -152,7 +168,7 @@ public class MainGame_page extends JFrame {
             reddot_6.setBounds(355, 268, 105, 54);
             getContentPane().add(reddot_6);
 
-            JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_7.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -164,7 +180,7 @@ public class MainGame_page extends JFrame {
             getContentPane().add(reddot_7);
 
 
-            JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_8.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -176,7 +192,7 @@ public class MainGame_page extends JFrame {
             getContentPane().add(reddot_8);
 
 
-            JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_9.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -188,7 +204,7 @@ public class MainGame_page extends JFrame {
             getContentPane().add(reddot_9);
 
 
-            JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_10.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -199,7 +215,7 @@ public class MainGame_page extends JFrame {
             reddot_10.setBounds(114, 473, 105, 54);
             getContentPane().add(reddot_10);
 
-            JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_11.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -210,7 +226,7 @@ public class MainGame_page extends JFrame {
             reddot_11.setBounds(399, 473, 105, 54);
             getContentPane().add(reddot_11);
 
-            JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+
             reddot_12.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 }
@@ -220,6 +236,8 @@ public class MainGame_page extends JFrame {
             reddot_12.setBorderPainted(false);
             reddot_12.setBounds(501, 315, 105, 54);
             getContentPane().add(reddot_12);
+
+
         }
         {
 
@@ -227,6 +245,7 @@ public class MainGame_page extends JFrame {
             city_btn_0.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("test");
+                    View.show_reddot();
                 }
             });
             city_btn_0.setFocusPainted(false);
@@ -372,13 +391,13 @@ public class MainGame_page extends JFrame {
             getContentPane().add(city_btn_12);
         }
 
-		JLabel player1_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
-		player1_img.setBounds(650, 620, 240, 163);
-		getContentPane().add(player1_img);
+        JLabel player1_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
+        player1_img.setBounds(650, 620, 240, 163);
+        getContentPane().add(player1_img);
 
-		JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
-		player1_name.setBounds(650, 780, 240, 61);
-		getContentPane().add(player1_name);
+        JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
+        player1_name.setBounds(650, 780, 240, 61);
+        getContentPane().add(player1_name);
 
         p_simplestat player1 = new p_simplestat();
         JPanel player1_temp = new JPanel();
@@ -386,13 +405,13 @@ public class MainGame_page extends JFrame {
         getContentPane().add(player1_temp);
         player1_temp.add(player1);
 
-		JLabel player2_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
-		player2_img.setBounds(41, 620, 240, 163);
-		getContentPane().add(player2_img);
+        JLabel player2_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
+        player2_img.setBounds(41, 620, 240, 163);
+        getContentPane().add(player2_img);
 
-		JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
-		player2_name.setBounds(41, 780, 240, 61);
-		getContentPane().add(player2_name);
+        JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
+        player2_name.setBounds(41, 780, 240, 61);
+        getContentPane().add(player2_name);
 
         p_simplestat player2 = new p_simplestat();
         JPanel player2_temp = new JPanel();
@@ -465,9 +484,9 @@ public class MainGame_page extends JFrame {
             energy_panel.add(energy_text);
             add(energy_panel);
 
-			money_panel.add(money);
-			money_panel.add(money_text);
-			add(money_panel);
+            money_panel.add(money);
+            money_panel.add(money_text);
+            add(money_panel);
 
             setLayout(new GridLayout(4, 2, 20, 0));
         }
