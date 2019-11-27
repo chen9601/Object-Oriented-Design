@@ -1,5 +1,8 @@
 package com;
 
+import lombok.Data;
+
+@Data
 public class Answer{
     private String message;
     private String tag;
