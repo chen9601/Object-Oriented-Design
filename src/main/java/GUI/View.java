@@ -21,10 +21,4 @@ public class View {
 
 	public void show_boss(){};
 	public void show_monster(){};
-
-	public int Dice(){
-		double randomValue = Math.random();
-		int intValue=(int)(randomValue * 6)+1;
-		return intValue;
-	}
 }

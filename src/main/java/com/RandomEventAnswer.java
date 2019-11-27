@@ -10,6 +10,7 @@ import java.util.Random;
  */
 
 public class RandomEventAnswer{
+    private static GUI.Dice_page DICE;
     private static View view;
     private static ConstantEventHandler constanter;
     /**
@@ -212,7 +213,7 @@ public class RandomEventAnswer{
     {
         String message1="그가 망토 속에서 기이한 물건 하나를 꺼내 당신에게 건네줍니다.";
         String message2="그는 갑자기 망토 속에서 독을 바른 칼날을 꺼내 당신을 찌릅니다.";
-        int tempDice=view.Dice();
+        int tempDice=DICE.Dice();
         if(tempDice>4)
         {
             view.show_dialog(message1);
@@ -239,7 +240,7 @@ public class RandomEventAnswer{
     {
         String message1="당신을 가격하는 몽둥이를 피했습니다.";
         String message2="당신을 가격하는 몽둥이를 피하지 못했습니다. 눈앞이 캄캄해집니다.";
-        if(view.Dice()>2 && player.getDexterity()>2)
+        if(DICE.Dice()>2 && player.getDexterity()>2)
             view.show_dialog(message1);
         else
         {
@@ -276,7 +277,7 @@ public class RandomEventAnswer{
     {
         String message1="상자를 열고 신비로운 힘이 느껴지는 물건을 얻었습니다.";
         String message2="상자를 여는 것을 경비원에게 들켰습니다.";
-        if(player.getDexterity()>2&&view.Dice()>3)
+        if(player.getDexterity()>2&&DICE.Dice()>3)
         {
             constanter.addRandomItem(player);
             view.show_dialog(message1);
@@ -352,7 +353,7 @@ public class RandomEventAnswer{
     {
         String message1="그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
         String message2="그가 당신의 눈 앞에서 소멸됩니다.";
-        int tempDice=view.Dice();
+        int tempDice=DICE.Dice();
         if(player.getDexterity()>5&&tempDice>3)
         {
             player.setPower(player.getPower()+1);
@@ -380,7 +381,7 @@ public class RandomEventAnswer{
     {
         String message1="\"거래 고맙네.\" 노인은 갑자기 사라졌고, 당신은 주머니가 허전해짐과 동시에 손에 정체모를 램프가 들려있는 것을 발견합니다.";
         String message2="\"이런..3달러도 없단 말인가?\" 노인이 갑자기 사라집니다.";
-        int tempDice=view.Dice();
+        int tempDice=DICE.Dice();
         if(player.getMoney()>2)
         {
             constanter.addItem(player, ItemType.values()[10]);
@@ -471,7 +472,7 @@ public class RandomEventAnswer{
         int tempNum=player.getMental();
         for(int i=0;i<tempNum;i++)
         {
-            if(view.Dice()<4)
+            if(DICE.Dice()<4)
                 player.setMental(player.getMental()-1);
 
             if(player.getMental()==0)
@@ -521,7 +522,7 @@ public class RandomEventAnswer{
     {
         String message1="그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
         String message2="그가 당신의 눈 앞에서 소멸됩니다.";
-        int tempDice=view.Dice();
+        int tempDice=DICE.Dice();
         if(player.getDexterity()>5&&tempDice>3)
         {
             player.setPower(player.getPower()+1);
