@@ -16,7 +16,9 @@ public class View {
 
 //	public int setstatus_calculate(int s, String status){};
 	public void show_dialog(String s){};
-	public void show_dialog_answer(Answer answer){};
+	public void show_dialog_answer1(Answer answer){};
+	public void show_dialog_answer2(Answer answer){};
+	public void show_dialog_answer3(Answer answer){};
 
 	public void show_boss(){};
 	public void show_monster(){};
