@@ -1,5 +1,6 @@
 package GUI;
 
+import com.DialogPanelController;
 import com.GameMaster;
 import com.Player;
 
@@ -14,7 +15,8 @@ import javax.swing.*;
  * Dialog 창, map. 플레이어들의 간략화 된 스탯 및 token을 보여주는 클래스이다.
  */
 public class MainGame_page extends JFrame {
-    Image img = new ImageIcon("src/images/backgroundImage.jpg").getImage();
+    // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
+    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
     /*
         TODO : 각 타일 위에 출력할 수 있어야 하는 목록
         플레이어 2명, 포탈 1개, 몬스터 1마리
@@ -40,7 +42,6 @@ public class MainGame_page extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 final int FIRST_PLAYER_IDX = 0;
                 MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
-                dispose();
                 temp.setVisible(true);
             }
         });
@@ -65,10 +66,12 @@ public class MainGame_page extends JFrame {
         turn_text.setText(Integer.toString(GameMaster.turn));
         tab.add(turn_text);
 
-        DialogPanel dialog_panel = new DialogPanel();
+        DialogPanelController dialog_panel_controller = new DialogPanelController();
+        JPanel dialog_panel = dialog_panel_controller.getDialog_panel();
         dialog_panel.setBounds(599, 165, 569, 430);
-        getContentPane().add(dialog_panel);
         dialog_panel.setLayout(null);
+        getContentPane().add(dialog_panel);
+
         {
             JButton city_btn_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
             city_btn_0.addActionListener(new ActionListener() {
@@ -246,8 +249,6 @@ public class MainGame_page extends JFrame {
         player2_temp.setBounds(864, 670, 318, 225);
         getContentPane().add(player2_temp);
         player2_temp.add(player2);
-
-
 
     }
 

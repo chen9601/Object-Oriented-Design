@@ -186,7 +186,7 @@ public class RandomEventAnswer{
     {
         String message="소리를 내는 기괴한 생물체를 발견했습니다.";
         view.show_dialog(message);
-        constanter.generateFight(player, Monster.MonsterType.Nightgaunt);
+        constanter.generateFight(player, MonsterType.Nightgaunt);
     }
     public static void Ans3_1(Player player)
     {
@@ -460,8 +460,8 @@ public class RandomEventAnswer{
         int tempPlace2=(int)Math.floor(Math.random()*13);
         int tempMon=(int)Math.floor(Math.random()*5);
         int tempMon2=(int)Math.floor(Math.random()*5);
-        constanter.CreateMonster(Monster.MonsterType.values()[tempMon], TileType.values()[tempPlace]);
-        constanter.CreateMonster(Monster.MonsterType.values()[tempMon2], TileType.values()[tempPlace2]);
+        constanter.CreateMonster(MonsterType.values()[tempMon], TileType.values()[tempPlace]);
+        constanter.CreateMonster(MonsterType.values()[tempMon2], TileType.values()[tempPlace2]);
         view.show_dialog(message);
     }
 
@@ -504,7 +504,7 @@ public class RandomEventAnswer{
         {
             int tempMon=(int)Math.floor(Math.random()*5);
             int tempPlace=(int)Math.floor(Math.random()*13);
-            constanter.CreateMonster(Monster.MonsterType.values()[tempMon], TileType.values()[tempPlace]);
+            constanter.CreateMonster(MonsterType.values()[tempMon], TileType.values()[tempPlace]);
         }
 
         view.show_dialog(message);
