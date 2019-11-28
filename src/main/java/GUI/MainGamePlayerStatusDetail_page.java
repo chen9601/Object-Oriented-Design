@@ -141,7 +141,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		item_text.setText(item_sb.toString());
 		getContentPane().add(item_text);
 		
-		JLabel player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
+		JLabel player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
 		player_name.setBounds(113, 559, 365, 155);
 		getContentPane().add(player_name);
 		

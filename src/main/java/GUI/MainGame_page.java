@@ -480,9 +480,10 @@ public class MainGame_page extends JFrame {
             player1_img.setBounds(650, 620, 240, 163);
             getContentPane().add(player1_img);
 
-            JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
-            player1_name.setBounds(650, 780, 240, 61);
+            JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
+            player1_name.setBounds(41, 780, 240, 61);
             getContentPane().add(player1_name);
+
 
             p_simplestat player1 = new p_simplestat();
             JPanel player1_temp = new JPanel();
@@ -494,8 +495,8 @@ public class MainGame_page extends JFrame {
             player2_img.setBounds(41, 620, 240, 163);
             getContentPane().add(player2_img);
 
-            JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
-            player2_name.setBounds(41, 780, 240, 61);
+            JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
+            player2_name.setBounds(650, 780, 240, 61);
             getContentPane().add(player2_name);
 
             p_simplestat player2 = new p_simplestat();
@@ -518,7 +519,8 @@ public class MainGame_page extends JFrame {
             dot_array[tile.ordinal()].setVisible(true);
         }
     }
-    public void show_players(){
+
+    public void show_players() {
         for (JLabel label : player2_array) {
             label.setVisible(false);
         }

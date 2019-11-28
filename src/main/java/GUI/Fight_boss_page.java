@@ -74,7 +74,7 @@ public class Fight_boss_page extends JFrame {
 		Dice_page dice = new Dice_page();
 		
 		
-		JLabel label = new JLabel(new ImageIcon("src/imgaes/player_name.png"));
+		JLabel label = new JLabel(new ImageIcon("src/imgaes/player1_name.png"));
 		label.setBounds(32, 810, 162, 48);
 		getContentPane().add(label);
 		
