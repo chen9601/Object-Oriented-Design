@@ -43,7 +43,7 @@ public class Dice_page extends JFrame {
     }
 
     public String DiceImage(int Dice_num) {
-
+        setResizable(false);
         if (Dice_num == 1) {
             return "src\\main\\java\\GUI\\imgaes\\diceForRoll-export.gif";
         } else if (Dice_num == 2) {
