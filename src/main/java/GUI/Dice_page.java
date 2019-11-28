@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,22 +19,21 @@ public class Dice_page extends JFrame {
     }
 
     public Dice_page() {
-        setBounds(100, 100, 540, 442);
+        setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
 
-        JButton click = new JButton("Click");
-        click.setBounds(379, 327, 100, 35);
+        JButton click = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\click.png"));
+        click.setBounds(379, 522, 100, 35);
         getContentPane().add(click);
 
         path = "src\\main\\java\\GUI\\imgaes\\diceForRoll-export.gif";
         JLabel showDice = new JLabel(new ImageIcon(path));
-        showDice.setBounds(14, 22, 494, 281);
+        showDice.setBounds(14, 22, 500, 500);
         getContentPane().add(showDice);
 
         click.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
 
                 showDice.setIcon(new ImageIcon(DiceImage(Dice())));
 
