@@ -18,6 +18,7 @@ public class Fight_monster_page extends JFrame {
 
 
 	public Fight_monster_page() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 960);
 		getContentPane().setLayout(null);
@@ -77,7 +78,7 @@ public class Fight_monster_page extends JFrame {
 		Dice_page dice = new Dice_page();
 
 
-		JLabel label = new JLabel(new ImageIcon("src/imgaes/player_name.png"));
+		JLabel label = new JLabel(new ImageIcon("src/imgaes/player1_name.png"));
 		label.setBounds(32, 810, 162, 48);
 		getContentPane().add(label);
 
