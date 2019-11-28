@@ -140,12 +140,16 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		}
 		item_text.setText(item_sb.toString());
 		getContentPane().add(item_text);
-		
+
+
+		// 이미지 패스 분기나누기
+
 		JLabel player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
 		player_name.setBounds(113, 559, 365, 155);
 		getContentPane().add(player_name);
-		
-		JLabel playerimg = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
+
+
+		JLabel playerimg = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_img.png"));
 		playerimg.setBounds(120, 209, 358, 356);
 		getContentPane().add(playerimg);
 	}
