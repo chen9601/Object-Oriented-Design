@@ -101,6 +101,7 @@ public class MainGame_page extends JFrame {
     public MainGame_page() {
         //상단바
         {
+            setResizable(false);
             setBounds(100, 100, 1200, 960);
             getContentPane().setLayout(null);
 

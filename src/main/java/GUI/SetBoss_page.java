@@ -19,7 +19,7 @@ public class SetBoss_page extends JFrame {
 
 
     SetBoss_page() {
-
+        setResizable(false);
         setBounds(0, 0, 1200, 960);
         getContentPane().setLayout(null);
 

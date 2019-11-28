@@ -18,6 +18,7 @@ public class Fight_monster_page extends JFrame {
 
 
 	public Fight_monster_page() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 960);
 		getContentPane().setLayout(null);

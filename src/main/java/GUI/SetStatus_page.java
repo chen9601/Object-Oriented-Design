@@ -28,6 +28,7 @@ public class SetStatus_page extends JFrame {
     JButton next = new JButton("next");
     JButton prev = new JButton("prev");
     SetStatus_page() {
+        setResizable(false);
         getContentPane().setLayout(null);
         setBounds(0, 0, 1200, 960);
 
