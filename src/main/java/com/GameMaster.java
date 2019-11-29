@@ -90,12 +90,12 @@ public class GameMaster {
         // 체력, 정신력은 1 + SetStatus_page에서 추가한 포인트로 세팅한다.
         player.setHealth(player.getHealth() + combined_stats[4]);
 
-        if(player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
-            player.setEnergy(player.getHealth() / 3);
-        else if(player.getHealth() > 0) // player가 죽지 않았으면 1번 이상 움직일 수 있다.
-            player.setEnergy(1); // 최소 값
-        else // 플레이어가 죽었으면 움직일 수 없다.
-            player.setEnergy(0);
+//        if(player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
+//            player.setEnergy(player.getHealth() / 3);
+//        else if(player.getHealth() > 0) // player가 죽지 않았으면 1번 이상 움직일 수 있다.
+//            player.setEnergy(1); // 최소 값
+//        else // 플레이어가 죽었으면 움직일 수 없다.
+//            player.setEnergy(0);
     }
     public static void death(Player player)
     {
@@ -147,9 +147,11 @@ public class GameMaster {
             if(turn % 3 == 0)
                 setPortalAndMonsterRandomly();
 
-            getCurrentPlayer().setEnergy(getCurrentPlayer().getHealth()/3);
-            if(getCurrentPlayer().getEnergy() == 0 && getCurrentPlayer().getStatus() != 2)
-                getCurrentPlayer().setEnergy(1);
+            for(Player player:Player.players){
+                player.setEnergy(player.getHealth()/3);
+                if(player.getEnergy() <= 0 && player.getStatus() != DEAD)
+                    player.setEnergy(1);
+            }
 
             Player.toggleCurrentPlayer();
             turn++;

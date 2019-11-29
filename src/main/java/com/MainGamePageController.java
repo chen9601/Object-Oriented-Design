@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainGamePageController {
     static public MainGame_page maingame_page;
@@ -26,8 +27,14 @@ public class MainGamePageController {
         maingame_page.getTab().getToken_text().setText(Integer.toString(value));
     }
 
-    public static void update_status(int player_idx, int value){
-//        maingame_page.get
+    public static void update_status(StatusType type, int value){
+        // TODO : Need refactoring. uncomfortable
+        if(Player.idx_of_cur_player == 0)
+            maingame_page.getPlayer1_status_panel().getStatus_details()[type.ordinal()]
+                    .getAttribute_textpane().setText(Integer.toString(value));
+        else
+            maingame_page.getPlayer2_status_panel().getStatus_details()[type.ordinal()]
+                    .getAttribute_textpane().setText(Integer.toString(value));
     }
 
     public static void show_reddot() {

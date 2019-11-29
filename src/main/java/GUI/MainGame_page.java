@@ -117,9 +117,9 @@ public class MainGame_page extends JFrame {
     }
 
     @Data
-    class PlayerStatusPanel extends JPanel {
+    public class PlayerStatusPanel extends JPanel {
         @Data
-        class Status_Components extends JPanel{
+        public class Status_Components extends JPanel{
             JLabel lb_attribute_name;
             JTextPane attribute_textpane;
 
@@ -136,23 +136,15 @@ public class MainGame_page extends JFrame {
             }
         }
 
-        Status_Components health_status;
-        Status_Components mental_status;
-        Status_Components energy_status;
-        Status_Components money_status;
+        Status_Components[] status_details;
 
         PlayerStatusPanel(Player player) {
             Dimension player_status_dimension = new Dimension(40, 30);
-            health_status = new Status_Components(player, player_status_dimension,"체력");
-            mental_status = new Status_Components(player, player_status_dimension,"정신력");
-            energy_status = new Status_Components(player, player_status_dimension,"행동치");
-            money_status = new Status_Components(player, player_status_dimension,"money");
-
-            this.add(health_status);
-            this.add(mental_status);
-            this.add(energy_status);
-            this.add(money_status);
-
+            status_details = new Status_Components[4];
+            for(StatusType status_type: StatusType.values()){
+                status_details[status_type.ordinal()] = new Status_Components(player, player_status_dimension, status_type.getName());
+                this.add(status_details[status_type.ordinal()]);
+            }
             setLayout(new GridLayout(4, 2, 20, 0));
         }
     }
@@ -420,7 +412,6 @@ public class MainGame_page extends JFrame {
     public void show_potals() {
         for (JLabel potal : potal_array) {
             potal.setVisible(true);
-            System.out.println("showpotal");
         }
     }
 
