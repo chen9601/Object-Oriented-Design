@@ -94,6 +94,27 @@ public class MainGame_page extends JFrame {
     static JLabel player2_array[] = {player2_img_0, player2_img_1, player2_img_2, player2_img_3, player2_img_4, player2_img_5,
             player2_img_6, player2_img_7, player2_img_8, player2_img_9, player2_img_10, player2_img_11, player2_img_12};
 
+    //player1 위치
+    static ImageIcon potal_Icon = new ImageIcon("src\\main\\java\\GUI\\potal");
+
+    static JLabel potal_img_0 = new JLabel(potal_Icon);
+    static JLabel potal_img_1 = new JLabel(potal_Icon);
+    static JLabel potal_img_2 = new JLabel(potal_Icon);
+    static JLabel potal_img_3 = new JLabel(potal_Icon);
+    static JLabel potal_img_4 = new JLabel(potal_Icon);
+    static JLabel potal_img_5 = new JLabel(potal_Icon);
+    static JLabel potal_img_6 = new JLabel(potal_Icon);
+    static JLabel potal_img_7 = new JLabel(potal_Icon);
+    static JLabel potal_img_8 = new JLabel(potal_Icon);
+    static JLabel potal_img_9 = new JLabel(potal_Icon);
+    static JLabel potal_img_10 = new JLabel(potal_Icon);
+    static JLabel potal_img_11 = new JLabel(potal_Icon);
+    static JLabel potal_img_12 = new JLabel(potal_Icon);
+
+    static JLabel potal_array[] = {potal_img_0, potal_img_1, potal_img_2, potal_img_3, potal_img_4, potal_img_5,
+            potal_img_6, potal_img_7, potal_img_8, potal_img_9, potal_img_10, potal_img_11, potal_img_12};
+
+
     /*
         TODO : 각 타일 위에 출력할 수 있어야 하는 목록
         플레이어 2명, 포탈 1개, 몬스터 1마리
@@ -102,32 +123,25 @@ public class MainGame_page extends JFrame {
         3. 상점과 같은 이벤트가 원래 있는 타일은 디폴트 배경 색을 다르게 한다.
      */
     public MainGame_page() {
-        ImageIcon img_icon;
-        try {
-            img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png");
-        }
-        catch (Exception e){
-            System.out.println(e);
-            img_icon = null;
-        }
-        JButton city_btn_0 = new JButton(img_icon);
-        JButton city_btn_1 = new JButton(img_icon);
-        JButton city_btn_2 = new JButton(img_icon);
-        JButton city_btn_3 = new JButton(img_icon);
-        JButton city_btn_4 = new JButton(img_icon);
-        JButton city_btn_5 = new JButton(img_icon);
-        JButton city_btn_6 = new JButton(img_icon);
-        JButton city_btn_7 = new JButton(img_icon);
-        JButton city_btn_8 = new JButton(img_icon);
-        JButton city_btn_9 = new JButton(img_icon);
-        JButton city_btn_10 = new JButton(img_icon);
-        JButton city_btn_11 = new JButton(img_icon);
-        JButton city_btn_12 = new JButton(img_icon);
-        JButton city_array[] = {city_btn_0, city_btn_1, city_btn_2, city_btn_3, city_btn_4, city_btn_5, city_btn_6, city_btn_7, city_btn_8, city_btn_9, city_btn_10, city_btn_11, city_btn_12};
-//        JButton city_array[] = new JButton[13];
-//        for(int i = 0; i < 13; i++){
-//            city_array[i] = new JButton(img_icon);
-//        }
+        //player2
+        String monsterPath = "null";
+        ImageIcon monster_Icon = new ImageIcon(monsterPath);
+        JLabel monster_img_0 = new JLabel(monster_Icon);
+        JLabel monster_img_1 = new JLabel(monster_Icon);
+        JLabel monster_img_2 = new JLabel(monster_Icon);
+        JLabel monster_img_3 = new JLabel(monster_Icon);
+        JLabel monster_img_4 = new JLabel(monster_Icon);
+        JLabel monster_img_5 = new JLabel(monster_Icon);
+        JLabel monster_img_6 = new JLabel(monster_Icon);
+        JLabel monster_img_7 = new JLabel(monster_Icon);
+        JLabel monster_img_8 = new JLabel(monster_Icon);
+        JLabel monster_img_9 = new JLabel(monster_Icon);
+        JLabel monster_img_10 = new JLabel(monster_Icon);
+        JLabel monster_img_11 = new JLabel(monster_Icon);
+        JLabel monster_img_12 = new JLabel(monster_Icon);
+
+        JLabel monster_array[] = {monster_img_0, monster_img_1, monster_img_2, monster_img_3, monster_img_4, monster_img_5,
+                monster_img_6, monster_img_7, monster_img_8, monster_img_9, monster_img_10, monster_img_11, monster_img_12};
 
         //상단바
         {
@@ -540,7 +554,7 @@ public class MainGame_page extends JFrame {
                     System.out.println("Clicked");
                     Player.getCurrentPlayer().setPos(tile);
                     // 모든 빨간 점을 보이지 않게 만들기
-                    for(JButton reddot : dot_array){
+                    for (JButton reddot : dot_array) {
                         reddot.setVisible(false);
                     }
                     show_players();
