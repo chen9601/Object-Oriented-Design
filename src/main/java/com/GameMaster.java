@@ -1,13 +1,13 @@
 package com;
 
+import GUI.DialogPanel;
 import GUI.Start_page;
 import GUI.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.Player.getCurrentPlayer;
-import static com.Player.players;
+import static com.Player.*;
 
 /**
  * 게임마스터 객체 모델로, 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정할 수 있다.
@@ -17,17 +17,16 @@ import static com.Player.players;
  */
 public class GameMaster {
 
-    private final int GAME_WIN = 0;
-    private final int GAME_LOST = 1;
-    private final int GAME_KEEPGOING = 2;
-    private final int PLAYER_HEALTH_DEATH = 3;
-    private final int PLAYER_MENTAL_DEATH = 4;
-    private final int PLAYER_BOSS_DEATH = 5;
+    static private final int GAME_WIN = 0;
+    static private final int GAME_LOST = 1;
+    static private final int GAME_KEEPGOING = 2;
+    static private final int PLAYER_HEALTH_DEATH = 3;
+    static private final int PLAYER_MENTAL_DEATH = 4;
+    static private final int PLAYER_BOSS_DEATH = 5;
 
     public static int token = 0;
     public static int death_count=3;
     public static int turn = 1;
-    public static boolean turn_switch=false;
     public static Boss current_boss;
 
     private ConstantEventHandler constant_event_handler;
@@ -127,7 +126,7 @@ public class GameMaster {
     }
     public static void turnEnd()
     {
-        if(turn_switch)
+        if(idx_of_cur_player == 1) // 2번째 플레이어의 턴 종료인가?
         {
             if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
                 death(getCurrentPlayer());
@@ -145,16 +144,15 @@ public class GameMaster {
                 generateBossFight(current_boss);
             }
 
-            if(turn/3==0)
+            if(turn % 3 == 0)
                 setPortalAndMonsterRandomly();
 
             getCurrentPlayer().setEnergy(getCurrentPlayer().getHealth()/3);
-            if(getCurrentPlayer().getEnergy()==0&&getCurrentPlayer().getStatus()!=2)
+            if(getCurrentPlayer().getEnergy() == 0 && getCurrentPlayer().getStatus() != 2)
                 getCurrentPlayer().setEnergy(1);
 
             Player.toggleCurrentPlayer();
             turn++;
-            turn_switch=false;
         }
         else
         {
@@ -175,10 +173,8 @@ public class GameMaster {
             }
 
             Player.toggleCurrentPlayer();
-            turn_switch=true;
         }
-
-
+        DialogPanelController.generateGeneralDialogues();
     }
     private static boolean check_num_of_token_for_win()
     {
