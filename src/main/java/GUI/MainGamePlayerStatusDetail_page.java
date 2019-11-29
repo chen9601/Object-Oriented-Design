@@ -33,9 +33,6 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		prev.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO : MainGame_page에서 뭔가 해놓은 상태에서 MainGamePlayerStatusDetail_page를 호출하고,
-				//  다시 MainGame_page을 호출하면 화면이 맨 처음 MainGame_page로 원상복구 됨
-				//  즉, 기존 변경사항이 적용이 안됨.. 테스트 해보거나 생각해봐야 할듯
 				dispose();
 			}
 		});
