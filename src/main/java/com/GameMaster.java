@@ -90,12 +90,12 @@ public class GameMaster {
         // 체력, 정신력은 1 + SetStatus_page에서 추가한 포인트로 세팅한다.
         player.setHealth(player.getHealth() + combined_stats[4]);
 
-        if(player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
-            player.setEnergy(player.getHealth() / 3);
-        else if(player.getHealth() > 0) // player가 죽지 않았으면 1번 이상 움직일 수 있다.
-            player.setEnergy(1); // 최소 값
-        else // 플레이어가 죽었으면 움직일 수 없다.
-            player.setEnergy(0);
+//        if(player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
+//            player.setEnergy(player.getHealth() / 3);
+//        else if(player.getHealth() > 0) // player가 죽지 않았으면 1번 이상 움직일 수 있다.
+//            player.setEnergy(1); // 최소 값
+//        else // 플레이어가 죽었으면 움직일 수 없다.
+//            player.setEnergy(0);
     }
     public static void death(Player player){
         DialogPanelController.show_dialog("플레이어의 체력 또는 정신력이 0이 되어, 즉사 체크를 시행합니다.");
@@ -123,6 +123,7 @@ public class GameMaster {
         {
             if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
                 death(getCurrentPlayer());
+
             else
                 RandomEventAnswer.Win_check(getCurrentPlayer());
         }
@@ -173,7 +174,7 @@ public class GameMaster {
             int tempNum1=(int)Math.floor(Math.random()*13);
             int tempNum2=(int)Math.floor(Math.random()*5);
             MonsterType monster=MonsterType.values()[tempNum2];
-            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
+            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
             if(Map.tiles[tempNum1].getSummoned_monster()==null&&Map.tiles[tempNum1].isSummoned_portal()==false)
             {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);

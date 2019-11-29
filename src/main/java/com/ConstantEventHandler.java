@@ -1,5 +1,7 @@
 package com;
 
+import GUI.Fight_monster_page;
+
 import static com.Map.*;
 import java.util.ArrayList;
 
@@ -127,7 +129,9 @@ public class ConstantEventHandler
         DialogPanelController.show_dialog_answer2(ConstantEventAnswer.mospital2);
     }
 
-    static void generateFight(Player player, MonsterType monster){}
+    static void generateFight(Player player, MonsterType monster){
+        Fight_monster_page fightwithmonster = new Fight_monster_page();
+    }
     boolean isAffordable(Player player, ItemType item)
     {
         if(player.getMoney()<item.getPrice())
@@ -156,7 +160,7 @@ public class ConstantEventHandler
     {
         if(Map.tiles[tile.ordinal()].getSummoned_monster()==null&&Map.tiles[tile.ordinal()].isSummoned_portal()==false)
         {
-            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
+            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
             Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
         }
     }
