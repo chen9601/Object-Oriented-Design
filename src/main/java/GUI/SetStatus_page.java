@@ -1,6 +1,7 @@
 package GUI;
 
 import com.GameMaster;
+import com.MainGamePageController;
 import com.Player;
 import lombok.Data;
 
@@ -112,17 +113,19 @@ public class SetStatus_page extends JFrame {
                 };
                 GameMaster.setInitializePlayerStats(total_value);
                 Player.toggleCurrentPlayer();
-                JFrame nextPage = null;
 
 
 
-                if (doesNextPlayerStatusSetted())
-                    nextPage = new MainGame_page();
-
-                else
-                    nextPage = new SetStatus_page();
-                nextPage.setVisible(true);
-                dispose();
+                if (doesNextPlayerStatusSetted()){
+                    MainGamePageController maingame_page_controller = new MainGamePageController();
+                    maingame_page_controller.maingame_page.setVisible(true);
+                    dispose();
+                }
+                else{
+                    JFrame nextPage = new SetStatus_page();
+                    nextPage.setVisible(true);
+                    dispose();
+                }
             }
         });
 

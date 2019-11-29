@@ -1,5 +1,6 @@
 package com;
 import GUI.DialogPanel;
+import GUI.MainGame_page;
 import lombok.Data;
 
 import javax.swing.*;
@@ -39,7 +40,6 @@ public class DialogPanelController {
     }
 
     public static void generateGeneralDialogues(){
-        // TODO : 행동치 소모 시스템 구축
 
         Clear();
         // 플레이어가 맨 처음에 위치 이동, 랜덤 이벤트 실행, 턴 종료 총 세가지 이벤트를 처리할 수 있도록 기본적으로 출력되는 것을 세팅한다.
@@ -58,9 +58,9 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 플레이어 위치 이동 관련 메소드 타일에서 클릭 가능하게 하는 메소드 호출 이후,
                 // 현재 플레이어가 갈 수 있는 위치 출력하는 메소드 출력 등등
-                GUI.MainGame_page.show_reddot();
                 Clear();
                 show_dialog("원하는 위치를 클릭해 플레이어를 이동시킬 수 있습니다.");
+                MainGamePageController.show_reddot();
             }
         });
 
