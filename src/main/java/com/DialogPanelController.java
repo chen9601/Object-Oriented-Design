@@ -1,5 +1,6 @@
 package com;
 import GUI.DialogPanel;
+import GUI.Dice_page;
 import lombok.Data;
 
 import javax.swing.*;
@@ -133,13 +134,12 @@ public class DialogPanelController {
         selectbtn3.setVisible(true);
     };
 
-    static public int Dice(){
-        double randomValue = Math.random();
-        int intValue=(int)(randomValue * 6)+1;
-        return intValue;
+    public static int  Dice(){
+        Dice_page Dice = new Dice_page();
+        Dice.setVisible(true);
+        return Dice.getSavedDice_num();
     }
-
-    /*
+        /*
     @Deprecated
      */
     class SelectBtnListener implements ActionListener{

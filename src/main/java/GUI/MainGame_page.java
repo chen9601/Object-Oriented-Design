@@ -504,6 +504,7 @@ public class MainGame_page extends JFrame {
 
             city_btn_1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+
                 }
             });
 
@@ -522,6 +523,8 @@ public class MainGame_page extends JFrame {
 
             city_btn_3.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    System.out.println(DialogPanelController.Dice());
+
                 }
             });
 
