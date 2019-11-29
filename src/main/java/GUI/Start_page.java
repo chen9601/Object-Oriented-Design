@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 /** New Game Load Game EXIT 3개의 버튼으로 게임 시작 및 종료를 담당하는 페이지이다.*/
 public class Start_page extends JFrame {
+
 	ImagePanel panel = new ImagePanel();
 	Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\main_title.png").getImage();
 	
@@ -23,6 +24,7 @@ public class Start_page extends JFrame {
 	JButton exitgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\EXIT.png"));
 
 	public Start_page() {
+		setResizable(false);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		setBounds(0, 0, 1200, 960);

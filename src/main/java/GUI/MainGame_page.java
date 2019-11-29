@@ -20,7 +20,9 @@ public class MainGame_page extends JFrame {
 
     // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
-
+    //버튼이랑 라벨들 리팩토링
+    //몬스터랑 포탈 출력가능하게 만들기
+    //
 
     static JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
     static JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
@@ -99,6 +101,7 @@ public class MainGame_page extends JFrame {
     public MainGame_page() {
         //상단바
         {
+            setResizable(false);
             setBounds(100, 100, 1200, 960);
             getContentPane().setLayout(null);
 
@@ -477,11 +480,12 @@ public class MainGame_page extends JFrame {
             player1_img.setBounds(650, 620, 240, 163);
             getContentPane().add(player1_img);
 
-            JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
-            player1_name.setBounds(650, 780, 240, 61);
+            JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
+            player1_name.setBounds(41, 780, 240, 61);
             getContentPane().add(player1_name);
 
-            p_simplestat player1 = new p_simplestat();
+
+            p_simplestat player1 = new p_simplestat(Player.getPlayer(0));
             JPanel player1_temp = new JPanel();
             player1_temp.setBounds(290, 670, 318, 225);
             getContentPane().add(player1_temp);
@@ -491,11 +495,11 @@ public class MainGame_page extends JFrame {
             player2_img.setBounds(41, 620, 240, 163);
             getContentPane().add(player2_img);
 
-            JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
-            player2_name.setBounds(41, 780, 240, 61);
+            JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
+            player2_name.setBounds(650, 780, 240, 61);
             getContentPane().add(player2_name);
 
-            p_simplestat player2 = new p_simplestat();
+            p_simplestat player2 = new p_simplestat(Player.getPlayer(1));
             JPanel player2_temp = new JPanel();
             player2_temp.setBounds(864, 670, 318, 225);
             getContentPane().add(player2_temp);
@@ -515,7 +519,8 @@ public class MainGame_page extends JFrame {
             dot_array[tile.ordinal()].setVisible(true);
         }
     }
-    public void show_players(){
+
+    public void show_players() {
         for (JLabel label : player2_array) {
             label.setVisible(false);
         }
@@ -528,7 +533,7 @@ public class MainGame_page extends JFrame {
 
     class p_simplestat extends JPanel {
 
-        p_simplestat() {
+        p_simplestat(Player player) {
             /*
              * 테스트 코드
              * test temp = new test(); JPanel temp1 = new JPanel();
@@ -541,7 +546,7 @@ public class MainGame_page extends JFrame {
             JLabel health = new JLabel("체력");
             health.setPreferredSize(simplestat_dimension);
             JTextPane health_text = new JTextPane();
-            health_text.setText(Integer.toString(Player.getCurrentPlayer().getHealth()));
+            health_text.setText(Integer.toString(player.getHealth()));
             health_text.setEditable(false);
             health_text.setPreferredSize(simplestat_dimension);
 
@@ -550,7 +555,7 @@ public class MainGame_page extends JFrame {
             JLabel mental = new JLabel("정신력");
             mental.setPreferredSize(new Dimension(40, 30));
             JTextPane mental_text = new JTextPane();
-            mental_text.setText(Integer.toString(Player.getCurrentPlayer().getMental()));
+            mental_text.setText(Integer.toString(player.getMental()));
             mental_text.setEditable(false);
             mental_text.setPreferredSize(simplestat_dimension);
 
@@ -558,7 +563,7 @@ public class MainGame_page extends JFrame {
             JLabel energy = new JLabel("행동치");
             energy.setPreferredSize(new Dimension(40, 30));
             JTextPane energy_text = new JTextPane();
-            energy_text.setText(Integer.toString(Player.getCurrentPlayer().getEnergy()));
+            energy_text.setText(Integer.toString(player.getEnergy()));
             energy_text.setEditable(false);
             energy_text.setPreferredSize(simplestat_dimension);
 
@@ -566,7 +571,7 @@ public class MainGame_page extends JFrame {
             JLabel money = new JLabel("money");
             money.setPreferredSize(new Dimension(40, 30));
             JTextPane money_text = new JTextPane();
-            money_text.setText(Integer.toString(Player.getCurrentPlayer().getMoney()));
+            money_text.setText(Integer.toString(player.getMoney()));
             money_text.setEditable(false);
             money_text.setPreferredSize(simplestat_dimension);
 

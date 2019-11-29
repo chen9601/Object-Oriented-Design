@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.print.DocFlavor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,7 +28,19 @@ public class SetStatus_page extends JFrame {
     JPanel movetab = new JPanel();
     JButton next = new JButton("next");
     JButton prev = new JButton("prev");
+
+    String player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_img.png";
+    String player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_name.png";
+
+
     SetStatus_page() {
+        //player 1 , 2  이름 및 이미지 변환
+        if (Player.getCurrentPlayer() == Player.getPlayer(1)) {
+            player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_img.png";
+            player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_name.png";
+        }
+
+        setResizable(false);
         getContentPane().setLayout(null);
         setBounds(0, 0, 1200, 960);
 
@@ -39,18 +52,21 @@ public class SetStatus_page extends JFrame {
 
         next.setBounds(935, 32, 180, 70);
         prev.setBounds(78, 32, 180, 70);
-        lb_distributable_point.setBounds(600,32,180, 70);
+        lb_distributable_point.setBounds(600, 32, 180, 70);
 
         movetab.add(next);
         movetab.add(lb_distributable_point);
         movetab.add(prev);
 
         // TODO : player name을 이미지로 해버리면 나중에 어떻게 바꿀 방법이 있나?
-        JLabel player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player_name.png"));
+        // doesNextPlayerStatusSetted() 여기서 분기할 때 player 1,2 name_img, img path만 스트링으로 받아서 바꾸게 해주면 될거 같음 ㅇㅇ
+        // 일단 그렇게 해둠
+
+        JLabel player_name = new JLabel(new ImageIcon(player_name_imgpath));
         player_name.setBounds(121, 566, 365, 155);
         getContentPane().add(player_name);
 
-        JLabel player_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
+        JLabel player_img = new JLabel(new ImageIcon(player_imgpath));
         player_img.setBounds(128, 216, 358, 356);
         getContentPane().add(player_img);
 
@@ -97,10 +113,14 @@ public class SetStatus_page extends JFrame {
                 GameMaster.setInitializePlayerStats(total_value);
                 Player.toggleCurrentPlayer();
                 JFrame nextPage = null;
+
+
+
                 if (doesNextPlayerStatusSetted())
                     nextPage = new MainGame_page();
+
                 else
-                nextPage = new SetStatus_page();
+                    nextPage = new SetStatus_page();
                 nextPage.setVisible(true);
                 dispose();
             }
@@ -123,6 +143,7 @@ public class SetStatus_page extends JFrame {
     @Data
     class perstatus_set extends JPanel {
         private int value = 0;
+
         perstatus_set(String path) {
             JLabel status_name = new JLabel(new ImageIcon(path));
             JLabel status_value = new JLabel(Integer.toString(value));
@@ -132,7 +153,7 @@ public class SetStatus_page extends JFrame {
             plus.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if(value >= 0 && distributable_point >= 1){
+                    if (value >= 0 && distributable_point >= 1) {
                         distributable_point--;
                         value++;
                     }
@@ -143,7 +164,7 @@ public class SetStatus_page extends JFrame {
             minus.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if(value >= 1){
+                    if (value >= 1) {
                         distributable_point++;
                         value--;
                     }
@@ -157,6 +178,7 @@ public class SetStatus_page extends JFrame {
             add(minus);
         }
     }
+
     class ImagePanel extends JPanel {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);

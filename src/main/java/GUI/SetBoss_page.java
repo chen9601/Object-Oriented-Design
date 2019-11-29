@@ -19,7 +19,7 @@ public class SetBoss_page extends JFrame {
 
 
     SetBoss_page() {
-
+        setResizable(false);
         setBounds(0, 0, 1200, 960);
         getContentPane().setLayout(null);
 
@@ -55,9 +55,16 @@ public class SetBoss_page extends JFrame {
         movetab.add(next);
         movetab.add(prev);
 
-        BossPanel Test1 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", BossType.AZATHOTH);
-        BossPanel Test2 = new BossPanel("src\\main\\java\\GUI\\imgaes\\CHUTHULU.png", BossType.CHUTHULU);
-        BossPanel Test3 = new BossPanel("src\\main\\java\\GUI\\imgaes\\NYARLATHOTEP.png", BossType.NYARLATHOTEP);
+        // 임시로 보스들 승리조건 string저장
+
+        String azartoth_win = "강림시 패배";
+        String nyarlathotep_win = " 가면 괴물이 등장할 수 있다.";
+        String chuthulu_win = "최대 정신력과 최대 체력이 1씩 줄어든다.";
+
+
+        BossPanel Test1 = new BossPanel("src\\main\\java\\GUI\\imgaes\\azatoth.png", BossType.AZATHOTH,azartoth_win);
+        BossPanel Test2 = new BossPanel("src\\main\\java\\GUI\\imgaes\\CHUTHULU.png", BossType.CHUTHULU,chuthulu_win);
+        BossPanel Test3 = new BossPanel("src\\main\\java\\GUI\\imgaes\\NYARLATHOTEP.png", BossType.NYARLATHOTEP,nyarlathotep_win);
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
@@ -94,7 +101,7 @@ public class SetBoss_page extends JFrame {
 
     class BossPanel extends JPanel {
 
-        public BossPanel(String img_path, BossType bosstype) {
+        public BossPanel(String img_path, BossType bosstype,String boss_win) {
             JButton bossbtn = new JButton(bosstype.getName());
             bossbtn.addActionListener(new ActionListener() {
                 @Override
@@ -120,7 +127,9 @@ public class SetBoss_page extends JFrame {
             ImageIcon real = new ImageIcon(temp_2);
 
             JLabel bossimg = new JLabel(real);
-            JTextArea bosstxt = new JTextArea();
+            JTextField bosstxt = new JTextField();
+            bosstxt.setText(boss_win);
+            bosstxt.setHorizontalAlignment(JTextField.CENTER);
 
             add(bossimg, BorderLayout.NORTH);
             add(bossbtn, BorderLayout.CENTER);
