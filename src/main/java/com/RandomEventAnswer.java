@@ -6,14 +6,15 @@ import GUI.View;
 
 import java.util.Random;
 
+import static com.Player.getCurrentPlayer;
+import static com.Player.idx_of_cur_player;
+
 /**
  * RandomEventHandler에 의해 생성된 선택지를 클릭 시 ActionListener에 의해 실행될 각각의 선택지들에 대한 결과를 정리한 클래스
  * @author Chanho Park
  */
 
 public class RandomEventAnswer{
-
-    static int temp_death_count;
     /**
      * 이벤트를 진행할 플레이어와 클릭한 선택지에 해당하는 지칭자로 알맞은 메소드를 호출하는 메소드
      * @param answer
@@ -163,6 +164,19 @@ public class RandomEventAnswer{
             case "death":
                 death_Ans(player);
                 break;
+            case "win_check":
+                Win_check(player);
+                break;
+            case "win":
+                Win_Ans(player);
+                break;
+            case "defeat":
+                Defeat_Ans(player);
+                break;
+            case "boss_summon":
+                Boss_fight();
+                break;
+
         }
 
     }
@@ -515,7 +529,7 @@ public class RandomEventAnswer{
         }
         else
         {
-            player.setHealth(player.getHealth()-tempDice);
+            player.setMental(player.getMental()-tempDice);
             DialogPanelController.show_dialog(message2);
         }
         Answer answer1=new Answer("1. 계속","continue");
@@ -785,7 +799,14 @@ public class RandomEventAnswer{
 
     public static void ContinueDialog()
     {
-        if(Player.getCurrentPlayer().getEnergy()<1)
+        if(Player.getCurrentPlayer().getStatus()==2)
+        {
+            DialogPanelController.Clear();
+            String message="해당 플레이어는 사망한 상태입니다.";
+            DialogPanelController.show_dialog(message);
+            Answer answer1=new Answer("1. 계속","turnEnd");
+        }
+        else if(Player.getCurrentPlayer().getEnergy()<1)
         {
             DialogPanelController.Clear();
             String message="사용 가능한 행동치가 없습니다.";
@@ -794,14 +815,15 @@ public class RandomEventAnswer{
             DialogPanelController.show_dialog_answer1(answer1);
         }
         else
-        {DialogPanelController.Clear();
-        DialogPanelController.generateGeneralDialogues();}
+        {
+            DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();
+        }
     }
 
     public static void TurnEnd(){
         DialogPanelController.Clear();
         GameMaster.turnEnd();
-        DialogPanelController.generateGeneralDialogues();
     }
 
     public static void hospital_Ans1(Player player)
@@ -852,41 +874,134 @@ public class RandomEventAnswer{
 
     public static void death_Ans(Player player)
     {
-        temp_death_count=GameMaster.death_count;
-
-        if(temp_death_count==0) {}
-        else if(temp_death_count>0)
-        {
-                temp_death_count--;
-                if (DialogPanelController.Dice() > 5)
-                    GameMaster.revive(player);
-        }
+        GameMaster.death_count--;
+        if (DialogPanelController.Dice() > 5)
+            GameMaster.revive(player);
 
         if(player.getHealth()<=0||player.getMental()<=0)
         {
-            if(temp_death_count>0)
+            if(GameMaster.death_count>0)
             {
                 DialogPanelController.Clear();
                 DialogPanelController.show_dialog("즉사 체크 실패!");
                 Answer answer1=new Answer("1. 계속","death");
                 DialogPanelController.show_dialog_answer1(answer1);
             }
-            else if(temp_death_count==0)
+            else
             {
-                GameMaster.death_count--;
                 DialogPanelController.Clear();
                 DialogPanelController.show_dialog("죽음을 극복하지 못했습니다.");
-                Answer answer1=new Answer("1. 계속","death");
+                player.setStatus(2);
+                GameMaster.death_count=3-GameMaster.revive_count;
+                Answer answer1=new Answer("1. 계속","win_check");
                 DialogPanelController.show_dialog_answer1(answer1);
             }
         }
         else
         {
-            GameMaster.death_count--;
             DialogPanelController.Clear();
-            DialogPanelController.show_dialog("죽음을 극복했습니다");
-            Answer answer1=new Answer("1. 계속","continue");
+            DialogPanelController.show_dialog("죽음을 극복했습니다.");
+            GameMaster.revive_count++;
+            if(GameMaster.revive_count>3)
+                GameMaster.revive_count=3;
+            GameMaster.death_count=3-GameMaster.revive_count;
+            Answer answer1=new Answer("1. 계속","win_check");
             DialogPanelController.show_dialog_answer1(answer1);
         }
+    }
+
+    public static void Win_check(Player player)
+    {
+        if(GameMaster.check_num_of_token_for_win())
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("봉인의 조각들을 모두 모아 고대신이 강림하기 전 막는 것을 성공했습니다!");
+            Answer answer1=new Answer("승리","win");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            RandomEventAnswer.Defeat(player);
+        }
+    }
+
+    public static void Win_Ans(Player player)
+    {
+        //승리 화면 출력
+    }
+
+    public static void Defeat(Player player)
+    {
+        if(GameMaster.check_player_status_for_lost())
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("플레이어가 모두 사망했습니다. 고대신은 잠에서 깨어날 것이고, 도시는 파괴될 것입니다.");
+            Answer answer1=new Answer("패배","defeat");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            RandomEventAnswer.Boss_Summon(player);
+        }
+    }
+
+    public static void Defeat_Ans(Player player)
+    {
+        //패배 화면 출력
+    }
+
+    public static void Boss_Summon(Player player)
+    {
+        if(GameMaster.check_num_of_monsters_portals_for_boss())
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("고대신이 잠에서 깨어납니다. 모두 대비하십시오!");
+            Answer answer1=new Answer("고대신과의 최종전","boss_fight");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            if(idx_of_cur_player==1)
+                RandomEventAnswer.Next_Turn(player);
+            else
+                RandomEventAnswer.Next_Player(player);
+        }
+    }
+
+    public static void Boss_fight()
+    {
+        GameMaster.generateBossFight(GameMaster.current_boss);
+    }
+
+    public static void Next_Turn(Player player)
+    {
+        if(GameMaster.turn % 3 == 0)
+            GameMaster.setPortalAndMonsterRandomly();
+
+        for(int i=0;i<2;i++)
+        {
+            Player.players[i].setEnergy(Player.players[i].getHealth()/3);
+            if(Player.players[i].getEnergy() == 0 && Player.players[i].getStatus() != 2)
+                Player.players[i].setEnergy(1);
+        }
+        Player.toggleCurrentPlayer();
+        GameMaster.turn++;
+
+        // Update turn value to MainGame_page(view)
+        MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(GameMaster.turn));
+        DialogPanelController.generateGeneralDialogues();
+    }
+
+    public static void Next_Player(Player player)
+    {
+        Player.toggleCurrentPlayer();
+
+        // Update turn value to MainGame_page(view)
+        MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(GameMaster.turn));
+
+        DialogPanelController.generateGeneralDialogues();
     }
 }

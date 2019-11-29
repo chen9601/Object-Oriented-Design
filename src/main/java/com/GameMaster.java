@@ -26,6 +26,7 @@ public class GameMaster {
 
     public static int token = 0;
     public static int death_count=3;
+    public static int revive_count=0;
     public static int turn = 1;
     public static Boss current_boss;
 
@@ -104,85 +105,49 @@ public class GameMaster {
 
     public static void revive(Player player)
     {
-        if(player.getMental()<0)
+        player.setStatus(1);
+        if(player.getMental()<=0)
         {
             player.setMental(1);
             player.setPos(TileType.MENTAL_HOSTPITAL);
         }
-        if(player.getHealth()<0)
+        if(player.getHealth()<=0)
         {
             player.setHealth(1);
             player.setPos(TileType.HOSPITAL);
         }
     }
+
     public static void turnEnd(){
         if(idx_of_cur_player == 1) // 2번째 플레이어의 턴 종료인가?
         {
-            if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
+            if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
                 death(getCurrentPlayer());
 
-            if(check_num_of_token_for_win())
-            {
-                //승리 엔딩 출력
-            }
-            if(check_player_status_for_lost())
-            {
-                //패배 엔딩 출력
-            }
-            if(check_num_of_monsters_portals_for_boss())
-            {
-                generateBossFight(current_boss);
-            }
-
-            if(turn % 3 == 0)
-                setPortalAndMonsterRandomly();
-
-            for(Player player:Player.players){
-                player.setEnergy(player.getHealth()/3);
-                if(player.getEnergy() <= 0 && player.getStatus() != DEAD)
-                    player.setEnergy(1);
-            }
-
-            Player.toggleCurrentPlayer();
-            turn++;
-            // Update turn value to MainGame_page(view)
-            MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(turn));
+            else
+                RandomEventAnswer.Win_check(getCurrentPlayer());
         }
         else
         {
-            if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
+            if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
                 death(getCurrentPlayer());
-
-            if(check_num_of_token_for_win())
-            {
-                //승리 엔딩 출력
-            }
-            if(check_player_status_for_lost())
-            {
-                //패배 엔딩 출력
-            }
-            if(check_num_of_monsters_portals_for_boss())
-            {
-                generateBossFight(current_boss);
-            }
-
-            Player.toggleCurrentPlayer();
+            else
+                RandomEventAnswer.Win_check(getCurrentPlayer());
         }
-        DialogPanelController.generateGeneralDialogues();
     }
-    private static boolean check_num_of_token_for_win()
+    public static boolean check_num_of_token_for_win()
     {
         if(token==10)
         return true;
         else return false;
     }
-    private static boolean check_player_status_for_lost()
+    public static boolean check_player_status_for_lost()
     {
         if(players[0].getStatus()==2&&players[1].getStatus()==2)
         return true;
         else return false;
     }
-    private static boolean check_num_of_monsters_portals_for_boss()
+    public static boolean check_num_of_monsters_portals_for_boss()
     {
         int tempNum=0;
         int tempNum2=0;
