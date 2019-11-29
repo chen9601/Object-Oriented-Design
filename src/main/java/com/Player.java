@@ -17,6 +17,8 @@ public class Player{
     static int idx_of_cur_player = 0;
     static private final int MAXIMUM_NUM_OF_PLAYERS = 2;
     static Player[] players = new Player[MAXIMUM_NUM_OF_PLAYERS];
+    static final int ALIVE = 1;
+    static final int DEAD = 2;
 
     private TileType pos;
     private int money ;
@@ -31,7 +33,8 @@ public class Player{
     private int intelligence;
     private String characteristics;
     private ArrayList<ItemType> items;
-    private int status=1;
+    @Builder.Default
+    private int status = ALIVE;
 
     public void decreaseEnergy() {
         energy--;
