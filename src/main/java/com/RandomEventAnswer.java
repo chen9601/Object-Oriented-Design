@@ -145,8 +145,8 @@ public class RandomEventAnswer{
             case "5_1_1_1":
                 Ans5_2_SubResult(player);
                 break;
-
         }
+
     }
 
     public static void Ans1_1(Player player)//서브 이벤트 구현에 대한 이야기 필요
@@ -329,6 +329,7 @@ public class RandomEventAnswer{
     }
     public static void Ans5_2_SubResult(Player player)
     {
+        DialogPanelController.Clear();
         int temp=(int)Math.floor(Math.random()*13);
         ConstantEventHandler.movebyTeleport(player, TileType.values()[temp]);
         ConstantEventHandler.generateRandomEvent(player);

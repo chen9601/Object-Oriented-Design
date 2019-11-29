@@ -5,6 +5,7 @@ import com.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,59 +24,74 @@ public class MainGame_page extends JFrame {
     //버튼이랑 라벨들 리팩토링
     //몬스터랑 포탈 출력가능하게 만들기
     //
-
-    static JButton reddot_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
-    static JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
+    static ImageIcon reddot_img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png");
+    static JButton reddot_0 = new JButton(reddot_img_icon);
+    static JButton reddot_1 = new JButton(reddot_img_icon);
+    static JButton reddot_2 = new JButton(reddot_img_icon);
+    static JButton reddot_3 = new JButton(reddot_img_icon);
+    static JButton reddot_4 = new JButton(reddot_img_icon);
+    static JButton reddot_5 = new JButton(reddot_img_icon);
+    static JButton reddot_6 = new JButton(reddot_img_icon);
+    static JButton reddot_7 = new JButton(reddot_img_icon);
+    static JButton reddot_8 = new JButton(reddot_img_icon);
+    static JButton reddot_9 = new JButton(reddot_img_icon);
+    static JButton reddot_10 = new JButton(reddot_img_icon);
+    static JButton reddot_11 = new JButton(reddot_img_icon);
+    static JButton reddot_12 = new JButton(reddot_img_icon);
     static JButton dot_array[] = {reddot_0, reddot_1, reddot_2, reddot_3, reddot_4, reddot_5, reddot_6, reddot_7, reddot_8, reddot_9, reddot_10, reddot_11, reddot_12};
 //    static JButton dot_array[] = new JButton[13];
 
+    ImageIcon city_img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png");
+    JButton city_btn_0 = new JButton(city_img_icon);
+    JButton city_btn_1 = new JButton(city_img_icon);
+    JButton city_btn_2 = new JButton(city_img_icon);
+    JButton city_btn_3 = new JButton(city_img_icon);
+    JButton city_btn_4 = new JButton(city_img_icon);
+    JButton city_btn_5 = new JButton(city_img_icon);
+    JButton city_btn_6 = new JButton(city_img_icon);
+    JButton city_btn_7 = new JButton(city_img_icon);
+    JButton city_btn_8 = new JButton(city_img_icon);
+    JButton city_btn_9 = new JButton(city_img_icon);
+    JButton city_btn_10 = new JButton(city_img_icon);
+    JButton city_btn_11 = new JButton(city_img_icon);
+    JButton city_btn_12 = new JButton(city_img_icon);
+    JButton city_array[] = {city_btn_0, city_btn_1, city_btn_2, city_btn_3, city_btn_4, city_btn_5, city_btn_6, city_btn_7, city_btn_8, city_btn_9, city_btn_10, city_btn_11, city_btn_12};
 
-    ImageIcon player1_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_img.png");
+    static ImageIcon player1_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_img.png");
 
-    JLabel player1_img_0 = new JLabel(player1_Icon);
-    JLabel player1_img_1 = new JLabel(player1_Icon);
-    JLabel player1_img_2 = new JLabel(player1_Icon);
-    JLabel player1_img_3 = new JLabel(player1_Icon);
-    JLabel player1_img_4 = new JLabel(player1_Icon);
-    JLabel player1_img_5 = new JLabel(player1_Icon);
-    JLabel player1_img_6 = new JLabel(player1_Icon);
-    JLabel player1_img_7 = new JLabel(player1_Icon);
-    JLabel player1_img_8 = new JLabel(player1_Icon);
-    JLabel player1_img_9 = new JLabel(player1_Icon);
-    JLabel player1_img_10 = new JLabel(player1_Icon);
-    JLabel player1_img_11 = new JLabel(player1_Icon);
-    JLabel player1_img_12 = new JLabel(player1_Icon);
-    JLabel player1_array[] = {player1_img_0, player1_img_1, player1_img_2, player1_img_3, player1_img_4, player1_img_5,
+    static JLabel player1_img_0 = new JLabel(player1_Icon);
+    static JLabel player1_img_1 = new JLabel(player1_Icon);
+    static JLabel player1_img_2 = new JLabel(player1_Icon);
+    static JLabel player1_img_3 = new JLabel(player1_Icon);
+    static JLabel player1_img_4 = new JLabel(player1_Icon);
+    static JLabel player1_img_5 = new JLabel(player1_Icon);
+    static JLabel player1_img_6 = new JLabel(player1_Icon);
+    static JLabel player1_img_7 = new JLabel(player1_Icon);
+    static JLabel player1_img_8 = new JLabel(player1_Icon);
+    static JLabel player1_img_9 = new JLabel(player1_Icon);
+    static JLabel player1_img_10 = new JLabel(player1_Icon);
+    static JLabel player1_img_11 = new JLabel(player1_Icon);
+    static JLabel player1_img_12 = new JLabel(player1_Icon);
+    static JLabel player1_array[] = {player1_img_0, player1_img_1, player1_img_2, player1_img_3, player1_img_4, player1_img_5,
             player1_img_6, player1_img_7, player1_img_8, player1_img_9, player1_img_10, player1_img_11, player1_img_12};
 
-    ImageIcon player2_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
+    static ImageIcon player2_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
 
-    JLabel player2_img_0 = new JLabel(player2_Icon);
-    JLabel player2_img_1 = new JLabel(player2_Icon);
-    JLabel player2_img_2 = new JLabel(player2_Icon);
-    JLabel player2_img_3 = new JLabel(player2_Icon);
-    JLabel player2_img_4 = new JLabel(player2_Icon);
-    JLabel player2_img_5 = new JLabel(player2_Icon);
-    JLabel player2_img_6 = new JLabel(player2_Icon);
-    JLabel player2_img_7 = new JLabel(player2_Icon);
-    JLabel player2_img_8 = new JLabel(player2_Icon);
-    JLabel player2_img_9 = new JLabel(player2_Icon);
-    JLabel player2_img_10 = new JLabel(player2_Icon);
-    JLabel player2_img_11 = new JLabel(player2_Icon);
-    JLabel player2_img_12 = new JLabel(player2_Icon);
+    static JLabel player2_img_0 = new JLabel(player2_Icon);
+    static JLabel player2_img_1 = new JLabel(player2_Icon);
+    static JLabel player2_img_2 = new JLabel(player2_Icon);
+    static JLabel player2_img_3 = new JLabel(player2_Icon);
+    static JLabel player2_img_4 = new JLabel(player2_Icon);
+    static JLabel player2_img_5 = new JLabel(player2_Icon);
+    static JLabel player2_img_6 = new JLabel(player2_Icon);
+    static JLabel player2_img_7 = new JLabel(player2_Icon);
+    static JLabel player2_img_8 = new JLabel(player2_Icon);
+    static JLabel player2_img_9 = new JLabel(player2_Icon);
+    static JLabel player2_img_10 = new JLabel(player2_Icon);
+    static JLabel player2_img_11 = new JLabel(player2_Icon);
+    static JLabel player2_img_12 = new JLabel(player2_Icon);
 
-    JLabel player2_array[] = {player2_img_0, player2_img_1, player2_img_2, player2_img_3, player2_img_4, player2_img_5,
+    static JLabel player2_array[] = {player2_img_0, player2_img_1, player2_img_2, player2_img_3, player2_img_4, player2_img_5,
             player2_img_6, player2_img_7, player2_img_8, player2_img_9, player2_img_10, player2_img_11, player2_img_12};
 
     /*
@@ -259,12 +275,6 @@ public class MainGame_page extends JFrame {
                 button.setContentAreaFilled(false);
                 button.setBorderPainted(false);
             }
-
-            reddot_0.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    System.out.println("test");
-                }
-            });
             reddot_0.setBounds(244, 315, 105, 54);
             getContentPane().add(reddot_0);
 
@@ -371,15 +381,6 @@ public class MainGame_page extends JFrame {
                 button_city.setContentAreaFilled(false);
                 button_city.setBorderPainted(false);
             }
-
-            city_btn_0.setBounds(244, 315, 105, 54);
-            getContentPane().add(city_btn_0);
-            city_btn_0.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    System.out.println("test");
-
-                }
-            });
 
             city_btn_0.setBounds(244, 315, 105, 54);
             getContentPane().add(city_btn_0);
@@ -522,8 +523,6 @@ public class MainGame_page extends JFrame {
             getContentPane().add(player2_temp);
             player2_temp.add(player2);
         }
-
-
     }
 
     public static void main(String[] args) {
@@ -532,12 +531,27 @@ public class MainGame_page extends JFrame {
     }
 
     public static void show_reddot() {
-        for (TileType tile : Map.getMovableTiles(Player.getCurrentPlayer())) {
+        ArrayList<TileType> tiles = Map.getMovableTiles(Player.getCurrentPlayer());
+        for (TileType tile : tiles) {
             dot_array[tile.ordinal()].setVisible(true);
+            dot_array[tile.ordinal()].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("Clicked");
+                    Player.getCurrentPlayer().setPos(tile);
+                    // 모든 빨간 점을 보이지 않게 만들기
+                    for(JButton reddot : dot_array){
+                        reddot.setVisible(false);
+                    }
+                    show_players();
+                    DialogPanelController.Clear();
+                    DialogPanelController.generateGeneralDialogues();
+                }
+            });
         }
     }
 
-    public void show_players() {
+    public static void show_players() {
         for (JLabel label : player2_array) {
             label.setVisible(false);
         }
