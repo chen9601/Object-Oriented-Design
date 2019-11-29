@@ -1,6 +1,6 @@
 package com;
 import GUI.DialogPanel;
-import GUI.MainGame_page;
+import GUI.Dice_page;
 import lombok.Data;
 
 import javax.swing.*;
@@ -58,9 +58,19 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 플레이어 위치 이동 관련 메소드 타일에서 클릭 가능하게 하는 메소드 호출 이후,
                 // 현재 플레이어가 갈 수 있는 위치 출력하는 메소드 출력 등등
-                Clear();
-                show_dialog("원하는 위치를 클릭해 플레이어를 이동시킬 수 있습니다.");
-                MainGamePageController.show_reddot();
+                if(Player.getCurrentPlayer().getEnergy()<1)
+                {
+                    Clear();
+                    DialogPanelController.show_dialog("사용 가능한 행동치가 없습니다.");
+                    DialogPanelController.show_dialog_answer1(new Answer("1. 턴 종료","turnEnd"));
+                }
+                else
+                {
+                    Clear();
+                    show_dialog("원하는 위치를 클릭해 플레이어를 이동시킬 수 있습니다.");
+                    Player.getCurrentPlayer().setEnergy(Player.getCurrentPlayer().getEnergy()-1);
+                    MainGamePageController.show_reddot();
+                }
             }
         });
 
@@ -68,6 +78,7 @@ public class DialogPanelController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // 랜덤 이벤트 관련 메소드 호출
+                Player.getCurrentPlayer().setEnergy(Player.getCurrentPlayer().getEnergy()-1);
                 Clear();
                 ConstantEventHandler.generateRandomEvent(Player.getCurrentPlayer());
             }
@@ -133,13 +144,12 @@ public class DialogPanelController {
         selectbtn3.setVisible(true);
     };
 
-    static public int Dice(){
-        double randomValue = Math.random();
-        int intValue=(int)(randomValue * 6)+1;
-        return intValue;
+    public static int  Dice(){
+        Dice_page Dice = new Dice_page();
+        Dice.setVisible(true);
+        return Dice.getSavedDice_num();
     }
-
-    /*
+        /*
     @Deprecated
      */
     class SelectBtnListener implements ActionListener{

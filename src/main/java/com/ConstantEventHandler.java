@@ -33,7 +33,7 @@ public class ConstantEventHandler
     }
     static void movebyTeleport(Player player, TileType tile){player.setPos(tile);}
     /**
-     * 플레이어가 움직인 이후 호출, 움직일 플레이어와 목적지를 받아 이동가능 여부를 확인 후 이동시키는 메소드
+     * 플레이어가 움직인 이후 호출, 움직일 플레이어와 목적지를 받아 이벤트 여부를 확인하는 메소드
      * @param player
      *        해당 플레이어
      * @param tile
@@ -65,15 +65,18 @@ public class ConstantEventHandler
         {
             hospital(player);
         }
-
-        if(tile == TileType.MENTAL_HOSTPITAL)
+        else if(tile == TileType.MENTAL_HOSTPITAL)
         {
             mospital(player);
         }
-
-        if(tile == TileType.STORE)
+        else if(tile == TileType.STORE)
         {
 //            Shop();
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.generateGeneralDialogues();
         }
 
     }
@@ -176,7 +179,7 @@ public class ConstantEventHandler
 
     static void shop()
     {
-        String message="상점에 도착했습니다. 구매하실게 있으신가요";
+        String message="상점에 도착했습니다. 구매하실게 있으신가요?";
         DialogPanelController.show_dialog(message);
         ArrayList<ItemType> itemlist=getRandomItemList();
         Answer item1 = new Answer(itemlist.get(0));
