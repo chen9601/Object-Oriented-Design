@@ -115,72 +115,36 @@ public class GameMaster {
             player.setPos(TileType.HOSPITAL);
         }
     }
+
     public static void turnEnd(){
         if(idx_of_cur_player == 1) // 2번째 플레이어의 턴 종료인가?
         {
             if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
                 death(getCurrentPlayer());
-
-            if(check_num_of_token_for_win())
-            {
-                //승리 엔딩 출력
-            }
-            if(check_player_status_for_lost())
-            {
-                //패배 엔딩 출력
-            }
-            if(check_num_of_monsters_portals_for_boss())
-            {
-                generateBossFight(current_boss);
-            }
-
-            if(turn % 3 == 0)
-                setPortalAndMonsterRandomly();
-
-            getCurrentPlayer().setEnergy(getCurrentPlayer().getHealth()/3);
-            if(getCurrentPlayer().getEnergy() == 0 && getCurrentPlayer().getStatus() != 2)
-                getCurrentPlayer().setEnergy(1);
-
-            Player.toggleCurrentPlayer();
-            turn++;
-            // Update turn value to MainGame_page(view)
-            MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(turn));
+            else
+                RandomEventAnswer.Win_check(getCurrentPlayer());
         }
         else
         {
             if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
                 death(getCurrentPlayer());
-
-            if(check_num_of_token_for_win())
-            {
-                //승리 엔딩 출력
-            }
-            if(check_player_status_for_lost())
-            {
-                //패배 엔딩 출력
-            }
-            if(check_num_of_monsters_portals_for_boss())
-            {
-                generateBossFight(current_boss);
-            }
-
-            Player.toggleCurrentPlayer();
+            else
+                RandomEventAnswer.Win_check(getCurrentPlayer());
         }
-        DialogPanelController.generateGeneralDialogues();
     }
-    private static boolean check_num_of_token_for_win()
+    public static boolean check_num_of_token_for_win()
     {
         if(token==10)
         return true;
         else return false;
     }
-    private static boolean check_player_status_for_lost()
+    public static boolean check_player_status_for_lost()
     {
         if(players[0].getStatus()==2&&players[1].getStatus()==2)
         return true;
         else return false;
     }
-    private static boolean check_num_of_monsters_portals_for_boss()
+    public static boolean check_num_of_monsters_portals_for_boss()
     {
         int tempNum=0;
         int tempNum2=0;
