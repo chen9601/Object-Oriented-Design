@@ -58,9 +58,21 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 플레이어 위치 이동 관련 메소드 타일에서 클릭 가능하게 하는 메소드 호출 이후,
                 // 현재 플레이어가 갈 수 있는 위치 출력하는 메소드 출력 등등
-                GUI.MainGame_page.show_reddot();
-                Clear();
-                show_dialog("원하는 위치를 클릭해 플레이어를 이동시킬 수 있습니다.");
+                if(Player.getCurrentPlayer().getEnergy()<1)
+                {
+                    DialogPanelController.Clear();
+                    String message="사용 가능한 행동치가 없습니다.";
+                    DialogPanelController.show_dialog(message);
+                    Answer answer1=new Answer("1. 턴 종료","turnEnd");
+                    DialogPanelController.show_dialog_answer1(answer1);
+                }
+                else
+                {
+                    Player.getCurrentPlayer().setEnergy(Player.getCurrentPlayer().getEnergy()-1);
+                    GUI.MainGame_page.show_reddot();
+                    Clear();
+                    show_dialog("원하는 위치를 클릭해 플레이어를 이동시킬 수 있습니다.");
+                }
             }
         });
 
@@ -68,6 +80,7 @@ public class DialogPanelController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // 랜덤 이벤트 관련 메소드 호출
+                Player.getCurrentPlayer().setEnergy(Player.getCurrentPlayer().getEnergy()-1);
                 Clear();
                 ConstantEventHandler.generateRandomEvent(Player.getCurrentPlayer());
             }

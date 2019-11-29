@@ -86,8 +86,8 @@ public class GameMaster {
         player.setPower(combined_stats[0]);
         player.setDexterity(combined_stats[1]);
         player.setIntelligence(combined_stats[2]);
-        player.setMental(combined_stats[3]);
-        // 체력만 1 + SetStatus_page에서 추가한 포인트로 세팅한다.
+        player.setMental(player.getMental()+combined_stats[3]);
+        // 체력, 정신력은 1 + SetStatus_page에서 추가한 포인트로 세팅한다.
         player.setHealth(player.getHealth() + combined_stats[4]);
 
         if(player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
