@@ -153,6 +153,8 @@ public class GameMaster {
 
             Player.toggleCurrentPlayer();
             turn++;
+            // Update turn value to MainGame_page(view)
+            MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(turn));
         }
         else
         {

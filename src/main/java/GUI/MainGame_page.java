@@ -22,6 +22,7 @@ public class MainGame_page extends JFrame {
     // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
     //몬스터랑 포탈 출력가능하게 만들기
+    MainGameTabPanel tab;
     ImageIcon city_img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png");
     JButton city_btn_array[];
     ImageIcon reddot_img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png");
@@ -31,6 +32,14 @@ public class MainGame_page extends JFrame {
     ImageIcon player2_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
     JLabel lb_player2_array[];
 
+    JLabel lb_player1;
+    JLabel player1_name;
+    PlayerStatusPanel player1_status_panel;
+    JLabel lb_player2_img;
+    JLabel lb_player2_name;
+    PlayerStatusPanel player2_status_panel;
+
+    @Data
     public class MainGameTabPanel extends JPanel {
         JButton status = new JButton("Status");
         JLabel token = new JLabel("token");
@@ -70,6 +79,47 @@ public class MainGame_page extends JFrame {
 
     }
 
+    @Data
+    class PlayerStatusPanel extends JPanel {
+        @Data
+        class Status_Components extends JPanel{
+            JLabel lb_attribute_name;
+            JTextPane attribute_textpane;
+
+            Status_Components(Player player, Dimension player_status_dimension, String attribute_name){
+                lb_attribute_name = new JLabel(attribute_name);
+                lb_attribute_name.setPreferredSize(player_status_dimension);
+                attribute_textpane = new JTextPane();
+                attribute_textpane.setText(Integer.toString(player.getHealth()));
+                attribute_textpane.setEditable(false);
+                attribute_textpane.setPreferredSize(player_status_dimension);
+
+                this.add(lb_attribute_name);
+                this.add(attribute_textpane);
+            }
+        }
+
+        Status_Components health_status;
+        Status_Components mental_status;
+        Status_Components energy_status;
+        Status_Components money_status;
+
+        PlayerStatusPanel(Player player) {
+            Dimension player_status_dimension = new Dimension(40, 30);
+            health_status = new Status_Components(player, player_status_dimension,"체력");
+            mental_status = new Status_Components(player, player_status_dimension,"정신력");
+            energy_status = new Status_Components(player, player_status_dimension,"행동치");
+            money_status = new Status_Components(player, player_status_dimension,"money");
+
+            this.add(health_status);
+            this.add(mental_status);
+            this.add(energy_status);
+            this.add(money_status);
+
+            setLayout(new GridLayout(4, 2, 20, 0));
+        }
+    }
+
     public MainGame_page() {
         //상단바
         {
@@ -77,7 +127,7 @@ public class MainGame_page extends JFrame {
             setBounds(100, 100, 1200, 960);
             getContentPane().setLayout(null);
 
-            MainGameTabPanel tab = new MainGameTabPanel();
+            tab = new MainGameTabPanel();
             tab.setBounds(0, 0, 1182, 140);
             tab.setLayout(null);
             getContentPane().add(tab);
@@ -182,34 +232,31 @@ public class MainGame_page extends JFrame {
         }
         // 플레이어들의 스탯 요약
         {
-            JLabel lb_player1_array = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
-            lb_player1_array.setBounds(650, 620, 240, 163);
-            getContentPane().add(lb_player1_array);
+            ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png");
+            lb_player1 = new JLabel(player1_img);
+            lb_player1.setBounds(650, 620, 240, 163);
+            getContentPane().add(lb_player1);
 
-            JLabel player1_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
+            ImageIcon player1_name_img =new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
+            player1_name = new JLabel(player1_name_img);
             player1_name.setBounds(41, 780, 240, 61);
             getContentPane().add(player1_name);
 
+            player1_status_panel = new PlayerStatusPanel(Player.getPlayer(0));
+            player1_status_panel.setBounds(290, 670, 318, 225);
+            getContentPane().add(player1_status_panel);
 
-            p_simplestat player1 = new p_simplestat(Player.getPlayer(0));
-            JPanel player1_temp = new JPanel();
-            player1_temp.setBounds(290, 670, 318, 225);
-            getContentPane().add(player1_temp);
-            player1_temp.add(player1);
+            lb_player2_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
+            lb_player2_img.setBounds(41, 620, 240, 163);
+            getContentPane().add(lb_player2_img);
 
-            JLabel lb_player2_array = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
-            lb_player2_array.setBounds(41, 620, 240, 163);
-            getContentPane().add(lb_player2_array);
+            lb_player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
+            lb_player2_name.setBounds(650, 780, 240, 61);
+            getContentPane().add(lb_player2_name);
 
-            JLabel player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
-            player2_name.setBounds(650, 780, 240, 61);
-            getContentPane().add(player2_name);
-
-            p_simplestat player2 = new p_simplestat(Player.getPlayer(1));
-            JPanel player2_temp = new JPanel();
-            player2_temp.setBounds(864, 670, 318, 225);
-            getContentPane().add(player2_temp);
-            player2_temp.add(player2);
+            player2_status_panel = new PlayerStatusPanel(Player.getPlayer(1));
+            player2_status_panel.setBounds(864, 670, 318, 225);
+            getContentPane().add(player2_status_panel);
         }
     }
 
@@ -217,71 +264,5 @@ public class MainGame_page extends JFrame {
     public static void main(String[] args) {
         MainGame_page MainGame = new MainGame_page();
         MainGame.setVisible(true);
-    }
-
-    class p_simplestat extends JPanel {
-
-        p_simplestat(Player player) {
-            /*
-             * 테스트 코드
-             * test temp = new test(); JPanel temp1 = new JPanel();
-             * temp1.setBounds(0, 183, 394, 741); getContentPane().add(temp1);
-             * temp1.add(temp);
-             */
-
-            Dimension simplestat_dimension = new Dimension(40, 30);
-            JPanel health_panel = new JPanel();
-            JLabel health = new JLabel("체력");
-            health.setPreferredSize(simplestat_dimension);
-            JTextPane health_text = new JTextPane();
-            health_text.setText(Integer.toString(player.getHealth()));
-            health_text.setEditable(false);
-            health_text.setPreferredSize(simplestat_dimension);
-
-
-            JPanel mental_panel = new JPanel();
-            JLabel mental = new JLabel("정신력");
-            mental.setPreferredSize(new Dimension(40, 30));
-            JTextPane mental_text = new JTextPane();
-            mental_text.setText(Integer.toString(player.getMental()));
-            mental_text.setEditable(false);
-            mental_text.setPreferredSize(simplestat_dimension);
-
-            JPanel energy_panel = new JPanel();
-            JLabel energy = new JLabel("행동치");
-            energy.setPreferredSize(new Dimension(40, 30));
-            JTextPane energy_text = new JTextPane();
-            energy_text.setText(Integer.toString(player.getEnergy()));
-            energy_text.setEditable(false);
-            energy_text.setPreferredSize(simplestat_dimension);
-
-            JPanel money_panel = new JPanel();
-            JLabel money = new JLabel("money");
-            money.setPreferredSize(new Dimension(40, 30));
-            JTextPane money_text = new JTextPane();
-            money_text.setText(Integer.toString(player.getMoney()));
-            money_text.setEditable(false);
-            money_text.setPreferredSize(simplestat_dimension);
-
-            Player.toggleCurrentPlayer();
-
-            health_panel.add(health);
-            health_panel.add(health_text);
-            add(health_panel);
-
-            mental_panel.add(mental);
-            mental_panel.add(mental_text);
-            add(mental_panel);
-
-            energy_panel.add(energy);
-            energy_panel.add(energy_text);
-            add(energy_panel);
-
-            money_panel.add(money);
-            money_panel.add(money_text);
-            add(money_panel);
-
-            setLayout(new GridLayout(4, 2, 20, 0));
-        }
     }
 }

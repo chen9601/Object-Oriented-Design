@@ -22,6 +22,14 @@ public class MainGamePageController {
         maingame_page.setVisible(true);
     }
 
+    public static void update_token(int value){
+        maingame_page.getTab().getToken_text().setText(Integer.toString(value));
+    }
+
+    public static void update_status(int player_idx, int value){
+//        maingame_page.get
+    }
+
     public static void show_reddot() {
         ArrayList<TileType> movable_tiles = Map.getMovableTiles(Player.getCurrentPlayer());
         for (TileType movable_tile : movable_tiles) {
