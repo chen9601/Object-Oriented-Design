@@ -38,21 +38,8 @@ public class MainGame_page extends JFrame {
     static JButton reddot_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
     static JButton reddot_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png"));
     static JButton dot_array[] = {reddot_0, reddot_1, reddot_2, reddot_3, reddot_4, reddot_5, reddot_6, reddot_7, reddot_8, reddot_9, reddot_10, reddot_11, reddot_12};
+//    static JButton dot_array[] = new JButton[13];
 
-    JButton city_btn_0 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_1 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_2 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_3 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_4 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_5 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_6 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_7 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_8 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_9 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_10 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_11 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_btn_12 = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png"));
-    JButton city_array[] = {city_btn_0, city_btn_1, city_btn_2, city_btn_3, city_btn_4, city_btn_5, city_btn_6, city_btn_7, city_btn_8, city_btn_9, city_btn_10, city_btn_11, city_btn_12};
 
     ImageIcon player1_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_img.png");
 
@@ -99,6 +86,33 @@ public class MainGame_page extends JFrame {
         3. 상점과 같은 이벤트가 원래 있는 타일은 디폴트 배경 색을 다르게 한다.
      */
     public MainGame_page() {
+        ImageIcon img_icon;
+        try {
+            img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png");
+        }
+        catch (Exception e){
+            System.out.println(e);
+            img_icon = null;
+        }
+        JButton city_btn_0 = new JButton(img_icon);
+        JButton city_btn_1 = new JButton(img_icon);
+        JButton city_btn_2 = new JButton(img_icon);
+        JButton city_btn_3 = new JButton(img_icon);
+        JButton city_btn_4 = new JButton(img_icon);
+        JButton city_btn_5 = new JButton(img_icon);
+        JButton city_btn_6 = new JButton(img_icon);
+        JButton city_btn_7 = new JButton(img_icon);
+        JButton city_btn_8 = new JButton(img_icon);
+        JButton city_btn_9 = new JButton(img_icon);
+        JButton city_btn_10 = new JButton(img_icon);
+        JButton city_btn_11 = new JButton(img_icon);
+        JButton city_btn_12 = new JButton(img_icon);
+        JButton city_array[] = {city_btn_0, city_btn_1, city_btn_2, city_btn_3, city_btn_4, city_btn_5, city_btn_6, city_btn_7, city_btn_8, city_btn_9, city_btn_10, city_btn_11, city_btn_12};
+//        JButton city_array[] = new JButton[13];
+//        for(int i = 0; i < 13; i++){
+//            city_array[i] = new JButton(img_icon);
+//        }
+
         //상단바
         {
             setResizable(false);
@@ -235,7 +249,8 @@ public class MainGame_page extends JFrame {
             getContentPane().add(player1_img_12);
             show_players();
         }
-        // reddot 버튼
+
+
         {
 
             for (JButton button : dot_array) {
@@ -357,6 +372,8 @@ public class MainGame_page extends JFrame {
                 button_city.setBorderPainted(false);
             }
 
+            city_btn_0.setBounds(244, 315, 105, 54);
+            getContentPane().add(city_btn_0);
             city_btn_0.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("test");
