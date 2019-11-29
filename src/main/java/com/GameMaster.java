@@ -43,7 +43,7 @@ public class GameMaster {
                     .money(100)
                     .items(null)
                     .characteristics("test")
-                    .items(new ArrayList<ItemType>(Arrays.asList(ItemType.PROBLEM_OF_TIME, ItemType.AMULETOFHOWARD)))
+                    .items(new ArrayList<ItemType>(Arrays.asList(ItemType.PROBLEM_OF_TIME, ItemType.AMULET_OF_HOUND)))
                     .build();
         }
     }
@@ -72,7 +72,6 @@ public class GameMaster {
     }
     private static void initMonsters(){}
     public static void setBoss(Boss selected_boss){
-        // 테스트 코드 TODO : 실제 보스는 객체로 적절한 스탯으로 생성해야 함. enum이 될 순 없다. health가 변경가능해야 하므로
         current_boss = selected_boss;
     }
     public static boolean hasItem(ItemType item) {

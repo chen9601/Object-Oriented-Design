@@ -59,7 +59,6 @@ public class SetStatus_page extends JFrame {
         movetab.add(lb_distributable_point);
         movetab.add(prev);
 
-        // TODO : player name을 이미지로 해버리면 나중에 어떻게 바꿀 방법이 있나?
         // doesNextPlayerStatusSetted() 여기서 분기할 때 player 1,2 name_img, img path만 스트링으로 받아서 바꾸게 해주면 될거 같음 ㅇㅇ
         // 일단 그렇게 해둠
 

@@ -8,7 +8,7 @@ public class Fight
         //전투 창 불러오기
         while(true)
         {
-            int temp;//주사위 굴리기
+            int temp=0;//주사위 굴리기
             if(temp>=monster.getRequireVal())
             {
                 //전투 다이얼로그창에 입힌 데미지 출력
@@ -29,7 +29,7 @@ public class Fight
                 break;
             }
 
-            int temp2;//주사위 굴리기for monster
+            int temp2=0;//주사위 굴리기for monster
             if(temp2>=monster.getRequireVal())
             {
                 //전투 다이얼로그창에 입힌 데미지 출력
