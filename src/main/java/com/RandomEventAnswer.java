@@ -318,6 +318,7 @@ public class RandomEventAnswer{
             DialogPanelController.show_dialog_answer1(answer1);
         }
 
+
     }
     public static void Ans5_2_Sub1(Player player)
     {
