@@ -95,23 +95,23 @@ public class MainGame_page extends JFrame {
             player2_img_6, player2_img_7, player2_img_8, player2_img_9, player2_img_10, player2_img_11, player2_img_12};
 
     //player1 위치
-    static ImageIcon potal_Icon = new ImageIcon("src\\main\\java\\GUI\\potal");
+    ImageIcon potal_Icon = new ImageIcon("src\\main\\java\\GUI\\potal");
 
-    static JLabel potal_img_0 = new JLabel(potal_Icon);
-    static JLabel potal_img_1 = new JLabel(potal_Icon);
-    static JLabel potal_img_2 = new JLabel(potal_Icon);
-    static JLabel potal_img_3 = new JLabel(potal_Icon);
-    static JLabel potal_img_4 = new JLabel(potal_Icon);
-    static JLabel potal_img_5 = new JLabel(potal_Icon);
-    static JLabel potal_img_6 = new JLabel(potal_Icon);
-    static JLabel potal_img_7 = new JLabel(potal_Icon);
-    static JLabel potal_img_8 = new JLabel(potal_Icon);
-    static JLabel potal_img_9 = new JLabel(potal_Icon);
-    static JLabel potal_img_10 = new JLabel(potal_Icon);
-    static JLabel potal_img_11 = new JLabel(potal_Icon);
-    static JLabel potal_img_12 = new JLabel(potal_Icon);
+    JLabel potal_img_0 = new JLabel(potal_Icon);
+    JLabel potal_img_1 = new JLabel(potal_Icon);
+    JLabel potal_img_2 = new JLabel(potal_Icon);
+    JLabel potal_img_3 = new JLabel(potal_Icon);
+    JLabel potal_img_4 = new JLabel(potal_Icon);
+    JLabel potal_img_5 = new JLabel(potal_Icon);
+    JLabel potal_img_6 = new JLabel(potal_Icon);
+    JLabel potal_img_7 = new JLabel(potal_Icon);
+    JLabel potal_img_8 = new JLabel(potal_Icon);
+    JLabel potal_img_9 = new JLabel(potal_Icon);
+    JLabel potal_img_10 = new JLabel(potal_Icon);
+    JLabel potal_img_11 = new JLabel(potal_Icon);
+    JLabel potal_img_12 = new JLabel(potal_Icon);
 
-    static JLabel potal_array[] = {potal_img_0, potal_img_1, potal_img_2, potal_img_3, potal_img_4, potal_img_5,
+    JLabel potal_array[] = {potal_img_0, potal_img_1, potal_img_2, potal_img_3, potal_img_4, potal_img_5,
             potal_img_6, potal_img_7, potal_img_8, potal_img_9, potal_img_10, potal_img_11, potal_img_12};
 
 
@@ -123,26 +123,62 @@ public class MainGame_page extends JFrame {
         3. 상점과 같은 이벤트가 원래 있는 타일은 디폴트 배경 색을 다르게 한다.
      */
     public MainGame_page() {
-        //player2
-        String monsterPath = "null";
-        ImageIcon monster_Icon = new ImageIcon(monsterPath);
-        JLabel monster_img_0 = new JLabel(monster_Icon);
-        JLabel monster_img_1 = new JLabel(monster_Icon);
-        JLabel monster_img_2 = new JLabel(monster_Icon);
-        JLabel monster_img_3 = new JLabel(monster_Icon);
-        JLabel monster_img_4 = new JLabel(monster_Icon);
-        JLabel monster_img_5 = new JLabel(monster_Icon);
-        JLabel monster_img_6 = new JLabel(monster_Icon);
-        JLabel monster_img_7 = new JLabel(monster_Icon);
-        JLabel monster_img_8 = new JLabel(monster_Icon);
-        JLabel monster_img_9 = new JLabel(monster_Icon);
-        JLabel monster_img_10 = new JLabel(monster_Icon);
-        JLabel monster_img_11 = new JLabel(monster_Icon);
-        JLabel monster_img_12 = new JLabel(monster_Icon);
+        //     player2
+
+        JLabel monster_img_0 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_1 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_2 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_3 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_4 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_5 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_6 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_7 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_8 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_9 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_10 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_11 = new JLabel(new ImageIcon(show_monsters()));
+        JLabel monster_img_12 = new JLabel(new ImageIcon(show_monsters()));
 
         JLabel monster_array[] = {monster_img_0, monster_img_1, monster_img_2, monster_img_3, monster_img_4, monster_img_5,
                 monster_img_6, monster_img_7, monster_img_8, monster_img_9, monster_img_10, monster_img_11, monster_img_12};
+        monster_img_0.setBounds(264, 315, 40, 50);
+        getContentPane().add(monster_img_0);
 
+        monster_img_1.setBounds(264, 209, 40, 50);
+        getContentPane().add(monster_img_1);
+
+        monster_img_2.setBounds(165, 268, 40, 50);
+        getContentPane().add(monster_img_2);
+
+        monster_img_3.setBounds(165, 370, 40, 50);
+        getContentPane().add(monster_img_3);
+
+        monster_img_4.setBounds(264, 431, 40, 50);
+        getContentPane().add(monster_img_4);
+
+        monster_img_5.setBounds(375, 370, 40, 50);
+        getContentPane().add(monster_img_5);
+
+        monster_img_6.setBounds(375, 268, 40, 50);
+        getContentPane().add(monster_img_6);
+
+        monster_img_7.setBounds(419, 165, 40, 50);
+        getContentPane().add(monster_img_7);
+
+        monster_img_8.setBounds(134, 165, 40, 50);
+        getContentPane().add(monster_img_8);
+
+        monster_img_9.setBounds(34, 315, 40, 50);
+        getContentPane().add(monster_img_9);
+
+        monster_img_10.setBounds(134, 473, 40, 50);
+        getContentPane().add(monster_img_10);
+
+        monster_img_11.setBounds(400, 473, 80, 54);
+        getContentPane().add(monster_img_11);
+
+        monster_img_12.setBounds(502, 315, 80, 54);
+        getContentPane().add(monster_img_12);
         //상단바
         {
             setResizable(false);
@@ -193,6 +229,7 @@ public class MainGame_page extends JFrame {
             dialog_panel.setLayout(null);
             getContentPane().add(dialog_panel);
         }
+
         //player2 이미지
         {
 
@@ -236,9 +273,10 @@ public class MainGame_page extends JFrame {
             getContentPane().add(player2_img_12);
 
         }
-        //player1 이미지
-        {
 
+
+        // player1 이미지
+        {
             player1_img_0.setBounds(284, 315, 40, 50);
             getContentPane().add(player1_img_0);
 
@@ -279,8 +317,72 @@ public class MainGame_page extends JFrame {
             getContentPane().add(player1_img_12);
             show_players();
         }
+//포탈 이미지
+        {
+            ImageIcon potal_Icon;
+            try {
+                potal_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\portal.png");
+            } catch (Exception e) {
+                System.out.println("hi");
+                potal_Icon = null;
+            }
+            JLabel potal_img_0 = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\portal.png"));
+            JLabel potal_img_1 = new JLabel(potal_Icon);
+            JLabel potal_img_2 = new JLabel(potal_Icon);
+            JLabel potal_img_3 = new JLabel(potal_Icon);
+            JLabel potal_img_4 = new JLabel(potal_Icon);
+            JLabel potal_img_5 = new JLabel(potal_Icon);
+            JLabel potal_img_6 = new JLabel(potal_Icon);
+            JLabel potal_img_7 = new JLabel(potal_Icon);
+            JLabel potal_img_8 = new JLabel(potal_Icon);
+            JLabel potal_img_9 = new JLabel(potal_Icon);
+            JLabel potal_img_10 = new JLabel(potal_Icon);
+            JLabel potal_img_11 = new JLabel(potal_Icon);
+            JLabel potal_img_12 = new JLabel(potal_Icon);
 
+            JLabel potal_array[] = {potal_img_0, potal_img_1, potal_img_2, potal_img_3, potal_img_4, potal_img_5,
+                    potal_img_6, potal_img_7, potal_img_8, potal_img_9, potal_img_10, potal_img_11, potal_img_12};
 
+            potal_img_0.setBounds(284, 315, 40, 50);
+            getContentPane().add(potal_img_0);
+
+            potal_img_1.setBounds(284, 209, 40, 50);
+            getContentPane().add(potal_img_1);
+
+            potal_img_2.setBounds(185, 268, 40, 50);
+            getContentPane().add(potal_img_2);
+
+            potal_img_3.setBounds(185, 370, 40, 50);
+            getContentPane().add(potal_img_3);
+
+            potal_img_4.setBounds(284, 431, 40, 50);
+            getContentPane().add(potal_img_4);
+
+            potal_img_5.setBounds(395, 370, 40, 50);
+            getContentPane().add(potal_img_5);
+
+            potal_img_6.setBounds(395, 268, 40, 50);
+            getContentPane().add(potal_img_6);
+
+            potal_img_7.setBounds(440, 165, 40, 50);
+            getContentPane().add(potal_img_7);
+
+            potal_img_8.setBounds(154, 165, 40, 50);
+            getContentPane().add(potal_img_8);
+
+            potal_img_9.setBounds(57, 318, 40, 50);
+            getContentPane().add(potal_img_9);
+
+            potal_img_10.setBounds(154, 473, 40, 50);
+            getContentPane().add(potal_img_10);
+
+            potal_img_11.setBounds(439, 473, 40, 50);
+            getContentPane().add(potal_img_11);
+
+            potal_img_12.setBounds(541, 315, 40, 50);
+            getContentPane().add(potal_img_12);
+            show_potals();
+        }
         {
 
             for (JButton button : dot_array) {
@@ -506,6 +608,7 @@ public class MainGame_page extends JFrame {
             city_btn_12.setBounds(501, 315, 105, 54);
             getContentPane().add(city_btn_12);
         }
+
         // 플레이어들의 스탯 요약
         {
             JLabel player1_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player.png"));
@@ -574,6 +677,30 @@ public class MainGame_page extends JFrame {
         }
         player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
         player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
+    }
+
+    public void show_potals() {
+        for (JLabel potal : potal_array) {
+            potal.setVisible(true);
+            System.out.println("showpotal");
+        }
+    }
+
+    //test코드용 메소드임
+    public String show_monsters() {
+        double randomValue = Math.random();
+        int intValue = (int) (randomValue * 5) + 1;
+
+        if (intValue == 1) {
+            return "src\\main\\java\\GUI\\imgaes\\monster\\BYAKEE2.png";
+        } else if (intValue == 2) {
+            return "src\\main\\java\\GUI\\imgaes\\monster\\dagon2.png";
+        } else if (intValue == 3) {
+            return "src\\main\\java\\GUI\\imgaes\\monster\\elder_thing.png";
+        } else if (intValue == 4) {
+            return "src\\main\\java\\GUI\\imgaes\\monster\\ghoul2.png";
+        } else
+            return "src\\main\\java\\GUI\\imgaes\\monster\\nightgaunt2.png";
     }
 
     class p_simplestat extends JPanel {
