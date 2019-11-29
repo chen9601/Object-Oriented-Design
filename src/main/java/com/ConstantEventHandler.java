@@ -14,7 +14,7 @@ public class ConstantEventHandler
 {
     static void generateRandomEvent(Player player)
     {
-        int event_num=(int)Math.floor(Math.random()*20);
+        int event_num=(int)Math.floor(Math.random()*21);
         RandomEventHandler.RandomEventIndicator(player, event_num);
     }
     static public void move(Player player, TileType tile)

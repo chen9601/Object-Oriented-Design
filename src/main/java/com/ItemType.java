@@ -24,7 +24,7 @@ public enum ItemType {
     LAMPOFALHAZARD("알하자드의 램프", 0, 2, 1, 0, 0, 4512),
     TOMMYGUN("토미건",2,0,0,0,0,3),
     KNIFE("제사용 단검",1,0,0,0,1,2),
-    HANZOSWORD("핫토리한조의 검",2,2,0,0,0,5),
+    HANZO_SWORD("핫토리한조의 검",2,2,0,0,0,5),
     M16("M16",3,0,0,0,0,3);
     private int p_power;
     private int p_dex;
