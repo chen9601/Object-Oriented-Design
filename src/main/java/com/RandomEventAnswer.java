@@ -382,6 +382,7 @@ public class RandomEventAnswer{
 
     public static void Ans7_1(Player player)
     {
+        // TODO : 디버깅 필요 !! 실패시 플레이어의 위치가 임의로 변경되는데 이 변경이 맵에 반영이 안된다.
         DialogPanelController.Clear();
         String message1="상자를 열고 신비로운 힘이 느껴지는 물건을 얻었습니다.";
         String message2="상자를 여는 것을 경비원에게 들켰습니다.";
@@ -394,6 +395,7 @@ public class RandomEventAnswer{
         {
             int temp=(int)Math.floor(Math.random()*13);
             ConstantEventHandler.movebyTeleport(player, TileType.values()[temp]);
+            MainGamePageController.show_players();
             DialogPanelController.show_dialog(message2);
         }
         Answer answer1=new Answer("1. 계속","continue");

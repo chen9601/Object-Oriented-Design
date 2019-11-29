@@ -17,8 +17,8 @@ public class Player{
     static int idx_of_cur_player = 0;
     static private final int MAXIMUM_NUM_OF_PLAYERS = 2;
     static Player[] players = new Player[MAXIMUM_NUM_OF_PLAYERS];
-    static final int ALIVE = 1;
-    static final int DEAD = 2;
+    static public final int ALIVE = 1;
+    static public final int DEAD = 2;
 
     private TileType pos;
     private int money ;
@@ -45,5 +45,26 @@ public class Player{
     static public Player getPlayer(int idx){return players[idx];}
     static public void toggleCurrentPlayer(){
         idx_of_cur_player = idx_of_cur_player == 1 ? 0: 1;
+    }
+
+    public void setHealth(int value){
+        health = value;
+        if(MainGamePageController.maingame_page != null)
+            MainGamePageController.update_status(StatusType.HEALTH, health);
+    }
+    public void setPower(int value){
+        power = value;
+        if(MainGamePageController.maingame_page != null)
+            MainGamePageController.update_status(StatusType.POWER, power);
+    }
+    public void setMental(int value){
+        mental = value;
+        if(MainGamePageController.maingame_page != null)
+            MainGamePageController.update_status(StatusType.MENTAL, mental);
+    }
+    public void setEnergy(int value){
+        energy = value;
+        if(MainGamePageController.maingame_page != null)
+            MainGamePageController.update_status(StatusType.ENERGY, energy);
     }
 }
