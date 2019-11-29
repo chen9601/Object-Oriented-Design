@@ -15,8 +15,6 @@ import static com.Player.idx_of_cur_player;
  */
 
 public class RandomEventAnswer{
-
-    static int temp_death_count;
     /**
      * 이벤트를 진행할 플레이어와 클릭한 선택지에 해당하는 지칭자로 알맞은 메소드를 호출하는 메소드
      * @param answer
@@ -799,7 +797,14 @@ public class RandomEventAnswer{
 
     public static void ContinueDialog()
     {
-        if(Player.getCurrentPlayer().getEnergy()<1)
+        if(Player.getCurrentPlayer().getStatus()==2)
+        {
+            DialogPanelController.Clear();
+            String message="해당 플레이어는 사망한 상태입니다.";
+            DialogPanelController.show_dialog(message);
+            Answer answer1=new Answer("1. 계속","turnEnd");
+        }
+        else if(Player.getCurrentPlayer().getEnergy()<1)
         {
             DialogPanelController.Clear();
             String message="사용 가능한 행동치가 없습니다.";
@@ -867,39 +872,37 @@ public class RandomEventAnswer{
 
     public static void death_Ans(Player player)
     {
-        temp_death_count=GameMaster.death_count;
-
-        if(temp_death_count==0) {}
-        else if(temp_death_count>0)
-        {
-                temp_death_count--;
-                if (DialogPanelController.Dice() > 5)
-                    GameMaster.revive(player);
-        }
+        GameMaster.death_count--;
+        if (DialogPanelController.Dice() > 5)
+            GameMaster.revive(player);
 
         if(player.getHealth()<=0||player.getMental()<=0)
         {
-            if(temp_death_count>0)
+            if(GameMaster.death_count>0)
             {
                 DialogPanelController.Clear();
                 DialogPanelController.show_dialog("즉사 체크 실패!");
                 Answer answer1=new Answer("1. 계속","death");
                 DialogPanelController.show_dialog_answer1(answer1);
             }
-            else if(temp_death_count==0)
+            else
             {
-                GameMaster.death_count--;
                 DialogPanelController.Clear();
                 DialogPanelController.show_dialog("죽음을 극복하지 못했습니다.");
+                player.setStatus(2);
+                GameMaster.death_count=3-GameMaster.revive_count;
                 Answer answer1=new Answer("1. 계속","win_check");
                 DialogPanelController.show_dialog_answer1(answer1);
             }
         }
         else
         {
-            GameMaster.death_count--;
             DialogPanelController.Clear();
             DialogPanelController.show_dialog("죽음을 극복했습니다.");
+            GameMaster.revive_count++;
+            if(GameMaster.revive_count>3)
+                GameMaster.revive_count=3;
+            GameMaster.death_count=3-GameMaster.revive_count;
             Answer answer1=new Answer("1. 계속","win_check");
             DialogPanelController.show_dialog_answer1(answer1);
         }

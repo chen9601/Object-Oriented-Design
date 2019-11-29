@@ -26,6 +26,7 @@ public class GameMaster {
 
     public static int token = 0;
     public static int death_count=3;
+    public static int revive_count=0;
     public static int turn = 1;
     public static Boss current_boss;
 
@@ -104,12 +105,13 @@ public class GameMaster {
 
     public static void revive(Player player)
     {
-        if(player.getMental()<0)
+        player.setStatus(1);
+        if(player.getMental()<=0)
         {
             player.setMental(1);
             player.setPos(TileType.MENTAL_HOSTPITAL);
         }
-        if(player.getHealth()<0)
+        if(player.getHealth()<=0)
         {
             player.setHealth(1);
             player.setPos(TileType.HOSPITAL);
@@ -119,14 +121,14 @@ public class GameMaster {
     public static void turnEnd(){
         if(idx_of_cur_player == 1) // 2번째 플레이어의 턴 종료인가?
         {
-            if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
+            if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
                 death(getCurrentPlayer());
             else
                 RandomEventAnswer.Win_check(getCurrentPlayer());
         }
         else
         {
-            if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
+            if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
                 death(getCurrentPlayer());
             else
                 RandomEventAnswer.Win_check(getCurrentPlayer());
