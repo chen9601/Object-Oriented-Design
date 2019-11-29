@@ -509,14 +509,12 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("Clicked");
-                    Player.getCurrentPlayer().setPos(tile);
+                    ConstantEventHandler.move(Player.getCurrentPlayer(), tile);
                     // 모든 빨간 점을 보이지 않게 만들기
                     for(JButton reddot : dot_array){
                         reddot.setVisible(false);
                     }
                     show_players();
-                    DialogPanelController.Clear();
-                    DialogPanelController.generateGeneralDialogues();
                 }
             });
         }
