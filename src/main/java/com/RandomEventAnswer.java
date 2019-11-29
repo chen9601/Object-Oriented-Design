@@ -145,6 +145,18 @@ public class RandomEventAnswer{
             case "5_1_1_1":
                 Ans5_2_SubResult(player);
                 break;
+            case "hospital1":
+                hospital_Ans1(player);
+                break;
+            case "hospital2":
+                hospital_Ans2(player);
+                break;
+            case "mospital1":
+                mospital_Ans1(player);
+                break;
+            case "mospital2":
+                mospital_Ans2(player);
+                break;
         }
 
     }
@@ -754,8 +766,17 @@ public class RandomEventAnswer{
 
     public static void ContinueDialog()
     {
-        DialogPanelController.Clear();
-        DialogPanelController.generateGeneralDialogues();
+        if(Player.getCurrentPlayer().getEnergy()<1)
+        {
+            DialogPanelController.Clear();
+            String message="사용 가능한 행동치가 없습니다.";
+            DialogPanelController.show_dialog(message);
+            Answer answer1=new Answer("1. 턴 종료","turnEnd");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();}
     }
 
     public static void TurnEnd()
@@ -763,5 +784,51 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         GameMaster.turnEnd();
         DialogPanelController.generateGeneralDialogues();
+    }
+
+    public static void hospital_Ans1(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="치료를 받았습니다.";
+        DialogPanelController.show_dialog(message);
+        player.setHealth(player.getHealth()+3);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void hospital_Ans2(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="병원을 지나칩니다.";
+        DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void mospital_Ans1(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="치료를 받았습니다.";
+        DialogPanelController.show_dialog(message);
+        player.setMental(player.getMental()+3);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void mospital_Ans2(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="정신병원은 방문 안 하는게 좋겠죠.";
+        DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
     }
 }
