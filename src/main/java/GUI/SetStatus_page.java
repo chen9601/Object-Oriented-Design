@@ -30,14 +30,14 @@ public class SetStatus_page extends JFrame {
     JButton next = new JButton("next");
     JButton prev = new JButton("prev");
 
-    String player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_img.png";
+    String player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1-portrait.png";
     String player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_name.png";
 
 
     SetStatus_page() {
         //player 1 , 2  이름 및 이미지 변환
         if (Player.getCurrentPlayer() == Player.getPlayer(1)) {
-            player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_img.png";
+            player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2-portrait.png";
             player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_name.png";
         }
 

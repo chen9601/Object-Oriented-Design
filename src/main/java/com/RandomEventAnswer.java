@@ -12,6 +12,8 @@ import java.util.Random;
  */
 
 public class RandomEventAnswer{
+
+    static int temp_death_count;
     /**
      * 이벤트를 진행할 플레이어와 클릭한 선택지에 해당하는 지칭자로 알맞은 메소드를 호출하는 메소드
      * @param answer
@@ -157,6 +159,9 @@ public class RandomEventAnswer{
                 break;
             case "mospital2":
                 mospital_Ans2(player);
+                break;
+            case "death":
+                death_Ans(player);
                 break;
         }
 
@@ -778,7 +783,6 @@ public class RandomEventAnswer{
 
     public static void ContinueDialog()
     {
-
         if(Player.getCurrentPlayer().getEnergy()<1)
         {
             DialogPanelController.Clear();
@@ -792,8 +796,7 @@ public class RandomEventAnswer{
         DialogPanelController.generateGeneralDialogues();}
     }
 
-    public static void TurnEnd()
-    {
+    public static void TurnEnd(){
         DialogPanelController.Clear();
         GameMaster.turnEnd();
         DialogPanelController.generateGeneralDialogues();
@@ -843,5 +846,45 @@ public class RandomEventAnswer{
         Answer answer2=new Answer("2. 턴 종료","turnEnd");
         DialogPanelController.show_dialog_answer1(answer1);
         DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void death_Ans(Player player)
+    {
+        temp_death_count=GameMaster.death_count;
+
+        if(temp_death_count==0) {}
+        else if(temp_death_count>0)
+        {
+                temp_death_count--;
+                if (DialogPanelController.Dice() > 5)
+                    GameMaster.revive(player);
+        }
+
+        if(player.getHealth()<=0||player.getMental()<=0)
+        {
+            if(temp_death_count>0)
+            {
+                DialogPanelController.Clear();
+                DialogPanelController.show_dialog("즉사 체크 실패!");
+                Answer answer1=new Answer("1. 계속","death");
+                DialogPanelController.show_dialog_answer1(answer1);
+            }
+            else if(temp_death_count==0)
+            {
+                GameMaster.death_count--;
+                DialogPanelController.Clear();
+                DialogPanelController.show_dialog("죽음을 극복하지 못했습니다.");
+                Answer answer1=new Answer("1. 계속","death");
+                DialogPanelController.show_dialog_answer1(answer1);
+            }
+        }
+        else
+        {
+            GameMaster.death_count--;
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("죽음을 극복했습니다");
+            Answer answer1=new Answer("1. 계속","continue");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
     }
 }

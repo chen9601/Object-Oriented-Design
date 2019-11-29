@@ -78,9 +78,18 @@ public class DialogPanelController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // 랜덤 이벤트 관련 메소드 호출
+                if(Player.getCurrentPlayer().getEnergy()<1)
+                {
+                    Clear();
+                    DialogPanelController.show_dialog("사용 가능한 행동치가 없습니다.");
+                    DialogPanelController.show_dialog_answer1(new Answer("1. 턴 종료","turnEnd"));
+                }
+                else
+                {
                 Player.getCurrentPlayer().setEnergy(Player.getCurrentPlayer().getEnergy()-1);
                 Clear();
                 ConstantEventHandler.generateRandomEvent(Player.getCurrentPlayer());
+                }
             }
         });
         selectbtn3.addActionListener(new ActionListener() {

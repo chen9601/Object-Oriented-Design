@@ -38,14 +38,12 @@ public class MainGamePageController {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("Clicked " + movable_tile.ordinal());
-                    Player.getCurrentPlayer().setPos(movable_tile);
+                    ConstantEventHandler.move(Player.getCurrentPlayer(), movable_tile);
                     // 모든 빨간 점을 보이지 않게 만들기
                     for(JButton reddot : dot_array){
                         reddot.setVisible(false);
                     }
                     show_players();
-                    DialogPanelController.Clear();
-                    DialogPanelController.generateGeneralDialogues();
                 }
             });
         }

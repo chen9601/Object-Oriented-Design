@@ -96,21 +96,13 @@ public class GameMaster {
         else // 플레이어가 죽었으면 움직일 수 없다.
             player.setEnergy(0);
     }
-    public static void death(Player player)
-    {
-        for(int i=0;i<death_count;i++)
-        {
-           if(DialogPanelController.Dice()>5)
-           {
-               revive(player);
-               death_count--;
-               break;
-           }
-        }
-        if(player.getHealth()<0||player.getMental()<0)
-            player.setStatus(2);
+    public static void death(Player player){
+        DialogPanelController.show_dialog("플레이어의 체력 또는 정신력이 0이 되어, 즉사 체크를 시행합니다.");
+        Answer answer1=new Answer("1. 계속","death");
+        DialogPanelController.show_dialog_answer1(answer1);
     }
-    private static void revive(Player player)
+
+    public static void revive(Player player)
     {
         if(player.getMental()<0)
         {
@@ -123,8 +115,7 @@ public class GameMaster {
             player.setPos(TileType.HOSPITAL);
         }
     }
-    public static void turnEnd()
-    {
+    public static void turnEnd(){
         if(idx_of_cur_player == 1) // 2번째 플레이어의 턴 종료인가?
         {
             if(getCurrentPlayer().getHealth()<0||getCurrentPlayer().getMental()<0)
