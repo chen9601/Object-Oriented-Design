@@ -178,7 +178,7 @@ public class ConstantEventHandler
         String message="상점에 도착했습니다. 구매하실게 있으신가요";
         DialogPanelController.show_dialog(message);
         ArrayList<ItemType> itemlist=getRandomItemList();
-        Answer item1=new Answer(itemlist.get(0));
+        Answer item1 = new Answer(itemlist.get(0));
         Answer item2=new Answer(itemlist.get(1));
         Answer item3=new Answer(itemlist.get(2));
         DialogPanelController.show_dialog_answer1(item1);
