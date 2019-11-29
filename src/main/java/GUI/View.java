@@ -56,9 +56,5 @@ public class View {
 
     ;
 
-    public int Dice() {
-        double randomValue = Math.random();
-        int intValue = (int) (randomValue * 6) + 1;
-        return intValue;
-    }
+
 }

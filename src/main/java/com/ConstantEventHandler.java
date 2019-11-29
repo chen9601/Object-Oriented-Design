@@ -48,6 +48,7 @@ public class ConstantEventHandler
             if(player.getHealth() > 0)
             {
                 GameMaster.token++;
+                MainGamePageController.update_token(GameMaster.token);
                 Map.tiles[tile.ordinal()].setSummoned_portal(false);
             }
         }

@@ -331,6 +331,7 @@ public class RandomEventAnswer{
             DialogPanelController.show_dialog_answer1(answer1);
         }
 
+
     }
     public static void Ans5_2_Sub1(Player player)
     {
@@ -634,6 +635,7 @@ public class RandomEventAnswer{
         String message="정신이 아득해지는 것을 느꼈지만, 단서 또한 얻었습니다.";
         player.setMental(player.getMental()-1);
         GameMaster.token++;
+        MainGamePageController.update_token(GameMaster.token);
         DialogPanelController.show_dialog(message);
         Answer answer1=new Answer("1. 계속","continue");
         Answer answer2=new Answer("2. 턴 종료","turnEnd");
