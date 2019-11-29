@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 @Data
 public class DialogPanelController {
+
     static public DialogPanel dialog_panel;
     static private JLabel lb_just_text;
     static private JButton selectbtn1;
@@ -23,13 +24,12 @@ public class DialogPanelController {
         generateGeneralDialogues();
     }
     // TODO : Clear의 의미를 재 정의 해야할 듯.. 뭔가 어떤 시점에서는 무조건 clear를 한다 이런거?
-    static void Clear(){
+    static public void Clear(){
         lb_just_text.setText("");
         selectbtn1.setText("");
         selectbtn2.setText("");
         selectbtn3.setText("");
 
-        // TODO : 테스트 중
         if(selectbtn1.getActionListeners().length > 0)
             selectbtn1.removeActionListener(selectbtn1.getActionListeners()[0]);
         if(selectbtn2.getActionListeners().length > 0)
@@ -38,13 +38,15 @@ public class DialogPanelController {
             selectbtn3.removeActionListener(selectbtn3.getActionListeners()[0]);
     }
 
-    static void generateGeneralDialogues(){
+    public static void generateGeneralDialogues(){
+        // TODO : 행동치 소모 시스템 구축
+
         Clear();
         // 플레이어가 맨 처음에 위치 이동, 랜덤 이벤트 실행, 턴 종료 총 세가지 이벤트를 처리할 수 있도록 기본적으로 출력되는 것을 세팅한다.
 
         StringBuilder sb = new StringBuilder();
         sb.append(Player.idx_of_cur_player + 1);
-        sb.append("번째 플레이어 차례 입니다.");
+        sb.append("번째 플레이어 차례입니다.");
         lb_just_text.setText(sb.toString());
 
         selectbtn1.setText("플레이어 위치 이동");
@@ -58,6 +60,7 @@ public class DialogPanelController {
                 // 현재 플레이어가 갈 수 있는 위치 출력하는 메소드 출력 등등
                 GUI.MainGame_page.show_reddot();
                 Clear();
+                show_dialog("원하는 위치를 클릭해 플레이어를 이동시킬 수 있습니다.");
             }
         });
 
@@ -74,6 +77,7 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 턴 종료 관련 메소드 호출
                 Clear();
+                GameMaster.turnEnd();
             }
         });
 
