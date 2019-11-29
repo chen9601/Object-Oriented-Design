@@ -1,5 +1,7 @@
 package GUI;
 
+import com.DialogPanelController;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +37,7 @@ public class Dice_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                showDice.setIcon(new ImageIcon(DiceImage(Dice())));
+                showDice.setIcon(new ImageIcon(DiceImage(DialogPanelController.Dice())));
 
             }
         });
@@ -58,9 +60,5 @@ public class Dice_page extends JFrame {
 
     }
 
-    public int Dice() {
-        double randomValue = Math.random();
-        int intValue = (int) (randomValue * 6) + 1;
-        return intValue;
-    }
+
 }
