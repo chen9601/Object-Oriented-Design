@@ -1,6 +1,7 @@
 package com;
 
 import GUI.DialogPanel;
+import GUI.Dice_page;
 import GUI.View;
 
 import java.util.Random;
@@ -491,6 +492,7 @@ public class RandomEventAnswer{
         String message1="그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
         String message2="그가 당신의 눈 앞에서 소멸됩니다.";
         int tempDice=DialogPanelController.Dice();
+        Dice_page test = new Dice_page();
         if(player.getDexterity()>5&&tempDice>3)
         {
             player.setPower(player.getPower()+1);
