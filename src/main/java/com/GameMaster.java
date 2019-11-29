@@ -217,7 +217,7 @@ public class GameMaster {
             int tempNum1=(int)Math.floor(Math.random()*13);
             int tempNum2=(int)Math.floor(Math.random()*5);
             MonsterType monster=MonsterType.values()[tempNum2];
-            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
+            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
             if(Map.tiles[tempNum1].getSummoned_monster()==null&&Map.tiles[tempNum1].isSummoned_portal()==false)
             {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);

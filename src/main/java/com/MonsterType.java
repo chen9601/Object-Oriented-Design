@@ -1,11 +1,13 @@
 package com;
 
+import javax.swing.*;
+
 public enum MonsterType {
-    Nightgaunt("나이트건트", 3, 3, 1, 1, 3),
-    Dagon("다곤", 1, 6, 2, 2, 5),
-    Byakhee("비야키", 2, 2, 1, 1, 1),
-    Ghoul("구울", 4, 4, 2, 1, 4),
-    Elder_Thing("옛 것", 5, 4, 1, 2, 5);
+    Nightgaunt("나이트건트", 3, 3, 1, 1, 3,"src\\main\\java\\GUI\\imgaes\\monster\\nightgaunt2.png"),
+    Dagon("다곤", 1, 6, 2, 2, 5,"src\\main\\java\\GUI\\imgaes\\monster\\nightgaunt2.png"),
+    Byakhee("비야키", 2, 2, 1, 1, 1,"src\\main\\java\\GUI\\imgaes\\monster\\nightgaunt2.png"),
+    Ghoul("구울", 4, 4, 2, 1, 4,"src\\main\\java\\GUI\\imgaes\\monster\\BYAKEE2.png"),
+    Elder_Thing("옛 것", 5, 4, 1, 2, 5,"src\\main\\java\\GUI\\imgaes\\monster\\elder_thing.png");
 
     private String name;
     private int initial_health;
@@ -13,16 +15,16 @@ public enum MonsterType {
     private int initial_damage;
     private int initial_damageType;
     private int initial_monster_result;
+    private String inintial_imgpath;
 
-
-    MonsterType(String name, int health, int requireVal, int damage, int damageType, int monster_result) {
+    MonsterType(String name, int health, int requireVal, int damage, int damageType, int monster_result,String imagepath) {
         this.name = name;
         this.initial_health = health;
         this.initial_requireVal = requireVal;
         this.initial_damage = damage;
         this.initial_damageType = damageType;
         this.initial_monster_result = monster_result;
-
+        this.inintial_imgpath = imagepath;
     }
 
 
@@ -49,4 +51,5 @@ public enum MonsterType {
     public int getInitial_monster_result() {
         return initial_monster_result;
     }
+    public String getInintial_imgpath(){return inintial_imgpath;}
 }

@@ -18,7 +18,6 @@ public class Monster {
 //    monsterlist[3].name="구울";monsterlist[3].health=4;monsterlist[3].requireVal=4;monsterlist[3].damage=2;monsterlist[3].damageType=1;monsterlist[3].monsterresult=4;
 //    monsterlist[4].name="옛 것";monsterlist[0].health=5;monsterlist[0].requireVal=4;monsterlist[0].damage=1;monsterlist[0].damageType=2;monsterlist[0].monsterresult=5;
 
-    static private Monster[] monsters;
 
     private String name;
     private int health;
@@ -26,7 +25,7 @@ public class Monster {
     private int damage;
     private int damageType;
     private int monster_result;
-
+    private String imagepath;
     public void decreaseHealth(int damage_from_player) {
         health -= damage_from_player;
     }
