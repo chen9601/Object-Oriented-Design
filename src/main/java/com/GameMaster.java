@@ -1,6 +1,7 @@
 package com;
 
 import GUI.DialogPanel;
+import GUI.Fight_monster_page;
 import GUI.Start_page;
 import GUI.View;
 
@@ -25,8 +26,8 @@ public class GameMaster {
     static private final int PLAYER_BOSS_DEATH = 5;
 
     public static int token = 0;
-    public static int death_count=3;
-    public static int revive_count=0;
+    public static int death_count = 3;
+    public static int revive_count = 0;
     public static int turn = 1;
     public static Boss current_boss;
 
@@ -37,7 +38,7 @@ public class GameMaster {
     }
 
     private static void initiatePlayers() {
-        for(int i = 0; i<2; i++){
+        for (int i = 0; i < 2; i++) {
             players[i] = Player
                     .builder()
                     .pos(TileType.A)
@@ -48,20 +49,23 @@ public class GameMaster {
                     .build();
         }
     }
-    public static void initiateGame(){
+
+    public static void initiateGame() {
         token = 0;
         turn = 0;
         initiatePlayers();
         initMap();
         initMonsters();
     }
-    private static void initItem(){
+
+    private static void initItem() {
 //        Player.items
     }
-    private static void initMap(){
+
+    private static void initMap() {
 
         Map.tiles = new Tile[13];
-        for(int i = 0;i<13;i++){
+        for (int i = 0; i < 13; i++) {
             Map.tiles[i] = Tile
                     .builder()
                     .summoned_monster(null)
@@ -71,129 +75,138 @@ public class GameMaster {
         }
 
     }
-    private static void initMonsters(){}
-    public static void setBoss(Boss selected_boss){
+
+    private static void initMonsters() {
+    }
+
+    public static void setBoss(Boss selected_boss) {
         current_boss = selected_boss;
     }
+
     public static boolean hasItem(ItemType item) {
-        return getCurrentPlayer().getItems().indexOf(item) == -1 ? true:false;
+        return getCurrentPlayer().getItems().indexOf(item) == -1 ? true : false;
     }
-    public static boolean isEnergyLeft(Player player){
-        return getCurrentPlayer().getEnergy() == 0 ? true:false;
+
+    public static boolean isEnergyLeft(Player player) {
+        return getCurrentPlayer().getEnergy() == 0 ? true : false;
     }
-    public static void setInitializePlayerStats(int[] combined_stats){
+
+    public static void setInitializePlayerStats(int[] combined_stats) {
         Player player = getCurrentPlayer();
         player.setPower(combined_stats[0]);
         player.setDexterity(combined_stats[1]);
         player.setIntelligence(combined_stats[2]);
-        player.setMental(player.getMental()+combined_stats[3]);
+        player.setMental(player.getMental() + combined_stats[3]);
         // 체력, 정신력은 1 + SetStatus_page에서 추가한 포인트로 세팅한다.
         player.setHealth(player.getHealth() + combined_stats[4]);
 
-//        if(player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
-//            player.setEnergy(player.getHealth() / 3);
-//        else if(player.getHealth() > 0) // player가 죽지 않았으면 1번 이상 움직일 수 있다.
-//            player.setEnergy(1); // 최소 값
-//        else // 플레이어가 죽었으면 움직일 수 없다.
-//            player.setEnergy(0);
+        if (player.getHealth() > 3) // player의 체력이 3 이상이면 여러번 움직일 수 있다.
+            player.setEnergy(player.getHealth() / 3);
+        else if (player.getHealth() > 0) // player가 죽지 않았으면 1번 이상 움직일 수 있다.
+            player.setEnergy(1); // 최소 값
+        else // 플레이어가 죽었으면 움직일 수 없다.
+            player.setEnergy(0);
     }
-    public static void death(Player player){
+
+    public static void death(Player player) {
         DialogPanelController.show_dialog("플레이어의 체력 또는 정신력이 0이 되어, 즉사 체크를 시행합니다.");
-        Answer answer1=new Answer("1. 계속","death");
+        Answer answer1 = new Answer("1. 계속", "death");
         DialogPanelController.show_dialog_answer1(answer1);
     }
 
-    public static void revive(Player player)
-    {
+    public static void revive(Player player) {
         player.setStatus(1);
-        if(player.getMental()<=0)
-        {
+        if (player.getMental() <= 0) {
             player.setMental(1);
             player.setPos(TileType.MENTAL_HOSTPITAL);
         }
-        if(player.getHealth()<=0)
-        {
+        if (player.getHealth() <= 0) {
             player.setHealth(1);
             player.setPos(TileType.HOSPITAL);
         }
     }
 
-    public static void turnEnd(){
-        if(idx_of_cur_player == 1) // 2번째 플레이어의 턴 종료인가?
-        {
-            if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
-                death(getCurrentPlayer());
-
-            else
+    public static void turnEnd() {
+        if (getCurrentPlayer().getHealth() <= 0 || getCurrentPlayer().getMental() <= 0) {
+            if (getCurrentPlayer().getStatus() == 2) {
                 RandomEventAnswer.Win_check(getCurrentPlayer());
-        }
-        else
-        {
-            if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
+            } else
                 death(getCurrentPlayer());
-            else
-                RandomEventAnswer.Win_check(getCurrentPlayer());
-        }
+        } else
+            RandomEventAnswer.Win_check(getCurrentPlayer());
     }
-    public static boolean check_num_of_token_for_win()
-    {
-        if(token==10)
-        return true;
+
+    public static boolean check_num_of_token_for_win() {
+        if (token == 10)
+            return true;
         else return false;
     }
-    public static boolean check_player_status_for_lost()
-    {
-        if(players[0].getStatus()==2&&players[1].getStatus()==2)
-        return true;
+
+    public static boolean check_player_status_for_lost() {
+        if (players[0].getStatus() == 2 && players[1].getStatus() == 2)
+            return true;
         else return false;
     }
-    public static boolean check_num_of_monsters_portals_for_boss()
-    {
-        int tempNum=0;
-        int tempNum2=0;
 
-        for(int i=0;i<13;i++)
-        {
-            if (Map.tiles[i].getSummoned_monster()!=null)
+    public static boolean check_num_of_monsters_portals_for_boss() {
+        int tempNum = 0;
+        int tempNum2 = 0;
+
+        for (int i = 0; i < 13; i++) {
+            if (Map.tiles[i].getSummoned_monster() != null)
                 tempNum++;
         }
-        for(int j=0;j<13;j++)
-        {
-            if(Map.tiles[j].isSummoned_portal())
+        for (int j = 0; j < 13; j++) {
+            if (Map.tiles[j].isSummoned_portal())
                 tempNum2++;
         }
 
-        if(tempNum>6||tempNum2>4)
-        return true;
+        if (tempNum > 6 || tempNum2 > 4)
+            return true;
         else return false;
     }
-    public static void setPortalAndMonsterRandomly()
-    {
-        while(true)
-        {
-            int tempNum1=(int)Math.floor(Math.random()*13);
-            int tempNum2=(int)Math.floor(Math.random()*5);
-            MonsterType monster=MonsterType.values()[tempNum2];
-            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
-            if(Map.tiles[tempNum1].getSummoned_monster()==null&&Map.tiles[tempNum1].isSummoned_portal()==false)
-            {
+
+    public static void setPortalAndMonsterRandomly() {
+        while (true) {
+            int tempNum1 = (int) Math.floor(Math.random() * 13);
+            int tempNum2 = (int) Math.floor(Math.random() * 5);
+            MonsterType monster = MonsterType.values()[tempNum2];
+            Monster tempMon = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
+            if (Map.tiles[tempNum1].getSummoned_monster() == null && Map.tiles[tempNum1].isSummoned_portal() == false) {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);
                 break;
-            }
-            else continue;
+            } else continue;
         }
 
-        while(true)
-        {
-            int tempNum1=(int)Math.floor(Math.random()*13);
-            if(Map.tiles[tempNum1].getSummoned_monster()==null&&Map.tiles[tempNum1].isSummoned_portal()==false)
-            {
+        while (true) {
+            int tempNum1 = (int) Math.floor(Math.random() * 13);
+            if (Map.tiles[tempNum1].getSummoned_monster() == null && Map.tiles[tempNum1].isSummoned_portal() == false) {
                 Map.tiles[tempNum1].setSummoned_portal(true);
                 break;
-            }
-            else continue;
+            } else continue;
         }
     }
-    public static void generateBossFight(Boss boss){}
+
+    public static void test_addmonster_alltile() {
+        MonsterType monster = MonsterType.values()[2];
+        Monster tempmonster = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
+
+        for(int i =0 ; i<13;i++){
+            Map.tiles[i].setSummoned_monster((tempmonster));
+        }
+        }
+
+    public static void monster_fightcondition() {
+//        GameMaster.test_addmonster_alltile();
+        Player player = getCurrentPlayer();
+        if (Map.getMonsterAt(getCurrentPlayer().getPos())!= null) {
+            Fight_monster_page monsterpage = new Fight_monster_page();
+            monsterpage.setVisible(true);
+        }
+
+    }
+
+    public static void generateBossFight(Boss boss) {
+    }
 
 }
