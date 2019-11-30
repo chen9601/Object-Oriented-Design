@@ -27,9 +27,9 @@ public class MainGamePageController {
         maingame_page.getTab().getToken_text().setText(Integer.toString(value));
     }
 
-    public static void update_status(StatusType type, int value){
+    public static void update_status(int idx, StatusType type, int value){
         // TODO : Need refactoring. uncomfortable
-        if(Player.idx_of_cur_player == 0)
+        if(idx == 0)
             maingame_page.getPlayer1_status_panel().getStatus_details()[type.ordinal()]
                     .getAttribute_textpane().setText(Integer.toString(value));
         else
