@@ -65,6 +65,7 @@ public class DialogPanelController {
                 {
                     Clear();
                     DialogPanelController.show_dialog("사용 가능한 행동치가 없습니다.");
+                    //TODO : Need to refactor :: show_dialog_answer1 could be overloading
                     DialogPanelController.show_dialog_answer1(new Answer("1. 턴 종료","turnEnd"));
                 }
                 else
@@ -100,7 +101,8 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 턴 종료 관련 메소드 호출
                 Clear();
-                RandomEventAnswer.Win_Ans(Player.getCurrentPlayer());
+                GameMaster.turnEnd();
+//                RandomEventAnswer.Win_Ans(Player.getCurrentPlayer());
             }
         });
 

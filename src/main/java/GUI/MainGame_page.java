@@ -6,9 +6,7 @@ import lombok.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
@@ -60,19 +58,19 @@ public class MainGame_page extends JFrame {
     JLabel potal_array[] = {potal_img_0, potal_img_1, potal_img_2, potal_img_3, potal_img_4, potal_img_5,
             potal_img_6, potal_img_7, potal_img_8, potal_img_9, potal_img_10, potal_img_11, potal_img_12};
 
-    JLabel monster_img_0 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_1 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_2 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_3 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_4 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_5 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_6 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_7 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_8 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_9 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_10 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_11 = new JLabel(new ImageIcon(show_monsters()));
-    JLabel monster_img_12 = new JLabel(new ImageIcon(show_monsters()));
+    JLabel monster_img_0 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_1 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_2 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_3 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_4 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_5 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_6 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_7 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_8 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_9 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_10 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_11 = new JLabel(new ImageIcon(get_monster_img_path()));
+    JLabel monster_img_12 = new JLabel(new ImageIcon(get_monster_img_path()));
 
     JLabel monster_array[] = {monster_img_0, monster_img_1, monster_img_2, monster_img_3, monster_img_4, monster_img_5,
             monster_img_6, monster_img_7, monster_img_8, monster_img_9, monster_img_10, monster_img_11, monster_img_12};
@@ -160,9 +158,7 @@ public class MainGame_page extends JFrame {
     }
 
     public MainGame_page() {
-
-
-        //상단바
+        // 상단바
         {
             setResizable(false);
             setBounds(100, 100, 1200, 960);
@@ -179,7 +175,7 @@ public class MainGame_page extends JFrame {
             dialog_panel.setLayout(null);
             getContentPane().add(dialog_panel);
         }
-        // reddot 버튼
+        // red dot 버튼
         {
             btn_reddot_array = new JButton[13];
             for (int i = 0; i < 13; i++) {
@@ -204,7 +200,7 @@ public class MainGame_page extends JFrame {
             btn_reddot_array[11].setBounds(399, 473, 105, 54);
             btn_reddot_array[12].setBounds(501, 315, 105, 54);
         }
-        //player1 이미지
+        // player1 이미지
         {
             lb_player1_array = new JLabel[13];
             for(int i = 0; i < 13; i++){
@@ -269,7 +265,7 @@ public class MainGame_page extends JFrame {
             monster_img_12.setBounds(502, 315, 80, 54);
             getContentPane().add(monster_img_12);
         }
-        //포탈 이미지
+        // 포탈 이미지
         {
             ImageIcon potal_Icon;
             try {
@@ -278,7 +274,7 @@ public class MainGame_page extends JFrame {
                 System.out.println("hi");
                 potal_Icon = null;
             }
-            JLabel potal_img_0 = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\portal.png"));
+            JLabel potal_img_0 = new JLabel(potal_Icon);
             JLabel potal_img_1 = new JLabel(potal_Icon);
             JLabel potal_img_2 = new JLabel(potal_Icon);
             JLabel potal_img_3 = new JLabel(potal_Icon);
@@ -297,49 +293,25 @@ public class MainGame_page extends JFrame {
 
             for(JLabel portal_img : potal_array){
                 portal_img.setVisible(false);
+                getContentPane().add(portal_img);
             }
 
             potal_img_0.setBounds(284, 315, 40, 50);
-            getContentPane().add(potal_img_0);
-
             potal_img_1.setBounds(284, 209, 40, 50);
-            getContentPane().add(potal_img_1);
-
             potal_img_2.setBounds(185, 268, 40, 50);
-            getContentPane().add(potal_img_2);
-
             potal_img_3.setBounds(185, 370, 40, 50);
-            getContentPane().add(potal_img_3);
-
             potal_img_4.setBounds(284, 431, 40, 50);
-            getContentPane().add(potal_img_4);
-
             potal_img_5.setBounds(395, 370, 40, 50);
-            getContentPane().add(potal_img_5);
-
             potal_img_6.setBounds(395, 268, 40, 50);
-            getContentPane().add(potal_img_6);
-
             potal_img_7.setBounds(440, 165, 40, 50);
-            getContentPane().add(potal_img_7);
-
             potal_img_8.setBounds(154, 165, 40, 50);
-            getContentPane().add(potal_img_8);
-
             potal_img_9.setBounds(57, 318, 40, 50);
-            getContentPane().add(potal_img_9);
-
             potal_img_10.setBounds(154, 473, 40, 50);
-            getContentPane().add(potal_img_10);
-
             potal_img_11.setBounds(439, 473, 40, 50);
-            getContentPane().add(potal_img_11);
-
             potal_img_12.setBounds(541, 315, 40, 50);
-            getContentPane().add(potal_img_12);
             show_potals();
         }
-        //player2 이미지
+        // player2 이미지
         {
             lb_player2_array = new JLabel[13];
             for(int i = 0; i < 13; i++){
@@ -415,12 +387,6 @@ public class MainGame_page extends JFrame {
         }
     }
 
-
-    public static void main(String[] args) {
-        MainGame_page MainGame = new MainGame_page();
-        MainGame.setVisible(true);
-    }
-
     public void show_potals() {
         for (JLabel potal : potal_array) {
             potal.setVisible(true);
@@ -428,7 +394,7 @@ public class MainGame_page extends JFrame {
     }
 
     //test코드용 메소드임
-    public String show_monsters() {
+    public String get_monster_img_path() {
         double randomValue = Math.random();
         int intValue = (int) (randomValue * 5) + 1;
 
