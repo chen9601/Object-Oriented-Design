@@ -84,6 +84,9 @@ public class RandomEventHandler
             case 19:
             Rev20(player);
             break;
+            case 20:
+                Rev21(player);
+                break;
         }
     }
     /**

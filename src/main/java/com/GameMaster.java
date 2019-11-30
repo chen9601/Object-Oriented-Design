@@ -118,23 +118,21 @@ public class GameMaster {
         }
     }
 
-    public static void turnEnd(){
-        if(idx_of_cur_player == 1) // 2번째 플레이어의 턴 종료인가?
-        {
+    public static void turnEnd()
+    {
             if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
-                death(getCurrentPlayer());
-
+            {
+                if(getCurrentPlayer().getStatus()==2)
+                {
+                    RandomEventAnswer.Win_check(getCurrentPlayer());
+                }
+                else
+                    death(getCurrentPlayer());
+            }
             else
                 RandomEventAnswer.Win_check(getCurrentPlayer());
-        }
-        else
-        {
-            if(getCurrentPlayer().getHealth()<=0||getCurrentPlayer().getMental()<=0)
-                death(getCurrentPlayer());
-            else
-                RandomEventAnswer.Win_check(getCurrentPlayer());
-        }
     }
+
     public static boolean check_num_of_token_for_win()
     {
         if(token==10)
