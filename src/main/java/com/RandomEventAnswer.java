@@ -787,8 +787,21 @@ public class RandomEventAnswer{
     public static void Ans21_2(Player player)
     {
         DialogPanelController.Clear();
-        String message="정말 그는 당신이 모르는 사람일까요?";
-        DialogPanelController.show_dialog(message);
+        String message1="역시나 함정이었지만, 당신의 뛰어난 정신력과 지식이 이를 막았습니다. 이제 뭘하냐고요? 스위트룸을 즐겨야죠.";
+        String message2="역시나 함정이었지만, 당신의 처참한 정신력과 낮은 지성은 이를 인지하지도 못하나보군요.";
+
+        if(player.getMental()>5&&player.getIntelligence()>5)
+        {
+            player.setMental(player.getMental()+2);
+            player.setHealth(player.getHealth()+2);
+            player.setMoney(player.getMoney()-3);
+        }
+        else
+        {
+            player.setMoney(player.getMoney()-3);
+            player.setMental(player.getMental()-4);
+        }
+
         Answer answer1=new Answer("1. 계속","continue");
         Answer answer2=new Answer("2. 턴 종료","turnEnd");
         DialogPanelController.show_dialog_answer1(answer1);
@@ -797,14 +810,7 @@ public class RandomEventAnswer{
 
     public static void ContinueDialog()
     {
-        if(Player.getCurrentPlayer().getStatus()==2)
-        {
-            DialogPanelController.Clear();
-            String message="해당 플레이어는 사망한 상태입니다.";
-            DialogPanelController.show_dialog(message);
-            Answer answer1=new Answer("1. 계속","turnEnd");
-        }
-        else if(Player.getCurrentPlayer().getEnergy()<1)
+        if(Player.getCurrentPlayer().getEnergy()<1)
         {
             DialogPanelController.Clear();
             String message="사용 가능한 행동치가 없습니다.";
@@ -872,6 +878,9 @@ public class RandomEventAnswer{
 
     public static void death_Ans(Player player)
     {
+        if(player.getStatus()==2)
+            Win_check(player);
+
         GameMaster.death_count--;
         if (DialogPanelController.Dice() > 5)
             GameMaster.revive(player);
@@ -981,7 +990,11 @@ public class RandomEventAnswer{
 
         for(int i=0;i<2;i++)
         {
-            Player.players[i].setEnergy(Player.players[i].getHealth()/3);
+            if(Player.players[i].getStatus()!=2)
+                Player.players[i].setEnergy(Player.players[i].getHealth()/3);
+            else
+                Player.players[i].setEnergy(0);
+
             if(Player.players[i].getEnergy() == 0 && Player.players[i].getStatus() != 2)
                 Player.players[i].setEnergy(1);
         }
@@ -990,7 +1003,11 @@ public class RandomEventAnswer{
 
         // Update turn value to MainGame_page(view)
         MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(GameMaster.turn));
-        DialogPanelController.generateGeneralDialogues();
+
+        if(Player.getCurrentPlayer().getStatus()==2)
+            DialogPanelController.Dead_Player_Dialog();
+        else
+            DialogPanelController.generateGeneralDialogues();
     }
 
     public static void Next_Player(Player player)
@@ -1000,6 +1017,9 @@ public class RandomEventAnswer{
         // Update turn value to MainGame_page(view)
         MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(GameMaster.turn));
 
-        DialogPanelController.generateGeneralDialogues();
+        if(Player.getCurrentPlayer().getStatus()==2)
+            DialogPanelController.Dead_Player_Dialog();
+        else
+            DialogPanelController.generateGeneralDialogues();
     }
 }
