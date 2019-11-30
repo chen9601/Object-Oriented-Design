@@ -2,15 +2,40 @@ package GUI;
 
 import com.*;
 
-/** */
+/**
+ *
+ */
 public class View {
 
-	public static void Renew_Dialog(){};
-	public static void Renew_map(){};
-	public static void Renew_status(){};
-	public static void Renew_status_detail(){};
-	public static void Renew_token(){};
-	public static void Renew_turn(){};
+    public static void Renew_Dialog() {
+    }
+
+    ;
+
+    public static void Renew_map() {
+    }
+
+    ;
+
+    public static void Renew_status() {
+    }
+
+    ;
+
+    public static void Renew_status_detail() {
+    }
+
+    ;
+
+    public static void Renew_token() {
+    }
+
+    ;
+
+    public static void Renew_turn() {
+    }
+
+    ;
 
 //	public int setstatus_calculate(int s, String status){};
 /*
@@ -21,12 +46,15 @@ public class View {
 //	public void show_dialog_answer2(Answer answer){};
 //	public void show_dialog_answer3(Answer answer){};
 
-	public void show_boss(){};
-	public void show_monster(){};
+    public void show_boss() {
+    }
 
-	public int Dice() {
-		double randomValue = Math.random();
-		int intValue = (int) (randomValue * 6) + 1;
-		return intValue;
-	}
+    ;
+
+    public void show_monster() {
+    }
+
+    ;
+
+
 }

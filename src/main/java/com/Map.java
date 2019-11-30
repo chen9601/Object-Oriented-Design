@@ -12,7 +12,7 @@ import static com.GameMaster.*;
  * @version 1.0
  */
 public class Map {
-    static Tile[] tiles; // tiles의 인덱스 == TileType의 인덱스 : 각 타일 접근성 향상을 위해
+    public static Tile[] tiles; // tiles의 인덱스 == TileType의 인덱스 : 각 타일 접근성 향상을 위해
     static private int[][] path_validating_data = {
             {2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
             {1, 2, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0},

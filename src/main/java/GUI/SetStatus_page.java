@@ -1,6 +1,7 @@
 package GUI;
 
 import com.GameMaster;
+import com.MainGamePageController;
 import com.Player;
 import lombok.Data;
 
@@ -29,14 +30,14 @@ public class SetStatus_page extends JFrame {
     JButton next = new JButton("next");
     JButton prev = new JButton("prev");
 
-    String player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_img.png";
+    String player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1-portrait.png";
     String player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_name.png";
 
 
     SetStatus_page() {
         //player 1 , 2  이름 및 이미지 변환
         if (Player.getCurrentPlayer() == Player.getPlayer(1)) {
-            player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_img.png";
+            player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2-portrait.png";
             player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_name.png";
         }
 
@@ -58,7 +59,6 @@ public class SetStatus_page extends JFrame {
         movetab.add(lb_distributable_point);
         movetab.add(prev);
 
-        // TODO : player name을 이미지로 해버리면 나중에 어떻게 바꿀 방법이 있나?
         // doesNextPlayerStatusSetted() 여기서 분기할 때 player 1,2 name_img, img path만 스트링으로 받아서 바꾸게 해주면 될거 같음 ㅇㅇ
         // 일단 그렇게 해둠
 
@@ -112,17 +112,19 @@ public class SetStatus_page extends JFrame {
                 };
                 GameMaster.setInitializePlayerStats(total_value);
                 Player.toggleCurrentPlayer();
-                JFrame nextPage = null;
 
 
 
-                if (doesNextPlayerStatusSetted())
-                    nextPage = new MainGame_page();
-
-                else
-                    nextPage = new SetStatus_page();
-                nextPage.setVisible(true);
-                dispose();
+                if (doesNextPlayerStatusSetted()){
+                    MainGamePageController maingame_page_controller = new MainGamePageController();
+                    maingame_page_controller.maingame_page.setVisible(true);
+                    dispose();
+                }
+                else{
+                    JFrame nextPage = new SetStatus_page();
+                    nextPage.setVisible(true);
+                    dispose();
+                }
             }
         });
 
