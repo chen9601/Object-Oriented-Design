@@ -92,8 +92,6 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    Fight_monster_page TEPM = new Fight_monster_page();
-                    TEPM.setVisible(true);
                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                     temp.setVisible(true);
                 }
@@ -131,7 +129,15 @@ public class MainGame_page extends JFrame {
                 lb_attribute_name = new JLabel(attribute_name);
                 lb_attribute_name.setPreferredSize(player_status_dimension);
                 attribute_textpane = new JTextPane();
-                attribute_textpane.setText(Integer.toString(player.getHealth()));
+                String text_data = null;
+                // TODO : 플레이어의 status를 StatusType으로 재정의 및 리팩토링 하는게 맞는걸까?
+                switch(attribute_name){
+                    case "체력": text_data = Integer.toString(player.getHealth()); break;
+                    case "힘": text_data = Integer.toString(player.getPower()); break;
+                    case "정신력":text_data = Integer.toString(player.getMental()); break;
+                    case "행동치":text_data = Integer.toString(player.getEnergy()); break;
+                }
+                attribute_textpane.setText(text_data);
                 attribute_textpane.setEditable(false);
                 attribute_textpane.setPreferredSize(player_status_dimension);
 
