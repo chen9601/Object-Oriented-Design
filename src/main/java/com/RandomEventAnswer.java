@@ -1,9 +1,13 @@
 package com;
 
 import GUI.DialogPanel;
+import GUI.Dice_page;
 import GUI.View;
 
 import java.util.Random;
+
+import static com.Player.getCurrentPlayer;
+import static com.Player.idx_of_cur_player;
 
 /**
  * RandomEventHandler에 의해 생성된 선택지를 클릭 시 ActionListener에 의해 실행될 각각의 선택지들에 대한 결과를 정리한 클래스
@@ -145,6 +149,34 @@ public class RandomEventAnswer{
             case "5_1_1_1":
                 Ans5_2_SubResult(player);
                 break;
+            case "hospital1":
+                hospital_Ans1(player);
+                break;
+            case "hospital2":
+                hospital_Ans2(player);
+                break;
+            case "mospital1":
+                mospital_Ans1(player);
+                break;
+            case "mospital2":
+                mospital_Ans2(player);
+                break;
+            case "death":
+                death_Ans(player);
+                break;
+            case "win_check":
+                Win_check(player);
+                break;
+            case "win":
+                Win_Ans(player);
+                break;
+            case "defeat":
+                Defeat_Ans(player);
+                break;
+            case "boss_summon":
+                Boss_fight();
+                break;
+
         }
 
     }
@@ -262,6 +294,7 @@ public class RandomEventAnswer{
         String message1="그가 망토 속에서 기이한 물건 하나를 꺼내 당신에게 건네줍니다.";
         String message2="그는 갑자기 망토 속에서 독을 바른 칼날을 꺼내 당신을 찌릅니다.";
         int tempDice=DialogPanelController.Dice();
+        Dice_page test = new Dice_page();
         if(tempDice>4)
         {
             DialogPanelController.show_dialog(message1);
@@ -303,7 +336,9 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message1="당신을 가격하는 몽둥이를 피했습니다.";
         String message2="당신을 가격하는 몽둥이를 피하지 못했습니다. 눈앞이 캄캄해집니다.";
-        if(DialogPanelController.Dice()>2 && player.getDexterity()>2)
+        int tempDice=DialogPanelController.Dice();
+        Dice_page test = new Dice_page();
+        if(tempDice>2 && player.getDexterity()>2)
         {
             DialogPanelController.show_dialog(message1);
             Answer answer1=new Answer("1. 계속","continue");
@@ -317,6 +352,7 @@ public class RandomEventAnswer{
             Answer answer1=new Answer("1. 계속","5_1_1");
             DialogPanelController.show_dialog_answer1(answer1);
         }
+
 
     }
     public static void Ans5_2_Sub1(Player player)
@@ -369,10 +405,13 @@ public class RandomEventAnswer{
 
     public static void Ans7_1(Player player)
     {
+        // TODO : 디버깅 필요 !! 실패시 플레이어의 위치가 임의로 변경되는데 이 변경이 맵에 반영이 안된다.
         DialogPanelController.Clear();
         String message1="상자를 열고 신비로운 힘이 느껴지는 물건을 얻었습니다.";
         String message2="상자를 여는 것을 경비원에게 들켰습니다.";
-        if(player.getDexterity()>2&&DialogPanelController.Dice()>3)
+        int tempDice=DialogPanelController.Dice();
+        Dice_page test = new Dice_page();
+        if(player.getDexterity()>2&&tempDice>3)
         {
             ConstantEventHandler.addRandomItem(player);
             DialogPanelController.show_dialog(message1);
@@ -381,6 +420,7 @@ public class RandomEventAnswer{
         {
             int temp=(int)Math.floor(Math.random()*13);
             ConstantEventHandler.movebyTeleport(player, TileType.values()[temp]);
+            MainGamePageController.show_players();
             DialogPanelController.show_dialog(message2);
         }
         Answer answer1=new Answer("1. 계속","continue");
@@ -479,6 +519,7 @@ public class RandomEventAnswer{
         String message1="그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
         String message2="그가 당신의 눈 앞에서 소멸됩니다.";
         int tempDice=DialogPanelController.Dice();
+        Dice_page test = new Dice_page();
         if(player.getDexterity()>5&&tempDice>3)
         {
             player.setPower(player.getPower()+1);
@@ -488,7 +529,7 @@ public class RandomEventAnswer{
         }
         else
         {
-            player.setHealth(player.getHealth()-tempDice);
+            player.setMental(player.getMental()-tempDice);
             DialogPanelController.show_dialog(message2);
         }
         Answer answer1=new Answer("1. 계속","continue");
@@ -522,6 +563,7 @@ public class RandomEventAnswer{
         String message1="\"거래 고맙네.\" 노인은 갑자기 사라졌고, 당신은 주머니가 허전해짐과 동시에 손에 정체모를 램프가 들려있는 것을 발견합니다.";
         String message2="\"이런..3달러도 없단 말인가?\" 노인이 갑자기 사라집니다.";
         int tempDice=DialogPanelController.Dice();
+        Dice_page test = new Dice_page();
         if(player.getMoney()>2)
         {
             ConstantEventHandler.addItem(player, ItemType.values()[10]);
@@ -620,6 +662,7 @@ public class RandomEventAnswer{
         String message="정신이 아득해지는 것을 느꼈지만, 단서 또한 얻었습니다.";
         player.setMental(player.getMental()-1);
         GameMaster.token++;
+        MainGamePageController.update_token(GameMaster.token);
         DialogPanelController.show_dialog(message);
         Answer answer1=new Answer("1. 계속","continue");
         Answer answer2=new Answer("2. 턴 종료","turnEnd");
@@ -652,7 +695,9 @@ public class RandomEventAnswer{
         int tempNum=player.getMental();
         for(int i=0;i<tempNum;i++)
         {
-            if(DialogPanelController.Dice()<4)
+            int tempDice=DialogPanelController.Dice();
+            Dice_page test = new Dice_page();
+            if(tempDice<4)
                 player.setMental(player.getMental()-1);
 
             if(player.getMental()==0)
@@ -723,6 +768,7 @@ public class RandomEventAnswer{
         String message1="그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
         String message2="그가 당신의 눈 앞에서 소멸됩니다.";
         int tempDice=DialogPanelController.Dice();
+        Dice_page test = new Dice_page();
         if(player.getDexterity()>5&&tempDice>3)
         {
             player.setPower(player.getPower()+1);
@@ -753,14 +799,209 @@ public class RandomEventAnswer{
 
     public static void ContinueDialog()
     {
+        if(Player.getCurrentPlayer().getStatus()==2)
+        {
+            DialogPanelController.Clear();
+            String message="해당 플레이어는 사망한 상태입니다.";
+            DialogPanelController.show_dialog(message);
+            Answer answer1=new Answer("1. 계속","turnEnd");
+        }
+        else if(Player.getCurrentPlayer().getEnergy()<1)
+        {
+            DialogPanelController.Clear();
+            String message="사용 가능한 행동치가 없습니다.";
+            DialogPanelController.show_dialog(message);
+            Answer answer1=new Answer("1. 턴 종료","turnEnd");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {
+            DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();
+        }
+    }
+
+    public static void TurnEnd(){
         DialogPanelController.Clear();
+        GameMaster.turnEnd();
+    }
+
+    public static void hospital_Ans1(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="치료를 받았습니다.";
+        DialogPanelController.show_dialog(message);
+        player.setHealth(player.getHealth()+3);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void hospital_Ans2(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="병원을 지나칩니다.";
+        DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void mospital_Ans1(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="치료를 받았습니다.";
+        DialogPanelController.show_dialog(message);
+        player.setMental(player.getMental()+3);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void mospital_Ans2(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="정신병원은 방문 안 하는게 좋겠죠.";
+        DialogPanelController.show_dialog(message);
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+
+    public static void death_Ans(Player player)
+    {
+        GameMaster.death_count--;
+        if (DialogPanelController.Dice() > 5)
+            GameMaster.revive(player);
+
+        if(player.getHealth()<=0||player.getMental()<=0)
+        {
+            if(GameMaster.death_count>0)
+            {
+                DialogPanelController.Clear();
+                DialogPanelController.show_dialog("즉사 체크 실패!");
+                Answer answer1=new Answer("1. 계속","death");
+                DialogPanelController.show_dialog_answer1(answer1);
+            }
+            else
+            {
+                DialogPanelController.Clear();
+                DialogPanelController.show_dialog("죽음을 극복하지 못했습니다.");
+                player.setStatus(2);
+                GameMaster.death_count=3-GameMaster.revive_count;
+                Answer answer1=new Answer("1. 계속","win_check");
+                DialogPanelController.show_dialog_answer1(answer1);
+            }
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("죽음을 극복했습니다.");
+            GameMaster.revive_count++;
+            if(GameMaster.revive_count>3)
+                GameMaster.revive_count=3;
+            GameMaster.death_count=3-GameMaster.revive_count;
+            Answer answer1=new Answer("1. 계속","win_check");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+    }
+
+    public static void Win_check(Player player)
+    {
+        if(GameMaster.check_num_of_token_for_win())
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("봉인의 조각들을 모두 모아 고대신이 강림하기 전 막는 것을 성공했습니다!");
+            Answer answer1=new Answer("승리","win");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            RandomEventAnswer.Defeat(player);
+        }
+    }
+
+    public static void Win_Ans(Player player)
+    {
+        //승리 화면 출력
+    }
+
+    public static void Defeat(Player player)
+    {
+        if(GameMaster.check_player_status_for_lost())
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("플레이어가 모두 사망했습니다. 고대신은 잠에서 깨어날 것이고, 도시는 파괴될 것입니다.");
+            Answer answer1=new Answer("패배","defeat");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            RandomEventAnswer.Boss_Summon(player);
+        }
+    }
+
+    public static void Defeat_Ans(Player player)
+    {
+        //패배 화면 출력
+    }
+
+    public static void Boss_Summon(Player player)
+    {
+        if(GameMaster.check_num_of_monsters_portals_for_boss())
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.show_dialog("고대신이 잠에서 깨어납니다. 모두 대비하십시오!");
+            Answer answer1=new Answer("고대신과의 최종전","boss_fight");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            if(idx_of_cur_player==1)
+                RandomEventAnswer.Next_Turn(player);
+            else
+                RandomEventAnswer.Next_Player(player);
+        }
+    }
+
+    public static void Boss_fight()
+    {
+        GameMaster.generateBossFight(GameMaster.current_boss);
+    }
+
+    public static void Next_Turn(Player player)
+    {
+        if(GameMaster.turn % 3 == 0)
+            GameMaster.setPortalAndMonsterRandomly();
+
+        for(int i=0;i<2;i++)
+        {
+            Player.players[i].setEnergy(Player.players[i].getHealth()/3);
+            if(Player.players[i].getEnergy() == 0 && Player.players[i].getStatus() != 2)
+                Player.players[i].setEnergy(1);
+        }
+        Player.toggleCurrentPlayer();
+        GameMaster.turn++;
+
+        // Update turn value to MainGame_page(view)
+        MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(GameMaster.turn));
         DialogPanelController.generateGeneralDialogues();
     }
 
-    public static void TurnEnd()
+    public static void Next_Player(Player player)
     {
-        DialogPanelController.Clear();
-        GameMaster.turnEnd();
+        Player.toggleCurrentPlayer();
+
+        // Update turn value to MainGame_page(view)
+        MainGamePageController.maingame_page.getTab().getTurn_text().setText(Integer.toString(GameMaster.turn));
+
         DialogPanelController.generateGeneralDialogues();
     }
 }

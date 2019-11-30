@@ -1,5 +1,7 @@
 package com;
 
+import GUI.Fight_monster_page;
+
 import static com.Map.*;
 import java.util.ArrayList;
 
@@ -14,7 +16,7 @@ public class ConstantEventHandler
 {
     static void generateRandomEvent(Player player)
     {
-        int event_num=(int)Math.floor(Math.random()*20);
+        int event_num=(int)Math.floor(Math.random()*21);
         RandomEventHandler.RandomEventIndicator(player, event_num);
     }
     static public void move(Player player, TileType tile)
@@ -33,7 +35,7 @@ public class ConstantEventHandler
     }
     static void movebyTeleport(Player player, TileType tile){player.setPos(tile);}
     /**
-     * 플레이어가 움직인 이후 호출, 움직일 플레이어와 목적지를 받아 이동가능 여부를 확인 후 이동시키는 메소드
+     * 플레이어가 움직인 이후 호출, 움직일 플레이어와 목적지를 받아 이벤트 여부를 확인하는 메소드
      * @param player
      *        해당 플레이어
      * @param tile
@@ -48,6 +50,7 @@ public class ConstantEventHandler
             if(player.getHealth() > 0)
             {
                 GameMaster.token++;
+                MainGamePageController.update_token(GameMaster.token);
                 Map.tiles[tile.ordinal()].setSummoned_portal(false);
             }
         }
@@ -64,15 +67,18 @@ public class ConstantEventHandler
         {
             hospital(player);
         }
-
-        if(tile == TileType.MENTAL_HOSTPITAL)
+        else if(tile == TileType.MENTAL_HOSTPITAL)
         {
             mospital(player);
         }
-
-        if(tile == TileType.STORE)
+        else if(tile == TileType.STORE)
         {
 //            Shop();
+        }
+        else
+        {
+            DialogPanelController.Clear();
+            DialogPanelController.generateGeneralDialogues();
         }
 
     }
@@ -123,7 +129,9 @@ public class ConstantEventHandler
         DialogPanelController.show_dialog_answer2(ConstantEventAnswer.mospital2);
     }
 
-    static void generateFight(Player player, MonsterType monster){}
+    static void generateFight(Player player, MonsterType monster){
+        Fight_monster_page fightwithmonster = new Fight_monster_page();
+    }
     boolean isAffordable(Player player, ItemType item)
     {
         if(player.getMoney()<item.getPrice())
@@ -152,7 +160,7 @@ public class ConstantEventHandler
     {
         if(Map.tiles[tile.ordinal()].getSummoned_monster()==null&&Map.tiles[tile.ordinal()].isSummoned_portal()==false)
         {
-            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result());
+            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
             Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
         }
     }
@@ -175,7 +183,7 @@ public class ConstantEventHandler
 
     static void shop()
     {
-        String message="상점에 도착했습니다. 구매하실게 있으신가요";
+        String message="상점에 도착했습니다. 구매하실게 있으신가요?";
         DialogPanelController.show_dialog(message);
         ArrayList<ItemType> itemlist=getRandomItemList();
         Answer item1 = new Answer(itemlist.get(0));
