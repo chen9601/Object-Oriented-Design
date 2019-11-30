@@ -92,8 +92,6 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    Fight_monster_page TEPM = new Fight_monster_page();
-                    TEPM.setVisible(true);
                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                     temp.setVisible(true);
                 }
