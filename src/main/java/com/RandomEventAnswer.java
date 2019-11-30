@@ -2,6 +2,7 @@ package com;
 
 import GUI.DialogPanel;
 import GUI.Dice_page;
+import GUI.MainGame_page;
 import GUI.View;
 
 import java.util.Random;
@@ -987,8 +988,11 @@ public class RandomEventAnswer{
 
     public static void Next_Turn(Player player)
     {
-        if(GameMaster.turn % 3 == 0)
+        if(GameMaster.turn % 3 == 0){
             GameMaster.setPortalAndMonsterRandomly();
+            MainGamePageController.show_monsters();
+            MainGamePageController.show_portals();
+        }
 
         for(int i=0;i<2;i++)
         {
