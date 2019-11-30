@@ -24,6 +24,7 @@ public class Dice_page extends JFrame {
     public Dice_page() {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
+        setUndecorated(true);
 //
 //        JButton click = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\click.png"));
 //        click.setBounds(379, 522, 100, 35);
