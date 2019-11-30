@@ -6,6 +6,8 @@ import lombok.Data;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Data
 public class DialogPanelController {
@@ -176,6 +178,14 @@ public class DialogPanelController {
     public static int  Dice(){
         Dice_page Dice = new Dice_page();
         Dice.setVisible(true);
+
+        java.util.Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Dice.dispose();
+            }
+        },1*5*1000 , 1*5* 1000);
         return Dice.getSavedDice_num();
     }
         /*
