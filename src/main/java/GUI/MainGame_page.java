@@ -19,6 +19,8 @@ import javax.swing.*;
 @Data
 public class MainGame_page extends JFrame {
 
+
+
     // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
     //몬스터랑 포탈 출력가능하게 만들기
@@ -90,6 +92,8 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
+                    Fight_monster_page TEPM = new Fight_monster_page();
+                    TEPM.setVisible(true);
                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                     temp.setVisible(true);
                 }
@@ -150,6 +154,8 @@ public class MainGame_page extends JFrame {
     }
 
     public MainGame_page() {
+
+        GameMaster.test_addmonster_alltile();
         //상단바
         {
             setResizable(false);

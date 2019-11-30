@@ -1,6 +1,7 @@
 package com;
 
 import GUI.DialogPanel;
+import GUI.Fight_monster_page;
 import GUI.Start_page;
 import GUI.View;
 
@@ -193,6 +194,23 @@ public class GameMaster {
             }
             else continue;
         }
+    }
+
+    public static void test_addmonster_alltile(){
+        MonsterType monster = MonsterType.values()[2];
+        Monster tempmonster = new Monster(monster.getName(),monster.getInitial_health(),monster.getInitial_requireVal(),monster.getInitial_damage(),monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
+
+        for(int i =8;i<12;i++){
+            Map.tiles[i].setSummoned_monster(tempmonster);
+        }
+    }
+    public static void monster_fightcondition(){
+        Player player = getCurrentPlayer();
+        if(Map.tiles[getCurrentPlayer().getPos().ordinal()].getSummoned_monster()!= null){
+            Fight_monster_page monsterpage = new Fight_monster_page();
+            monsterpage.setVisible(true);
+        }
+
     }
     public static void generateBossFight(Boss boss){}
 

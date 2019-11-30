@@ -39,6 +39,8 @@ public class Fight_monster_page extends JFrame {
         getContentPane().add(player_panel);
         player_panel.setVisible(true);
 
+        monster_panel monsterPanel = new monster_panel();
+        getContentPane().add(monsterPanel);
 
         JButton status = new JButton("status");
 
