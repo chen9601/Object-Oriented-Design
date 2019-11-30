@@ -155,7 +155,7 @@ public class MainGame_page extends JFrame {
 
     public MainGame_page() {
 
-        GameMaster.test_addmonster_alltile();
+
         //상단바
         {
             setResizable(false);

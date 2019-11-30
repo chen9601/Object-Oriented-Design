@@ -50,9 +50,9 @@ public class MainGamePageController {
                     for(JButton reddot : dot_array){
                         reddot.setVisible(false);
                     }
-                    GameMaster.monster_fightcondition();
-                    System.out.println("passed monsterfightpage");
+
                     show_players();
+                    GameMaster.monster_fightcondition();
                 }
             });
         }
