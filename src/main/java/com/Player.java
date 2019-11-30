@@ -1,9 +1,10 @@
 package com;
 
+import jdk.jshell.Snippet;
 import lombok.*;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 
 /**
@@ -21,7 +22,7 @@ public class Player{
     static public final int DEAD = 2;
 
     private TileType pos;
-    private int money ;
+    private int money;
     private int energy;
     @Builder.Default
     private Integer power = null;
@@ -36,9 +37,6 @@ public class Player{
     @Builder.Default
     private int status = ALIVE;
 
-    public void decreaseEnergy() {
-        energy--;
-    }
     static public Player getCurrentPlayer(){
         return players[idx_of_cur_player];
     }
@@ -47,25 +45,48 @@ public class Player{
     static public void toggleCurrentPlayer(){
         idx_of_cur_player = idx_of_cur_player == 1 ? 0: 1;
     }
+    static public int getPlayerIndex(Player to_compare){
+        for(int i = 0; i< MAXIMUM_NUM_OF_PLAYERS; i++){
+            if(players[i] == to_compare)
+                return i;
+        }
+        return -1;
+    }
 
     public void setHealth(int value){
-        health = value;
-        if(MainGamePageController.maingame_page != null)
-            MainGamePageController.update_status(StatusType.HEALTH, health);
+        this.health = value;
+        if(MainGamePageController.maingame_page != null){
+            int index = getPlayerIndex(this);
+            if(index < 0)
+                throw new RuntimeException("no such player here, Problem at Player.setHealth()");
+            MainGamePageController.update_status(index, StatusType.HEALTH, this.health);
+        }
     }
     public void setPower(int value){
-        power = value;
-        if(MainGamePageController.maingame_page != null)
-            MainGamePageController.update_status(StatusType.POWER, power);
+        this.power = value;
+        if(MainGamePageController.maingame_page != null){
+            int index = getPlayerIndex(this);
+            if(index < 0)
+                throw new RuntimeException("no such player here, Problem at Player.setPower()");
+            MainGamePageController.update_status(index, StatusType.POWER, this.power);
+        }
     }
     public void setMental(int value){
-        mental = value;
-        if(MainGamePageController.maingame_page != null)
-            MainGamePageController.update_status(StatusType.MENTAL, mental);
+        this.mental = value;
+        if(MainGamePageController.maingame_page != null){
+            int index = getPlayerIndex(this);
+            if(index < 0)
+                throw new RuntimeException("no such player here, Problem at Player.setMental()");
+            MainGamePageController.update_status(index, StatusType.MENTAL, this.mental);
+        }
     }
     public void setEnergy(int value){
-        energy = value;
-        if(MainGamePageController.maingame_page != null)
-            MainGamePageController.update_status(StatusType.ENERGY, energy);
+        this.energy = value;
+        if(MainGamePageController.maingame_page != null){
+            int index = getPlayerIndex(this);
+            if(index < 0)
+                throw new RuntimeException("no such player here, Problem at Player.setEnergy()");
+            MainGamePageController.update_status(index, StatusType.ENERGY, this.energy);
+        }
     }
 }
