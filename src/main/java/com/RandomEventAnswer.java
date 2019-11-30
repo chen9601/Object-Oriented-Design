@@ -765,33 +765,8 @@ public class RandomEventAnswer{
     public static void Ans21_1(Player player)
     {
         DialogPanelController.Clear();
-        String message1="그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
-        String message2="그가 당신의 눈 앞에서 소멸됩니다.";
-        int tempDice=DialogPanelController.Dice();
-        Dice_page test = new Dice_page();
-        if(player.getDexterity()>5&&tempDice>3)
-        {
-            player.setPower(player.getPower()+1);
-            player.setDexterity(player.getDexterity()+1);
-            player.setIntelligence(player.getIntelligence()+1);
-            DialogPanelController.show_dialog(message1);
-        }
-        else
-        {
-            player.setHealth(player.getHealth()-tempDice);
-            DialogPanelController.show_dialog(message2);
-        }
-        Answer answer1=new Answer("1. 계속","continue");
-        Answer answer2=new Answer("2. 턴 종료","turnEnd");
-        DialogPanelController.show_dialog_answer1(answer1);
-        DialogPanelController.show_dialog_answer2(answer2);
-    }
-    public static void Ans21_2(Player player)
-    {
-        DialogPanelController.Clear();
         String message1="역시나 함정이었지만, 당신의 뛰어난 정신력과 지식이 이를 막았습니다. 이제 뭘하냐고요? 스위트룸을 즐겨야죠.";
         String message2="역시나 함정이었지만, 당신의 처참한 정신력과 낮은 지성은 이를 인지하지도 못하나보군요.";
-
         if(player.getMental()>5&&player.getIntelligence()>5)
         {
             DialogPanelController.show_dialog(message1);
@@ -805,6 +780,16 @@ public class RandomEventAnswer{
             player.setMoney(player.getMoney()-3);
             player.setMental(player.getMental()-4);
         }
+        Answer answer1=new Answer("1. 계속","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+    }
+    public static void Ans21_2(Player player)
+    {
+        DialogPanelController.Clear();
+        String message="함정에 제 발로 입장하는 바보는 없겠죠?";
+        DialogPanelController.show_dialog(message);
 
         Answer answer1=new Answer("1. 계속","continue");
         Answer answer2=new Answer("2. 턴 종료","turnEnd");
