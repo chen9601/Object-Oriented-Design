@@ -794,12 +794,14 @@ public class RandomEventAnswer{
 
         if(player.getMental()>5&&player.getIntelligence()>5)
         {
+            DialogPanelController.show_dialog(message1);
             player.setMental(player.getMental()+2);
             player.setHealth(player.getHealth()+2);
             player.setMoney(player.getMoney()-3);
         }
         else
         {
+            DialogPanelController.show_dialog(message2);
             player.setMoney(player.getMoney()-3);
             player.setMental(player.getMental()-4);
         }

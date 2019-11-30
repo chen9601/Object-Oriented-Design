@@ -98,7 +98,7 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 // 턴 종료 관련 메소드 호출
                 Clear();
-                RandomEventAnswer.Win_Ans(Player.getCurrentPlayer());
+                RandomEventAnswer.Win_check(Player.getCurrentPlayer());
             }
         });
 
