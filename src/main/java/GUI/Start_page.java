@@ -26,7 +26,7 @@ public class Start_page extends JFrame {
     public Start_page() {
 
 
-        play("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3");
+        music music = new music("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3");
         setResizable(false);
         getContentPane().add(panel);
         panel.setLayout(null);
@@ -82,18 +82,7 @@ public class Start_page extends JFrame {
         }
     }
 
-	public static void play(String filename)
-	{
-		try
-		{
-			Clip clip = AudioSystem.getClip();
-			clip.open(AudioSystem.getAudioInputStream(new File(filename)));
-			clip.start();
-		}
-		catch (Exception exc)
-		{
-			exc.printStackTrace(System.out);
-		}
 
-	}
+
+
     }
