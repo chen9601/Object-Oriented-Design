@@ -185,7 +185,7 @@ public class DialogPanelController {
             public void run() {
                 Dice.dispose();
             }
-        },1*5*1000 , 1*5* 1000);
+        },1*2*1000 , 1*2* 1000);
         return Dice.getSavedDice_num();
     }
         /*
