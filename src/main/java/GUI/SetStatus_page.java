@@ -142,7 +142,7 @@ public class SetStatus_page extends JFrame {
         return Player.getCurrentPlayer().getPower() != null;
     }
 
-    @Data
+        @Data
     class perstatus_set extends JPanel {
         private int value = 0;
 

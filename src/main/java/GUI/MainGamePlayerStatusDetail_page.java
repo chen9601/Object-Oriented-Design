@@ -36,6 +36,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 				dispose();
 			}
 		});
+
 		getContentPane().add(movetab);
 		movetab.setLayout(null);
 		movetab.setBounds(0, 0, 1182, 146);
@@ -73,7 +74,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		pos_text.setText(player.getPos().getName());
 		movetab.add(pos_text);
 
-		JLabel status_power = new JLabel("\uD798");
+		JLabel status_power = new JLabel("힘");
 		status_power.setBounds(546, 282, 116, 39);
 		getContentPane().add(status_power);
 
@@ -83,7 +84,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		power_text.setText(Integer.toString(player.getPower()));
 		getContentPane().add(power_text);
 
-		JLabel status_dex = new JLabel("\uBBFC\uCCA9");
+		JLabel status_dex = new JLabel("민첩성");
 		status_dex.setBounds(546, 365, 116, 39);
 		getContentPane().add(status_dex);
 
@@ -93,7 +94,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		dex_text.setText(Integer.toString(player.getDexterity()));
 		getContentPane().add(dex_text);
 
-		JLabel status_intelligence = new JLabel("\uC9C0\uB2A5");
+		JLabel status_intelligence = new JLabel("지능");
 		status_intelligence.setBounds(546, 457, 116, 39);
 		getContentPane().add(status_intelligence);
 
@@ -103,7 +104,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		intelligence_text.setText(Integer.toString(player.getIntelligence()));
 		getContentPane().add(intelligence_text);
 
-		JLabel status_mental = new JLabel("\uC815\uC2E0\uB825");
+		JLabel status_mental = new JLabel("정신력");
 		status_mental.setBounds(546, 544, 116, 39);
 		getContentPane().add(status_mental);
 
@@ -113,7 +114,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		mental_text.setText(Integer.toString(player.getMental()));
 		getContentPane().add(mental_text);
 
-		JLabel status_health = new JLabel("\uCCB4\uB825");
+		JLabel status_health = new JLabel("체력");
 		status_health.setBounds(870, 282, 116, 39);
 		getContentPane().add(status_health);
 
@@ -140,7 +141,6 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 
 
 		// 이미지 패스 분기나누기
-
 		JLabel player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
 		player_name.setBounds(113, 559, 365, 155);
 		getContentPane().add(player_name);
