@@ -22,7 +22,7 @@ public class MainGamePageController {
         player1_array = maingame_page.getLb_player1_array();
         player2_array = maingame_page.getLb_player2_array();
         monster_array = maingame_page.getMonster_array();
-        portal_array = maingame_page.getPotal_array();
+        portal_array = maingame_page.getPortal_array();
         MainGamePageController.show_players();
         maingame_page.setVisible(true);
     }
