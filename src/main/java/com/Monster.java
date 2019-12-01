@@ -19,7 +19,7 @@ public class Monster {
 //    monsterlist[4].name="옛 것";monsterlist[0].health=5;monsterlist[0].requireVal=4;monsterlist[0].damage=1;monsterlist[0].damageType=2;monsterlist[0].monsterresult=5;
 
 
-    private String name;
+    private MonsterType monster_type;
     private int health;
     private int requireVal;
     private int damage;

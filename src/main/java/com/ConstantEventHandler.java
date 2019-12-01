@@ -60,7 +60,7 @@ public class ConstantEventHandler
         }
         if(Map.getMonsterAt(tile) != null)
         {
-//            GenerateFight();
+            ConstantEventHandler.generateFight(player, Map.getMonsterAt(tile).getMonster_type());
             if(player.getHealth() > 0)
             {
                 Map.tiles[tile.ordinal()].setSummoned_monster(null);
@@ -135,6 +135,7 @@ public class ConstantEventHandler
 
     static void generateFight(Player player, MonsterType monster){
         Fight_monster_page fightwithmonster = new Fight_monster_page();
+        fightwithmonster.setVisible(true);
     }
     boolean isAffordable(Player player, ItemType item)
     {
@@ -175,7 +176,7 @@ public class ConstantEventHandler
     {
         if(Map.tiles[tile.ordinal()].getSummoned_monster()==null&&Map.tiles[tile.ordinal()].isSummoned_portal()==false)
         {
-            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
+            Monster tempMon=new Monster(monster, monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
             Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
         }
     }

@@ -54,9 +54,7 @@ public class MainGamePageController {
                     for(JButton reddot : dot_array){
                         reddot.setVisible(false);
                     }
-
                     show_players();
-                    GameMaster.monster_fightcondition();
                 }
             });
         }

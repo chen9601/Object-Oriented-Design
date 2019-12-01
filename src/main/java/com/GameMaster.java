@@ -170,7 +170,8 @@ public class GameMaster {
                 continue;
             MonsterType monster = MonsterType.values()[tempNum2];
             Monster tempMon = new Monster(
-                    monster.getName(), monster.getInitial_health(),
+                    monster,
+                    monster.getInitial_health(),
                     monster.getInitial_requireVal(),
                     monster.getInitial_damage(),
                     monster.getInitial_damageType(),
@@ -192,26 +193,27 @@ public class GameMaster {
         }
     }
 
-    public static void test_addmonster_alltile() {
-        MonsterType monster = MonsterType.values()[2];
-        Monster tempmonster = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
+//    public static void test_addmonster_alltile() {
+//        MonsterType monster = MonsterType.values()[2];
+//        Monster tempmonster = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
+//
+//        for(int i =0 ; i<13;i++){
+//            Map.tiles[i].setSummoned_monster((tempmonster));
+//        }
+//    }
 
-        for(int i =0 ; i<13;i++){
-            Map.tiles[i].setSummoned_monster((tempmonster));
-        }
-        }
+//    public static void monster_fightcondition() {
+////        GameMaster.test_addmonster_alltile();
+//        Player player = getCurrentPlayer();
+//        if (Map.getMonsterAt(getCurrentPlayer().getPos())!= null) {
+//            Fight_monster_page monsterpage = new Fight_monster_page();
+//            monsterpage.setVisible(true);
+//        }
 
-    public static void monster_fightcondition() {
-//        GameMaster.test_addmonster_alltile();
-        Player player = getCurrentPlayer();
-        if (Map.getMonsterAt(getCurrentPlayer().getPos())!= null) {
-            Fight_monster_page monsterpage = new Fight_monster_page();
-            monsterpage.setVisible(true);
-        }
-
-    }
+//    }
 
     public static void generateBossFight(Boss boss) {
+        throw new RuntimeException("generateBossFight() method does not implemented");
     }
 
 }
