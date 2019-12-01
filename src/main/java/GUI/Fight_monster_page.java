@@ -35,7 +35,7 @@ public class Fight_monster_page extends JFrame {
 
         JTextPane Dialog = new JTextPane();
 
-        player_panel player_panel = new player_panel(Player.getPlayer(0));
+        player_panel player_panel = new player_panel(Player.getCurrentPlayer());
         getContentPane().add(player_panel);
         player_panel.setVisible(true);
 
@@ -44,7 +44,7 @@ public class Fight_monster_page extends JFrame {
 
         JButton status = new JButton("status");
 
-        Dialog.setBounds(459, 615, 709, 286);
+        Dialog.setBounds(459, 615, 709, 300);
         getContentPane().add(Dialog);
 
         status.setBounds(91, 38, 158, 45);
@@ -66,15 +66,18 @@ public class Fight_monster_page extends JFrame {
             JLabel lblmental = new JLabel("mental");
             JLabel mental_text = new JLabel(Integer.toString(cur_player.getMental()));
 
+
+
+
             String player_imgpath;
             String player_nameimgpath;
 
             if (player == Player.getPlayer(0)) {
-                player_imgpath = "";
-                player_nameimgpath = "";
+                player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1-portrait.png";
+                player_nameimgpath = "src\\main\\java\\GUI\\imgaes\\player1_name.png";
             } else {
-                player_imgpath = "";
-                player_nameimgpath = "";
+                player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2-portrait.png";
+                player_nameimgpath = "src\\main\\java\\GUI\\imgaes\\player2_img.png";
             }
             JLabel player_img = new JLabel(player_imgpath);
             JLabel player_nameimg = new JLabel(player_nameimgpath);
@@ -113,7 +116,9 @@ public class Fight_monster_page extends JFrame {
         }
 
     }
+    class fight_dialog extends JPanel{
 
+    }
     class monster_panel extends JPanel {
         monster_panel() {
             Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
