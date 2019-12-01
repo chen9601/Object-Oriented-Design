@@ -254,7 +254,7 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message="소리를 내는 기괴한 생물체를 발견했습니다.";
         DialogPanelController.show_dialog(message);
-        ConstantEventHandler.generateFight(player, MonsterType.Nightgaunt);
+        ConstantEventHandler.generateFight(MonsterType.Nightgaunt);
         Answer answer1=new Answer("1. 계속","continue");
         Answer answer2=new Answer("2. 턴 종료","turnEnd");
         DialogPanelController.show_dialog_answer1(answer1);

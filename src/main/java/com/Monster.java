@@ -9,8 +9,6 @@ import lombok.Data;
  * @author Chanho Park, Se-ok Jeon
  */
 @Data
-@Builder
-
 public class Monster {
 //    monsterlist[0].name="나이트건트";monsterlist[0].health=3;monsterlist[0].requireVal=3;monsterlist[0].damage=1;monsterlist[0].damageType=1;monsterlist[0].monsterresult=3;
 //    monsterlist[1].name="다곤";monsterlist[1].health=1;monsterlist[1].requireVal=6;monsterlist[1].damage=2;monsterlist[1].damageType=2;monsterlist[1].monsterresult=5;
@@ -30,5 +28,14 @@ public class Monster {
         health -= damage_from_player;
     }
 
+    public Monster(MonsterType monster_type){
+        health = monster_type.getInitial_health();
+        requireVal = monster_type.getInitial_requireVal();
+        damage = monster_type.getInitial_damage();
+        damageType = monster_type.getInitial_damageType();
+        monster_result = monster_type.getInitial_monster_result();
+        imagepath = monster_type.getInintial_imgpath();
+        this.monster_type = monster_type;
+    }
 
 }

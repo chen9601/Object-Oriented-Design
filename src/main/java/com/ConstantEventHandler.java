@@ -52,7 +52,6 @@ public class ConstantEventHandler
     {
         if(Map.getPortalAt(tile))
         {
-            // 테스트 몬스터 전투
             generateFight(Map.getMonsterAt(tile).getMonster_type());
             // TODO : 두 싸움 사이에 딜레이가 들어가야 한다. 차례차례 싸워야 함 아니면 한번만 싸우도록 바꿔야 한다.
 //            generateFight(player, MonsterType.Dagon);              //포털을 닫기 위해서는 2번의 전투 필요
@@ -195,7 +194,7 @@ public class ConstantEventHandler
     {
         if(Map.tiles[tile.ordinal()].getSummoned_monster()==null&&Map.tiles[tile.ordinal()].isSummoned_portal()==false)
         {
-            Monster tempMon=new Monster(monster, monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
+            Monster tempMon=new Monster(monster);
             Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
         }
     }

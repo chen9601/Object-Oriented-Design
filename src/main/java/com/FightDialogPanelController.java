@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class FightDialogPanelController extends DialogPanelController{
     class FightDialog extends DialogPanel {
         FightDialog(){
-            setLayout(new GridLayout(4, 1, 0, 20));
+            setLayout(new GridLayout(4, 1, 0, 0));
             add(lb_just_text);
             add(selectbtn1);
             add(selectbtn2);
@@ -31,7 +31,7 @@ public class FightDialogPanelController extends DialogPanelController{
         selectbtn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Clear();
                 FightDialogPanelController.show_dialog("데미지를 입히지 못했습니다.");
                 dialog_panel.revalidate();
                 dialog_panel.repaint();
@@ -41,9 +41,9 @@ public class FightDialogPanelController extends DialogPanelController{
     }
 
     public static void getplayerAttackDialog(){
-        Clear();
-        show_dialog("플레이어 턴!");
-        show_dialog_answer1(new Answer("몬스터를 공격한다.", "attack_monster"));
+        FightDialogPanelController.Clear();
+        FightDialogPanelController.show_dialog("플레이어 턴!");
+        FightDialogPanelController.show_dialog_answer1(new Answer("몬스터를 공격한다.", "attack_monster"));
     }
 
 

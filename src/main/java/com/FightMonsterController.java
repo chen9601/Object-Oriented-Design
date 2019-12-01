@@ -17,17 +17,12 @@ public class FightMonsterController
     public static Monster monster;
 
 
-    public FightMonsterController(){
-        monster = Map.getMonsterAt(Player.getCurrentPlayer().getPos()).getMonster_type();
-        fight_monster_page = new Fight_monster_page();
+    public FightMonsterController(MonsterType monster){
+        this.monster = new Monster(monster);
+        fight_monster_page = new Fight_monster_page(this.monster);
         monsterPanel = fight_monster_page.getMonsterPanel();
         player_panel = fight_monster_page.getPlayer_panel();
         fight_monster_page.setVisible(true);
-    }
-
-    public FightMonsterController(MonsterType monster){
-        new FightMonsterController();
-        this.monster = monster;
     }
 
     public static void attackMonster(){

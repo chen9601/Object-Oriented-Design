@@ -26,17 +26,8 @@ public class Fight_monster_page extends JFrame {
     MonsterPanel monsterPanel;
     PlayerPanel player_panel;
     Monster monster;
-    public Fight_monster_page() {
-        MonsterType monster_type = MonsterType.Dagon; // 사실 현재 플레이어가 위치한 타일에 있는 몬스터로 해야 함.
-        this.monster = Monster
-                .builder()
-                .monster_type(monster_type)
-                .health(monster_type.getInitial_health())
-                .damage(monster_type.getInitial_damage())
-                .damageType(monster_type.getInitial_damageType())
-                .imagepath(monster_type.getInintial_imgpath())
-                .monster_result(monster_type.getInitial_monster_result())
-                .build();
+    public Fight_monster_page(Monster monster) {
+        this.monster = monster;
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.white);

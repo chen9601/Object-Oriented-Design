@@ -171,15 +171,7 @@ public class GameMaster {
             if (isTherePlayer(Map.tiles[tempNum1])) continue;
 
             MonsterType monster = MonsterType.values()[tempNum2];
-            Monster tempMon = new Monster(
-                    monster,
-                    monster.getInitial_health(),
-                    monster.getInitial_requireVal(),
-                    monster.getInitial_damage(),
-                    monster.getInitial_damageType(),
-                    monster.getInitial_monster_result(),
-                    monster.getInintial_imgpath()
-            );
+            Monster tempMon = new Monster(monster);
             if (Map.tiles[tempNum1].getSummoned_monster() == null) {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);
                 break;

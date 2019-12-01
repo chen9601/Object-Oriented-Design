@@ -90,7 +90,7 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    FightMonsterController temp = new FightMonsterController();
+                    FightMonsterController temp = new FightMonsterController(MonsterType.Nightgaunt);
 //                    temp.normalFight(Player.getCurrentPlayer(), temp.fight_monster_page.getMonster());
 
                     // 파이트 테스트를 위해 잠깐 꺼둠
