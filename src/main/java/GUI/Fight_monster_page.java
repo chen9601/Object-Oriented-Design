@@ -34,7 +34,7 @@ public class Fight_monster_page extends JFrame {
         setBounds(0, 0, 1200, 960);
         getContentPane().setLayout(null);
 
-        fight_dialog_panel_controller = new FightDialogPanelController();
+        fight_dialog_panel_controller = new FightDialogPanelController(this.monster);
         JPanel dialog_panel = FightDialogPanelController.dialog_panel;
         dialog_panel.setBounds(459, 615, 709, 300);
         getContentPane().add(dialog_panel);
