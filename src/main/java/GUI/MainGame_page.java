@@ -92,6 +92,7 @@ public class MainGame_page extends JFrame {
                     final int FIRST_PLAYER_IDX = 0;
                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                     temp.setVisible(true);
+
                 }
             });
 
@@ -310,7 +311,7 @@ public class MainGame_page extends JFrame {
             potal_img_10.setBounds(154, 473, 40, 50);
             potal_img_11.setBounds(439, 473, 40, 50);
             potal_img_12.setBounds(541, 315, 40, 50);
-            show_potals();
+
         }
         // player2 이미지
         {
