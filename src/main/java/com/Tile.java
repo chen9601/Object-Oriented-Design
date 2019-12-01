@@ -19,5 +19,5 @@ public class Tile {
     @Builder.Default
 
     private Monster summoned_monster=null;
-    private final TileType name;
+    private final TileType tile_type;
 }

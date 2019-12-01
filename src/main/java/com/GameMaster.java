@@ -1,9 +1,7 @@
 package com;
 
-import GUI.DialogPanel;
 import GUI.Fight_monster_page;
 import GUI.Start_page;
-import GUI.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,7 +66,7 @@ public class GameMaster {
                     .builder()
                     .summoned_monster(null)
                     .summoned_portal(false)
-                    .name(TileType.values()[i])
+                    .tile_type(TileType.values()[i])
                     .build();
         }
 
@@ -168,9 +166,18 @@ public class GameMaster {
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
             int tempNum2 = (int) Math.floor(Math.random() * 5);
+            if(Map.tiles[tempNum1].getTile_type() == Player.getPlayer(0).getPos() || Map.tiles[tempNum1].getTile_type() == Player.getPlayer(1).getPos())
+                continue;
             MonsterType monster = MonsterType.values()[tempNum2];
-            Monster tempMon = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
-            if (Map.tiles[tempNum1].getSummoned_monster() == null && Map.tiles[tempNum1].isSummoned_portal() == false) {
+            Monster tempMon = new Monster(
+                    monster.getName(), monster.getInitial_health(),
+                    monster.getInitial_requireVal(),
+                    monster.getInitial_damage(),
+                    monster.getInitial_damageType(),
+                    monster.getInitial_monster_result(),
+                    monster.getInintial_imgpath()
+            );
+            if (Map.tiles[tempNum1].getSummoned_monster() == null) {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);
                 break;
             } else continue;
@@ -178,7 +185,7 @@ public class GameMaster {
 
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
-            if (Map.tiles[tempNum1].getSummoned_monster() == null && Map.tiles[tempNum1].isSummoned_portal() == false) {
+            if (Map.tiles[tempNum1].isSummoned_portal() == false) {
                 Map.tiles[tempNum1].setSummoned_portal(true);
                 break;
             } else continue;
