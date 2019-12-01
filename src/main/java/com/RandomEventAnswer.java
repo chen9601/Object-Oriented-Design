@@ -2,12 +2,7 @@ package com;
 
 import GUI.DialogPanel;
 import GUI.Dice_page;
-import GUI.MainGame_page;
-import GUI.View;
 
-import java.util.Random;
-
-import static com.Player.getCurrentPlayer;
 import static com.Player.idx_of_cur_player;
 
 /**
@@ -180,10 +175,14 @@ public class RandomEventAnswer{
             case "re_shop":
                 Return_To_Shop();
                 break;
-
+//            case "attack_monster":
+//                // TODO : need to implement
+//                attackMonster();// 플레이어가 위치한 타일의 몬스터 혹은 임의로 넣어줘야 할 것 같은데 이건 넣어줘야 할듯
+//                break;
         }
 
     }
+
 
     public static void Ans1_1(Player player)//서브 이벤트 구현에 대한 이야기 필요
     {
@@ -297,7 +296,7 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message1="그가 망토 속에서 기이한 물건 하나를 꺼내 당신에게 건네줍니다.";
         String message2="그는 갑자기 망토 속에서 독을 바른 칼날을 꺼내 당신을 찌릅니다.";
-        int tempDice=DialogPanelController.Dice();
+        int tempDice= ConstantEventHandler.Dice();
         Dice_page test = new Dice_page();
         if(tempDice>4)
         {
@@ -340,7 +339,7 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message1="당신을 가격하는 몽둥이를 피했습니다.";
         String message2="당신을 가격하는 몽둥이를 피하지 못했습니다. 눈앞이 캄캄해집니다.";
-        int tempDice=DialogPanelController.Dice();
+        int tempDice= ConstantEventHandler.Dice();
         Dice_page test = new Dice_page();
         if(tempDice>2 && player.getDexterity()>2)
         {
@@ -413,7 +412,7 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message1="상자를 열고 신비로운 힘이 느껴지는 물건을 얻었습니다.";
         String message2="상자를 여는 것을 경비원에게 들켰습니다.";
-        int tempDice=DialogPanelController.Dice();
+        int tempDice= ConstantEventHandler.Dice();
         Dice_page test = new Dice_page();
         if(player.getDexterity()>2&&tempDice>3)
         {
@@ -522,7 +521,7 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message1="그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
         String message2="그가 당신의 눈 앞에서 소멸됩니다.";
-        int tempDice=DialogPanelController.Dice();
+        int tempDice= ConstantEventHandler.Dice();
         Dice_page test = new Dice_page();
         if(player.getDexterity()>5&&tempDice>3)
         {
@@ -566,7 +565,7 @@ public class RandomEventAnswer{
         DialogPanelController.Clear();
         String message1="\"거래 고맙네.\" 노인은 갑자기 사라졌고, 당신은 주머니가 허전해짐과 동시에 손에 정체모를 램프가 들려있는 것을 발견합니다.";
         String message2="\"이런..3달러도 없단 말인가?\" 노인이 갑자기 사라집니다.";
-        int tempDice=DialogPanelController.Dice();
+        int tempDice= ConstantEventHandler.Dice();
         Dice_page test = new Dice_page();
         if(player.getMoney()>2)
         {
@@ -699,7 +698,7 @@ public class RandomEventAnswer{
         int tempNum=player.getMental();
         for(int i=0;i<tempNum;i++)
         {
-            int tempDice=DialogPanelController.Dice();
+            int tempDice= ConstantEventHandler.Dice();
             Dice_page test = new Dice_page();
             if(tempDice<4)
                 player.setMental(player.getMental()-1);
@@ -875,7 +874,7 @@ public class RandomEventAnswer{
             Win_check(player);
 
         GameMaster.death_count--;
-        if (DialogPanelController.Dice() > 5)
+        if (ConstantEventHandler.Dice() > 5)
             GameMaster.revive(player);
 
         if(player.getHealth()<=0||player.getMental()<=0)

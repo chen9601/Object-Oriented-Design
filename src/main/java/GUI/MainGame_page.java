@@ -90,8 +90,11 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
-                    temp.setVisible(true);
+                    FightMonsterController temp = new FightMonsterController();
+//                    temp.normalFight(Player.getCurrentPlayer(), temp.fight_monster_page.getMonster());
+
+                    // 파이트 테스트를 위해 잠깐 꺼둠
+//                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
 
                 }
             });
@@ -183,6 +186,7 @@ public class MainGame_page extends JFrame {
             dialog_panel.setBounds(599, 165, 569, 430);
             dialog_panel.setLayout(null);
             getContentPane().add(dialog_panel);
+
         }
         // red dot 버튼
         {
