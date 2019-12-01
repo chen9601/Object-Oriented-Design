@@ -176,6 +176,9 @@ public class RandomEventAnswer{
             case "boss_summon":
                 Boss_fight();
                 break;
+            case "re_shop":
+                Return_To_Shop();
+                break;
 
         }
 
@@ -1010,5 +1013,39 @@ public class RandomEventAnswer{
             DialogPanelController.Dead_Player_Dialog();
         else
             DialogPanelController.generateGeneralDialogues();
+    }
+
+    public static void Not_Enough_Money()
+    {
+        DialogPanelController.Clear();
+        String message="돈이 충분하지 않습니다.";
+        DialogPanelController.show_dialog(message);
+
+        Answer answer1=new Answer("1. 다시 상점으로","re_shop");
+        Answer answer2=new Answer("2. 상점 나가기","continue");
+        Answer answer3=new Answer("3. 턴 종료","turnEnd");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+        DialogPanelController.show_dialog_answer3(answer3);
+
+    }
+    public static void Purchase_Complete()
+    {
+        DialogPanelController.Clear();
+        String message="아이템을 구입했습니다.";
+        DialogPanelController.show_dialog(message);
+
+        Answer answer1=new Answer("1. 상점 나가기","continue");
+        Answer answer2=new Answer("2. 턴 종료","turnEnd");
+        Answer answer3=new Answer("3. 계속해서 구매","re_shop");
+        DialogPanelController.show_dialog_answer1(answer1);
+        DialogPanelController.show_dialog_answer2(answer2);
+        DialogPanelController.show_dialog_answer3(answer3);
+    }
+    public static void Return_To_Shop()
+    {
+        DialogPanelController.Clear();
+        ConstantEventHandler.shop_maintain_switch=true;
+        ConstantEventHandler.shop();
     }
 }

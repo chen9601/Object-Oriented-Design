@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -143,7 +144,22 @@ public class DialogPanelController {
         selectbtn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                if(answer.getTag()=="shop")
+                {
+                    if(Player.getCurrentPlayer().getMoney()<answer.getItem().getPrice())
+                    {
+                        RandomEventAnswer.Not_Enough_Money();
+                    }
+                    else
+                    {
+                        Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()-answer.getItem().getPrice());
+                        ConstantEventHandler.addItem(Player.getCurrentPlayer(), answer.getItem());
+                        ConstantEventHandler.itemlist.set(0, null);
+                        RandomEventAnswer.Purchase_Complete();
+                    }
+                }
+                else
+                    RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
                 dialog_panel.revalidate();
                 dialog_panel.repaint();
             }
@@ -155,7 +171,22 @@ public class DialogPanelController {
         selectbtn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                if(answer.getTag()=="shop")
+                {
+                    if(Player.getCurrentPlayer().getMoney()<answer.getItem().getPrice())
+                    {
+                        RandomEventAnswer.Not_Enough_Money();
+                    }
+                    else
+                    {
+                        Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()-answer.getItem().getPrice());
+                        ConstantEventHandler.addItem(Player.getCurrentPlayer(), answer.getItem());
+                        ConstantEventHandler.itemlist.set(1, null);
+                        RandomEventAnswer.Purchase_Complete();
+                    }
+                }
+                else
+                    RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
                 dialog_panel.revalidate();
                 dialog_panel.repaint();
             }
@@ -167,7 +198,22 @@ public class DialogPanelController {
         selectbtn3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                if(answer.getTag()=="shop")
+                {
+                    if(Player.getCurrentPlayer().getMoney()<answer.getItem().getPrice())
+                    {
+                        RandomEventAnswer.Not_Enough_Money();
+                    }
+                    else
+                    {
+                        Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()-answer.getItem().getPrice());
+                        ConstantEventHandler.addItem(Player.getCurrentPlayer(), answer.getItem());
+                        ConstantEventHandler.itemlist.set(2, null);
+                        RandomEventAnswer.Purchase_Complete();
+                    }
+                }
+                else
+                    RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
                 dialog_panel.revalidate();
                 dialog_panel.repaint();
             }

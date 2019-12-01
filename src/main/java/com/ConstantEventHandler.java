@@ -14,6 +14,10 @@ import java.lang.Math;
  */
 public class ConstantEventHandler
 {
+
+    static ArrayList<ItemType> itemlist=new ArrayList<ItemType>();
+    static boolean shop_maintain_switch=false;
+
     static void generateRandomEvent(Player player)
     {
         int event_num=(int)Math.floor(Math.random()*21);
@@ -73,7 +77,7 @@ public class ConstantEventHandler
         }
         else if(tile == TileType.STORE)
         {
-//            Shop();
+            shop();
         }
         else
         {
@@ -145,13 +149,24 @@ public class ConstantEventHandler
     }
     static void sellItem(Player player, ItemType item){}
     static ItemType getItem(ItemType item){return null;}
+
     static ArrayList<ItemType> getRandomItemList()
     {
-        ArrayList<ItemType> tempitemlist = null;
-        for(int i=0;i<3;i++)
+        ArrayList<ItemType> tempitemlist = new ArrayList<ItemType>();
+        int old_temp1=18;
+        int old_temp2=18;
+        while(true)
         {
             int tempRand=(int)Math.floor(Math.random()*15);
-            tempitemlist.add(ItemType.values()[tempRand]);
+
+            if(tempRand!=old_temp1&&tempRand!=old_temp2)
+                tempitemlist.add(ItemType.values()[tempRand]);
+
+            old_temp1=tempRand;
+            old_temp2=old_temp1;
+
+            if(tempitemlist.size()==3)
+                break;
         }
         return tempitemlist;
     }
@@ -185,12 +200,45 @@ public class ConstantEventHandler
     {
         String message="상점에 도착했습니다. 구매하실게 있으신가요?";
         DialogPanelController.show_dialog(message);
-        ArrayList<ItemType> itemlist=getRandomItemList();
-        Answer item1 = new Answer(itemlist.get(0));
-        Answer item2=new Answer(itemlist.get(1));
-        Answer item3=new Answer(itemlist.get(2));
+
+        if(!shop_maintain_switch)
+        {
+            itemlist=getRandomItemList();
+        }
+
+        StringBuilder itemInfo1 = new StringBuilder();
+        if(itemlist.get(0)!=null){
+            itemInfo1.append(itemlist.get(0).getName());
+            itemInfo1.append("  ");
+            itemInfo1.append("가격:");
+            itemInfo1.append(itemlist.get(0).getPrice());}
+
+
+        StringBuilder itemInfo2 = new StringBuilder();
+        if(itemlist.get(1)!=null){
+        itemInfo2.append(itemlist.get(1).getName());
+        itemInfo2.append("  ");
+        itemInfo2.append("가격:");
+        itemInfo2.append(itemlist.get(1).getPrice());}
+
+
+        StringBuilder itemInfo3 = new StringBuilder();
+        if(itemlist.get(2)!=null){
+        itemInfo3.append(itemlist.get(2).getName());
+        itemInfo3.append("  ");
+        itemInfo3.append("가격:");
+        itemInfo3.append(itemlist.get(2).getPrice());}
+
+        shop_maintain_switch=false;
+
+        Answer item1 = new Answer(itemlist.get(0), itemInfo1.toString(), "shop");
+        Answer item2 = new Answer(itemlist.get(1), itemInfo2.toString(), "shop");
+        Answer item3 = new Answer(itemlist.get(2), itemInfo3.toString(), "shop");
+        if(itemlist.get(0)!=null)
         DialogPanelController.show_dialog_answer1(item1);
+        if(itemlist.get(1)!=null)
         DialogPanelController.show_dialog_answer2(item2);
+        if(itemlist.get(2)!=null)
         DialogPanelController.show_dialog_answer3(item3);
     }
 }
