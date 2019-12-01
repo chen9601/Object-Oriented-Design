@@ -41,7 +41,7 @@ public class MainGame_page extends JFrame {
     JLabel lb_player2_name;
     PlayerStatusPanel player2_status_panel;
 
-    ImageIcon potal_Icon = new ImageIcon("src\\main\\java\\GUI\\potal");
+    ImageIcon potal_Icon = new ImageIcon("src\\main\\java\\GUI\\potal.png");
 
     JLabel potal_img_0 = new JLabel(potal_Icon);
     JLabel potal_img_1 = new JLabel(potal_Icon);
@@ -204,27 +204,7 @@ public class MainGame_page extends JFrame {
             btn_reddot_array[11].setBounds(399, 473, 105, 54);
             btn_reddot_array[12].setBounds(501, 315, 105, 54);
         }
-        //player1 이미지
-        {
-            lb_player1_array = new JLabel[13];
-            for(int i = 0; i < 13; i++){
-                lb_player1_array[i] = new JLabel(player1_Icon);
-                getContentPane().add(lb_player1_array[i]);
-            }
-            lb_player1_array[0].setBounds(284, 315, 40, 50);
-            lb_player1_array[1].setBounds(284, 209, 40, 50);
-            lb_player1_array[2].setBounds(185, 268, 40, 50);
-            lb_player1_array[3].setBounds(185, 370, 40, 50);
-            lb_player1_array[4].setBounds(284, 431, 40, 50);
-            lb_player1_array[5].setBounds(395, 370, 40, 50);
-            lb_player1_array[6].setBounds(395, 268, 40, 50);
-            lb_player1_array[7].setBounds(440, 165, 40, 50);
-            lb_player1_array[8].setBounds(154, 165, 40, 50);
-            lb_player1_array[9].setBounds(57, 318, 40, 50);
-            lb_player1_array[10].setBounds(154, 473, 40, 50);
-            lb_player1_array[11].setBounds(439, 473, 40, 50);
-            lb_player1_array[12].setBounds(541, 315, 40, 50);
-        }
+
         // 몬스터 이미지
         {
             for(JLabel monster_img : monster_array){
@@ -275,10 +255,10 @@ public class MainGame_page extends JFrame {
             try {
                 potal_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\portal.png");
             } catch (Exception e) {
-                System.out.println("hi");
+                System.out.println("potal_img load 에러 발생");
                 potal_Icon = null;
             }
-            JLabel potal_img_0 = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\portal.png"));
+            JLabel potal_img_0 = new JLabel(potal_Icon);
             JLabel potal_img_1 = new JLabel(potal_Icon);
             JLabel potal_img_2 = new JLabel(potal_Icon);
             JLabel potal_img_3 = new JLabel(potal_Icon);
@@ -295,9 +275,10 @@ public class MainGame_page extends JFrame {
             JLabel potal_array[] = {potal_img_0, potal_img_1, potal_img_2, potal_img_3, potal_img_4, potal_img_5,
                     potal_img_6, potal_img_7, potal_img_8, potal_img_9, potal_img_10, potal_img_11, potal_img_12};
 
-            for(JLabel portal_img : potal_array){
-                portal_img.setVisible(false);
+            for (JLabel potal : potal_array) {
+                potal.setVisible(false);
             }
+
 
             potal_img_0.setBounds(284, 315, 40, 50);
             getContentPane().add(potal_img_0);
@@ -337,7 +318,28 @@ public class MainGame_page extends JFrame {
 
             potal_img_12.setBounds(541, 315, 40, 50);
             getContentPane().add(potal_img_12);
-            show_potals();
+
+        }
+        //player1 이미지
+        {
+            lb_player1_array = new JLabel[13];
+            for(int i = 0; i < 13; i++){
+                lb_player1_array[i] = new JLabel(player1_Icon);
+                getContentPane().add(lb_player1_array[i]);
+            }
+            lb_player1_array[0].setBounds(284, 315, 40, 50);
+            lb_player1_array[1].setBounds(284, 209, 40, 50);
+            lb_player1_array[2].setBounds(185, 268, 40, 50);
+            lb_player1_array[3].setBounds(185, 370, 40, 50);
+            lb_player1_array[4].setBounds(284, 431, 40, 50);
+            lb_player1_array[5].setBounds(395, 370, 40, 50);
+            lb_player1_array[6].setBounds(395, 268, 40, 50);
+            lb_player1_array[7].setBounds(440, 165, 40, 50);
+            lb_player1_array[8].setBounds(154, 165, 40, 50);
+            lb_player1_array[9].setBounds(57, 318, 40, 50);
+            lb_player1_array[10].setBounds(154, 473, 40, 50);
+            lb_player1_array[11].setBounds(439, 473, 40, 50);
+            lb_player1_array[12].setBounds(541, 315, 40, 50);
         }
         //player2 이미지
         {
