@@ -1,6 +1,7 @@
 package GUI;
 
 import com.Monster;
+import com.MonsterType;
 import com.Player;
 import com.Map;
 import javax.swing.ImageIcon;
@@ -21,10 +22,8 @@ public class Fight_monster_page extends JFrame {
 
 
     public static void main(String[] args) {
-
         Fight_monster_page frame = new Fight_monster_page();
         frame.setVisible(true);
-
     }
 
     public Fight_monster_page() {
@@ -49,8 +48,6 @@ public class Fight_monster_page extends JFrame {
 
         status.setBounds(91, 38, 158, 45);
         getContentPane().add(status);
-
-
     }
 
     class player_panel extends JPanel {
@@ -119,14 +116,24 @@ public class Fight_monster_page extends JFrame {
     }
     class monster_panel extends JPanel {
         monster_panel() {
-            Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
+//            Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
+            MonsterType monster = MonsterType.Dagon;
+            Monster tempMon = Monster
+                    .builder()
+                    .monster_type(monster)
+                    .health(monster.getInitial_health())
+                    .damage(monster.getInitial_damage())
+                    .damageType(monster.getInitial_damageType())
+                    .imagepath(monster.getInintial_imgpath())
+                    .monster_result(monster.getInitial_monster_result())
+                    .build();
             JLabel monster_health = new JLabel("Health");
-            JLabel monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
+            JLabel monster_health_txt = new JLabel(Integer.toString(tempMon.getHealth()));
 
             JLabel monster_power = new JLabel("power");
-            JLabel monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
+            JLabel monster_power_txt = new JLabel(Integer.toString(tempMon.getDamage()));
 
-            JLabel monster_img = new JLabel(new ImageIcon(monster.getImagepath()));
+            JLabel monster_img = new JLabel(new ImageIcon(tempMon.getImagepath()));
             JLabel monster_name = new JLabel("monster name");
 
             {
