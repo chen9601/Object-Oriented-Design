@@ -14,9 +14,11 @@ public class Answer{
         this.tag=tag;
     }
 
-    Answer(ItemType item)
+    Answer(ItemType item, String message, String tag)
     {
+        this.message=message;
         this.item=item;
+        this.tag=tag;
     }
 
     /**
