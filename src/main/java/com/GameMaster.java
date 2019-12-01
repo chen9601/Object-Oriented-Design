@@ -51,8 +51,6 @@ public class GameMaster {
     }
 
     public static void initiateGame() {
-        token = 0;
-        turn = 0;
         initiatePlayers();
         initMap();
         initMonsters();
@@ -128,7 +126,7 @@ public class GameMaster {
 
     public static void turnEnd() {
         if (getCurrentPlayer().getHealth() <= 0 || getCurrentPlayer().getMental() <= 0) {
-            if (getCurrentPlayer().getStatus() == 2) {
+            if (getCurrentPlayer().getStatus() == DEAD) {
                 RandomEventAnswer.Win_check(getCurrentPlayer());
             } else
                 death(getCurrentPlayer());

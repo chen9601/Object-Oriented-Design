@@ -13,12 +13,16 @@ public class MainGamePageController {
     static public JButton[] dot_array;
     static public JLabel[] player1_array;
     static public JLabel[] player2_array;
+    static public JLabel[] monster_array;
+    static public JLabel[] portal_array;
 
     public MainGamePageController(){
         maingame_page = new MainGame_page();
         dot_array = maingame_page.getBtn_reddot_array();
         player1_array = maingame_page.getLb_player1_array();
         player2_array = maingame_page.getLb_player2_array();
+        monster_array = maingame_page.getMonster_array();
+        portal_array = maingame_page.getPotal_array();
         MainGamePageController.show_players();
         maingame_page.setVisible(true);
     }
@@ -28,7 +32,7 @@ public class MainGamePageController {
     }
 
     public static void update_status(int idx, StatusType type, int value){
-        // TODO : Need refactoring. uncomfortable
+        // TODO : Need refactoring
         if(idx == 0)
             maingame_page.getPlayer1_status_panel().getStatus_details()[type.ordinal()]
                     .getAttribute_textpane().setText(Integer.toString(value));
@@ -67,6 +71,25 @@ public class MainGamePageController {
         }
         player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
         player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
+    }
+
+    public static void show_monsters(){
+        for(JLabel lb_monster : monster_array)
+            lb_monster.setVisible(false);
+        for(TileType tile_type : TileType.values()){
+            Monster monster = Map.getMonsterAt(tile_type);
+            // TODO : 몬스터가 죽으면 항상 그 타일에 있던 몬스터는 null로 바뀌나?
+            if(monster != null)
+                monster_array[tile_type.ordinal()].setVisible(true);
+        }
+    }
+
+    public static void show_portals(){
+        for(JLabel lb_portal : portal_array)
+            lb_portal.setVisible(false);
+        for(TileType tile_type : TileType.values())
+            if(Map.getPortalAt(tile_type))
+                portal_array[tile_type.ordinal()].setVisible(true);
     }
 
 }

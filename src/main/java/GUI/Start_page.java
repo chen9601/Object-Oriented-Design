@@ -26,7 +26,7 @@ public class Start_page extends JFrame {
     public Start_page() {
 
 
-        music music = new music("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3");
+//        play("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3");
         setResizable(false);
         getContentPane().add(panel);
         panel.setLayout(null);
