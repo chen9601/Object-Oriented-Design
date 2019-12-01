@@ -54,8 +54,6 @@ public class Fight_monster_page extends JFrame {
     }
 
     class player_panel extends JPanel {
-
-
         player_panel(Player player) {
 
             Player cur_player = player;
