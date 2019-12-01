@@ -35,7 +35,7 @@ public class Fight_monster_page extends JFrame {
 
         JTextPane Dialog = new JTextPane();
 
-        player_panel player_panel = new player_panel(Player.getPlayer(0));
+        player_panel player_panel = new player_panel(Player.getCurrentPlayer());
         getContentPane().add(player_panel);
         player_panel.setVisible(true);
 
@@ -44,7 +44,7 @@ public class Fight_monster_page extends JFrame {
 
         JButton status = new JButton("status");
 
-        Dialog.setBounds(459, 615, 709, 286);
+        Dialog.setBounds(459, 615, 709, 300);
         getContentPane().add(Dialog);
 
         status.setBounds(91, 38, 158, 45);
