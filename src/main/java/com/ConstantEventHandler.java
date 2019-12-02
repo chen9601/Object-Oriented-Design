@@ -135,6 +135,7 @@ public class ConstantEventHandler
 
     static void generateFight(Player player, MonsterType monster){
         Fight_monster_page fightwithmonster = new Fight_monster_page();
+
     }
     boolean isAffordable(Player player, ItemType item)
     {

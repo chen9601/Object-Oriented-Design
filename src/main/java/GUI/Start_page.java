@@ -1,14 +1,13 @@
 package GUI;
 
+import GUI.music.Mainmusic_thread;
 import com.GameMaster;
+import com.sun.tools.javac.Main;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 
 /**
@@ -26,7 +25,7 @@ public class Start_page extends JFrame {
     public Start_page() {
 
 
-//        play("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3");
+
         setResizable(false);
         getContentPane().add(panel);
         panel.setLayout(null);
@@ -63,6 +62,11 @@ public class Start_page extends JFrame {
         newgame.setBounds(500, 480, 200, 70);
         loadgame.setBounds(500, 600, 200, 70);
         exitgame.setBounds(500, 720, 200, 70);
+
+
+
+        Mainmusic_thread music = new Mainmusic_thread("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3",true);
+        music.start();
     }
 
     static public void Start_pageView() {

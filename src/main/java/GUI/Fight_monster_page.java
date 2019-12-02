@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.music.monsterfightmusic_thread;
 import com.Monster;
 import com.Player;
 import com.Map;
@@ -28,6 +29,9 @@ public class Fight_monster_page extends JFrame {
     }
 
     public Fight_monster_page() {
+
+
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.white);
         setBounds(0, 0, 1200, 960);
@@ -121,6 +125,7 @@ public class Fight_monster_page extends JFrame {
     }
     class monster_panel extends JPanel {
         monster_panel() {
+
             Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
             JLabel monster_health = new JLabel("Health");
             JLabel monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
@@ -153,4 +158,5 @@ public class Fight_monster_page extends JFrame {
 
         }
     }
+
 }
