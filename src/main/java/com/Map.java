@@ -3,8 +3,6 @@ package com;
 
 import java.util.ArrayList;
 
-import static com.GameMaster.*;
-
 /**
  * 맵 객체 모델로, 맵의 부분 개념인 타일을 보다 쉽게 접근하는데 사용된다.(일종의 핸들러)
  *
@@ -54,8 +52,8 @@ public class Map {
     public static ArrayList<TileType> getMovableTiles(Player player) {
         ArrayList<TileType> result = new ArrayList<>();
         for (Tile tile : tiles) {
-            if (pathValid(player, tile.getName())) {
-                result.add(tile.getName());
+            if (pathValid(player, tile.getTile_type())) {
+                result.add(tile.getTile_type());
             }
         }
         return result;

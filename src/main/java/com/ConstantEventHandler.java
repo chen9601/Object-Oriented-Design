@@ -1,5 +1,6 @@
 package com;
 
+import GUI.Dice_page;
 import GUI.Fight_monster_page;
 
 import static com.Map.*;
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 
 
 import java.lang.Math;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 특정 조건에서 반드시 일어나야하는 이벤트들을 정리한 클래스
@@ -49,22 +52,30 @@ public class ConstantEventHandler
     {
         if(Map.getPortalAt(tile))
         {
-//            GenerateFight(player);
-//            GenerateFight(player);                                  //포털을 닫기 위해서는 2번의 전투 필요
+            Map.tiles[tile.ordinal()].setSummoned_monster(new Monster(MonsterType.values()[(int) Math.floor(Math.random() * 5)]));
+            generateFight(Map.getMonsterAt(tile).getMonster_type());
+            // TODO : 두 싸움 사이에 딜레이가 들어가야 한다. 차례차례 싸워야 함 아니면 한번만 싸우도록 바꿔야 한다.
+//            generateFight(player, MonsterType.Dagon);              //포털을 닫기 위해서는 2번의 전투 필요
             if(player.getHealth() > 0)
             {
                 GameMaster.token++;
                 MainGamePageController.update_token(GameMaster.token);
                 Map.tiles[tile.ordinal()].setSummoned_portal(false);
+                MainGamePageController.show_portals();
             }
+            DialogPanelController.Clear();
+            DialogPanelController.generateGeneralDialogues();
         }
         if(Map.getMonsterAt(tile) != null)
         {
-//            GenerateFight();
+            ConstantEventHandler.generateFight(Map.getMonsterAt(tile).getMonster_type());
             if(player.getHealth() > 0)
             {
                 Map.tiles[tile.ordinal()].setSummoned_monster(null);
+                MainGamePageController.show_monsters();
             }
+            DialogPanelController.Clear();
+            DialogPanelController.generateGeneralDialogues();
         }
 
         if(tile == TileType.HOSPITAL)
@@ -133,11 +144,26 @@ public class ConstantEventHandler
         DialogPanelController.show_dialog_answer2(ConstantEventAnswer.mospital2);
     }
 
-    static void generateFight(Player player, MonsterType monster){
-        Fight_monster_page fightwithmonster = new Fight_monster_page();
-
+    static void generateFight(MonsterType monster){
+        FightMonsterController fightwithmonster = new FightMonsterController(monster);
     }
-    boolean isAffordable(Player player, ItemType item)
+
+    public static int  Dice(){
+        Dice_page Dice = new Dice_page();
+        Dice.setVisible(true);
+
+        java.util.Timer timer = new Timer();
+        // 이게 반복되어야할 이유가 있나?
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Dice.dispose();
+            }
+        },1*2*1000);
+        return Dice.getSavedDice_num();
+    }
+
+    static boolean isAffordable(Player player, ItemType item)
     {
         if(player.getMoney()<item.getPrice())
             return false;
@@ -176,7 +202,7 @@ public class ConstantEventHandler
     {
         if(Map.tiles[tile.ordinal()].getSummoned_monster()==null&&Map.tiles[tile.ordinal()].isSummoned_portal()==false)
         {
-            Monster tempMon=new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(),monster.getInitial_monster_result(),monster.getInintial_imgpath());
+            Monster tempMon=new Monster(monster);
             Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
         }
     }
