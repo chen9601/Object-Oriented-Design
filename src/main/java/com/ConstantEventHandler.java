@@ -52,6 +52,7 @@ public class ConstantEventHandler
     {
         if(Map.getPortalAt(tile))
         {
+            Map.tiles[tile.ordinal()].setSummoned_monster(new Monster(MonsterType.values()[(int) Math.floor(Math.random() * 5)]));
             generateFight(Map.getMonsterAt(tile).getMonster_type());
             // TODO : 두 싸움 사이에 딜레이가 들어가야 한다. 차례차례 싸워야 함 아니면 한번만 싸우도록 바꿔야 한다.
 //            generateFight(player, MonsterType.Dagon);              //포털을 닫기 위해서는 2번의 전투 필요
@@ -60,7 +61,10 @@ public class ConstantEventHandler
                 GameMaster.token++;
                 MainGamePageController.update_token(GameMaster.token);
                 Map.tiles[tile.ordinal()].setSummoned_portal(false);
+                MainGamePageController.show_portals();
             }
+            DialogPanelController.Clear();
+            DialogPanelController.generateGeneralDialogues();
         }
         if(Map.getMonsterAt(tile) != null)
         {
@@ -68,7 +72,10 @@ public class ConstantEventHandler
             if(player.getHealth() > 0)
             {
                 Map.tiles[tile.ordinal()].setSummoned_monster(null);
+                MainGamePageController.show_monsters();
             }
+            DialogPanelController.Clear();
+            DialogPanelController.generateGeneralDialogues();
         }
 
         if(tile == TileType.HOSPITAL)
@@ -146,12 +153,13 @@ public class ConstantEventHandler
         Dice.setVisible(true);
 
         java.util.Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
+        // 이게 반복되어야할 이유가 있나?
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 Dice.dispose();
             }
-        },1*2*1000 , 1*2* 1000);
+        },1*2*1000);
         return Dice.getSavedDice_num();
     }
 

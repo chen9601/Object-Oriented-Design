@@ -63,7 +63,6 @@ public class FightDialogPanelController extends DialogPanelController{
             @Override
             public void actionPerformed(ActionEvent e) {
                 RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
-
                 selectbtn1.revalidate();
                 selectbtn1.repaint();
             }

@@ -177,7 +177,6 @@ public class GameMaster {
                 break;
             } else continue;
         }
-
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
             if (isTherePlayer(Map.tiles[tempNum1])) continue;
