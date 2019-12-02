@@ -267,5 +267,14 @@ public class ConstantEventHandler
         DialogPanelController.show_dialog_answer2(item2);
         if(itemlist.get(2)!=null)
         DialogPanelController.show_dialog_answer3(item3);
+
+        if(itemlist.get(0)==null&&itemlist.get(1)==null&&itemlist.get(2)==null)
+        {
+            DialogPanelController.Clear();
+            String message3="오늘의 물건들은 모두 팔렸습니다. 다음 번에 방문해주시길.";
+            DialogPanelController.show_dialog(message3);
+            Answer answer1 = new Answer("1. 상점 나가기", "continue");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
     }
 }

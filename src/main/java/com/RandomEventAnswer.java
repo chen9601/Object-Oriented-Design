@@ -1044,4 +1044,10 @@ public class RandomEventAnswer {
         ConstantEventHandler.shop_maintain_switch = true;
         ConstantEventHandler.shop();
     }
+
+    public static void Run()
+    {
+        String message = "몬스터에게서 도망치는 것이 가능할거라 생각했나요? 죽거나 죽이거나, 둘밖에 없습니다.";
+        FightDialogPanelController.show_dialog(message);
+    }
 }
