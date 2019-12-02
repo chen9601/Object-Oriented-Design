@@ -145,6 +145,8 @@ public class GameMaster {
     }
 
     public static boolean check_num_of_monsters_portals_for_boss() {
+        // 포털, 몬스터 생성 테스트 코드
+//        return false;
         int tempNum = 0;
         int tempNum2 = 0;
 
@@ -166,25 +168,18 @@ public class GameMaster {
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
             int tempNum2 = (int) Math.floor(Math.random() * 5);
-            if(Map.tiles[tempNum1].getTile_type() == Player.getPlayer(0).getPos() || Map.tiles[tempNum1].getTile_type() == Player.getPlayer(1).getPos())
-                continue;
+            if (isTherePlayer(Map.tiles[tempNum1])) continue;
+
             MonsterType monster = MonsterType.values()[tempNum2];
-            Monster tempMon = new Monster(
-                    monster.getName(), monster.getInitial_health(),
-                    monster.getInitial_requireVal(),
-                    monster.getInitial_damage(),
-                    monster.getInitial_damageType(),
-                    monster.getInitial_monster_result(),
-                    monster.getInintial_imgpath()
-            );
+            Monster tempMon = new Monster(monster);
             if (Map.tiles[tempNum1].getSummoned_monster() == null) {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);
                 break;
             } else continue;
         }
-
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
+            if (isTherePlayer(Map.tiles[tempNum1])) continue;
             if (Map.tiles[tempNum1].isSummoned_portal() == false) {
                 Map.tiles[tempNum1].setSummoned_portal(true);
                 break;
@@ -192,26 +187,35 @@ public class GameMaster {
         }
     }
 
-    public static void test_addmonster_alltile() {
-        MonsterType monster = MonsterType.values()[2];
-        Monster tempmonster = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
-
-        for(int i =0 ; i<13;i++){
-            Map.tiles[i].setSummoned_monster((tempmonster));
+    private static boolean isTherePlayer(Tile tile) {
+        if (tile.getTile_type() == Player.getPlayer(0).getPos()
+                || Player.getPlayer(1).getPos() == tile.getTile_type()) {
+            return true;
         }
-        }
-
-    public static void monster_fightcondition() {
-//        GameMaster.test_addmonster_alltile();
-        Player player = getCurrentPlayer();
-        if (Map.getMonsterAt(getCurrentPlayer().getPos())!= null) {
-            Fight_monster_page monsterpage = new Fight_monster_page();
-            monsterpage.setVisible(true);
-        }
-
+        return false;
     }
 
+//    public static void test_addmonster_alltile() {
+//        MonsterType monster = MonsterType.values()[2];
+//        Monster tempmonster = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
+//
+//        for(int i =0 ; i<13;i++){
+//            Map.tiles[i].setSummoned_monster((tempmonster));
+//        }
+//    }
+
+//    public static void monster_fightcondition() {
+////        GameMaster.test_addmonster_alltile();
+//        Player player = getCurrentPlayer();
+//        if (Map.getMonsterAt(getCurrentPlayer().getPos())!= null) {
+//            Fight_monster_page monsterpage = new Fight_monster_page();
+//            monsterpage.setVisible(true);
+//        }
+
+//    }
+
     public static void generateBossFight(Boss boss) {
+        throw new RuntimeException("generateBossFight() method does not implemented");
     }
 
 }

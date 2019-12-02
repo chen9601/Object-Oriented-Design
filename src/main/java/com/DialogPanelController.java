@@ -6,7 +6,6 @@ import lombok.Data;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -14,10 +13,10 @@ import java.util.TimerTask;
 public class DialogPanelController {
 
     static public DialogPanel dialog_panel;
-    static private JLabel lb_just_text;
-    static private JButton selectbtn1;
-    static private JButton selectbtn2;
-    static private JButton selectbtn3;
+    static public JLabel lb_just_text;
+    static public JButton selectbtn1;
+    static public JButton selectbtn2;
+    static public JButton selectbtn3;
 
     public DialogPanelController(){
         dialog_panel = new DialogPanel();
@@ -147,13 +146,13 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 if(answer.getTag()=="shop")
                 {
-                    if(Player.getCurrentPlayer().getMoney()<answer.getItem().getPrice())
+                    if(ConstantEventHandler.isAffordable(Player.getCurrentPlayer(), answer.getItem()))
                     {
                         RandomEventAnswer.Not_Enough_Money();
                     }
                     else
                     {
-                        Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()-answer.getItem().getPrice());
+                        Player.getCurrentPlayer().setMoney(ConstantEventHandler.getChange(Player.getCurrentPlayer(), answer.getItem()));
                         ConstantEventHandler.addItem(Player.getCurrentPlayer(), answer.getItem());
                         ConstantEventHandler.itemlist.set(0, null);
                         RandomEventAnswer.Purchase_Complete();
@@ -222,20 +221,7 @@ public class DialogPanelController {
         selectbtn3.setVisible(true);
     };
 
-    public static int  Dice(){
-        Dice_page Dice = new Dice_page();
-        Dice.setVisible(true);
-
-        java.util.Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                Dice.dispose();
-            }
-        },1*2*1000 , 1*2* 1000);
-        return Dice.getSavedDice_num();
-    }
-        /*
+    /*
     @Deprecated
      */
     class SelectBtnListener implements ActionListener{
