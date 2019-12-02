@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.music.Mainmusic_thread;
 import com.*;
 import lombok.Data;
 
@@ -8,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
-import static com.GameMaster.setPortalAndMonsterRandomly;
 
 
 /**
@@ -90,8 +89,11 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
-                    temp.setVisible(true);
+                    FightMonsterController temp = new FightMonsterController(MonsterType.Nightgaunt);
+//                    temp.normalFight(Player.getCurrentPlayer(), temp.fight_monster_page.getMonster());
+
+                    // 파이트 테스트를 위해 잠깐 꺼둠
+//                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
 
                 }
             });
@@ -167,6 +169,9 @@ public class MainGame_page extends JFrame {
     }
 
     public MainGame_page() {
+
+
+
         // 상단바
         {
             setResizable(false);
@@ -183,6 +188,7 @@ public class MainGame_page extends JFrame {
             dialog_panel.setBounds(599, 165, 569, 430);
             dialog_panel.setLayout(null);
             getContentPane().add(dialog_panel);
+
         }
         // red dot 버튼
         {
@@ -382,6 +388,7 @@ public class MainGame_page extends JFrame {
             player2_status_panel.setBounds(864, 670, 318, 225);
             getContentPane().add(player2_status_panel);
         }
+
 
     }
 

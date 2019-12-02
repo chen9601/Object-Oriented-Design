@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.music.Mainmusic_thread;
 import com.GameMaster;
 import com.MainGamePageController;
 import com.Player;
@@ -17,6 +18,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+//import static com.GameMaster.changemusic;
 
 /**
  * 각각의 플레이어들의 초기 스탯 분배하는 페이지이다.
@@ -40,6 +43,8 @@ public class SetStatus_page extends JFrame {
             player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2-portrait.png";
             player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_name.png";
         }
+
+
 
         setResizable(false);
         getContentPane().setLayout(null);
@@ -137,6 +142,8 @@ public class SetStatus_page extends JFrame {
             }
         });
     }
+
+
 
     private boolean doesNextPlayerStatusSetted() {
         return Player.getCurrentPlayer().getPower() != null;

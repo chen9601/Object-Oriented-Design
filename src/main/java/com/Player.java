@@ -16,7 +16,7 @@ import java.util.Arrays;
 @Builder
 public class Player{
     static int idx_of_cur_player = 0;
-    static private final int MAXIMUM_NUM_OF_PLAYERS = 2;
+    static public final int MAXIMUM_NUM_OF_PLAYERS = 2;
     static Player[] players = new Player[MAXIMUM_NUM_OF_PLAYERS];
     static public final int ALIVE = 1;
     static public final int DEAD = 2;
