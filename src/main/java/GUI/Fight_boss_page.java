@@ -14,6 +14,7 @@ public class Fight_boss_page extends JFrame {
 
 
 	public Fight_boss_page() {
+
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 960);

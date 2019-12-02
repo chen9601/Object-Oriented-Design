@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.music.Mainmusic_thread;
 import com.*;
 import lombok.Data;
 
@@ -8,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
-import static com.GameMaster.setPortalAndMonsterRandomly;
 
 
 /**
@@ -170,6 +169,9 @@ public class MainGame_page extends JFrame {
     }
 
     public MainGame_page() {
+
+
+
         // 상단바
         {
             setResizable(false);
@@ -386,6 +388,7 @@ public class MainGame_page extends JFrame {
             player2_status_panel.setBounds(864, 670, 318, 225);
             getContentPane().add(player2_status_panel);
         }
+
 
     }
 

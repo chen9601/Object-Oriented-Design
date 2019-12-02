@@ -145,4 +145,5 @@ public class Fight_monster_page extends JFrame {
             }
         }
     }
+
 }

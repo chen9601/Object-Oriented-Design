@@ -2,6 +2,10 @@ package com;
 
 import GUI.Fight_monster_page;
 import GUI.Start_page;
+import GUI.View;
+import GUI.music.Mainmusic_thread;
+import GUI.music.bossfightmusic_thread;
+import GUI.music.monsterfightmusic_thread;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -217,5 +221,40 @@ public class GameMaster {
     public static void generateBossFight(Boss boss) {
         throw new RuntimeException("generateBossFight() method does not implemented");
     }
-
+//    public static void changemusic(int selectmusic){
+//
+//
+//        Thread currentmusic = Thread.currentThread();
+//        ThreadGroup threadGroup = currentmusic.getThreadGroup();
+//        while (threadGroup.getParent() != null) {
+//            threadGroup = threadGroup.getParent();
+//        }
+//        int activeCount = threadGroup.activeCount();
+//
+//        Thread[] activeThreads = new Thread[activeCount + 2];
+//        int enumeratedCount = threadGroup.enumerate(activeThreads);
+//        Thread finalizerThread = null;
+//        for (int i = 0; i < enumeratedCount; i++) {
+//            if (activeThreads[i].getName().equals("musicthread")) {
+//                finalizerThread = activeThreads[i];
+//                finalizerThread.isInterrupted();
+//                break;
+//            }
+//        }
+//
+//        if(selectmusic == 0){
+//            Thread newmusic = new monsterfightmusic_thread();
+//            newmusic.start();
+//        }
+//        else if(selectmusic == 1){
+//            Thread newmusic = new bossfightmusic_thread();
+//            newmusic.start();
+//        }
+//        else{
+//            Thread newmusic = new Mainmusic_thread();
+//            newmusic.start();
+//        }
+//
+//
+//    }
 }
