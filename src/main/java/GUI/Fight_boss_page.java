@@ -1,5 +1,8 @@
 package GUI;
 
+import com.GameMaster;
+import com.Player;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -19,68 +22,39 @@ public class Fight_boss_page extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 960);
 		getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBounds(0, 0, 1182, 146);
-		getContentPane().add(panel);
-		
+		//플레이어들의 스테이터스
+		{
+			ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
+			JLabel lb_player1 = new JLabel(player1_img);
+			lb_player1.setBounds(650, 620, 240, 163);
+			getContentPane().add(lb_player1);
 
-		JButton Exit = new JButton("exit");
-		Exit.setBounds(986, 40, 144, 54);
-		panel.add(Exit);
-		
-		JTextPane Turn = new JTextPane();
-		Turn.setBounds(827, 40, 127, 38);
-		panel.add(Turn);
-		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(456, 506, 712, 395);
-		getContentPane().add(textPane);
-		
-		JLabel player_health = new JLabel("player_health");
-		player_health.setBounds(232, 706, 62, 18);
-		getContentPane().add(player_health);
-		
-		JLabel metal = new JLabel("mental");
-		metal.setBounds(232, 768, 62, 18);
-		getContentPane().add(metal);
-		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setBounds(308, 700, 134, 34);
-		getContentPane().add(textPane_1);
-		
-		JTextPane textPane_2 = new JTextPane();
-		textPane_2.setBounds(308, 768, 134, 34);
-		getContentPane().add(textPane_2);
-		
-		JLabel monster_img = new JLabel(new ImageIcon("src/imgaes/azatoth.png"));
-		monster_img.setBounds(732, 214, 108, 92);
-		getContentPane().add(monster_img);
-		
-		JLabel boss_name = new JLabel("Azartuth");
-		boss_name.setFont(new Font("Yu Gothic", Font.PLAIN, 35));
-		boss_name.setBounds(862, 219, 225, 41);
-		getContentPane().add(boss_name);
-		
-		JLabel health = new JLabel("health");
-		health.setBounds(862, 288, 62, 18);
-		getContentPane().add(health);
-		
-		JTextPane textPane_3 = new JTextPane();
-		textPane_3.setBounds(969, 288, 134, 34);
-		getContentPane().add(textPane_3);
-		
-		
-		Dice_page dice = new Dice_page();
-		
-		
-		JLabel label = new JLabel(new ImageIcon("src/imgaes/player1_name.png"));
-		label.setBounds(32, 810, 162, 48);
-		getContentPane().add(label);
-		
-		JLabel label_1 = new JLabel((new ImageIcon("src/imgaes/player.png")));
-		label_1.setBounds(32, 627, 162, 159);
-		getContentPane().add(label_1);
+			ImageIcon player1_name_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
+			JLabel player1_name = new JLabel(player1_name_img);
+			player1_name.setBounds(41, 780, 240, 61);
+			getContentPane().add(player1_name);
+//
+//			MainGame_page.PlayerStatusPanel player1_status_panel = new MainGame_page.PlayerStatusPanel(Player.getPlayer(0));
+//			player1_status_panel.setBounds(290, 670, 318, 225);
+//			getContentPane().add(player1_status_panel);
+
+			JLabel lb_player2_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png"));
+			lb_player2_img.setBounds(41, 620, 240, 163);
+			getContentPane().add(lb_player2_img);
+
+			JLabel lb_player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
+			lb_player2_name.setBounds(650, 780, 240, 61);
+			getContentPane().add(lb_player2_name);
+
+//			MainGame_page.PlayerStatusPanel player2_status_panel = new MainGame_page.PlayerStatusPanel(Player.getPlayer(1));
+//			player2_status_panel.setBounds(864, 670, 318, 225);
+//			getContentPane().add(player2_status_panel);
+		}
+		//
+		JLabel boss_panel = new JLabel(new ImageIcon(GameMaster.current_boss.getType().getBoss_imgpath()));
+		boss_panel.setBounds(75, 120,1100 , 480);
+		getContentPane().add(boss_panel);
+
+
 	}
 }

@@ -62,9 +62,9 @@ public class SetBoss_page extends JFrame {
         String chuthulu_win = "최대 정신력과 최대 체력이 1씩 줄어든다.";
 
 
-        BossPanel Test1 = new BossPanel("src\\main\\java\\GUI\\imgaes\\boss\\azatoth.png", BossType.AZATHOTH,azartoth_win);
-        BossPanel Test2 = new BossPanel("src\\main\\java\\GUI\\imgaes\\boss\\CHUTHULU.png", BossType.CHUTHULU,chuthulu_win);
-        BossPanel Test3 = new BossPanel("src\\main\\java\\GUI\\imgaes\\boss\\NYARLATHOTEP.png", BossType.NYARLATHOTEP,nyarlathotep_win);
+        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH,azartoth_win);
+        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU,chuthulu_win);
+        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP,nyarlathotep_win);
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);

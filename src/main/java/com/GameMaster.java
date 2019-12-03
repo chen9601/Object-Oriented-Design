@@ -1,11 +1,6 @@
 package com;
 
-import GUI.Fight_monster_page;
 import GUI.Start_page;
-import GUI.View;
-import GUI.music.Mainmusic_thread;
-import GUI.music.bossfightmusic_thread;
-import GUI.music.monsterfightmusic_thread;
 
 import java.util.ArrayList;
 import java.util.Arrays;
