@@ -1,7 +1,9 @@
 package GUI;
+
 import com.Boss;
 import com.BossType;
 import com.GameMaster;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,13 +13,15 @@ import javax.swing.*;
  * 새로 게임을 생성할 때 보스를 설정하는 페이지이다.
  */
 public class SetBoss_page extends JFrame {
-    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
 
+    ImagePanel panel = new ImagePanel();
+    Image boss_background = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
 
     SetBoss_page() {
+        getContentPane().add(panel);
+        panel.setLayout(null);
         setResizable(false);
         setBounds(0, 0, 1200, 960);
-        getContentPane().setLayout(null);
 
         JPanel movetab = new JPanel();
         JButton next = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\next.png"));
@@ -39,10 +43,10 @@ public class SetBoss_page extends JFrame {
 
         prev.setBounds(78, 32, 180, 70);
 
-        getContentPane().add(movetab);
+
 
         movetab.add(prev);
-
+        panel.add(movetab);
 
         String azartoth_win = "강림시 패배";
         String nyarlathotep_win = "토큰 필요량 +3";
@@ -55,19 +59,18 @@ public class SetBoss_page extends JFrame {
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
-        getContentPane().add(boss1);
         boss1.add(Test1);
-
+        panel.add(boss1);
 
         JPanel boss2 = new JPanel();
         boss2.setBounds(394, 183, 394, 741);
-        getContentPane().add(boss2);
         boss2.add(Test2);
+        panel.add(boss2);
 
         JPanel boss3 = new JPanel();
         boss3.setBounds(788, 183, 394, 741);
-        getContentPane().add(boss3);
         boss3.add(Test3);
+        panel.add(boss3);
     }
 
     class BossPanel extends JPanel {
@@ -80,12 +83,12 @@ public class SetBoss_page extends JFrame {
                     //TODO : boss test code지우고 수정 bosstype과 연동
                     GameMaster.setBoss(
                             Boss
-                                .builder()
-                                .type(bosstype)
-                                .health(bosstype.getHealth())
-                                .damage(bosstype.getDamage())
-                                .requireVal(bosstype.getRequireVal())
-                                .build()
+                                    .builder()
+                                    .type(bosstype)
+                                    .health(bosstype.getHealth())
+                                    .damage(bosstype.getDamage())
+                                    .requireVal(bosstype.getRequireVal())
+                                    .build()
                     );
                     System.out.println(GameMaster.current_boss.getRequireVal());
 
@@ -111,5 +114,13 @@ public class SetBoss_page extends JFrame {
 
         }
 
+    }
+
+    class ImagePanel extends JPanel {
+
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(boss_background, 0, 0, 1200, 960, this);
+        }
     }
 }
