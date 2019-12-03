@@ -1,11 +1,7 @@
 package com;
 
-import GUI.DialogPanel;
 import GUI.Dice_page;
 import GUI.music.Mainmusic_thread;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static com.Player.idx_of_cur_player;
 
@@ -965,7 +961,7 @@ public class RandomEventAnswer {
             DialogPanelController.show_dialog_answer1(answer1);
         } else {
             DialogPanelController.Clear();
-            RandomEventAnswer.Boss_Summon(player);
+            RandomEventAnswer.checkBoss_Summon_condition(player);
         }
     }
 
@@ -973,7 +969,7 @@ public class RandomEventAnswer {
         //패배 화면 출력
     }
 
-    public static void Boss_Summon(Player player) {
+    public static void checkBoss_Summon_condition(Player player) {
         if (GameMaster.check_num_of_monsters_portals_for_boss()) {
             DialogPanelController.Clear();
             DialogPanelController.show_dialog("고대신이 잠에서 깨어납니다. 모두 대비하십시오!");

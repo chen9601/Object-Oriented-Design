@@ -1,5 +1,6 @@
 package com;
 
+import GUI.Fight_boss_page;
 import GUI.Start_page;
 
 import java.util.ArrayList;
@@ -196,62 +197,9 @@ public class GameMaster {
         return false;
     }
 
-//    public static void test_addmonster_alltile() {
-//        MonsterType monster = MonsterType.values()[2];
-//        Monster tempmonster = new Monster(monster.getName(), monster.getInitial_health(), monster.getInitial_requireVal(), monster.getInitial_damage(), monster.getInitial_damageType(), monster.getInitial_monster_result(), monster.getInintial_imgpath());
-//
-//        for(int i =0 ; i<13;i++){
-//            Map.tiles[i].setSummoned_monster((tempmonster));
-//        }
-//    }
-
-//    public static void monster_fightcondition() {
-////        GameMaster.test_addmonster_alltile();
-//        Player player = getCurrentPlayer();
-//        if (Map.getMonsterAt(getCurrentPlayer().getPos())!= null) {
-//            Fight_monster_page monsterpage = new Fight_monster_page();
-//            monsterpage.setVisible(true);
-//        }
-
-//    }
 
     public static void generateBossFight(Boss boss) {
-        throw new RuntimeException("generateBossFight() method does not implemented");
+        Fight_boss_page fight_boss_page = new Fight_boss_page();
+        fight_boss_page.setVisible(true);
     }
-//    public static void changemusic(int selectmusic){
-//
-//
-//        Thread currentmusic = Thread.currentThread();
-//        ThreadGroup threadGroup = currentmusic.getThreadGroup();
-//        while (threadGroup.getParent() != null) {
-//            threadGroup = threadGroup.getParent();
-//        }
-//        int activeCount = threadGroup.activeCount();
-//
-//        Thread[] activeThreads = new Thread[activeCount + 2];
-//        int enumeratedCount = threadGroup.enumerate(activeThreads);
-//        Thread finalizerThread = null;
-//        for (int i = 0; i < enumeratedCount; i++) {
-//            if (activeThreads[i].getName().equals("musicthread")) {
-//                finalizerThread = activeThreads[i];
-//                finalizerThread.isInterrupted();
-//                break;
-//            }
-//        }
-//
-//        if(selectmusic == 0){
-//            Thread newmusic = new monsterfightmusic_thread();
-//            newmusic.start();
-//        }
-//        else if(selectmusic == 1){
-//            Thread newmusic = new bossfightmusic_thread();
-//            newmusic.start();
-//        }
-//        else{
-//            Thread newmusic = new Mainmusic_thread();
-//            newmusic.start();
-//        }
-//
-//
-//    }
 }

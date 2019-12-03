@@ -90,11 +90,10 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
-                    temp.setVisible(true);
+//                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+//                    temp.setVisible(true);
 
-//                    Fight_boss_page frame = new Fight_boss_page();
-//                    frame.setVisible(true);
+                RandomEventAnswer.Boss_fight();
                 }
             });
 
@@ -269,7 +268,7 @@ public class MainGame_page extends JFrame {
         // 플레이어들의 스탯 요약
         {
             ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
-            lb_player1 = new JLabel(player1_img);
+            lb_player1 = new JLabel(player1_img);templb_player1.
             lb_player1.setBounds(650, 620, 240, 163);
             getContentPane().add(lb_player1);
 

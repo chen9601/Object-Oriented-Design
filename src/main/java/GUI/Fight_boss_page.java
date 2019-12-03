@@ -6,6 +6,10 @@ import com.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static com.Fight_boss_controller.*;
 
 /** boss나 monster와의 전투를 나타내는 페이지이다.*/
 
@@ -71,6 +75,14 @@ public class Fight_boss_page extends JFrame {
 		boss_panel.setBounds(75, 120,1100 , 480);
 		getContentPane().add(boss_panel);
 
-
+		JButton fight = new JButton("싸움시작");
+		getContentPane().add(fight);
+		fight.setBounds(126, 36, 173, 53);
+		fight.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Endlessfight();
+			}
+		});
 	}
 }
