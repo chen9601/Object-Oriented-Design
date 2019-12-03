@@ -3,6 +3,13 @@ package com;
 import GUI.Dice_page;
 import GUI.music.Mainmusic_thread;
 
+import GUI.Fight_monster_page;
+import com.sun.tools.javac.Main;
+
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 import static com.Player.idx_of_cur_player;
 
 /**
@@ -12,6 +19,8 @@ import static com.Player.idx_of_cur_player;
  */
 
 public class RandomEventAnswer {
+    static boolean swi=false;
+
     /**
      * 이벤트를 진행할 플레이어와 클릭한 선택지에 해당하는 지칭자로 알맞은 메소드를 호출하는 메소드
      *
@@ -185,6 +194,18 @@ public class RandomEventAnswer {
             case "PlayerWinFromMonsterFight":
                 PlayerWinFromMonsterFight();
                 break;
+            case "attack_check1":
+                attack_check_for_Player();
+                break;
+            case "Next_fight":
+                next_fight();
+                break;
+            case "run":
+                Run();
+                break;
+            case "attack_check2":
+                attack_check_for_Monster();
+                break;
 
         }
     }
@@ -269,19 +290,42 @@ public class RandomEventAnswer {
         }
 
 
-        if (monster.getHealth() < 1) {
-            FightDialogPanelController.Clear();
-            FightDialogPanelController.show_dialog(
-                    "플레이어가 몬스터에게 "
-                            + Integer.toString(temp - monster.getRequireVal())
-                            + "의 피해를 주었습니다.\n"
-                            + "몬스터와의 전투에서 승리하였습니다.");
-            Player player = Player.getCurrentPlayer();
-            player.setMoney(player.getMoney() + monster.getMonster_result());
-            Map.tiles[player.getPos().ordinal()].setSummoned_monster(null);
-            FightDialogPanelController.show_dialog_answer1(new Answer("전투종료(플레이어 승리)", "PlayerWinFromMonsterFight"));
+    public static void attack_check_for_Player()
+    {
+        FightDialogPanelController.Clear();
+        if (FightDialogPanelController.monster.getHealth() < 1)
+        {
+            Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()+FightDialogPanelController.monster.getMonster_result());
+            Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
+
+            ConstantEventHandler.fight_remain--;
+            if(ConstantEventHandler.fight_remain<=0)        //일반 몬스터 전투 끝
+            {
+                FightDialogPanelController.show_dialog("적을 물리치고 살아남았습니다.");
+                FightDialogPanelController.show_dialog_answer1(new Answer("전투 종료","PlayerWinFromMonsterFight"));
+            }
+            else            //포털 전투의 첫번째라 아직 전투가 남았을 때
+            {
+                FightDialogPanelController.show_dialog("적을 물리쳤지만 아직 남은 적이 있습니다. 전투에 대비하십시오!");
+                FightDialogPanelController.show_dialog_answer1(new Answer("다음 전투로","Next_fight"));
+            }
         } else
-            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터가 공격 합니다.", "attackedPlayerByMonster"));
+        {
+            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터가 공격 합니다.", "attacked"));
+        }
+
+
+    }
+    public static void next_fight()
+    {
+        swi=true;
+        MainGamePageController.maingame_page.dispose();
+        MainGamePageController maingame_page_controller = new MainGamePageController();
+        maingame_page_controller.maingame_page.setVisible(true);
+        DialogPanelController.generateGeneralDialogues();
+        FightMonsterController.fight_monster_page.dispose();
+        Mainmusic_thread.thread.close();
+        ConstantEventHandler.generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
     }
 
     public static void Ans1_1(Player player)//서브 이벤트 구현에 대한 이야기 필요
@@ -989,6 +1033,7 @@ public class RandomEventAnswer {
     }
 
     public static void Next_Turn(Player player) {
+        MainGamePageController.show_players();
         if (GameMaster.turn % 3 == 0) {
             GameMaster.setPortalAndMonsterRandomly();
             MainGamePageController.show_monsters();
@@ -1017,6 +1062,7 @@ public class RandomEventAnswer {
     }
 
     public static void Next_Player(Player player) {
+        MainGamePageController.show_players();
         Player.toggleCurrentPlayer();
 
         // Update turn value to MainGame_page(view)

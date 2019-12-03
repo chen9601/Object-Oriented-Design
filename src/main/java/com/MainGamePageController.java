@@ -24,7 +24,9 @@ public class MainGamePageController {
         player2_array = maingame_page.getLb_player2_array();
         monster_array = maingame_page.getMonster_array();
         portal_array = maingame_page.getPortal_array();
-        MainGamePageController.show_players();
+        show_players();
+        show_monsters();
+        show_portals();
         maingame_page.setVisible(true);
     }
 
@@ -68,7 +70,9 @@ public class MainGamePageController {
         for (JLabel label : player1_array) {
             label.setVisible(false);
         }
+        if(Player.getPlayer(0).getStatus()!=2)
         player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
+        if(Player.getPlayer(1).getStatus()!=2)
         player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
     }
 
