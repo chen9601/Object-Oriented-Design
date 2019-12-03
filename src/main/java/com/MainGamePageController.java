@@ -24,7 +24,9 @@ public class MainGamePageController {
         player2_array = maingame_page.getLb_player2_array();
         monster_array = maingame_page.getMonster_array();
         portal_array = maingame_page.getPortal_array();
-        MainGamePageController.show_players();
+        show_players();
+        show_monsters();
+        show_portals();
         maingame_page.setVisible(true);
     }
 
