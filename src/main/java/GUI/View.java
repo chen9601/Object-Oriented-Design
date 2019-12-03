@@ -51,10 +51,4 @@ public class View {
 
     ;
 
-    public void show_monster() {
-    }
-
-    ;
-
-
 }
