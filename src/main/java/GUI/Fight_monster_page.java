@@ -10,7 +10,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static com.Fight_boss_controller.*;
 
 /**
  * boss나 monster와의 전투를 나타내는 페이지이다.
@@ -20,11 +19,6 @@ import static com.Fight_boss_controller.*;
 @Data
 public class Fight_monster_page extends JFrame {
 
-
-    //    public static void main(String[] args) {
-//        Fight_monster_page frame = new Fight_monster_page();
-//        frame.setVisible(true);
-//    }
     static FightDialogPanelController fight_dialog_panel_controller;
     MonsterPanel monsterPanel;
     PlayerPanel player_panel;
@@ -42,11 +36,6 @@ public class Fight_monster_page extends JFrame {
         setBackground(Color.white);
         setBounds(0, 0, 1200, 960);
         getContentPane().setLayout(null);
-
-//        fight_dialog_panel_controller = new FightDialogPanelController(this.monster);
-//        JPanel dialog_panel = FightDialogPanelController.dialog_panel;
-//        dialog_panel.setBounds(459, 615, 709, 300);
-//        getContentPane().add(dialog_panel);
 
         player_panel = new PlayerPanel(Player.getCurrentPlayer());
         getContentPane().add(player_panel);
@@ -74,13 +63,7 @@ public class Fight_monster_page extends JFrame {
                 checkWhoWin();
             }
         });
-
-
-//        JButton status = new JButton("status");
-//        status.setBounds(91, 38, 158, 45);
-//        getContentPane().add(status);
     }
-
     private void attackedPlayerByMonster() {
         Player player = Player.getCurrentPlayer();
         int dice_value = ConstantEventHandler.Dice();
@@ -152,42 +135,23 @@ public class Fight_monster_page extends JFrame {
                 player_imgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
                 player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png");
             }
-
-
             Image player_tempimg = player_imgpath.getImage();
             Image player_changedimg = player_tempimg.getScaledInstance(194,165,Image.SCALE_SMOOTH);
             JLabel player_img = new JLabel(new ImageIcon(player_changedimg));
             JLabel player_nameimg = new JLabel(player_nameimgpath);
-
-
-
-
             lblhealth.setBounds(223, 747, 79, 36);
             getContentPane().add(lblhealth);
-
-
             health_text.setBounds(302, 747, 119, 36);
             getContentPane().add(health_text);
-
-
             lblmental.setBounds(223, 816, 79, 36);
             getContentPane().add(lblmental);
-
-
             mental_text.setBounds(302, 816, 119, 36);
             getContentPane().add(mental_text);
-
-
             player_img.setBounds(14, 635, 194, 165);
             getContentPane().add(player_img);
-
-
             player_nameimg.setBounds(14, 816, 194, 55);
             getContentPane().add(player_nameimg);
-
-
         }
-
     }
 
     @Getter
@@ -197,15 +161,10 @@ public class Fight_monster_page extends JFrame {
         JLabel monster_name;
 
         MonsterPanel(Monster monster) {
-//            Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
-            // 테스트를 위해 아래 코드 삽입 항상 다곤과 싸운다.
-
             JLabel monster_health = new JLabel("Health");
             monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
             JLabel monster_power = new JLabel("power");
             monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
-
-
             ImageIcon monster_originimg = new ImageIcon(monster.getImagepath());
             Image monster_tempimg = monster_originimg.getImage();
             Image monster_changedimg = monster_tempimg.getScaledInstance(150,180,Image.SCALE_SMOOTH);

@@ -14,21 +14,11 @@ import static com.Player.*;
  * @version 1.0
  */
 public class GameMaster {
-
-    static private final int GAME_WIN = 0;
-    static private final int GAME_LOST = 1;
-    static private final int GAME_KEEPGOING = 2;
-    static private final int PLAYER_HEALTH_DEATH = 3;
-    static private final int PLAYER_MENTAL_DEATH = 4;
-    static private final int PLAYER_BOSS_DEATH = 5;
-
     public static int token = 0;
     public static int death_count = 3;
     public static int revive_count = 0;
     public static int turn = 1;
     public static Boss current_boss;
-
-    private ConstantEventHandler constant_event_handler;
 
     public static void main(String[] args) {
         Start_page.Start_pageView();
@@ -53,10 +43,6 @@ public class GameMaster {
         initMonsters();
     }
 
-    private static void initItem() {
-//        Player.items
-    }
-
     private static void initMap() {
 
         Map.tiles = new Tile[13];
@@ -76,14 +62,6 @@ public class GameMaster {
 
     public static void setBoss(Boss selected_boss) {
         current_boss = selected_boss;
-    }
-
-    public static boolean hasItem(ItemType item) {
-        return getCurrentPlayer().getItems().indexOf(item) == -1 ? true : false;
-    }
-
-    public static boolean isEnergyLeft(Player player) {
-        return getCurrentPlayer().getEnergy() == 0 ? true : false;
     }
 
     public static void setInitializePlayerStats(int[] combined_stats) {
@@ -144,8 +122,6 @@ public class GameMaster {
     }
 
     public static boolean check_num_of_monsters_portals_for_boss() {
-        // 포털, 몬스터 생성 테스트 코드
-//        return false;
         int tempNum = 0;
         int tempNum2 = 0;
 

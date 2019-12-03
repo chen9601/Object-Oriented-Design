@@ -1,7 +1,6 @@
 package com;
 
 import GUI.Dice_page;
-import GUI.Fight_monster_page;
 
 import static com.Map.*;
 import java.util.ArrayList;
@@ -35,10 +34,6 @@ public class ConstantEventHandler
         {
             player.setPos(tile);
             CheckEventHere(player, tile);
-        }
-        else
-        {
-//            ShowDialog("이동할 수 없는 곳입니다");
         }
     }
     static void movebyTeleport(Player player, TileType tile){player.setPos(tile);}
@@ -93,22 +88,6 @@ public class ConstantEventHandler
         tempitems.add(item);
         player.setItems(tempitems);
     }
-
-
-    static void deleteItem(Player player, ItemType item)
-    {
-        ArrayList<ItemType> tempitems=player.getItems();
-        for(int i=0;i<tempitems.size();i++)
-        {
-            if(tempitems.get(i)==item)
-            {
-                tempitems.remove(i);
-            }
-        }
-        player.setItems(tempitems);
-    }
-
-
     static void addRandomItem(Player player)
     {
         int tempRand=(int)Math.floor(Math.random()*15);
@@ -143,7 +122,6 @@ public class ConstantEventHandler
         Dice.setVisible(true);
 
         java.util.Timer timer = new Timer();
-        // 이게 반복되어야할 이유가 있나?
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -164,8 +142,6 @@ public class ConstantEventHandler
     {
         return player.getMoney()-item.getPrice();
     }
-    static void sellItem(Player player, ItemType item){}
-    static ItemType getItem(ItemType item){return null;}
 
     static ArrayList<ItemType> getRandomItemList()
     {
@@ -195,22 +171,6 @@ public class ConstantEventHandler
             Monster tempMon=new Monster(monster);
             Map.tiles[tile.ordinal()].setSummoned_monster(tempMon);
         }
-    }
-
-    /**
-     * Answer 객체가 이벤트용인지 상점용인지 구별하는 메소드<br>
-     * @param answer
-     * <br>판별할 Answer
-     * @return
-     * <br>true=이벤트용
-     * <br>false=상점용
-     */
-    static boolean AnswerChecker(Answer answer)
-    {
-        if(answer.getItem()==null)
-            return true;
-        else
-            return false;
     }
 
     static void shop()

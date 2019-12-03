@@ -3,8 +3,6 @@ package GUI;
 import lombok.Getter;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -14,14 +12,7 @@ import javax.swing.*;
 public class Dice_page extends JFrame {
  @Getter
     private int savedDice_num;
-
     String path;
-
-    public static void main(String args[]) {
-        Dice_page MainGame = new Dice_page();
-        MainGame.setVisible(true);
-    }
-
     public Dice_page() {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
@@ -29,34 +20,16 @@ public class Dice_page extends JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((dim.width/2)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
 
-
-
-        출처: https://selfinvestfriends.tistory.com/15 [self invest]
-//
-//        JButton click = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\click.png"));
-//        click.setBounds(379, 522, 100, 35);
-//        getContentPane().add(click);
-
         path = "src\\main\\java\\GUI\\imgaes\\diceForRoll-export.gif";
         JLabel showDice = new JLabel(new ImageIcon(path));
         showDice.setBounds(14, 22, 500, 500);
         getContentPane().add(showDice);
 
-//        click.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//                showDice.setIcon(new ImageIcon(DiceImage(select_Dicenum())));
-//
-//            }
-//        });
         savedDice_num = select_Dicenum();
         System.out.println(savedDice_num);
         System.out.println("Dice_page select_Dicenum");
         showDice.setIcon(new ImageIcon(DiceImage(savedDice_num)));
     }
-
-
 
     public String DiceImage(int Dice_num) {
         setResizable(false);

@@ -1,11 +1,8 @@
 package com;
 
-import GUI.DialogPanel;
 import GUI.Fight_monster_page;
-import GUI.music.Mainmusic_thread;
 import lombok.Data;
 
-import java.util.TimerTask;
 
 @Data
 public class FightMonsterController
@@ -16,7 +13,6 @@ public class FightMonsterController
     public static Fight_monster_page.PlayerPanel player_panel;
     public static Monster monster;
 
-
     public FightMonsterController(MonsterType monster){
         this.monster = new Monster(monster);
         fight_monster_page = new Fight_monster_page(this.monster);
@@ -24,6 +20,4 @@ public class FightMonsterController
         player_panel = fight_monster_page.getPlayer_panel();
         fight_monster_page.setVisible(true);
     }
-
-
 }

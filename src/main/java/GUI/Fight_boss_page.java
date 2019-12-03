@@ -105,6 +105,5 @@ public class Fight_boss_page extends JFrame {
 			}
 		});
 
-
 	}
 }

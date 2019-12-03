@@ -14,5 +14,4 @@ public class Boss {
     private int health;
     private int damage;
     private int requireVal;
-
 }

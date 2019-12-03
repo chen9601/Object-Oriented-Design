@@ -1,8 +1,6 @@
 package com;
 
 import GUI.DialogPanel;
-import com.sun.tools.javac.Main;
-import lombok.Builder;
 import lombok.Data;
 
 import javax.swing.*;

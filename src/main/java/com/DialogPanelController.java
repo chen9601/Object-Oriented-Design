@@ -41,7 +41,6 @@ public class DialogPanelController {
     public static void generateGeneralDialogues(){
 
         Clear();
-        // 플레이어가 맨 처음에 위치 이동, 랜덤 이벤트 실행, 턴 종료 총 세가지 이벤트를 처리할 수 있도록 기본적으로 출력되는 것을 세팅한다.
 
             StringBuilder sb = new StringBuilder();
             sb.append(Player.idx_of_cur_player + 1);
@@ -55,8 +54,6 @@ public class DialogPanelController {
         selectbtn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 플레이어 위치 이동 관련 메소드 타일에서 클릭 가능하게 하는 메소드 호출 이후,
-                // 현재 플레이어가 갈 수 있는 위치 출력하는 메소드 출력 등등
 
                 if(Player.getCurrentPlayer().getEnergy()<1)
                 {
@@ -78,7 +75,6 @@ public class DialogPanelController {
         selectbtn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 랜덤 이벤트 관련 메소드 호출
                 if(Player.getCurrentPlayer().getEnergy()<1)
                 {
                     Clear();
@@ -96,7 +92,6 @@ public class DialogPanelController {
         selectbtn3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 턴 종료 관련 메소드 호출
                 Clear();
                 GameMaster.turnEnd();
             }
@@ -218,14 +213,5 @@ public class DialogPanelController {
         selectbtn3.setVisible(true);
     };
 
-    /*
-    @Deprecated
-     */
-    class SelectBtnListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e){
-            Clear();
-        }
-    }
 
 }

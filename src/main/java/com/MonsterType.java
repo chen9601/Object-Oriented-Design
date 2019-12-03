@@ -1,7 +1,5 @@
 package com;
 
-import javax.swing.*;
-
 public enum MonsterType {
     Nightgaunt("나이트건트", 3, 3, 1, 1, 3,"src\\main\\java\\GUI\\imgaes\\monster\\nightgaunt2.png"),
     Dagon("다곤", 1, 4, 2, 2, 5,"src\\main\\java\\GUI\\imgaes\\monster\\dagon2.png"),
@@ -31,23 +29,14 @@ public enum MonsterType {
     public String getName() {
         return name;
     }
-
     public int getInitial_health() {
         return initial_health;
     }
-
     public int getInitial_requireVal() {
         return initial_requireVal;
     }
-
-    public int getInitial_damage() {
-        return initial_damage;
-    }
-
-    public int getInitial_damageType() {
-        return initial_damageType;
-    }
-
+    public int getInitial_damage() { return initial_damage; }
+    public int getInitial_damageType() {return initial_damageType;}
     public int getInitial_monster_result() {
         return initial_monster_result;
     }
