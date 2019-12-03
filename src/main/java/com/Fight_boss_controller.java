@@ -43,9 +43,7 @@ public class Fight_boss_controller {
         Boss boss = GameMaster.current_boss;
         Game_resultPage result;
         if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
-
             System.out.println("플레이어 패배");
-
             fight_boss_page.dispose();
             result = new Game_resultPage("defeat");
             result.setVisible(true);
@@ -54,6 +52,7 @@ public class Fight_boss_controller {
             result = new Game_resultPage("win");
             result.setVisible(true);
         }
+        MainGamePageController.maingame_page.dispose();
     }
 
 }

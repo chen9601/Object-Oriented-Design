@@ -16,11 +16,12 @@ public class Game_resultPage extends JFrame {
             getContentPane().add(win);
             win.setVisible(true);
         }
-        else if(result == "defeat"){}
-        Image defeat_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\Defeat.png").getImage();
-        Image defeat_tempimg = defeat_img.getScaledInstance(600,480,Image.SCALE_SMOOTH);
-        JLabel defeat = new JLabel(new ImageIcon(defeat_tempimg));
-        getContentPane().add(defeat);
-        defeat.setVisible(true);
+        else if(result == "defeat"){
+            Image defeat_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\Defeat.png").getImage();
+            Image defeat_tempimg = defeat_img.getScaledInstance(600,480,Image.SCALE_SMOOTH);
+            JLabel defeat = new JLabel(new ImageIcon(defeat_tempimg));
+            getContentPane().add(defeat);
+            defeat.setVisible(true);
+        }
     }
 }
