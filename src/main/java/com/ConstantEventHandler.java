@@ -54,9 +54,7 @@ public class ConstantEventHandler
         if(Map.getPortalAt(tile))
         {
             fight_remain=2;
-            Map.tiles[tile.ordinal()].setSummoned_monster(new Monster(MonsterType.values()[(int) Math.floor(Math.random() * 5)]));//굳이 타일에 몬스터를 소환하고 전투를 시작해야하나? 포털은 그럴 필요는 없는 것 같은데
-            generateFight(Map.getMonsterAt(tile).getMonster_type());
-            //포털을 닫기 위해서는 2번의 전투 필요, 이를 count로 구현
+            generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
             if(player.getHealth() > 0)
             {
                 GameMaster.token++;
