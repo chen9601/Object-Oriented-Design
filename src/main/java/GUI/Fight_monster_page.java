@@ -103,7 +103,7 @@ public class Fight_monster_page extends JFrame {
     }
 
     public static void checkWhoWin() {
-        if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
+        if (Player.getCurrentPlayer().getHealth() < 1) {
             System.out.println("플레이어 패배");
             //TODO : 여기에 패배 창 띄우기
             Player.getCurrentPlayer().setStatus(Player.DEAD);
