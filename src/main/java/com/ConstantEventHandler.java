@@ -92,6 +92,11 @@ public class ConstantEventHandler
         ArrayList<ItemType> tempitems = player.getItems();
         tempitems.add(item);
         player.setItems(tempitems);
+        player.setHealth(player.getHealth()+item.getHealth());
+        player.setMental(player.getMental()+item.getMental());
+        player.setPower(player.getPower()+item.getPower());
+        player.setDexterity(player.getDexterity()+item.getDex());
+        player.setIntelligence(player.getIntelligence()+item.getInt());
     }
 
 
@@ -106,6 +111,11 @@ public class ConstantEventHandler
             }
         }
         player.setItems(tempitems);
+        player.setHealth(player.getHealth()-item.getHealth());
+        player.setMental(player.getMental()-item.getMental());
+        player.setPower(player.getPower()-item.getPower());
+        player.setDexterity(player.getDexterity()-item.getDex());
+        player.setIntelligence(player.getIntelligence()-item.getInt());
     }
 
 
@@ -115,6 +125,11 @@ public class ConstantEventHandler
         ArrayList<ItemType> tempitems=player.getItems();
         tempitems.add(ItemType.values()[tempRand]);
         player.setItems(tempitems);
+        player.setHealth(player.getHealth()+ItemType.values()[tempRand].getHealth());
+        player.setMental(player.getMental()+ItemType.values()[tempRand].getMental());
+        player.setPower(player.getPower()+ItemType.values()[tempRand].getPower());
+        player.setDexterity(player.getDexterity()+ItemType.values()[tempRand].getDex());
+        player.setIntelligence(player.getIntelligence()+ItemType.values()[tempRand].getInt());
     }
 
 
