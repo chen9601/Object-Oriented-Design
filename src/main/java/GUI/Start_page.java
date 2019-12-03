@@ -1,8 +1,6 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.GameMaster;
-import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,10 +61,6 @@ public class Start_page extends JFrame {
         loadgame.setBounds(500, 600, 200, 70);
         exitgame.setBounds(500, 720, 200, 70);
 
-
-
-        Mainmusic_thread music = new Mainmusic_thread("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3",true);
-        music.start();
     }
 
     static public void Start_pageView() {
