@@ -211,10 +211,11 @@ public class RandomEventAnswer {
     }
 
     public static void PlayerWinFromMonsterFight() {
-        FightMonsterController.fight_monster_page.dispose();
+        System.out.println(MainGamePageController.maingame_page.getDialog_panel_controller() instanceof FightDialogPanelController);
+
         Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
         MainGamePageController.show_monsters();
-        System.out.println(MainGamePageController.maingame_page.getDialog_panel_controller() instanceof FightDialogPanelController);
+        FightMonsterController.fight_monster_page.dispose();
         DialogPanelController.Clear();
         DialogPanelController.generateGeneralDialogues();
         Mainmusic_thread.thread.close();
@@ -229,10 +230,10 @@ public class RandomEventAnswer {
 //        MainGamePageController.maingame_page.dispose();
 //        MainGamePageController maingame_page_controller = new MainGamePageController();
 //        maingame_page_controller.maingame_page.setVisible(true);
+        System.out.println(MainGamePageController.maingame_page.getDialog_panel_controller() instanceof FightDialogPanelController);
         Player.getCurrentPlayer().setStatus(Player.DEAD);
         MainGamePageController.show_players();
         FightMonsterController.fight_monster_page.dispose();
-        System.out.println(MainGamePageController.maingame_page.getDialog_panel_controller() instanceof FightDialogPanelController);
         DialogPanelController.Clear();
         DialogPanelController.generateGeneralDialogues();
         Mainmusic_thread.thread.close();

@@ -11,7 +11,7 @@ import java.util.TimerTask;
 public class FightMonsterController
 {
     public static Fight_monster_page fight_monster_page;
-//    public static Fight_monster_page.FightDialogPanelController fight_dialog_panel_controller;
+    public static FightDialogPanelController fight_dialog_panel_controller;
     public static Fight_monster_page.MonsterPanel monsterPanel;
     public static Fight_monster_page.PlayerPanel player_panel;
     public static Monster monster;

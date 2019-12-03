@@ -47,6 +47,7 @@ public class Fight_boss_controller {
         Player player = Player.getCurrentPlayer();
         if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
             System.out.println("플레이어 패배");
+
             //TODO : 여기에 패배 창 띄우기
         } else if (boss.getHealth() < 1) {
             // TODO : 여기서 현재 창 모두다 끄고, win 창 띄우기
