@@ -98,7 +98,7 @@ public class Fight_boss_page extends JFrame {
 					turninboss++;
 				} else if (turninboss % 2 == 1) {
 					attackedPlayerByBoss();
-					System.out.println("boss 공격가 공격했음");
+					System.out.println("boss가 공격했음");
 					turninboss++;
 				}
 				checkWhoWin();
