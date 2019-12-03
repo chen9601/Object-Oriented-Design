@@ -3,13 +3,10 @@ package GUI;
 import com.GameMaster;
 import com.MainGamePageController;
 import com.Player;
-import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.awt.Color;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,7 +21,7 @@ import javax.swing.JPanel;
  * 각각의 플레이어들의 초기 스탯 분배하는 페이지이다.
  */
 public class SetStatus_page extends JFrame {
-    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+
     int distributable_point = 20;
     JLabel lb_distributable_point = new JLabel(Integer.toString(distributable_point));
     JPanel movetab = new JPanel();
@@ -34,20 +31,23 @@ public class SetStatus_page extends JFrame {
     String player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1-portrait.png";
     String player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_name.png";
 
-
+    ImagePanel imgpanel = new ImagePanel();
+    Image status_background = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
     SetStatus_page() {
+        getContentPane().add(imgpanel);
+        imgpanel.setLayout(null);
         //player 1 , 2  이름 및 이미지 변환
         if (Player.getCurrentPlayer() == Player.getPlayer(1)) {
             player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2-portrait.png";
             player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_name.png";
         }
         setResizable(false);
-        getContentPane().setLayout(null);
+        imgpanel.setLayout(null);
         setBounds(0, 0, 1200, 960);
 
         movetab.setBackground(Color.white);
 
-        getContentPane().add(movetab);
+        imgpanel.add(movetab);
         movetab.setLayout(null);
         movetab.setBounds(0, 0, 1182, 146);
 
@@ -61,40 +61,40 @@ public class SetStatus_page extends JFrame {
 
         JLabel player_name = new JLabel(new ImageIcon(player_name_imgpath));
         player_name.setBounds(121, 566, 365, 155);
-        getContentPane().add(player_name);
+        imgpanel.add(player_name);
 
         JLabel player_img = new JLabel(new ImageIcon(player_imgpath));
         player_img.setBounds(128, 216, 358, 356);
-        getContentPane().add(player_img);
+        imgpanel.add(player_img);
 
         perstatus_set status_power = new perstatus_set("src\\main\\java\\GUI\\imgaes\\1.png");
         JPanel perstatus = new JPanel();
         perstatus.setBounds(592, 206, 590, 82);
-        getContentPane().add(perstatus);
+        imgpanel.add(perstatus);
         perstatus.add(status_power);
 
         perstatus_set status_dex = new perstatus_set("src\\main\\java\\GUI\\imgaes\\2.png");
         JPanel perstatus_1 = new JPanel();
         perstatus_1.setBounds(592, 477, 590, 82);
-        getContentPane().add(perstatus_1);
+        imgpanel.add(perstatus_1);
         perstatus_1.add(status_dex);
 
         perstatus_set status_intelligence = new perstatus_set("src\\main\\java\\GUI\\imgaes\\3.png");
         JPanel perstatus_2 = new JPanel();
         perstatus_2.setBounds(592, 345, 590, 82);
-        getContentPane().add(perstatus_2);
+        imgpanel.add(perstatus_2);
         perstatus_2.add(status_intelligence);
 
         perstatus_set status_mental = new perstatus_set("src\\main\\java\\GUI\\imgaes\\4.png");
         JPanel perstatus_3 = new JPanel();
         perstatus_3.setBounds(592, 602, 590, 82);
-        getContentPane().add(perstatus_3);
+        imgpanel.add(perstatus_3);
         perstatus_3.add(status_mental);
 
         perstatus_set statuts_health = new perstatus_set("src\\main\\java\\GUI\\imgaes\\5.png");
         JPanel perstatus_4 = new JPanel();
         perstatus_4.setBounds(592, 728, 590, 82);
-        getContentPane().add(perstatus_4);
+        imgpanel.add(perstatus_4);
         perstatus_4.add(statuts_health);
 
         next.addActionListener(new ActionListener() {
@@ -173,6 +173,13 @@ public class SetStatus_page extends JFrame {
             add(status_value);
             add(plus);
             add(minus);
+        }
+    }
+    class ImagePanel extends JPanel {
+
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(status_background, 0, 0, 1200, 960, this);
         }
     }
 }
