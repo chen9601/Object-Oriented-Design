@@ -1,6 +1,7 @@
 package com;
 
 import GUI.Dice_page;
+import GUI.Fight_monster_page;
 
 import static com.Map.*;
 import java.util.ArrayList;
@@ -114,7 +115,7 @@ public class ConstantEventHandler
     }
 
     static void generateFight(MonsterType monster){
-        FightMonsterController fightwithmonster = new FightMonsterController(monster);
+        Fight_monster_page fightwithmonster = new Fight_monster_page(new Monster(monster));
     }
 
     public static int  Dice(){

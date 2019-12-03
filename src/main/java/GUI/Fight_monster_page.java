@@ -19,13 +19,14 @@ import java.awt.event.ActionListener;
 @Data
 public class Fight_monster_page extends JFrame {
 
-    static FightDialogPanelController fight_dialog_panel_controller;
+    static Fight_monster_page frm_fight_monster_page;
     MonsterPanel monsterPanel;
     PlayerPanel player_panel;
     static Monster monster;
     public int turn = 0;
 
     public Fight_monster_page(Monster monster) {
+        frm_fight_monster_page = this;
         Mainmusic_thread.thread.close();
         setUndecorated(true);
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\monster_fight.mp3", true);
@@ -63,6 +64,7 @@ public class Fight_monster_page extends JFrame {
                 checkWhoWin();
             }
         });
+        setVisible(true);
     }
     private void attackedPlayerByMonster() {
         Player player = Player.getCurrentPlayer();
@@ -82,7 +84,7 @@ public class Fight_monster_page extends JFrame {
         int dice_value = ConstantEventHandler.Dice();
         if (dice_value > monster.getRequireVal()) {
             monster.setHealth(monster.getHealth() - (dice_value - monster.getRequireVal()));
-            FightMonsterController.fight_monster_page.monsterPanel.getMonster_health_txt().setText(Integer.toString(monster.getHealth()));
+            Fight_monster_page.frm_fight_monster_page.monsterPanel.getMonster_health_txt().setText(Integer.toString(monster.getHealth()));
         }
     }
 
@@ -92,7 +94,7 @@ public class Fight_monster_page extends JFrame {
             //TODO : 여기에 패배 창 띄우기
             Player.getCurrentPlayer().setStatus(Player.DEAD);
             MainGamePageController.show_players();
-            FightMonsterController.fight_monster_page.dispose();
+            Fight_monster_page.frm_fight_monster_page.dispose();
             DialogPanelController.Clear();
             DialogPanelController.generateGeneralDialogues();
             Mainmusic_thread.thread.close();
@@ -103,7 +105,7 @@ public class Fight_monster_page extends JFrame {
             System.out.println("몬스터 패배");
             Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
             MainGamePageController.show_monsters();
-            FightMonsterController.fight_monster_page.dispose();
+            Fight_monster_page.frm_fight_monster_page.dispose();
             DialogPanelController.Clear();
             DialogPanelController.generateGeneralDialogues();
             Mainmusic_thread.thread.close();
