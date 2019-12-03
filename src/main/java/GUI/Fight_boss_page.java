@@ -34,7 +34,7 @@ public class Fight_boss_page extends JFrame {
 		getContentPane().add(BossHealthPanel);
 		BossHealthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel boss_temphealth = new JLabel(GameMaster.current_boss.getType().getBoss_imgpath());
+		JLabel boss_temphealth = new JLabel(Integer.toString(GameMaster.current_boss.getHealth()));
 		BossHealthPanel.add(boss_temphealth);
 
 		//플레이어들의 스테이터스
