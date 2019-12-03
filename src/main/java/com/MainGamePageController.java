@@ -81,7 +81,6 @@ public class MainGamePageController {
             lb_monster.setVisible(false);
         for (TileType tile_type : TileType.values()) {
             Monster monster = Map.getMonsterAt(tile_type);
-            // TODO : 몬스터가 죽으면 항상 그 타일에 있던 몬스터는 null로 바뀌나?
             if (monster != null) {
                 monster_array[tile_type.ordinal()].setIcon(new ImageIcon(monster.getImagepath()));
                 monster_array[tile_type.ordinal()].setVisible(true);

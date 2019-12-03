@@ -52,7 +52,6 @@ public class Fight_boss_controller {
             result = new Game_resultPage("defeat");
             result.setVisible(true);
         } else if (boss.getHealth() < 1) {
-            // TODO : 여기서 현재 창 모두다 끄고, win 창 띄우기
             fight_boss_page.dispose();
             result = new Game_resultPage("win");
             result.setVisible(true);
