@@ -36,16 +36,12 @@ public class Fight_boss_controller {
     }
 
     public static void attackedBossByPlayer() {
-        int bonus_val=0;
-        if(GameMaster.current_boss.getType()==BossType.CHUTHULU)
-        {
-            bonus_val=1;
-        }
+
         int dice_value = ConstantEventHandler.Dice();
         Boss boss = GameMaster.current_boss;
         if (dice_value > boss.getRequireVal()) {
 
-            boss.setHealth(boss.getHealth() - (dice_value - boss.getRequireVal())-bonus_val);
+            boss.setHealth(boss.getHealth() - 1);
 
             Fight_boss_page.show_stars();
 
