@@ -1,6 +1,8 @@
 package com;
 
 import GUI.Fight_boss_page;
+import GUI.Game_resultPage;
+import GUI.MainGame_page;
 
 public class Fight_boss_controller {
     public static GUI.Fight_boss_page fight_boss_page;
@@ -41,11 +43,19 @@ public class Fight_boss_controller {
     public static void checkWhoWin() {
         Boss boss = GameMaster.current_boss;
         Player player = Player.getCurrentPlayer();
+        Game_resultPage result;
         if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
+
             System.out.println("플레이어 패배");
-            //TODO : 여기에 패배 창 띄우기
+
+            fight_boss_page.dispose();
+            result = new Game_resultPage("defeat");
+            result.setVisible(true);
         } else if (boss.getHealth() < 1) {
             // TODO : 여기서 현재 창 모두다 끄고, win 창 띄우기
+            fight_boss_page.dispose();
+            result = new Game_resultPage("win");
+            result.setVisible(true);
         }
     }
 
