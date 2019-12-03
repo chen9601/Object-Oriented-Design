@@ -17,7 +17,7 @@ public class MainGamePageController {
     static public JLabel[] monster_array;
     static public JLabel[] portal_array;
 
-    public MainGamePageController(){
+    public MainGamePageController() {
         maingame_page = new MainGame_page();
         dot_array = maingame_page.getBtn_reddot_array();
         player1_array = maingame_page.getLb_player1_array();
@@ -30,13 +30,13 @@ public class MainGamePageController {
         maingame_page.setVisible(true);
     }
 
-    public static void update_token(int value){
+    public static void update_token(int value) {
         maingame_page.getTab().getToken_text().setText(Integer.toString(value));
     }
 
-    public static void update_status(int idx, StatusType type, int value){
+    public static void update_status(int idx, StatusType type, int value) {
         // TODO : Need refactoring
-        if(idx == 0)
+        if (idx == 0)
             maingame_page.getPlayer1_status_panel().getStatus_details()[type.ordinal()]
                     .getAttribute_textpane().setText(Integer.toString(value));
         else
@@ -54,7 +54,7 @@ public class MainGamePageController {
                     System.out.println("Clicked " + movable_tile.ordinal());
                     ConstantEventHandler.move(Player.getCurrentPlayer(), movable_tile);
                     // 모든 빨간 점을 보이지 않게 만들기
-                    for(JButton reddot : dot_array){
+                    for (JButton reddot : dot_array) {
                         reddot.setVisible(false);
                     }
                     show_players();
@@ -70,33 +70,33 @@ public class MainGamePageController {
         for (JLabel label : player1_array) {
             label.setVisible(false);
         }
-        if(Player.getPlayer(0).getStatus() == Player.ALIVE)
+        if (Player.getPlayer(0).getStatus() == Player.ALIVE)
             player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
-        if(Player.getPlayer(1).getStatus() == Player.ALIVE)
+        if (Player.getPlayer(1).getStatus() == Player.ALIVE)
             player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
     }
 
-    public static void show_monsters(){
-        for(JLabel lb_monster : monster_array)
+    public static void show_monsters() {
+        for (JLabel lb_monster : monster_array)
             lb_monster.setVisible(false);
-        for(TileType tile_type : TileType.values()){
+        for (TileType tile_type : TileType.values()) {
             Monster monster = Map.getMonsterAt(tile_type);
             // TODO : 몬스터가 죽으면 항상 그 타일에 있던 몬스터는 null로 바뀌나?
-            if(monster != null)
-               monster_array[tile_type.ordinal()].setIcon(new ImageIcon(monster.getImagepath()));
+            if (monster != null) {
+                monster_array[tile_type.ordinal()].setIcon(new ImageIcon(monster.getImagepath()));
                 monster_array[tile_type.ordinal()].setVisible(true);
+            }
 
         }
     }
 
-    public static void show_portals(){
-        for(JLabel lb_portal : portal_array)
+    public static void show_portals() {
+        for (JLabel lb_portal : portal_array)
             lb_portal.setVisible(false);
-        for(TileType tile_type : TileType.values())
-            if(Map.getPortalAt(tile_type))
+        for (TileType tile_type : TileType.values())
+            if (Map.getPortalAt(tile_type))
                 portal_array[tile_type.ordinal()].setVisible(true);
     }
-
 
 
 }
