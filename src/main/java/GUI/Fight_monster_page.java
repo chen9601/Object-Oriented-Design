@@ -205,7 +205,7 @@ public class Fight_monster_page extends JFrame {
             monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
 
 
-            ImageIcon monster_originimg = new ImageIcon(monster.getImagepath());
+            ImageIcon monster_originimg = new ImageIcon(monster.getImagepath2());
             Image monster_tempimg = monster_originimg.getImage();
             Image monster_changedimg = monster_tempimg.getScaledInstance(150,180,Image.SCALE_SMOOTH);
             JLabel monster_img = new JLabel(new ImageIcon(monster_changedimg));
