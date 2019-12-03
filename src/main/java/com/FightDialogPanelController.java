@@ -1,7 +1,6 @@
 package com;
 
 import GUI.DialogPanel;
-import GUI.SetStatus_page;
 import com.sun.tools.javac.Main;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @Data
-public class FightDialogPanelController extends DialogPanelController{
+public class FightDialogPanelController extends DialogPanelController {
     class FightDialog extends DialogPanel {
-        FightDialog(){
+        FightDialog() {
             setLayout(new GridLayout(4, 1, 0, 20));
         }
     }
@@ -25,6 +24,7 @@ public class FightDialogPanelController extends DialogPanelController{
     static JButton selectbtn3;
     static Monster monster;
     public static FightDialog dialog_panel;
+
     public FightDialogPanelController(Monster monster) {
         this.monster = monster;
         dialog_panel = new FightDialog();
@@ -34,29 +34,29 @@ public class FightDialogPanelController extends DialogPanelController{
         selectbtn3 = dialog_panel.getSelectbtn3();
         Clear();
 
-        StringBuilder message=new StringBuilder();
+        StringBuilder message = new StringBuilder();
         message.append(monster.getMonster_type().getName());
         message.append("와(과) 마주쳤다!");
         show_dialog(message.toString());
         show_dialog_answer1(new Answer("몬스터를 공격한다.", "attack"));
-        show_dialog_answer2(new Answer("도망친다.","run"));
+        show_dialog_answer2(new Answer("도망친다.", "run"));
     }
 
-    public static void Clear(){
+    public static void Clear() {
         lb_just_text.setText("");
         selectbtn1.setText("");
         selectbtn2.setText("");
         selectbtn3.setText("");
 
-        if(selectbtn1.getActionListeners().length > 0)
-            selectbtn1.removeActionListener(selectbtn1.getActionListeners()[0]);
-        if(selectbtn2.getActionListeners().length > 0)
-            selectbtn2.removeActionListener(selectbtn2.getActionListeners()[0]);
-        if(selectbtn3.getActionListeners().length > 0)
-            selectbtn3.removeActionListener(selectbtn3.getActionListeners()[0]);
+        if (selectbtn1.getActionListeners().length > 0)
+            selectbtn1.removeAll();
+        if (selectbtn2.getActionListeners().length > 0)
+            selectbtn2.removeAll();
+        if (selectbtn3.getActionListeners().length > 0)
+            selectbtn3.removeAll();
     }
 
-    public static void show_dialog(String message){
+    public static void show_dialog(String message) {
         lb_just_text.setText(message);
         lb_just_text.setVisible(true);
 
@@ -64,16 +64,15 @@ public class FightDialogPanelController extends DialogPanelController{
         dialog_panel.repaint();
     }
 
-    public static void show_dialog_answer1(Answer answer){
+    public static void show_dialog_answer1(Answer answer) {
         selectbtn1.setText(answer.getMessage());
         selectbtn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
-                if(RandomEventAnswer.swi==false)
-                {
+                if (RandomEventAnswer.swi == false) {
                     selectbtn1.revalidate();
-                selectbtn1.repaint();
+                    selectbtn1.repaint();
                 }
 
             }
@@ -81,7 +80,7 @@ public class FightDialogPanelController extends DialogPanelController{
         selectbtn1.setVisible(true);
     }
 
-    public static void show_dialog_answer2(Answer answer){
+    public static void show_dialog_answer2(Answer answer) {
         selectbtn2.setText(answer.getMessage());
         selectbtn2.addActionListener(new ActionListener() {
             @Override
@@ -93,7 +92,8 @@ public class FightDialogPanelController extends DialogPanelController{
         });
         selectbtn2.setVisible(true);
     }
-    public static void getplayerAttackDialog(){
+
+    public static void getplayerAttackDialog() {
 
     }
 }

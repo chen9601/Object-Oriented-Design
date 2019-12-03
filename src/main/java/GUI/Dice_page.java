@@ -27,7 +27,7 @@ public class Dice_page extends JFrame {
         getContentPane().setLayout(null);
         setUndecorated(false);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((dim.width)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
+        setLocation((dim.width/2)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
 
 
 
