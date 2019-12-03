@@ -1,7 +1,9 @@
 package GUI;
 
+import GUI.music.Mainmusic_thread;
 import com.*;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -28,6 +30,9 @@ public class Fight_monster_page extends JFrame {
     Monster monster;
 
     public Fight_monster_page(Monster monster) {
+        Mainmusic_thread.thread.close();
+        Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\monster_fight.mp3", true);
+        music_thread.start();
         this.monster = monster;
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,6 +58,7 @@ public class Fight_monster_page extends JFrame {
 //        getContentPane().add(status);
     }
 
+    @Getter
     public class PlayerPanel extends JPanel {
         JLabel power_text;
         JLabel health_text;
@@ -115,6 +121,7 @@ public class Fight_monster_page extends JFrame {
 
     }
 
+    @Getter
     public class MonsterPanel extends JPanel {
         JLabel monster_health_txt;
         JLabel monster_power_txt;

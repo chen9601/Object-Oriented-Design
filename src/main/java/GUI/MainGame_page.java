@@ -90,10 +90,10 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-//                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
-//                    Fight_boss_page testboss = new Fight_boss_page();
-                    FightMonsterController temp = new FightMonsterController(MonsterType.Dagon);
-                    temp.fight_monster_page.setVisible(true);
+                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+                    temp.setVisible(true);
+//                    FightMonsterController fightmonstercontroller = new FightMonsterController(MonsterType.Dagon);
+//                    fightmonstercontroller.fight_monster_page.setVisible(true);
 
                 }
             });
