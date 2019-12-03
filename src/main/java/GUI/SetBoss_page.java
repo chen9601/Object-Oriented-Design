@@ -111,7 +111,7 @@ public class SetBoss_page extends JFrame {
                             Boss
                                 .builder()
                                 .type(bosstype)
-                                .health(1)
+                                .health(10)
                                 .damage(100)
                                 .requireVal(1)
                                 .build()
