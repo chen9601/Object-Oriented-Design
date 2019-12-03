@@ -267,9 +267,13 @@ public class MainGame_page extends JFrame {
         }
         // 플레이어들의 스탯 요약
         {
-            ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
-            lb_player1 = new JLabel(player1_img);templb_player1.
-            lb_player1.setBounds(650, 620, 240, 163);
+
+
+            ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png");
+            Image player1_tempimg = player1_img.getImage();
+            Image player1_changedimg = player1_tempimg.getScaledInstance(240,163,Image.SCALE_SMOOTH);
+            lb_player1 = new JLabel(new ImageIcon(player1_changedimg));
+            lb_player1.setBounds(41, 620, 240, 163);
             getContentPane().add(lb_player1);
 
             ImageIcon player1_name_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
@@ -281,8 +285,11 @@ public class MainGame_page extends JFrame {
             player1_status_panel.setBounds(290, 670, 318, 225);
             getContentPane().add(player1_status_panel);
 
-            lb_player2_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png"));
-            lb_player2_img.setBounds(41, 620, 240, 163);
+            ImageIcon player2_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
+            Image player2_tempimg = player2_img.getImage();
+            Image player2_changedimg = player2_tempimg.getScaledInstance(240,163,Image.SCALE_SMOOTH);
+            lb_player2_img = new JLabel(new ImageIcon(player2_changedimg));
+            lb_player2_img.setBounds(650, 620, 240, 163);
             getContentPane().add(lb_player2_img);
 
             lb_player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
@@ -297,11 +304,6 @@ public class MainGame_page extends JFrame {
 
     }
 
-    public void show_portals() {
-        for (JLabel portal : portal_array) {
-            portal.setVisible(true);
-        }
-    }
 
 
     class monster_imglocation extends JLabel {

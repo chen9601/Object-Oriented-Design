@@ -36,9 +36,3 @@ public class Fight_boss_controller {
     }
 
 }
- timer.schedule(new TimerTask() {
-@Override
-public void run() {
-        Dice.dispose();
-        }
-        },1*2*1000);
