@@ -1,6 +1,6 @@
 package com;
 
-import GUI.Fight_boss_page;
+import GUI.Fight_boss_controller;
 import GUI.Start_page;
 
 import java.util.ArrayList;
@@ -197,9 +197,4 @@ public class GameMaster {
         return false;
     }
 
-
-    public static void generateBossFight(Boss boss) {
-        Fight_boss_page fight_boss_page = new Fight_boss_page();
-        fight_boss_page.setVisible(true);
-    }
 }
