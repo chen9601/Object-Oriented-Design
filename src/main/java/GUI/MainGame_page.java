@@ -92,9 +92,9 @@ public class MainGame_page extends JFrame {
                     final int FIRST_PLAYER_IDX = 0;
                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                     temp.setVisible(true);
-//                    FightMonsterController fightmonstercontroller = new FightMonsterController(MonsterType.Dagon);
-//                    fightmonstercontroller.fight_monster_page.setVisible(true);
 
+//                    Fight_boss_page frame = new Fight_boss_page();
+//                    frame.setVisible(true);
                 }
             });
 
@@ -120,7 +120,7 @@ public class MainGame_page extends JFrame {
     }
 
     @Data
-    public class PlayerStatusPanel extends JPanel {
+    public static class PlayerStatusPanel extends JPanel {
         @Data
         public class Status_Components extends JPanel {
             JLabel lb_attribute_name;
@@ -132,6 +132,7 @@ public class MainGame_page extends JFrame {
                 attribute_textpane = new JTextPane();
                 String text_data = null;
                 // TODO : 플레이어의 status를 StatusType으로 재정의 및 리팩토링 하는게 맞는걸까?
+                //안해도 괜찮을듯
                 switch (attribute_name) {
                     case "체력":
                         text_data = Integer.toString(player.getHealth());

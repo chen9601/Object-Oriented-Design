@@ -133,12 +133,11 @@ public class Fight_monster_page extends JFrame {
 
             JLabel monster_health = new JLabel("Health");
             monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
-
             JLabel monster_power = new JLabel("power");
             monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
 
             JLabel monster_img = new JLabel(new ImageIcon(monster.getImagepath()));
-            JLabel monster_name = new JLabel(monster.getMonster_type().getName());
+            monster_name = new JLabel(monster.getMonster_type().getName());
 
             {
                 monster_health.setBounds(957, 209, 79, 36);
