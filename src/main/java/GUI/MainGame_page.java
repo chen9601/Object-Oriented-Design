@@ -1,6 +1,9 @@
 package GUI;
 import com.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +15,8 @@ import javax.swing.*;
  * Dialog 창, map. 플레이어들의 간략화 된 스탯 및 token을 보여주는 클래스이다.
  */
 
-@Data
+@Getter
+@Setter
 public class MainGame_page extends JFrame {
 
     DialogPanelController dialog_panel_controller;
@@ -70,7 +74,8 @@ public class MainGame_page extends JFrame {
             monster_img_6, monster_img_7, monster_img_8, monster_img_9, monster_img_10, monster_img_11, monster_img_12};
 
 
-    @Data
+    @Getter
+    @Setter
     public class MainGameTabPanel extends JPanel {
         JButton status = new JButton("Status");
         JLabel token = new JLabel("token");
@@ -107,9 +112,11 @@ public class MainGame_page extends JFrame {
 
     }
 
-    @Data
+    @Getter
+    @Setter
     public static class PlayerStatusPanel extends JPanel {
-        @Data
+        @Getter
+        @Setter
         public class Status_Components extends JPanel {
             JLabel lb_attribute_name;
             JTextPane attribute_textpane;

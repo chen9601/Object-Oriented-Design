@@ -1,11 +1,15 @@
 package GUI;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-@Data
+@Getter
+@Setter
 public class DialogPanel extends JPanel {
 
     JLabel lb_just_text = new JLabel("Mac morning");

@@ -3,7 +3,10 @@ package GUI;
 import com.GameMaster;
 import com.MainGamePageController;
 import com.Player;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -133,7 +136,8 @@ public class SetStatus_page extends JFrame {
         return Player.getCurrentPlayer().getPower() != null;
     }
 
-    @Data
+    @Getter
+    @Setter
     class perstatus_set extends JPanel {
         private int value = 0;
 
