@@ -1,7 +1,6 @@
 package com;
 
 import GUI.DialogPanel;
-import GUI.SetStatus_page;
 import com.sun.tools.javac.Main;
 import lombok.Builder;
 import lombok.Data;

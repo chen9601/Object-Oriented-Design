@@ -62,20 +62,11 @@ public class ConstantEventHandler
                 Map.tiles[tile.ordinal()].setSummoned_portal(false);
                 MainGamePageController.show_portals();
             }
-            DialogPanelController.Clear();
-            DialogPanelController.generateGeneralDialogues();
         }
         else if(Map.getMonsterAt(tile) != null)
         {
             fight_remain=1;
             ConstantEventHandler.generateFight(Map.getMonsterAt(tile).getMonster_type());
-            if(player.getHealth() > 0)
-            {
-                Map.tiles[tile.ordinal()].setSummoned_monster(null);
-                MainGamePageController.show_monsters();
-            }
-            DialogPanelController.Clear();
-            DialogPanelController.generateGeneralDialogues();
         }
         else if(tile == TileType.HOSPITAL)
         {

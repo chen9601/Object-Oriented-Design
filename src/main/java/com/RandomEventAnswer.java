@@ -206,15 +206,29 @@ public class RandomEventAnswer {
 
     public static void PlayerWinFromMonsterFight() {
         FightMonsterController.fight_monster_page.dispose();
+        Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
+        MainGamePageController.show_monsters();
+        System.out.println(MainGamePageController.maingame_page.getDialog_panel_controller() instanceof FightDialogPanelController);
+        DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
         music_thread.start();
-        DialogPanelController.Clear();
-        DialogPanelController.generateGeneralDialogues();
+        MainGamePageController.maingame_page.revalidate();
+        MainGamePageController.maingame_page.repaint();
     }
 
     public static void MonsterWin() {
+        swi=true;
+//        MainGamePageController.maingame_page.dispose();
+//        MainGamePageController maingame_page_controller = new MainGamePageController();
+//        maingame_page_controller.maingame_page.setVisible(true);
+        Player.getCurrentPlayer().setStatus(Player.DEAD);
+        MainGamePageController.show_players();
         FightMonsterController.fight_monster_page.dispose();
+        System.out.println(MainGamePageController.maingame_page.getDialog_panel_controller() instanceof FightDialogPanelController);
+        DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
         music_thread.start();

@@ -17,7 +17,7 @@ import javax.swing.*;
 @Data
 public class MainGame_page extends JFrame {
 
-
+    DialogPanelController dialog_panel_controller;
     // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
     //몬스터랑 포탈 출력가능하게 만들기
@@ -182,7 +182,7 @@ public class MainGame_page extends JFrame {
             tab.setLayout(null);
             getContentPane().add(tab);
 
-            DialogPanelController dialog_panel_controller = new DialogPanelController();
+            dialog_panel_controller = new DialogPanelController();
             JPanel dialog_panel = dialog_panel_controller.dialog_panel;
             dialog_panel.setBounds(599, 165, 569, 430);
             dialog_panel.setLayout(null);

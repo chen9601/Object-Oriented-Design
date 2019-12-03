@@ -94,9 +94,6 @@ public class Fight_boss_controller extends JFrame {
 				if (turninboss % 2 == 0) {
 					attackedBossByPlayer();
 					System.out.println(Player.getCurrentPlayer());
-
-					setPlayerTurn();
-
 					System.out.println("플레이어가 공격했음");
 					turninboss++;
 				} else if (turninboss % 2 == 1) {
