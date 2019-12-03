@@ -1,11 +1,16 @@
 package com;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 public class Answer{
+    @NonNull
     private String message;
+    @NonNull
     private String tag;
+    @Builder.Default
     private ItemType item=null;
 
     Answer(String message, String tag)
@@ -14,16 +19,10 @@ public class Answer{
         this.tag=tag;
     }
 
-    Answer(ItemType item)
+    Answer(ItemType item, String message, String tag)
     {
+        this.message=message;
         this.item=item;
+        this.tag=tag;
     }
-
-    /**
-     * @return the tag
-     */
-    public String getTag() {
-        return tag;
-    }
-    public ItemType getItem(){return item;}
 }

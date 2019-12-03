@@ -1,80 +1,76 @@
 package GUI;
 
-import com.Monster;
-import com.Player;
-import com.Map;
+import com.*;
+import lombok.Data;
+
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * boss나 monster와의 전투를 나타내는 페이지이다.
+ *  TODO : 파이트 페이지 맘대로 못 나가게 x버튼 제거
  */
 
+@Data
 public class Fight_monster_page extends JFrame {
 
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//        Fight_monster_page frame = new Fight_monster_page();
+//        frame.setVisible(true);
+//    }
+    FightDialogPanelController fight_dialog_panel_controller;
+    MonsterPanel monsterPanel;
+    PlayerPanel player_panel;
+    Monster monster;
+    public Fight_monster_page(Monster monster) {
+        this.monster = monster;
 
-        Fight_monster_page frame = new Fight_monster_page();
-        frame.setVisible(true);
-
-    }
-
-    public Fight_monster_page() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.white);
         setBounds(0, 0, 1200, 960);
         getContentPane().setLayout(null);
 
-        JTextPane Dialog = new JTextPane();
+        fight_dialog_panel_controller = new FightDialogPanelController(this.monster);
+        JPanel dialog_panel = FightDialogPanelController.dialog_panel;
+        dialog_panel.setBounds(459, 615, 709, 300);
+        getContentPane().add(dialog_panel);
 
-        player_panel player_panel = new player_panel(Player.getPlayer(0));
+        player_panel = new PlayerPanel(Player.getCurrentPlayer());
         getContentPane().add(player_panel);
         player_panel.setVisible(true);
 
-        monster_panel monsterPanel = new monster_panel();
+        monsterPanel = new MonsterPanel(this.monster);
         getContentPane().add(monsterPanel);
 
-        JButton status = new JButton("status");
 
-        Dialog.setBounds(459, 615, 709, 286);
-        getContentPane().add(Dialog);
-
-        status.setBounds(91, 38, 158, 45);
-        getContentPane().add(status);
-
-
+//        JButton status = new JButton("status");
+//        status.setBounds(91, 38, 158, 45);
+//        getContentPane().add(status);
     }
 
-    class player_panel extends JPanel {
 
-
-        player_panel(Player player) {
-
-            Player cur_player = player;
+    public class PlayerPanel extends JPanel {
+        PlayerPanel(Player player) {
             JLabel lblpower = new JLabel("power");
-            JLabel power_text = new JLabel(Integer.toString(cur_player.getPower()));
+            JLabel power_text = new JLabel(Integer.toString(player.getPower()));
             JLabel lblhealth = new JLabel("health");
-            JLabel health_text = new JLabel(Integer.toString(cur_player.getHealth()));
+            JLabel health_text = new JLabel(Integer.toString(player.getHealth()));
             JLabel lblmental = new JLabel("mental");
-            JLabel mental_text = new JLabel(Integer.toString(cur_player.getMental()));
+            JLabel mental_text = new JLabel(Integer.toString(player.getMental()));
 
-            String player_imgpath;
-            String player_nameimgpath;
+            ImageIcon player_imgpath;
+            ImageIcon player_nameimgpath;
 
             if (player == Player.getPlayer(0)) {
-                player_imgpath = "";
-                player_nameimgpath = "";
+                player_imgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png");
+                player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
             } else {
-                player_imgpath = "";
-                player_nameimgpath = "";
+                player_imgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
+                player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
             }
             JLabel player_img = new JLabel(player_imgpath);
             JLabel player_nameimg = new JLabel(player_nameimgpath);
@@ -110,13 +106,15 @@ public class Fight_monster_page extends JFrame {
             player_nameimg.setBounds(14, 816, 194, 55);
             getContentPane().add(player_nameimg);
 
+
         }
 
     }
+    public class MonsterPanel extends JPanel {
+        MonsterPanel(Monster monster) {
+//            Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
+            // 테스트를 위해 아래 코드 삽입 항상 다곤과 싸운다.
 
-    class monster_panel extends JPanel {
-        monster_panel() {
-            Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
             JLabel monster_health = new JLabel("Health");
             JLabel monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
 
@@ -124,7 +122,7 @@ public class Fight_monster_page extends JFrame {
             JLabel monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
 
             JLabel monster_img = new JLabel(new ImageIcon(monster.getImagepath()));
-            JLabel monster_name = new JLabel("monster name");
+            JLabel monster_name = new JLabel(monster.getMonster_type().getName());
 
             {
                 monster_health.setBounds(957, 209, 79, 36);
@@ -145,7 +143,7 @@ public class Fight_monster_page extends JFrame {
                 monster_name.setBounds(957, 114, 194, 55);
                 getContentPane().add(monster_name);
             }
-
         }
     }
+
 }
