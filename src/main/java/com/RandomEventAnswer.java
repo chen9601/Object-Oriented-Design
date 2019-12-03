@@ -1,5 +1,7 @@
 package com;
 import GUI.Dice_page;
+import GUI.Game_resultPage;
+
 import static com.Player.idx_of_cur_player;
 
 /**
@@ -842,6 +844,7 @@ public class RandomEventAnswer {
 
     public static void Win_Ans(Player player) {
         //승리 화면 출력
+        Game_resultPage game_result_page = new Game_resultPage("win");
     }
 
     public static void Defeat(Player player) {
@@ -858,6 +861,7 @@ public class RandomEventAnswer {
 
     public static void Defeat_Ans(Player player) {
         //패배 화면 출력
+        Game_resultPage game_result_page = new Game_resultPage("defeat");
     }
 
     public static void checkBoss_Summon_condition(Player player) {

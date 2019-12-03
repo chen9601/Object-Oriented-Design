@@ -24,6 +24,7 @@ public class Fight_monster_page extends JFrame {
     PlayerPanel player_panel;
     static Monster monster;
     public int turn = 0;
+    static JButton fight;
 
     public Fight_monster_page(Monster monster) {
         frm_fight_monster_page = this;
@@ -45,12 +46,13 @@ public class Fight_monster_page extends JFrame {
         monsterPanel = new MonsterPanel(this.monster);
         getContentPane().add(monsterPanel);
 
-        JButton fight = new JButton("싸움시작");
+        fight = new JButton("싸움시작");
         getContentPane().add(fight);
         fight.setBounds(459, 615, 709, 300);
         fight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                checkWhoWin();
                 if (turn % 2 == 0) {
                     fight.setText("몬스터의 공격");
                     attackedMonsterByPlayer();
@@ -63,7 +65,14 @@ public class Fight_monster_page extends JFrame {
                     System.out.println("몬스터가 플레이어 공격했음");
                     turn++;
                 }
-                checkWhoWin();
+                if(Player.getCurrentPlayer().getHealth() < 1){
+                    fight.setText("플레이어 패배");
+                    return;
+                }
+                else if(monster.getHealth() < 1){
+                    fight.setText("몬스터 패배");
+                    return;
+                }
             }
         });
         setVisible(true);
@@ -91,9 +100,7 @@ public class Fight_monster_page extends JFrame {
     }
 
     public static void checkWhoWin() {
-        if (Player.getCurrentPlayer().getHealth() < 1) {
-            System.out.println("플레이어 패배");
-            //TODO : 여기에 패배 창 띄우기
+        if (fight.getText() == "플레이어 패배") {
             Player.getCurrentPlayer().setStatus(Player.DEAD);
             MainGamePageController.show_players();
             Fight_monster_page.frm_fight_monster_page.dispose();
@@ -102,9 +109,7 @@ public class Fight_monster_page extends JFrame {
             Mainmusic_thread.thread.close();
             Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
             music_thread.start();
-        } else if (monster.getHealth() < 1) {
-            // TODO : 여기서 현재 창 모두다 끄고, win 창 띄우기
-            System.out.println("몬스터 패배");
+        } else if (fight.getText() == "몬스터 패배") {
             Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
             MainGamePageController.show_monsters();
             Fight_monster_page.frm_fight_monster_page.dispose();
@@ -114,6 +119,8 @@ public class Fight_monster_page extends JFrame {
             Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
             music_thread.start();
         }
+
+
     }
 
     @Getter
