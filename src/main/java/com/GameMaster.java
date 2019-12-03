@@ -151,13 +151,23 @@ public class GameMaster {
 
     public static void setPortalAndMonsterRandomly() {
         while (true) {
+            if(CheckBlankSpace1())
+            {
+                break;
+            }
+
             int tempNum1 = (int) Math.floor(Math.random() * 13);
             int tempNum2 = (int) Math.floor(Math.random() * 5);
             if (isTherePlayer(Map.tiles[tempNum1])) continue;
 
             MonsterType monster = MonsterType.values()[tempNum2];
             Monster tempMon = new Monster(monster);
-            if (Map.tiles[tempNum1].getSummoned_monster() == null&&Map.tiles[tempNum1].isSummoned_portal()==false) {
+            if (Map.tiles[tempNum1].getSummoned_monster() == null
+                    &&Map.tiles[tempNum1].isSummoned_portal()==false
+                    &&Map.tiles[tempNum1].getTile_type()!=TileType.MENTAL_HOSTPITAL
+                    &&Map.tiles[tempNum1].getTile_type()!=TileType.HOSPITAL
+                    &&Map.tiles[tempNum1].getTile_type()!=TileType.STORE)
+            {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);
                 MainGamePageController.show_monsters();
 
@@ -165,9 +175,17 @@ public class GameMaster {
             } else continue;
         }
         while (true) {
+            if(CheckBlankSpace2())
+            {
+                break;
+            }
             int tempNum1 = (int) Math.floor(Math.random() * 13);
             if (isTherePlayer(Map.tiles[tempNum1])||Map.tiles[tempNum1].getSummoned_monster()!=null) continue;
-            if (Map.tiles[tempNum1].isSummoned_portal() == false) {
+            if (Map.tiles[tempNum1].isSummoned_portal() == false
+                    &&Map.tiles[tempNum1].getTile_type()!=TileType.MENTAL_HOSTPITAL
+                    &&Map.tiles[tempNum1].getTile_type()!=TileType.HOSPITAL
+                    &&Map.tiles[tempNum1].getTile_type()!=TileType.STORE)
+            {
                 Map.tiles[tempNum1].setSummoned_portal(true);
                 break;
             } else continue;
@@ -182,4 +200,44 @@ public class GameMaster {
         return false;
     }
 
+    private static boolean CheckBlankSpace1()
+    {
+        int count=0;
+        for(int i=0;i<13;i++)
+        {
+            if(Map.tiles[i].getSummoned_monster() == null
+                    &&Map.tiles[i].isSummoned_portal()==false
+                    &&Map.tiles[i].getTile_type()!=TileType.MENTAL_HOSTPITAL
+                    &&Map.tiles[i].getTile_type()!=TileType.HOSPITAL
+                    &&Map.tiles[i].getTile_type()!=TileType.STORE
+                    &&!isTherePlayer(Map.tiles[i]))
+            {
+                count++;
+            }
+        }
+        if(count<2)
+            return true;
+        else
+            return false;
+    }
+    private static boolean CheckBlankSpace2()
+    {
+        int count=0;
+        for(int i=0;i<13;i++)
+        {
+            if(Map.tiles[i].getSummoned_monster() == null
+                    &&Map.tiles[i].isSummoned_portal()==false
+                    &&Map.tiles[i].getTile_type()!=TileType.MENTAL_HOSTPITAL
+                    &&Map.tiles[i].getTile_type()!=TileType.HOSPITAL
+                    &&Map.tiles[i].getTile_type()!=TileType.STORE
+                    &&!isTherePlayer(Map.tiles[i]))
+            {
+                count++;
+            }
+        }
+        if(count<1)
+            return true;
+        else
+            return false;
+    }
 }
