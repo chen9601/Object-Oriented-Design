@@ -92,6 +92,8 @@ public class MainGame_page extends JFrame {
                     final int FIRST_PLAYER_IDX = 0;
                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                     temp.setVisible(true);
+//                    FightMonsterController fightmonstercontroller = new FightMonsterController(MonsterType.Dagon);
+//                    fightmonstercontroller.fight_monster_page.setVisible(true);
 
                 }
             });
