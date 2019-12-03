@@ -2,6 +2,7 @@ package com;
 
 import GUI.DialogPanel;
 import GUI.Dice_page;
+import GUI.music.Mainmusic_thread;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -192,14 +193,20 @@ public class RandomEventAnswer {
         }
     }
 
-    public static void PlayerWinFromMonsterFight(){
+    public static void PlayerWinFromMonsterFight() {
         FightMonsterController.fight_monster_page.dispose();
+        Mainmusic_thread.thread.close();
+        Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
+        music_thread.start();
         DialogPanelController.Clear();
         DialogPanelController.generateGeneralDialogues();
     }
 
     public static void MonsterWin() {
         FightMonsterController.fight_monster_page.dispose();
+        Mainmusic_thread.thread.close();
+        Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
+        music_thread.start();
         DialogPanelController.Clear();
         DialogPanelController.generateGeneralDialogues();
     }
@@ -216,10 +223,19 @@ public class RandomEventAnswer {
                             + "의 피해를 주었습니다."
             );
 
-            if (monster.getDamageType() == 1)
+            if (monster.getDamageType() == 1) {
                 player.setHealth(player.getHealth() - monster.getDamage());
-            else if (monster.getDamageType() == 2)
+                FightMonsterController.fight_monster_page
+                        .getPlayer_panel()
+                        .getHealth_text()
+                        .setText(Integer.toString(player.getHealth()));
+            } else if (monster.getDamageType() == 2) {
                 player.setMental(player.getMental() - monster.getDamage());
+                FightMonsterController.fight_monster_page
+                        .getPlayer_panel()
+                        .getMental_text()
+                        .setText(Integer.toString(player.getHealth()));
+            }
         } else {
             FightDialogPanelController.show_dialog("데미지를 입히지 못했습니다.");
         }
@@ -248,6 +264,10 @@ public class RandomEventAnswer {
                             + "의 피해를 주었습니다."
             );
             monster.setHealth(monster.getHealth() - (temp - monster.getRequireVal()));
+            FightMonsterController.fight_monster_page
+                    .getMonsterPanel()
+                    .getMonster_health_txt()
+                    .setText(Integer.toString(monster.getHealth()));
         } else {
             FightDialogPanelController.show_dialog("데미지를 입히지 못했습니다.");
         }
@@ -259,7 +279,7 @@ public class RandomEventAnswer {
                     "플레이어가 몬스터에게 "
                             + Integer.toString(temp - monster.getRequireVal())
                             + "의 피해를 주었습니다.\n"
-                    + "몬스터와의 전투에서 승리하였습니다.");
+                            + "몬스터와의 전투에서 승리하였습니다.");
             Player player = Player.getCurrentPlayer();
             player.setMoney(player.getMoney() + monster.getMonster_result());
             Map.tiles[player.getPos().ordinal()].setSummoned_monster(null);
