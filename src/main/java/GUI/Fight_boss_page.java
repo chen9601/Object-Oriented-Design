@@ -81,7 +81,7 @@ public class Fight_boss_page extends JFrame {
 			getContentPane().add(player2_status_panel);
 		}
 		//
-		JLabel boss_panel = new JLabel(new ImageIcon(GameMaster.current_boss.getType().getBoss_imgpath()));
+		JLabel boss_panel = new JLabel(new ImageIcon(GameMaster.current_boss.getType().getActive_imgpath()));
 		boss_panel.setBounds(75, 120, 1100, 480);
 		getContentPane().add(boss_panel);
 

@@ -52,11 +52,13 @@ public class Fight_monster_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (turn % 2 == 0) {
+                    fight.setText("몬스터의 공격");
                     attackedMonsterByPlayer();
                     System.out.println(Player.getCurrentPlayer());
                     System.out.println("플레이어가 공격했음");
                     turn++;
                 } else if (turn % 2 == 1) {
+                    fight.setText("플레이어의 공격");
                     attackedPlayerByMonster();
                     System.out.println("몬스터가 플레이어 공격했음");
                     turn++;
@@ -167,10 +169,10 @@ public class Fight_monster_page extends JFrame {
             monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
             JLabel monster_power = new JLabel("power");
             monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
-            ImageIcon monster_originimg = new ImageIcon(monster.getImagepath());
-            Image monster_tempimg = monster_originimg.getImage();
-            Image monster_changedimg = monster_tempimg.getScaledInstance(150,180,Image.SCALE_SMOOTH);
-            JLabel monster_img = new JLabel(new ImageIcon(monster_changedimg));
+
+
+            ImageIcon monster_originimg = new ImageIcon(monster.getImagepath2());
+            JLabel monster_img = new JLabel(monster_originimg);
             monster_name = new JLabel(monster.getMonster_type().getName());
 
             {

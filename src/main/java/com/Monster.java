@@ -17,6 +17,7 @@ public class Monster {
     private int damageType;
     private int monster_result;
     private String imagepath;
+    private String imagepath2;
 
     public Monster(MonsterType monster_type){
         health = monster_type.getInitial_health();
@@ -25,6 +26,7 @@ public class Monster {
         damageType = monster_type.getInitial_damageType();
         monster_result = monster_type.getInitial_monster_result();
         imagepath = monster_type.getInintial_imgpath();
+        imagepath2=monster_type.getImgpath_for_Fight();
         this.monster_type = monster_type;
     }
 
