@@ -2,6 +2,9 @@ package com;
 import GUI.Dice_page;
 import GUI.Game_resultPage;
 
+import GUI.MainGame_page;
+
+
 import static com.Player.idx_of_cur_player;
 
 /**
@@ -173,6 +176,9 @@ public class RandomEventAnswer {
                 break;
             case "re_shop":
                 Return_To_Shop();
+                break;
+            case "Ruin":
+                Ruin();
                 break;
         }
     }
@@ -871,9 +877,18 @@ public class RandomEventAnswer {
     public static void checkBoss_Summon_condition(Player player) {
         if (GameMaster.check_num_of_monsters_portals_for_boss()) {
             DialogPanelController.Clear();
-            DialogPanelController.show_dialog("고대신이 잠에서 깨어납니다. 모두 대비하십시오!");
+            if(GameMaster.current_boss.getType()==BossType.AZATHOTH)
+            {
+                DialogPanelController.show_dialog("아자토스가 잠에서 깨어납니다. 이에 저항할 수 있는 방법은 없습니다.");
+                Answer answer1 = new Answer("멸망을 받아들인다", "Ruin");
+                DialogPanelController.show_dialog_answer1(answer1);
+            }
+            else
+            {
+                DialogPanelController.show_dialog("고대신이 잠에서 깨어납니다. 모두 대비하십시오!");
             Answer answer1 = new Answer("고대신과의 최종전", "boss_summon");
             DialogPanelController.show_dialog_answer1(answer1);
+            }
         } else {
             DialogPanelController.Clear();
             if (idx_of_cur_player == 1)
@@ -881,6 +896,14 @@ public class RandomEventAnswer {
             else
                 RandomEventAnswer.Next_Player(player);
         }
+    }
+
+    public static void Ruin()
+    {
+        Game_resultPage result;
+        MainGamePageController.maingame_page.dispose();
+        result = new Game_resultPage("defeat");
+        result.setVisible(true);
     }
 
     public static void Boss_summon() {
