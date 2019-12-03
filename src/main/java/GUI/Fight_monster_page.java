@@ -14,7 +14,7 @@ import static com.Fight_boss_controller.*;
 
 /**
  * boss나 monster와의 전투를 나타내는 페이지이다.
- * TODO : 파이트 페이지 맘대로 못 나가게 x버튼 제거
+
  */
 
 @Data
@@ -33,6 +33,7 @@ public class Fight_monster_page extends JFrame {
 
     public Fight_monster_page(Monster monster) {
         Mainmusic_thread.thread.close();
+        setUndecorated(true);
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\monster_fight.mp3", true);
         music_thread.start();
         this.monster = monster;

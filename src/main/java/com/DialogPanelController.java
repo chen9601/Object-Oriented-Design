@@ -26,7 +26,7 @@ public class DialogPanelController {
         selectbtn3 = dialog_panel.getSelectbtn3();
         generateGeneralDialogues();
     }
-    // TODO : Clear의 의미를 재 정의 해야할 듯.. 뭔가 어떤 시점에서는 무조건 clear를 한다 이런거?
+
     static public void Clear(){
         lb_just_text.setText("");
         selectbtn1.setText("");
@@ -65,7 +65,7 @@ public class DialogPanelController {
                 {
                     Clear();
                     DialogPanelController.show_dialog("사용 가능한 행동치가 없습니다.");
-                    //TODO : Need to refactor :: show_dialog_answer1 could be overloading
+
                     DialogPanelController.show_dialog_answer1(new Answer("1. 턴 종료","turnEnd"));
                 }
                 else

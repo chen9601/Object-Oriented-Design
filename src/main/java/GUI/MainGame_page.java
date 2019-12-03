@@ -130,7 +130,7 @@ public class MainGame_page extends JFrame {
                 lb_attribute_name.setPreferredSize(player_status_dimension);
                 attribute_textpane = new JTextPane();
                 String text_data = null;
-                // TODO : 플레이어의 status를 StatusType으로 재정의 및 리팩토링 하는게 맞는걸까?
+
                 //안해도 괜찮을듯
                 switch (attribute_name) {
                     case "체력":
