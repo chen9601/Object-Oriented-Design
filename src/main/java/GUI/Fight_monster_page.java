@@ -59,17 +59,18 @@ public class Fight_monster_page extends JFrame {
                     System.out.println(Player.getCurrentPlayer());
                     System.out.println("플레이어가 공격했음");
                     turn++;
-                } else if (turn % 2 == 1) {
+                } else {
                     fight.setText("플레이어의 공격");
                     attackedPlayerByMonster();
                     System.out.println("몬스터가 플레이어 공격했음");
                     turn++;
                 }
-                if(Player.getCurrentPlayer().getHealth() < 1){
+                if(Player.getCurrentPlayer().getHealth() < 1 || Player.getCurrentPlayer().getMental() < 1){
                     fight.setText("플레이어 패배");
+                    Player.getCurrentPlayer().setStatus(Player.DEAD);
                     return;
                 }
-                else if(monster.getHealth() < 1){
+                if(monster.getHealth() < 1){
                     fight.setText("몬스터 패배");
                     return;
                 }
@@ -91,7 +92,7 @@ public class Fight_monster_page extends JFrame {
                 player_panel.getHealth_text().setText(Integer.toString(player.getHealth()));
             } else if (monster.getDamageType() == 2) {
                 player.setMental(player.getMental() - monster.getDamage()-bonus_val);
-                player_panel.getMental_text().setText(Integer.toString(player.getHealth()));
+                player_panel.getMental_text().setText(Integer.toString(player.getMental()));
             }
         }
     }
