@@ -1,31 +1,29 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.GameMaster;
 import com.MainGamePageController;
 import com.Player;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.print.DocFlavor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-//import static com.GameMaster.changemusic;
 
 /**
  * 각각의 플레이어들의 초기 스탯 분배하는 페이지이다.
  */
 public class SetStatus_page extends JFrame {
-    ImagePanel panel = new ImagePanel();
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
     int distributable_point = 20;
     JLabel lb_distributable_point = new JLabel(Integer.toString(distributable_point));
@@ -43,9 +41,6 @@ public class SetStatus_page extends JFrame {
             player_imgpath = "src\\main\\java\\GUI\\imgaes\\player2-portrait.png";
             player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player2_name.png";
         }
-
-
-
         setResizable(false);
         getContentPane().setLayout(null);
         setBounds(0, 0, 1200, 960);
@@ -63,9 +58,6 @@ public class SetStatus_page extends JFrame {
         movetab.add(next);
         movetab.add(lb_distributable_point);
         movetab.add(prev);
-
-        // doesNextPlayerStatusSetted() 여기서 분기할 때 player 1,2 name_img, img path만 스트링으로 받아서 바꾸게 해주면 될거 같음 ㅇㅇ
-        // 일단 그렇게 해둠
 
         JLabel player_name = new JLabel(new ImageIcon(player_name_imgpath));
         player_name.setBounds(121, 566, 365, 155);
@@ -118,14 +110,11 @@ public class SetStatus_page extends JFrame {
                 GameMaster.setInitializePlayerStats(total_value);
                 Player.toggleCurrentPlayer();
 
-
-
-                if (doesNextPlayerStatusSetted()){
+                if (doesNextPlayerStatusSetted()) {
                     MainGamePageController maingame_page_controller = new MainGamePageController();
                     maingame_page_controller.maingame_page.setVisible(true);
                     dispose();
-                }
-                else{
+                } else {
                     JFrame nextPage = new SetStatus_page();
                     nextPage.setVisible(true);
                     dispose();
@@ -143,13 +132,12 @@ public class SetStatus_page extends JFrame {
         });
     }
 
-
-
     private boolean doesNextPlayerStatusSetted() {
         return Player.getCurrentPlayer().getPower() != null;
     }
 
-        @Data
+    @Getter
+    @Setter
     class perstatus_set extends JPanel {
         private int value = 0;
 
@@ -186,18 +174,5 @@ public class SetStatus_page extends JFrame {
             add(plus);
             add(minus);
         }
-    }
-
-    class ImagePanel extends JPanel {
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.drawImage(img, 0, 0, 1200, 960, this);
-        }
-    }
-
-    public static void main(String[] args) {
-        SetStatus_page frame = new SetStatus_page();
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

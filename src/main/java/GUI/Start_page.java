@@ -2,7 +2,6 @@ package GUI;
 
 import GUI.music.Mainmusic_thread;
 import com.GameMaster;
-import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,12 +18,9 @@ public class Start_page extends JFrame {
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\main_title.png").getImage();
 
     JButton newgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\NewGame.png"));
-    JButton loadgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\Loadgame.png"));
     JButton exitgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\EXIT.png"));
 
     public Start_page() {
-
-
 
         setResizable(false);
         getContentPane().add(panel);
@@ -40,15 +36,7 @@ public class Start_page extends JFrame {
                 dispose();
             }
         });
-        loadgame.addActionListener(new ActionListener() {
-            // 아직 Load기능이 구현되지 않아 냄겨둡니다.
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
 
-
-        });
         exitgame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,16 +44,12 @@ public class Start_page extends JFrame {
             }
         });
         panel.add(newgame);
-        panel.add(loadgame);
         panel.add(exitgame);
 
         newgame.setBounds(500, 480, 200, 70);
-        loadgame.setBounds(500, 600, 200, 70);
-        exitgame.setBounds(500, 720, 200, 70);
+        exitgame.setBounds(500, 600, 200, 70);
 
-
-
-        Mainmusic_thread music = new Mainmusic_thread("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3",true);
+        Mainmusic_thread music = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
         music.start();
     }
 
@@ -85,8 +69,4 @@ public class Start_page extends JFrame {
             g.drawImage(img, 0, 0, 1200, 960, this);
         }
     }
-
-
-
-
-    }
+}

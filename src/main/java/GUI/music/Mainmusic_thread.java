@@ -1,13 +1,12 @@
 package GUI.music;
 
-
 import javazoom.jl.player.Player;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
 public class Mainmusic_thread extends Thread {
+    static public Mainmusic_thread thread;
     static private Player player;
     static private boolean isLoop;
     static private File file;
@@ -25,6 +24,7 @@ public class Mainmusic_thread extends Thread {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        thread = this;
     }
 
     @Override

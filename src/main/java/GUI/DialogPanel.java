@@ -1,17 +1,15 @@
 package GUI;
 
 import lombok.Data;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-@Data
+@Getter
+@Setter
 public class DialogPanel extends JPanel {
 
     JLabel lb_just_text = new JLabel("Mac morning");
@@ -33,6 +31,4 @@ public class DialogPanel extends JPanel {
         add(selectbtn3);
 
     }
-    // https://fora.tistory.com/31 여기 나온 것처럼 이 패널의 controller 만들어서 관리 해야 하나? 아니면 MainGame_page의 패널 만들어서 관리해야 하려나.. 고민해봐야 할 듯
-
 }
