@@ -1,14 +1,7 @@
 package com;
 
 import GUI.Dice_page;
-
 import GUI.music.Mainmusic_thread;
-
-import GUI.Fight_monster_page;
-
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static com.Player.idx_of_cur_player;
 
@@ -19,7 +12,6 @@ import static com.Player.idx_of_cur_player;
  */
 
 public class RandomEventAnswer {
-    static boolean swi=false;
     /**
      * 이벤트를 진행할 플레이어와 클릭한 선택지에 해당하는 지칭자로 알맞은 메소드를 호출하는 메소드
      *
@@ -181,10 +173,10 @@ public class RandomEventAnswer {
             case "re_shop":
                 Return_To_Shop();
                 break;
-            case "attack":
+            case "attackedMonsterByPlayer":
                 attackedMonsterByPlayer();// 플레이어가 위치한 타일의 몬스터 혹은 임의로 넣어줘야 할 것 같은데 이건 넣어줘야 할듯
                 break;
-            case "attacked":
+            case "attackedPlayerByMonster":
                 attackedPlayerByMonster();
                 break;
             case "MonsterWin":
@@ -193,146 +185,103 @@ public class RandomEventAnswer {
             case "PlayerWinFromMonsterFight":
                 PlayerWinFromMonsterFight();
                 break;
-            case "attack_check1":
-                attack_check_for_Player();
-                break;
-            case "next_fight":
-                next_fight();
-                break;
-            case "run":
-                Run();
-                break;
-            case "attack_check2":
-                attack_check_for_Monster();
-                break;
 
         }
     }
 
-
     public static void PlayerWinFromMonsterFight() {
-        swi=true;
-        MainGamePageController.maingame_page.dispose();
-        MainGamePageController maingame_page_controller = new MainGamePageController();
-        maingame_page_controller.maingame_page.setVisible(true);
-        DialogPanelController.generateGeneralDialogues();
         FightMonsterController.fight_monster_page.dispose();
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
         music_thread.start();
+        DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();
     }
 
     public static void MonsterWin() {
-        swi=true;
-        MainGamePageController.maingame_page.dispose();
-        MainGamePageController maingame_page_controller = new MainGamePageController();
-        maingame_page_controller.maingame_page.setVisible(true);
-        DialogPanelController.generateGeneralDialogues();
         FightMonsterController.fight_monster_page.dispose();
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
         music_thread.start();
+        DialogPanelController.Clear();
+        DialogPanelController.generateGeneralDialogues();
     }
 
     public static void attackedPlayerByMonster() {
         FightDialogPanelController.Clear();
+        Player player = Player.getCurrentPlayer();
         int temp2 = ConstantEventHandler.Dice();
-        if (temp2 > FightDialogPanelController.monster.getRequireVal()) {
+        Monster monster = FightMonsterController.monster;
+        if (temp2 > monster.getRequireVal()) {
             FightDialogPanelController.show_dialog(
                     "몬스터가 플레이어에게 "
-                            + Integer.toString(FightDialogPanelController.monster.getDamage())
+                            + Integer.toString(monster.getDamage())
                             + "의 피해를 주었습니다."
             );
 
-
-            if (FightDialogPanelController.monster.getDamageType() == 1)
-            {
-              Player.getCurrentPlayer().setHealth(Player.getCurrentPlayer().getHealth() - FightDialogPanelController.monster.getDamage());
-              FightMonsterController.fight_monster_page
+            if (monster.getDamageType() == 1) {
+                player.setHealth(player.getHealth() - monster.getDamage());
+                FightMonsterController.fight_monster_page
                         .getPlayer_panel()
                         .getHealth_text()
-                        .setText(Integer.toString(Player.getCurrentPlayer().getHealth()));
-            }
-            else if (FightDialogPanelController.monster.getDamageType() == 2)
-            {
-                Player.getCurrentPlayer().setMental(Player.getCurrentPlayer().getMental() - FightDialogPanelController.monster.getDamage());
+                        .setText(Integer.toString(player.getHealth()));
+            } else if (monster.getDamageType() == 2) {
+                player.setMental(player.getMental() - monster.getDamage());
                 FightMonsterController.fight_monster_page
                         .getPlayer_panel()
                         .getMental_text()
-                        .setText(Integer.toString(Player.getCurrentPlayer().getMental()));}
-
-            FightDialogPanelController.show_dialog_answer1(new Answer("계속","attack_check2"));
+                        .setText(Integer.toString(player.getHealth()));
+            }
         } else {
-            FightDialogPanelController.show_dialog("몬스터의 공격을 피했습니다.");
-            FightDialogPanelController.show_dialog_answer1(new Answer("플레이어의 공격", "attack"));
+            FightDialogPanelController.show_dialog("데미지를 입히지 못했습니다.");
         }
-    }
 
-    public static void attack_check_for_Monster()
-    {
-        if (Player.getCurrentPlayer().getHealth() < 1 || Player.getCurrentPlayer().getMental()<1) {
+        if (player.getHealth() < 1) {
             FightDialogPanelController.Clear();
-            FightDialogPanelController.show_dialog("몬스터에게 패배했습니다.");
-            FightDialogPanelController.show_dialog_answer1(new Answer("전투 종료", "MonsterWin"));
+
+            FightDialogPanelController.show_dialog("몬스터가 플레이어에게 "
+                    + Integer.toString(monster.getDamage())
+                    + "의 피해를 주었습니다. "
+                    + "몬스터와의 전투에서 패배하였습니다.");
+            player.setStatus(Player.DEAD);
+            FightDialogPanelController.show_dialog_answer1(new Answer("전투 종료(몬스터 승리)", "MonsterWin"));
         } else
-            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터를 공격", "attack"));
+            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터를 공격 합니다.", "attackedMonsterByPlayer"));
     }
 
     public static void attackedMonsterByPlayer() {
         FightDialogPanelController.Clear();
         int temp = ConstantEventHandler.Dice();
-        if (temp > FightMonsterController.monster.getRequireVal()) {
+        Monster monster = FightMonsterController.monster;
+        if (temp > monster.getRequireVal()) {
             FightDialogPanelController.show_dialog(
                     "플레이어가 몬스터에게 "
-                            + Integer.toString(temp - FightMonsterController.monster.getRequireVal())
+                            + Integer.toString(temp - monster.getRequireVal())
                             + "의 피해를 주었습니다."
             );
-
-            FightMonsterController.monster.setHealth(FightMonsterController.monster.getHealth() - (temp - FightMonsterController.monster.getRequireVal()));
+            monster.setHealth(monster.getHealth() - (temp - monster.getRequireVal()));
             FightMonsterController.fight_monster_page
                     .getMonsterPanel()
                     .getMonster_health_txt()
-                    .setText(Integer.toString(FightMonsterController.monster.getHealth()));
-            FightDialogPanelController.show_dialog_answer1(new Answer("계속","attack_check1"));
+                    .setText(Integer.toString(monster.getHealth()));
         } else {
             FightDialogPanelController.show_dialog("데미지를 입히지 못했습니다.");
-            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터의 공격", "attacked"));
         }
 
-    }
 
-    public static void attack_check_for_Player()
-    {
-        FightDialogPanelController.Clear();
-        if (FightDialogPanelController.monster.getHealth() < 1)
-        {
-            Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()+FightDialogPanelController.monster.getMonster_result());
-            Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
-
-            ConstantEventHandler.fight_remain--;
-            if(ConstantEventHandler.fight_remain<=0)        //일반 몬스터 전투 끝
-            {
-                FightDialogPanelController.show_dialog("적을 물리치고 살아남았습니다.");
-                FightDialogPanelController.show_dialog_answer1(new Answer("전투 종료","PlayerWinFromMonsterFight"));
-                //전투 창 닫기
-            }
-            else            //포털 전투의 첫번째라 아직 전투가 남았을 때
-            {
-                FightDialogPanelController.show_dialog("적을 물리쳤지만 아직 남은 적이 있습니다. 전투에 대비하십시오!");
-                FightDialogPanelController.show_dialog_answer1(new Answer("다음 전투로","Next_fight"));
-            }
+        if (monster.getHealth() < 1) {
+            FightDialogPanelController.Clear();
+            FightDialogPanelController.show_dialog(
+                    "플레이어가 몬스터에게 "
+                            + Integer.toString(temp - monster.getRequireVal())
+                            + "의 피해를 주었습니다.\n"
+                            + "몬스터와의 전투에서 승리하였습니다.");
+            Player player = Player.getCurrentPlayer();
+            player.setMoney(player.getMoney() + monster.getMonster_result());
+            Map.tiles[player.getPos().ordinal()].setSummoned_monster(null);
+            FightDialogPanelController.show_dialog_answer1(new Answer("전투종료(플레이어 승리)", "PlayerWinFromMonsterFight"));
         } else
-        {
-            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터가 공격 합니다.", "attacked"));
-        }
-
-
-    }
-    public static void next_fight()
-    {
-        FightMonsterController.fight_monster_page.dispose();
-        Mainmusic_thread.thread.close();
-        ConstantEventHandler.generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
+            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터가 공격 합니다.", "attackedPlayerByMonster"));
     }
 
     public static void Ans1_1(Player player)//서브 이벤트 구현에 대한 이야기 필요
@@ -1110,69 +1059,5 @@ public class RandomEventAnswer {
         DialogPanelController.Clear();
         ConstantEventHandler.shop_maintain_switch = true;
         ConstantEventHandler.shop();
-    }
-
-    public static void Run()
-    {
-        String message = "몬스터에게서 도망치는 것이 가능할거라 생각했나요? 죽거나 죽이거나, 둘밖에 없습니다.";
-        FightDialogPanelController.show_dialog(message);
-    }
-
-    public static void Attack_of_Player()
-    {
-        if(ConstantEventHandler.Dice()>=FightDialogPanelController.monster.getRequireVal()) //몬스터에게 데미지를 입힘
-        {
-            int attack_val=ConstantEventHandler.Dice()-FightDialogPanelController.monster.getRequireVal();
-            FightDialogPanelController.monster.setHealth(FightDialogPanelController.monster.getHealth()-attack_val);
-
-            FightDialogPanelController.Clear();
-
-            StringBuilder message=new StringBuilder();
-            message.append(FightDialogPanelController.monster.getMonster_type().getName());
-            message.append("에게 ");
-            message.append(attack_val);
-            message.append("만큼의 피해를 입혔습니다.");
-            FightDialogPanelController.show_dialog(message.toString());
-            FightDialogPanelController.show_dialog_answer1(new Answer("계속","fight_check"));
-
-        }
-        else
-            {
-                FightDialogPanelController.show_dialog("적에게 피해를 입히지 못했습니다.");
-                FightDialogPanelController.show_dialog_answer1(new Answer("몬스터의 공격","attacked"));
-        }
-    }
-
-    public static void Fight_check()
-    {
-        if(FightDialogPanelController.monster.getHealth()<=0)       //데미지를 입혀서 몬스터 사망
-        {
-            ConstantEventHandler.fight_remain--;
-            if(ConstantEventHandler.fight_remain<=0)        //일반 몬스터 전투 끝
-            {
-                FightDialogPanelController.Clear();
-                FightDialogPanelController.show_dialog("적을 물리치고 살아남았습니다.");
-                Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()+FightDialogPanelController.monster.getMonster_result());
-                FightDialogPanelController.show_dialog_answer1(new Answer("계속","continue"));
-                //전투 창 닫기
-            }
-            else            //포털 전투의 첫번째라 아직 전투가 남았을 때
-            {
-                FightDialogPanelController.Clear();
-                FightDialogPanelController.show_dialog("적을 물리쳤지만 아직 남은 적이 있습니다. 전투에 대비하십시오!");
-                Player.getCurrentPlayer().setMoney(Player.getCurrentPlayer().getMoney()+FightDialogPanelController.monster.getMonster_result());
-                //전투 창을 닫고 다음 전투로(버튼으로)
-                FightDialogPanelController.show_dialog_answer1(new Answer("계속","continue"));
-            }
-        }
-        else    //몬스터가 죽진 않음
-        {
-            FightDialogPanelController.show_dialog_answer1(new Answer("몬스터의 공격","attacked"));
-        }
-    }
-
-    public static void Fight_Check_for_Monster()
-    {
-
     }
 }

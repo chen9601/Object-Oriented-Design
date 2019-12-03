@@ -93,7 +93,8 @@ public class MainGame_page extends JFrame {
 //                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
 //                    temp.setVisible(true);
 
-                RandomEventAnswer.Boss_fight();
+                Fight_boss_controller temp = new Fight_boss_controller();
+
                 }
             });
 
