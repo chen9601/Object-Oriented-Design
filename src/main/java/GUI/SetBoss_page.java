@@ -88,12 +88,12 @@ public class SetBoss_page extends JFrame {
                     //TODO : boss test code지우고 수정 bosstype과 연동
                     GameMaster.setBoss(
                             Boss
-                                    .builder()
-                                    .type(bosstype)
-                                    .health(1)
-                                    .damage(100)
-                                    .requireVal(1)
-                                    .build()
+                                .builder()
+                                .type(bosstype)
+                                .health(10)
+                                .damage(100)
+                                .requireVal(1)
+                                .build()
                     );
                     SetStatus_page next = new SetStatus_page();
                     next.setVisible(true);

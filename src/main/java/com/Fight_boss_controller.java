@@ -35,7 +35,8 @@ public class Fight_boss_controller {
         Boss boss = GameMaster.current_boss;
         if (dice_value > boss.getRequireVal()) {
             boss.setHealth(boss.getHealth() - (dice_value - boss.getRequireVal()));
-            Fight_boss_page.boss_temphealth.setText(Integer.toString(boss.getHealth()));
+
+            Fight_boss_page.show_stars();
         }
     }
 

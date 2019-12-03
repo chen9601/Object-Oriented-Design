@@ -286,19 +286,24 @@ public class MainGame_page extends JFrame {
 
     class monster_imglocation extends JLabel {
         monster_imglocation(JLabel[] monster_array) {
-            monster_array[0].setBounds(264, 315, 40, 50);
-            monster_array[1].setBounds(264, 209, 40, 50);
-            monster_array[2].setBounds(165, 268, 40, 50);
-            monster_array[3].setBounds(165, 370, 40, 50);
-            monster_array[4].setBounds(264, 431, 40, 50);
-            monster_array[5].setBounds(375, 370, 40, 50);
-            monster_array[6].setBounds(375, 268, 40, 50);
-            monster_array[7].setBounds(419, 165, 40, 50);
-            monster_array[8].setBounds(134, 165, 40, 50);
-            monster_array[9].setBounds(34, 315, 40, 50);
-            monster_array[10].setBounds(134, 473, 40, 50);
-            monster_array[11].setBounds(400, 473, 80, 54);
-            monster_array[12].setBounds(502, 315, 80, 54);
+            for (JLabel monster_img : monster_array) {
+                monster_img.setVisible(false);
+            }
+
+            monster_array[0].setBounds(270, 315, 40, 50);
+            monster_array[1].setBounds(270, 209, 40, 50);
+            monster_array[2].setBounds(170, 268, 40, 50);
+            monster_array[3].setBounds(170, 370, 40, 50);
+            monster_array[4].setBounds(269, 431, 40, 50);
+            monster_array[5].setBounds(380, 370, 40, 50);
+            monster_array[6].setBounds(380, 268, 40, 50);
+            monster_array[7].setBounds(424, 165, 40, 50);
+            monster_array[8].setBounds(139, 165, 40, 50);
+            monster_array[9].setBounds(39, 315, 40, 50);
+            monster_array[10].setBounds(139, 473, 40, 50);
+            monster_array[11].setBounds(425, 473, 80, 54);
+            monster_array[12].setBounds(530, 315, 80, 54);
+
         }
     }
 
