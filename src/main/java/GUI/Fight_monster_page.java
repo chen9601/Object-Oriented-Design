@@ -78,23 +78,33 @@ public class Fight_monster_page extends JFrame {
         setVisible(true);
     }
     private void attackedPlayerByMonster() {
+        int bonus_val=0;
+        if(GameMaster.current_boss.getType()==BossType.CHUTHULU)
+        {
+            bonus_val=1;
+        }
         Player player = Player.getCurrentPlayer();
         int dice_value = ConstantEventHandler.Dice();
         if (dice_value > monster.getRequireVal()) {
             if (monster.getDamageType() == 1) {
-                player.setHealth(player.getHealth() - monster.getDamage());
+                player.setHealth(player.getHealth() - monster.getDamage()-bonus_val);
                 player_panel.getHealth_text().setText(Integer.toString(player.getHealth()));
             } else if (monster.getDamageType() == 2) {
-                player.setMental(player.getMental() - monster.getDamage());
+                player.setMental(player.getMental() - monster.getDamage()-bonus_val);
                 player_panel.getMental_text().setText(Integer.toString(player.getHealth()));
             }
         }
     }
 
     private void attackedMonsterByPlayer() {
+        int bonus_val=0;
+        if(GameMaster.current_boss.getType()==BossType.CHUTHULU)
+        {
+            bonus_val=1;
+        }
         int dice_value = ConstantEventHandler.Dice();
         if (dice_value > monster.getRequireVal()) {
-            monster.setHealth(monster.getHealth() - (dice_value - monster.getRequireVal()));
+            monster.setHealth(monster.getHealth() - (dice_value - monster.getRequireVal())-bonus_val);
             Fight_monster_page.frm_fight_monster_page.monsterPanel.getMonster_health_txt().setText(Integer.toString(monster.getHealth()));
         }
     }

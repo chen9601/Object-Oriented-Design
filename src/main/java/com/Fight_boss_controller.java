@@ -12,6 +12,11 @@ public class Fight_boss_controller {
     }
 
     public static void attackedPlayerByBoss() {
+        int bonus_val=0;
+        if(GameMaster.current_boss.getType()==BossType.CHUTHULU)
+        {
+            bonus_val=1;
+        }
         Player.toggleCurrentPlayer();
         Player player = Player.getCurrentPlayer();
         if(player.getHealth() < 1){
@@ -21,7 +26,7 @@ public class Fight_boss_controller {
         int temp2 = ConstantEventHandler.Dice();
         Boss boss = GameMaster.current_boss;
         if (temp2 > boss.getRequireVal()) {
-            player.setHealth(player.getHealth() - boss.getDamage());
+            player.setHealth(player.getHealth() - boss.getDamage()-bonus_val);
             if (player == Player.getPlayer(0)) {
                 Fight_boss_page.player1_status_panel.getStatus_details()[StatusType.HEALTH.ordinal()].getAttribute_textpane().setText(Integer.toString(player.getHealth()));
             } else {
@@ -31,12 +36,19 @@ public class Fight_boss_controller {
     }
 
     public static void attackedBossByPlayer() {
+        int bonus_val=0;
+        if(GameMaster.current_boss.getType()==BossType.CHUTHULU)
+        {
+            bonus_val=1;
+        }
         int dice_value = ConstantEventHandler.Dice();
         Boss boss = GameMaster.current_boss;
         if (dice_value > boss.getRequireVal()) {
-            boss.setHealth(boss.getHealth() - (dice_value - boss.getRequireVal()));
+
+            boss.setHealth(boss.getHealth() - (dice_value - boss.getRequireVal())-bonus_val);
 
             Fight_boss_page.show_stars();
+
         }
     }
 
