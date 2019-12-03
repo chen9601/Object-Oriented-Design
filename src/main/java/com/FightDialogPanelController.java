@@ -49,11 +49,11 @@ public class FightDialogPanelController extends DialogPanelController {
         selectbtn3.setText("");
 
         if (selectbtn1.getActionListeners().length > 0)
-            selectbtn1.removeAll();
+            selectbtn1.removeActionListener(selectbtn1.getActionListeners()[0]);
         if (selectbtn2.getActionListeners().length > 0)
-            selectbtn2.removeAll();
+            selectbtn2.removeActionListener(selectbtn2.getActionListeners()[0]);
         if (selectbtn3.getActionListeners().length > 0)
-            selectbtn3.removeAll();
+            selectbtn3.removeActionListener(selectbtn3.getActionListeners()[0]);
     }
 
     public static void show_dialog(String message) {
@@ -70,10 +70,9 @@ public class FightDialogPanelController extends DialogPanelController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
-                if (RandomEventAnswer.swi == false) {
-                    selectbtn1.revalidate();
-                    selectbtn1.repaint();
-                }
+
+                selectbtn1.revalidate();
+                selectbtn1.repaint();
                 RandomEventAnswer.swi=false;
 
             }
