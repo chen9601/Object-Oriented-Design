@@ -2,7 +2,6 @@ package com;
 
 import GUI.Fight_boss_page;
 import GUI.Game_resultPage;
-import GUI.MainGame_page;
 
 public class Fight_boss_controller {
     public static GUI.Fight_boss_page fight_boss_page;
@@ -43,12 +42,9 @@ public class Fight_boss_controller {
 
     public static void checkWhoWin() {
         Boss boss = GameMaster.current_boss;
-        Player player = Player.getCurrentPlayer();
         Game_resultPage result;
         if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
-
             System.out.println("플레이어 패배");
-
             fight_boss_page.dispose();
             result = new Game_resultPage("defeat");
             result.setVisible(true);
@@ -57,6 +53,7 @@ public class Fight_boss_controller {
             result = new Game_resultPage("win");
             result.setVisible(true);
         }
+        MainGamePageController.maingame_page.dispose();
     }
 
 }

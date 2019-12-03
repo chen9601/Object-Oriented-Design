@@ -1,8 +1,6 @@
 package GUI.music;
 
-
 import javazoom.jl.player.Player;
-import lombok.Data;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;

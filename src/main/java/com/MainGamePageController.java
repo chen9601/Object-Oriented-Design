@@ -1,13 +1,10 @@
 package com;
 
 import GUI.MainGame_page;
-import GUI.music.Mainmusic_thread;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainGamePageController {
     static public MainGame_page maingame_page;
@@ -85,7 +82,6 @@ public class MainGamePageController {
                 monster_array[tile_type.ordinal()].setIcon(new ImageIcon(monster.getImagepath()));
                 monster_array[tile_type.ordinal()].setVisible(true);
             }
-
         }
     }
 
@@ -96,6 +92,4 @@ public class MainGamePageController {
             if (Map.getPortalAt(tile_type))
                 portal_array[tile_type.ordinal()].setVisible(true);
     }
-
-
 }

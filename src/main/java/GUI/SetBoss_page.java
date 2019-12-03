@@ -1,20 +1,16 @@
 package GUI;
-
 import com.Boss;
 import com.BossType;
 import com.GameMaster;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 /**
  * 새로 게임을 생성할 때 보스를 설정하는 페이지이다.
  */
 public class SetBoss_page extends JFrame {
-    ImagePanel panel = new ImagePanel();
     Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
 
 
@@ -30,9 +26,9 @@ public class SetBoss_page extends JFrame {
 
         movetab.setLayout(null);
         // setstatus페이지로 이동
-        next.addActionListener(new ActionListener(){
+        next.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 SetStatus_page next = new SetStatus_page();
                 next.setVisible(true);
                 dispose();
@@ -55,16 +51,15 @@ public class SetBoss_page extends JFrame {
         movetab.add(next);
         movetab.add(prev);
 
-        // 임시로 보스들 승리조건 string저장
 
         String azartoth_win = "강림시 패배";
         String nyarlathotep_win = " 가면 괴물이 등장할 수 있다.";
         String chuthulu_win = "최대 정신력과 최대 체력이 1씩 줄어든다.";
 
 
-        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH,azartoth_win);
-        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU,chuthulu_win);
-        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP,nyarlathotep_win);
+        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win);
+        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win);
+        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win);
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
@@ -83,25 +78,9 @@ public class SetBoss_page extends JFrame {
         boss3.add(Test3);
     }
 
-    class ImagePanel extends JPanel {
-
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.drawImage(img, 0, 0, 1200, 960, this);
-
-        }
-    }
-
-    public static void main(String[] args) {
-
-        SetBoss_page frame = new SetBoss_page();
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
     class BossPanel extends JPanel {
 
-        public BossPanel(String img_path, BossType bosstype,String boss_win) {
+        public BossPanel(String img_path, BossType bosstype, String boss_win) {
             JButton bossbtn = new JButton(bosstype.getName());
             bossbtn.addActionListener(new ActionListener() {
                 @Override
