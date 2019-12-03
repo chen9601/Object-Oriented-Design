@@ -2,13 +2,7 @@ package com;
 
 import GUI.Dice_page;
 import GUI.music.Mainmusic_thread;
-import com.GameMaster;
-import GUI.Fight_monster_page;
-import com.sun.tools.javac.Main;
 
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static com.Player.idx_of_cur_player;
 
@@ -177,7 +171,7 @@ public class RandomEventAnswer {
                 Defeat_Ans(player);
                 break;
             case "boss_summon":
-                Boss_fight();
+                Boss_summon();
                 break;
             case "re_shop":
                 Return_To_Shop();
@@ -1031,7 +1025,7 @@ public class RandomEventAnswer {
         if (GameMaster.check_num_of_monsters_portals_for_boss()) {
             DialogPanelController.Clear();
             DialogPanelController.show_dialog("고대신이 잠에서 깨어납니다. 모두 대비하십시오!");
-            Answer answer1 = new Answer("고대신과의 최종전", "boss_fight");
+            Answer answer1 = new Answer("고대신과의 최종전", "boss_summon");
             DialogPanelController.show_dialog_answer1(answer1);
         } else {
             DialogPanelController.Clear();
@@ -1042,8 +1036,9 @@ public class RandomEventAnswer {
         }
     }
 
-    public static void Boss_fight() {
-        GameMaster.generateBossFight(GameMaster.current_boss);
+    public static void Boss_summon() {
+        Fight_boss_controller fight_boss_page = new Fight_boss_controller();
+
     }
 
     public static void Next_Turn(Player player) {

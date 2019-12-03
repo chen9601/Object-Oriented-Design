@@ -1,13 +1,9 @@
 package com;
 
 import GUI.Fight_boss_page;
-import GUI.MainGame_page;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Fight_boss_controller {
-    public static Fight_boss_page fight_boss_page;
+    public static GUI.Fight_boss_page fight_boss_page;
 
     public Fight_boss_controller() {
         fight_boss_page = new Fight_boss_page();
