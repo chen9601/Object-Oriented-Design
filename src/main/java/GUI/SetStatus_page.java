@@ -1,6 +1,5 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.GameMaster;
 import com.MainGamePageController;
 import com.Player;
@@ -12,7 +11,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.print.DocFlavor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;

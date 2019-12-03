@@ -1,6 +1,8 @@
 package com;
 
 import GUI.DialogPanel;
+import GUI.SetStatus_page;
+import com.sun.tools.javac.Main;
 import lombok.Builder;
 import lombok.Data;
 
@@ -68,12 +70,12 @@ public class FightDialogPanelController extends DialogPanelController{
             @Override
             public void actionPerformed(ActionEvent e) {
                 RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
-                selectbtn1.revalidate();
-                selectbtn1.repaint();
-                if(Player.getCurrentPlayer().getHealth()<1||FightDialogPanelController.monster.getHealth()<1)
+                if(RandomEventAnswer.swi==false)
                 {
-                    FightMonsterController.fight_monster_page.dispose();
+                    selectbtn1.revalidate();
+                selectbtn1.repaint();
                 }
+
             }
         });
         selectbtn1.setVisible(true);
