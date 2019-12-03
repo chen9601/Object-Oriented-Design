@@ -1,6 +1,5 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.*;
 import lombok.Data;
 
@@ -57,20 +56,22 @@ public class MainGame_page extends JFrame {
     JLabel portal_array[] = {portal_img_0, portal_img_1, portal_img_2, portal_img_3, portal_img_4, portal_img_5,
             portal_img_6, portal_img_7, portal_img_8, portal_img_9, portal_img_10, portal_img_11, portal_img_12};
 
-    JLabel monster_img_0 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_1 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_2 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_3 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_4 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_5 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_6 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_7 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_8 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_9 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_10 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_11 = new JLabel(new ImageIcon(get_monster_img_path()));
-    JLabel monster_img_12 = new JLabel(new ImageIcon(get_monster_img_path()));
 
+    // 현재 타일의 몬스터 이미지를 넣어야해
+
+    JLabel monster_img_0 = new JLabel("");
+    JLabel monster_img_1 = new JLabel("");
+    JLabel monster_img_2 = new JLabel("");
+    JLabel monster_img_3 = new JLabel("");
+    JLabel monster_img_4 = new JLabel("");
+    JLabel monster_img_5 = new JLabel("");
+    JLabel monster_img_6 = new JLabel("");
+    JLabel monster_img_7 = new JLabel("");
+    JLabel monster_img_8 = new JLabel("");
+    JLabel monster_img_9 = new JLabel("");
+    JLabel monster_img_10 = new JLabel("");
+    JLabel monster_img_11 = new JLabel("");
+    JLabel monster_img_12 = new JLabel("");
     JLabel monster_array[] = {monster_img_0, monster_img_1, monster_img_2, monster_img_3, monster_img_4, monster_img_5,
             monster_img_6, monster_img_7, monster_img_8, monster_img_9, monster_img_10, monster_img_11, monster_img_12};
 
@@ -89,11 +90,8 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    FightMonsterController temp = new FightMonsterController(MonsterType.Nightgaunt);
-//                    temp.normalFight(Player.getCurrentPlayer(), temp.fight_monster_page.getMonster());
-
-                    // 파이트 테스트를 위해 잠깐 꺼둠
-//                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+                    temp.setVisible(true);
 
                 }
             });
@@ -171,7 +169,6 @@ public class MainGame_page extends JFrame {
     public MainGame_page() {
 
 
-
         // 상단바
         {
             setResizable(false);
@@ -188,7 +185,6 @@ public class MainGame_page extends JFrame {
             dialog_panel.setBounds(599, 165, 569, 430);
             dialog_panel.setLayout(null);
             getContentPane().add(dialog_panel);
-
         }
         // red dot 버튼
         {
@@ -219,79 +215,20 @@ public class MainGame_page extends JFrame {
         // 몬스터 이미지
         {
             for (JLabel monster_img : monster_array) {
+
                 monster_img.setVisible(false);
+                getContentPane().add(monster_img);
+
             }
-            monster_img_0.setBounds(264, 315, 40, 50);
-            getContentPane().add(monster_img_0);
-
-            monster_img_1.setBounds(264, 209, 40, 50);
-            getContentPane().add(monster_img_1);
-
-            monster_img_2.setBounds(165, 268, 40, 50);
-            getContentPane().add(monster_img_2);
-
-            monster_img_3.setBounds(165, 370, 40, 50);
-            getContentPane().add(monster_img_3);
-
-            monster_img_4.setBounds(264, 431, 40, 50);
-            getContentPane().add(monster_img_4);
-
-            monster_img_5.setBounds(375, 370, 40, 50);
-            getContentPane().add(monster_img_5);
-
-            monster_img_6.setBounds(375, 268, 40, 50);
-            getContentPane().add(monster_img_6);
-
-            monster_img_7.setBounds(419, 165, 40, 50);
-            getContentPane().add(monster_img_7);
-
-            monster_img_8.setBounds(134, 165, 40, 50);
-            getContentPane().add(monster_img_8);
-
-            monster_img_9.setBounds(34, 315, 40, 50);
-            getContentPane().add(monster_img_9);
-
-            monster_img_10.setBounds(134, 473, 40, 50);
-            getContentPane().add(monster_img_10);
-
-            monster_img_11.setBounds(400, 473, 80, 54);
-            getContentPane().add(monster_img_11);
-
-            monster_img_12.setBounds(502, 315, 80, 54);
-            getContentPane().add(monster_img_12);
+            new monster_imglocation(monster_array);
         }
         // 포탈 이미지
         {
             for (JLabel portal_img : portal_array) {
                 portal_img.setVisible(false);
+                getContentPane().add(portal_img);
             }
-
-            portal_img_0.setBounds(284, 315, 40, 50);
-            getContentPane().add(portal_img_0);
-            portal_img_1.setBounds(284, 209, 40, 50);
-            getContentPane().add(portal_img_1);
-            portal_img_2.setBounds(185, 268, 40, 50);
-            getContentPane().add(portal_img_2);
-            portal_img_3.setBounds(185, 370, 40, 50);
-            getContentPane().add(portal_img_3);
-            portal_img_4.setBounds(284, 431, 40, 50);
-            getContentPane().add(portal_img_4);
-            portal_img_5.setBounds(395, 370, 40, 50);
-            getContentPane().add(portal_img_5);
-            portal_img_6.setBounds(395, 268, 40, 50);
-            getContentPane().add(portal_img_6);
-            portal_img_7.setBounds(440, 165, 40, 50);
-            getContentPane().add(portal_img_7);
-            portal_img_8.setBounds(154, 165, 40, 50);
-            getContentPane().add(portal_img_8);
-            portal_img_9.setBounds(57, 318, 40, 50);
-            getContentPane().add(portal_img_9);
-            portal_img_10.setBounds(154, 473, 40, 50);
-            getContentPane().add(portal_img_10);
-            portal_img_11.setBounds(439, 473, 40, 50);
-            getContentPane().add(portal_img_11);
-            portal_img_12.setBounds(541, 315, 40, 50);
-            getContentPane().add(portal_img_12);
+            new portal_imglocation(portal_array);
         }
         // player1 이미지
         {
@@ -300,19 +237,8 @@ public class MainGame_page extends JFrame {
                 lb_player1_array[i] = new JLabel(player1_Icon);
                 getContentPane().add(lb_player1_array[i]);
             }
-            lb_player1_array[0].setBounds(284, 315, 40, 50);
-            lb_player1_array[1].setBounds(284, 209, 40, 50);
-            lb_player1_array[2].setBounds(185, 268, 40, 50);
-            lb_player1_array[3].setBounds(185, 370, 40, 50);
-            lb_player1_array[4].setBounds(284, 431, 40, 50);
-            lb_player1_array[5].setBounds(395, 370, 40, 50);
-            lb_player1_array[6].setBounds(395, 268, 40, 50);
-            lb_player1_array[7].setBounds(440, 165, 40, 50);
-            lb_player1_array[8].setBounds(154, 165, 40, 50);
-            lb_player1_array[9].setBounds(57, 318, 40, 50);
-            lb_player1_array[10].setBounds(154, 473, 40, 50);
-            lb_player1_array[11].setBounds(439, 473, 40, 50);
-            lb_player1_array[12].setBounds(541, 315, 40, 50);
+            new player1_imglocation(lb_player1_array);
+
         }
         // player2 이미지
         {
@@ -321,19 +247,8 @@ public class MainGame_page extends JFrame {
                 lb_player2_array[i] = new JLabel(player2_Icon);
                 getContentPane().add(lb_player2_array[i]);
             }
-            lb_player2_array[0].setBounds(264, 315, 40, 50);
-            lb_player2_array[1].setBounds(264, 209, 40, 50);
-            lb_player2_array[2].setBounds(165, 268, 40, 50);
-            lb_player2_array[3].setBounds(165, 370, 40, 50);
-            lb_player2_array[4].setBounds(264, 431, 40, 50);
-            lb_player2_array[5].setBounds(375, 370, 40, 50);
-            lb_player2_array[6].setBounds(375, 268, 40, 50);
-            lb_player2_array[7].setBounds(419, 165, 40, 50);
-            lb_player2_array[8].setBounds(134, 165, 40, 50);
-            lb_player2_array[9].setBounds(34, 315, 40, 50);
-            lb_player2_array[10].setBounds(134, 473, 40, 50);
-            lb_player2_array[11].setBounds(400, 473, 80, 54);
-            lb_player2_array[12].setBounds(502, 315, 80, 54);
+            new player2_imglocation(lb_player2_array);
+
         }
         // 타일 버튼
         {
@@ -346,19 +261,7 @@ public class MainGame_page extends JFrame {
                 city_btn_array[i].setBorderPainted(false);
                 getContentPane().add(city_btn_array[i]);
             }
-            city_btn_array[0].setBounds(244, 315, 105, 54);
-            city_btn_array[1].setBounds(244, 209, 105, 54);
-            city_btn_array[2].setBounds(145, 268, 105, 54);
-            city_btn_array[3].setBounds(145, 370, 105, 54);
-            city_btn_array[4].setBounds(244, 431, 105, 54);
-            city_btn_array[5].setBounds(355, 370, 105, 54);
-            city_btn_array[6].setBounds(355, 268, 105, 54);
-            city_btn_array[7].setBounds(399, 165, 105, 54);
-            city_btn_array[8].setBounds(114, 165, 105, 54);
-            city_btn_array[9].setBounds(14, 315, 105, 54);
-            city_btn_array[10].setBounds(114, 473, 105, 54);
-            city_btn_array[11].setBounds(399, 473, 105, 54);
-            city_btn_array[12].setBounds(501, 315, 105, 54);
+            new city_btn_imglocation(city_btn_array);
         }
         // 플레이어들의 스탯 요약
         {
@@ -398,20 +301,109 @@ public class MainGame_page extends JFrame {
         }
     }
 
-    //test코드용 메소드임
-    public String get_monster_img_path() {
-        double randomValue = Math.random();
-        int intValue = (int) (randomValue * 5) + 1;
 
-        if (intValue == 1) {
-            return "src\\main\\java\\GUI\\imgaes\\monster\\BYAKEE2.png";
-        } else if (intValue == 2) {
-            return "src\\main\\java\\GUI\\imgaes\\monster\\dagon2.png";
-        } else if (intValue == 3) {
-            return "src\\main\\java\\GUI\\imgaes\\monster\\elder_thing.png";
-        } else if (intValue == 4) {
-            return "src\\main\\java\\GUI\\imgaes\\monster\\ghoul2.png";
-        } else
-            return "src\\main\\java\\GUI\\imgaes\\monster\\nightgaunt2.png";
+    class monster_imglocation extends JLabel {
+        monster_imglocation(JLabel[] monster_array) {
+            for (JLabel monster_img : monster_array) {
+                monster_img.setVisible(false);
+            }
+
+            monster_array[0].setBounds(264, 315, 40, 50);
+            monster_array[1].setBounds(264, 209, 40, 50);
+            monster_array[2].setBounds(165, 268, 40, 50);
+            monster_array[3].setBounds(165, 370, 40, 50);
+            monster_array[4].setBounds(264, 431, 40, 50);
+            monster_array[5].setBounds(375, 370, 40, 50);
+            monster_array[6].setBounds(375, 268, 40, 50);
+            monster_array[7].setBounds(419, 165, 40, 50);
+            monster_array[8].setBounds(134, 165, 40, 50);
+            monster_array[9].setBounds(34, 315, 40, 50);
+            monster_array[10].setBounds(134, 473, 40, 50);
+            monster_array[11].setBounds(400, 473, 80, 54);
+            monster_array[12].setBounds(502, 315, 80, 54);
+
+        }
+    }
+
+    class portal_imglocation extends JLabel {
+        portal_imglocation(JLabel[] portal_array) {
+            for (JLabel portal_img : portal_array) {
+                portal_img.setVisible(false);
+            }
+
+            portal_array[0].setBounds(284, 315, 40, 50);
+            portal_array[1].setBounds(284, 209, 40, 50);
+            portal_array[2].setBounds(185, 268, 40, 50);
+            portal_array[3].setBounds(185, 370, 40, 50);
+            portal_array[4].setBounds(284, 431, 40, 50);
+            portal_array[5].setBounds(395, 370, 40, 50);
+            portal_array[6].setBounds(395, 268, 40, 50);
+            portal_array[7].setBounds(440, 165, 40, 50);
+            portal_array[8].setBounds(154, 165, 40, 50);
+            portal_array[9].setBounds(57, 318, 40, 50);
+            portal_array[10].setBounds(154, 473, 40, 50);
+            portal_array[11].setBounds(439, 473, 40, 50);
+            portal_array[12].setBounds(541, 315, 40, 50);
+
+
+        }
+    }
+
+    class player1_imglocation extends JLabel {
+        player1_imglocation(JLabel[] lb_player1_array) {
+
+            lb_player1_array[0].setBounds(284, 315, 40, 50);
+            lb_player1_array[1].setBounds(284, 209, 40, 50);
+            lb_player1_array[2].setBounds(185, 268, 40, 50);
+            lb_player1_array[3].setBounds(185, 370, 40, 50);
+            lb_player1_array[4].setBounds(284, 431, 40, 50);
+            lb_player1_array[5].setBounds(395, 370, 40, 50);
+            lb_player1_array[6].setBounds(395, 268, 40, 50);
+            lb_player1_array[7].setBounds(440, 165, 40, 50);
+            lb_player1_array[8].setBounds(154, 165, 40, 50);
+            lb_player1_array[9].setBounds(57, 318, 40, 50);
+            lb_player1_array[10].setBounds(154, 473, 40, 50);
+            lb_player1_array[11].setBounds(439, 473, 40, 50);
+            lb_player1_array[12].setBounds(541, 315, 40, 50);
+
+        }
+    }
+
+    class player2_imglocation extends JLabel {
+        player2_imglocation(JLabel[] lb_player2_array) {
+
+            lb_player2_array[0].setBounds(264, 315, 40, 50);
+            lb_player2_array[1].setBounds(264, 209, 40, 50);
+            lb_player2_array[2].setBounds(165, 268, 40, 50);
+            lb_player2_array[3].setBounds(165, 370, 40, 50);
+            lb_player2_array[4].setBounds(264, 431, 40, 50);
+            lb_player2_array[5].setBounds(375, 370, 40, 50);
+            lb_player2_array[6].setBounds(375, 268, 40, 50);
+            lb_player2_array[7].setBounds(419, 165, 40, 50);
+            lb_player2_array[8].setBounds(134, 165, 40, 50);
+            lb_player2_array[9].setBounds(34, 315, 40, 50);
+            lb_player2_array[10].setBounds(134, 473, 40, 50);
+            lb_player2_array[11].setBounds(400, 473, 80, 54);
+            lb_player2_array[12].setBounds(502, 315, 80, 54);
+        }
+    }
+
+    class city_btn_imglocation extends JButton {
+        city_btn_imglocation(JButton[] city_btn_array) {
+
+            city_btn_array[0].setBounds(244, 315, 105, 54);
+            city_btn_array[1].setBounds(244, 209, 105, 54);
+            city_btn_array[2].setBounds(145, 268, 105, 54);
+            city_btn_array[3].setBounds(145, 370, 105, 54);
+            city_btn_array[4].setBounds(244, 431, 105, 54);
+            city_btn_array[5].setBounds(355, 370, 105, 54);
+            city_btn_array[6].setBounds(355, 268, 105, 54);
+            city_btn_array[7].setBounds(399, 165, 105, 54);
+            city_btn_array[8].setBounds(114, 165, 105, 54);
+            city_btn_array[9].setBounds(14, 315, 105, 54);
+            city_btn_array[10].setBounds(114, 473, 105, 54);
+            city_btn_array[11].setBounds(399, 473, 105, 54);
+            city_btn_array[12].setBounds(501, 315, 105, 54);
+        }
     }
 }
