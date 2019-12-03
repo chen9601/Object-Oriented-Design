@@ -146,7 +146,7 @@ public class DialogPanelController {
             public void actionPerformed(ActionEvent e) {
                 if(answer.getTag()=="shop")
                 {
-                    if(ConstantEventHandler.isAffordable(Player.getCurrentPlayer(), answer.getItem()))
+                    if(!ConstantEventHandler.isAffordable(Player.getCurrentPlayer(), answer.getItem()))
                     {
                         RandomEventAnswer.Not_Enough_Money();
                     }

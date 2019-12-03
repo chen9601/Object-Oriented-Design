@@ -20,6 +20,7 @@ public class ConstantEventHandler
 
     static ArrayList<ItemType> itemlist=new ArrayList<ItemType>();
     static boolean shop_maintain_switch=false;
+    static int fight_remain=0;
 
     static void generateRandomEvent(Player player)
     {
@@ -52,10 +53,10 @@ public class ConstantEventHandler
     {
         if(Map.getPortalAt(tile))
         {
-            Map.tiles[tile.ordinal()].setSummoned_monster(new Monster(MonsterType.values()[(int) Math.floor(Math.random() * 5)]));
+            fight_remain=2;
+            Map.tiles[tile.ordinal()].setSummoned_monster(new Monster(MonsterType.values()[(int) Math.floor(Math.random() * 5)]));//굳이 타일에 몬스터를 소환하고 전투를 시작해야하나? 포털은 그럴 필요는 없는 것 같은데
             generateFight(Map.getMonsterAt(tile).getMonster_type());
-            // TODO : 두 싸움 사이에 딜레이가 들어가야 한다. 차례차례 싸워야 함 아니면 한번만 싸우도록 바꿔야 한다.
-//            generateFight(player, MonsterType.Dagon);              //포털을 닫기 위해서는 2번의 전투 필요
+            //포털을 닫기 위해서는 2번의 전투 필요, 이를 count로 구현
             if(player.getHealth() > 0)
             {
                 GameMaster.token++;
@@ -66,8 +67,9 @@ public class ConstantEventHandler
             DialogPanelController.Clear();
             DialogPanelController.generateGeneralDialogues();
         }
-        if(Map.getMonsterAt(tile) != null)
+        else if(Map.getMonsterAt(tile) != null)
         {
+            fight_remain=1;
             ConstantEventHandler.generateFight(Map.getMonsterAt(tile).getMonster_type());
             if(player.getHealth() > 0)
             {
@@ -77,8 +79,7 @@ public class ConstantEventHandler
             DialogPanelController.Clear();
             DialogPanelController.generateGeneralDialogues();
         }
-
-        if(tile == TileType.HOSPITAL)
+        else if(tile == TileType.HOSPITAL)
         {
             hospital(player);
         }
@@ -267,5 +268,14 @@ public class ConstantEventHandler
         DialogPanelController.show_dialog_answer2(item2);
         if(itemlist.get(2)!=null)
         DialogPanelController.show_dialog_answer3(item3);
+
+        if(itemlist.get(0)==null&&itemlist.get(1)==null&&itemlist.get(2)==null)
+        {
+            DialogPanelController.Clear();
+            String message3="오늘의 물건들은 모두 팔렸습니다. 다음 번에 방문해주시길.";
+            DialogPanelController.show_dialog(message3);
+            Answer answer1 = new Answer("1. 상점 나가기", "continue");
+            DialogPanelController.show_dialog_answer1(answer1);
+        }
     }
 }

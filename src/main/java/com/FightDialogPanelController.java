@@ -1,6 +1,8 @@
 package com;
 
 import GUI.DialogPanel;
+import GUI.SetStatus_page;
+import com.sun.tools.javac.Main;
 import lombok.Builder;
 import lombok.Data;
 
@@ -31,8 +33,13 @@ public class FightDialogPanelController extends DialogPanelController{
         selectbtn2 = dialog_panel.getSelectbtn2();
         selectbtn3 = dialog_panel.getSelectbtn3();
         Clear();
-        show_dialog("플레이어 턴!");
-        show_dialog_answer1(new Answer("몬스터를 공격한다.", "attackedMonsterByPlayer"));
+
+        StringBuilder message=new StringBuilder();
+        message.append(monster.getMonster_type().getName());
+        message.append("와(과) 마주쳤다!");
+        show_dialog(message.toString());
+        show_dialog_answer1(new Answer("몬스터를 공격한다.", "attack"));
+        show_dialog_answer2(new Answer("도망친다.","run"));
     }
 
     public static void Clear(){
@@ -63,13 +70,29 @@ public class FightDialogPanelController extends DialogPanelController{
             @Override
             public void actionPerformed(ActionEvent e) {
                 RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
-                selectbtn1.revalidate();
+                if(RandomEventAnswer.swi==false)
+                {
+                    selectbtn1.revalidate();
                 selectbtn1.repaint();
+                }
+
             }
         });
         selectbtn1.setVisible(true);
     }
 
+    public static void show_dialog_answer2(Answer answer){
+        selectbtn2.setText(answer.getMessage());
+        selectbtn2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                selectbtn2.revalidate();
+                selectbtn2.repaint();
+            }
+        });
+        selectbtn2.setVisible(true);
+    }
     public static void getplayerAttackDialog(){
 
     }
