@@ -15,19 +15,19 @@ import static com.Fight_boss_controller.*;
  * boss나 monster와의 전투를 나타내는 페이지이다.
  */
 
-public class Fight_boss_controller extends JFrame {
+public class Fight_boss_page extends JFrame {
 	public static MainGame_page.PlayerStatusPanel player1_status_panel;
 	public static MainGame_page.PlayerStatusPanel player2_status_panel;
 	public static JLabel boss_temphealth;
 	public int turninboss = 0;
 
 	public static void main(String[] args) {
-		Fight_boss_controller frame = new Fight_boss_controller();
+		Fight_boss_page frame = new Fight_boss_page();
 		frame.setVisible(true);
 	}
 
 
-	public Fight_boss_controller() {
+	public Fight_boss_page() {
 
 		Mainmusic_thread.thread.close();
 		Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\boss_fight.mp3", true);

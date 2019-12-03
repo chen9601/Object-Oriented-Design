@@ -1,6 +1,5 @@
 package com;
 
-import GUI.Fight_boss_controller;
 import GUI.Start_page;
 
 import java.util.ArrayList;

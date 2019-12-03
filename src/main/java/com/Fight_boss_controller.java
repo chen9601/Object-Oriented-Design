@@ -1,7 +1,9 @@
 package com;
 
+import GUI.Fight_boss_page;
+
 public class Fight_boss_controller {
-    public static GUI.Fight_boss_controller fight_boss_page;
+    public static GUI.Fight_boss_page fight_boss_page;
 
     public Fight_boss_controller() {
         fight_boss_page = new Fight_boss_page();
@@ -32,7 +34,7 @@ public class Fight_boss_controller {
         Boss boss = GameMaster.current_boss;
         if (dice_value > boss.getRequireVal()) {
             boss.setHealth(boss.getHealth() - (dice_value - boss.getRequireVal()));
-            GUI.Fight_boss_controller.boss_temphealth.setText(Integer.toString(boss.getHealth()));
+            Fight_boss_page.boss_temphealth.setText(Integer.toString(boss.getHealth()));
         }
     }
 
