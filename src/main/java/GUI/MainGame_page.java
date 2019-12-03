@@ -323,8 +323,8 @@ public class MainGame_page extends JFrame {
             monster_array[8].setBounds(139, 165, 40, 50);
             monster_array[9].setBounds(39, 315, 40, 50);
             monster_array[10].setBounds(139, 473, 40, 50);
-            monster_array[11].setBounds(405, 473, 80, 54);
-            monster_array[12].setBounds(507, 315, 80, 54);
+            monster_array[11].setBounds(425, 473, 80, 54);
+            monster_array[12].setBounds(530, 315, 80, 54);
 
         }
     }
