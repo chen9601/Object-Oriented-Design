@@ -2,6 +2,7 @@ package GUI;
 
 import lombok.Getter;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,6 +26,12 @@ public class Dice_page extends JFrame {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
         setUndecorated(false);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((dim.width)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
+
+
+
+        출처: https://selfinvestfriends.tistory.com/15 [self invest]
 //
 //        JButton click = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\click.png"));
 //        click.setBounds(379, 522, 100, 35);

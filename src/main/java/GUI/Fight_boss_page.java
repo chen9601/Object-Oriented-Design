@@ -6,6 +6,10 @@ import com.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static com.Fight_boss_controller.*;
 
 /** boss나 monster와의 전투를 나타내는 페이지이다.*/
 
@@ -40,9 +44,11 @@ public class Fight_boss_page extends JFrame {
 		//플레이어들의 스테이터스
 		{
 
-			ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
-			JLabel lb_player1 = new JLabel(player1_img);
-			lb_player1.setBounds(650, 620, 240, 163);
+			ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png");
+			Image player1_tempimg = player1_img.getImage();
+			Image player1_changedimg = player1_tempimg.getScaledInstance(240,163,Image.SCALE_SMOOTH);
+			JLabel lb_player1 = new JLabel(new ImageIcon(player1_changedimg));
+			lb_player1.setBounds(41, 620, 240, 163);
 			getContentPane().add(lb_player1);
 
 			ImageIcon player1_name_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
@@ -54,8 +60,11 @@ public class Fight_boss_page extends JFrame {
 			player1_status_panel.setBounds(290, 670, 318, 225);
 			getContentPane().add(player1_status_panel);
 
-			JLabel lb_player2_img = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png"));
-			lb_player2_img.setBounds(41, 620, 240, 163);
+			ImageIcon player2_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
+			Image player2_tempimg = player2_img.getImage();
+			Image player2_changedimg = player2_tempimg.getScaledInstance(240,163,Image.SCALE_SMOOTH);
+			JLabel lb_player2_img = new JLabel(new ImageIcon(player2_changedimg));
+			lb_player2_img.setBounds(650, 620, 240, 163);
 			getContentPane().add(lb_player2_img);
 
 			JLabel lb_player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
@@ -71,6 +80,14 @@ public class Fight_boss_page extends JFrame {
 		boss_panel.setBounds(75, 120,1100 , 480);
 		getContentPane().add(boss_panel);
 
-
+		JButton fight = new JButton("싸움시작");
+		getContentPane().add(fight);
+		fight.setBounds(126, 36, 173, 53);
+		fight.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Endlessfight();
+			}
+		});
 	}
 }
