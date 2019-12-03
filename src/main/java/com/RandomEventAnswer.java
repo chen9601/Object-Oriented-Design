@@ -2,7 +2,7 @@ package com;
 
 import GUI.Dice_page;
 import GUI.music.Mainmusic_thread;
-
+import com.GameMaster;
 import GUI.Fight_monster_page;
 import com.sun.tools.javac.Main;
 
@@ -200,12 +200,12 @@ public class RandomEventAnswer {
             case "Next_fight":
                 next_fight();
                 break;
-            case "run":
-                Run();
-                break;
-            case "attack_check2":
-                attack_check_for_Monster();
-                break;
+//            case "run":
+//                Run();
+//                break;
+//            case "attack_check2":
+//                attack_check_for_Monster();
+//                break;
 
         }
     }
@@ -288,7 +288,7 @@ public class RandomEventAnswer {
         } else {
             FightDialogPanelController.show_dialog("데미지를 입히지 못했습니다.");
         }
-
+    }
 
     public static void attack_check_for_Player()
     {

@@ -74,7 +74,6 @@ public class FightDialogPanelController extends DialogPanelController {
 
                 selectbtn1.revalidate();
                 selectbtn1.repaint();
-                }
                 RandomEventAnswer.swi=false;
 
             }
