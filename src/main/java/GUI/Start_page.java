@@ -65,7 +65,7 @@ public class Start_page extends JFrame {
 
 
 
-        Mainmusic_thread music = new Mainmusic_thread("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\music\\Main.mp3",true);
+        Mainmusic_thread music = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3",true);
         music.start();
     }
 

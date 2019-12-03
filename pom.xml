@@ -26,6 +26,13 @@
             <version>5.5.2</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.soundlibs/jlayer -->
+        <dependency>
+            <groupId>com.googlecode.soundlibs</groupId>
+            <artifactId>jlayer</artifactId>
+            <version>1.0.1.4</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
