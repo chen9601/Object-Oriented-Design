@@ -25,15 +25,7 @@ public class SetBoss_page extends JFrame {
 
 
         movetab.setLayout(null);
-        // setstatus페이지로 이동
-        next.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SetStatus_page next = new SetStatus_page();
-                next.setVisible(true);
-                dispose();
-            }
-        });
+
         // startpage로 이동
         prev.addActionListener(new ActionListener() {
             @Override
@@ -44,11 +36,11 @@ public class SetBoss_page extends JFrame {
             }
         });
         movetab.setBounds(0, 0, 1182, 186);
-        next.setBounds(935, 32, 180, 70);
+
         prev.setBounds(78, 32, 180, 70);
 
         getContentPane().add(movetab);
-        movetab.add(next);
+
         movetab.add(prev);
 
 
@@ -90,11 +82,13 @@ public class SetBoss_page extends JFrame {
                             Boss
                                 .builder()
                                 .type(bosstype)
-                                .health(10)
-                                .damage(100)
-                                .requireVal(1)
+                                .health(bosstype.getHealth())
+                                .damage(bosstype.getDamage())
+                                .requireVal(bosstype.getRequireVal())
                                 .build()
                     );
+                    System.out.println(GameMaster.current_boss.getRequireVal());
+
                     SetStatus_page next = new SetStatus_page();
                     next.setVisible(true);
                     dispose();
