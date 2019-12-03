@@ -20,6 +20,7 @@ import static com.Player.idx_of_cur_player;
  */
 
 public class RandomEventAnswer {
+    static boolean swi=false;
     /**
      * 이벤트를 진행할 플레이어와 클릭한 선택지에 해당하는 지칭자로 알맞은 메소드를 호출하는 메소드
      *
@@ -211,6 +212,11 @@ public class RandomEventAnswer {
 
 
     public static void PlayerWinFromMonsterFight() {
+        swi=true;
+        MainGamePageController.maingame_page.dispose();
+        MainGamePageController maingame_page_controller = new MainGamePageController();
+        maingame_page_controller.maingame_page.setVisible(true);
+        DialogPanelController.generateGeneralDialogues();
         FightMonsterController.fight_monster_page.dispose();
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
@@ -218,6 +224,11 @@ public class RandomEventAnswer {
     }
 
     public static void MonsterWin() {
+        swi=true;
+        MainGamePageController.maingame_page.dispose();
+        MainGamePageController maingame_page_controller = new MainGamePageController();
+        maingame_page_controller.maingame_page.setVisible(true);
+        DialogPanelController.generateGeneralDialogues();
         FightMonsterController.fight_monster_page.dispose();
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
@@ -241,14 +252,15 @@ public class RandomEventAnswer {
               FightMonsterController.fight_monster_page
                         .getPlayer_panel()
                         .getHealth_text()
-                        .setText(Integer.toString(player.getHealth()));
+                        .setText(Integer.toString(Player.getCurrentPlayer().getHealth()));
             }
             else if (FightDialogPanelController.monster.getDamageType() == 2)
-            {Player.getCurrentPlayer().setMental(Player.getCurrentPlayer().getMental() - FightDialogPanelController.monster.getDamage());
-          FightMonsterController.fight_monster_page
+            {
+                Player.getCurrentPlayer().setMental(Player.getCurrentPlayer().getMental() - FightDialogPanelController.monster.getDamage());
+                FightMonsterController.fight_monster_page
                         .getPlayer_panel()
                         .getMental_text()
-                        .setText(Integer.toString(player.getHealth()));}
+                        .setText(Integer.toString(Player.getCurrentPlayer().getMental()));}
 
             FightDialogPanelController.show_dialog_answer1(new Answer("계속","attack_check2"));
         } else {
@@ -259,7 +271,7 @@ public class RandomEventAnswer {
 
     public static void attack_check_for_Monster()
     {
-        if (Player.getCurrentPlayer().getHealth() < 1) {
+        if (Player.getCurrentPlayer().getHealth() < 1 || Player.getCurrentPlayer().getMental()<1) {
             FightDialogPanelController.Clear();
             FightDialogPanelController.show_dialog("몬스터에게 패배했습니다.");
             FightDialogPanelController.show_dialog_answer1(new Answer("전투 종료", "MonsterWin"));
@@ -281,7 +293,7 @@ public class RandomEventAnswer {
             FightMonsterController.fight_monster_page
                     .getMonsterPanel()
                     .getMonster_health_txt()
-                    .setText(Integer.toString(monster.getHealth()));          
+                    .setText(Integer.toString(FightMonsterController.monster.getHealth()));
             FightDialogPanelController.show_dialog_answer1(new Answer("계속","attack_check1"));
         } else {
             FightDialogPanelController.show_dialog("데미지를 입히지 못했습니다.");
@@ -320,6 +332,7 @@ public class RandomEventAnswer {
     public static void next_fight()
     {
         FightMonsterController.fight_monster_page.dispose();
+        Mainmusic_thread.thread.close();
         ConstantEventHandler.generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
     }
 
