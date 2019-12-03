@@ -1,13 +1,10 @@
 package com;
 import GUI.DialogPanel;
-import GUI.Dice_page;
 import lombok.Data;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
-import java.util.TimerTask;
 
 @Data
 public class DialogPanelController {

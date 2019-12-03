@@ -1,6 +1,4 @@
 package GUI;
-
-import com.GameMaster;
 import com.ItemType;
 import com.Player;
 
@@ -20,8 +18,7 @@ import javax.swing.JTextPane;
 /** 게임을 진행하면서 바뀌는 플레이어의 현재 스테이터스와 아이템을 보여주는 페이지이다.*/
 
 public class MainGamePlayerStatusDetail_page extends JFrame {
-	ImagePanel panel = new ImagePanel();
-	Image img = new ImageIcon("src/imgaes/backgroundImage.jpg").getImage();
+	Image img = new ImageIcon("src\\imgaes\\backgroundImage.jpg").getImage();
 
 	MainGamePlayerStatusDetail_page(Player player) {
 		getContentPane().setLayout(null);
@@ -151,14 +148,6 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 		getContentPane().add(playerimg);
 	}
 
-	class ImagePanel extends JPanel {
-
-		public void paintComponent(Graphics g) {
-			super.paintComponent(g);
-			g.drawImage(img, 0, 0, 1200, 960, this);
-		}
-	}
-
 	class BtnPlayerSwapAction implements ActionListener {
 		Player cur_player;
 		final int PLAYER_IDX;
@@ -175,12 +164,5 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 			temp.setVisible(true);
 			dispose();
 		}
-	}
-
-	public static void main(String[] args) {
-		MainGamePlayerStatusDetail_page frame = new MainGamePlayerStatusDetail_page(Player.getPlayer(0));
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 	}
 }

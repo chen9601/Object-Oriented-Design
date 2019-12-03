@@ -1,8 +1,6 @@
 package GUI;
-
 import com.*;
 import lombok.Data;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,7 +36,6 @@ public class MainGame_page extends JFrame {
     JLabel lb_player2_name;
     PlayerStatusPanel player2_status_panel;
 
-
     ImageIcon portal_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\portal.png");
     JLabel portal_img_0 = new JLabel(portal_img);
     JLabel portal_img_1 = new JLabel(portal_img);
@@ -55,9 +52,6 @@ public class MainGame_page extends JFrame {
     JLabel portal_img_12 = new JLabel(portal_img);
     JLabel portal_array[] = {portal_img_0, portal_img_1, portal_img_2, portal_img_3, portal_img_4, portal_img_5,
             portal_img_6, portal_img_7, portal_img_8, portal_img_9, portal_img_10, portal_img_11, portal_img_12};
-
-
-    // 현재 타일의 몬스터 이미지를 넣어야해
 
     JLabel monster_img_0 = new JLabel("");
     JLabel monster_img_1 = new JLabel("");
@@ -92,19 +86,14 @@ public class MainGame_page extends JFrame {
                     final int FIRST_PLAYER_IDX = 0;
                     MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
                     temp.setVisible(true);
-
-
                 }
             });
 
             token.setBounds(692, 36, 160, 45);
-
             token_text.setBounds(780, 36, 76, 45);
             token_text.setEditable(false);
             token_text.setText(Integer.toString(GameMaster.token));
-
             turn.setBounds(866, 40, 195, 36);
-
             turn_text.setBounds(938, 36, 123, 45);
             turn_text.setEditable(false);
             turn_text.setText(Integer.toString(GameMaster.turn));
@@ -131,7 +120,6 @@ public class MainGame_page extends JFrame {
                 attribute_textpane = new JTextPane();
                 String text_data = null;
 
-                //안해도 괜찮을듯
                 switch (attribute_name) {
                     case "체력":
                         text_data = Integer.toString(player.getHealth());
@@ -154,9 +142,7 @@ public class MainGame_page extends JFrame {
                 this.add(attribute_textpane);
             }
         }
-
         Status_Components[] status_details;
-
         PlayerStatusPanel(Player player) {
             Dimension player_status_dimension = new Dimension(40, 30);
             status_details = new Status_Components[4];
@@ -169,8 +155,6 @@ public class MainGame_page extends JFrame {
     }
 
     public MainGame_page() {
-
-
         // 상단바
         {
             setResizable(false);
@@ -217,10 +201,8 @@ public class MainGame_page extends JFrame {
         // 몬스터 이미지
         {
             for (JLabel monster_img : monster_array) {
-
                 monster_img.setVisible(false);
                 getContentPane().add(monster_img);
-
             }
             new monster_imglocation(monster_array);
         }
@@ -300,18 +282,10 @@ public class MainGame_page extends JFrame {
             player2_status_panel.setBounds(864, 670, 318, 225);
             getContentPane().add(player2_status_panel);
         }
-
-
     }
-
-
 
     class monster_imglocation extends JLabel {
         monster_imglocation(JLabel[] monster_array) {
-            for (JLabel monster_img : monster_array) {
-                monster_img.setVisible(false);
-            }
-
             monster_array[0].setBounds(264, 315, 40, 50);
             monster_array[1].setBounds(264, 209, 40, 50);
             monster_array[2].setBounds(165, 268, 40, 50);
@@ -325,16 +299,11 @@ public class MainGame_page extends JFrame {
             monster_array[10].setBounds(134, 473, 40, 50);
             monster_array[11].setBounds(400, 473, 80, 54);
             monster_array[12].setBounds(502, 315, 80, 54);
-
         }
     }
 
     class portal_imglocation extends JLabel {
         portal_imglocation(JLabel[] portal_array) {
-            for (JLabel portal_img : portal_array) {
-                portal_img.setVisible(false);
-            }
-
             portal_array[0].setBounds(284, 315, 40, 50);
             portal_array[1].setBounds(284, 209, 40, 50);
             portal_array[2].setBounds(185, 268, 40, 50);
@@ -348,14 +317,11 @@ public class MainGame_page extends JFrame {
             portal_array[10].setBounds(154, 473, 40, 50);
             portal_array[11].setBounds(439, 473, 40, 50);
             portal_array[12].setBounds(541, 315, 40, 50);
-
-
         }
     }
 
     class player1_imglocation extends JLabel {
         player1_imglocation(JLabel[] lb_player1_array) {
-
             lb_player1_array[0].setBounds(284, 315, 40, 50);
             lb_player1_array[1].setBounds(284, 209, 40, 50);
             lb_player1_array[2].setBounds(185, 268, 40, 50);
@@ -375,7 +341,6 @@ public class MainGame_page extends JFrame {
 
     class player2_imglocation extends JLabel {
         player2_imglocation(JLabel[] lb_player2_array) {
-
             lb_player2_array[0].setBounds(264, 315, 40, 50);
             lb_player2_array[1].setBounds(264, 209, 40, 50);
             lb_player2_array[2].setBounds(165, 268, 40, 50);
@@ -394,7 +359,6 @@ public class MainGame_page extends JFrame {
 
     class city_btn_imglocation extends JButton {
         city_btn_imglocation(JButton[] city_btn_array) {
-
             city_btn_array[0].setBounds(244, 315, 105, 54);
             city_btn_array[1].setBounds(244, 209, 105, 54);
             city_btn_array[2].setBounds(145, 268, 105, 54);
