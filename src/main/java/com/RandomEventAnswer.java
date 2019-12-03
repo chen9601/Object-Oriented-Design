@@ -6,6 +6,7 @@ import GUI.Dice_page;
 import GUI.music.Mainmusic_thread;
 
 import GUI.Fight_monster_page;
+import com.sun.tools.javac.Main;
 
 
 import java.util.Timer;
@@ -21,6 +22,7 @@ import static com.Player.idx_of_cur_player;
 
 public class RandomEventAnswer {
     static boolean swi=false;
+
     /**
      * 이벤트를 진행할 플레이어와 클릭한 선택지에 해당하는 지칭자로 알맞은 메소드를 호출하는 메소드
      *
@@ -197,7 +199,7 @@ public class RandomEventAnswer {
             case "attack_check1":
                 attack_check_for_Player();
                 break;
-            case "next_fight":
+            case "Next_fight":
                 next_fight();
                 break;
             case "run":
@@ -315,7 +317,6 @@ public class RandomEventAnswer {
             {
                 FightDialogPanelController.show_dialog("적을 물리치고 살아남았습니다.");
                 FightDialogPanelController.show_dialog_answer1(new Answer("전투 종료","PlayerWinFromMonsterFight"));
-                //전투 창 닫기
             }
             else            //포털 전투의 첫번째라 아직 전투가 남았을 때
             {
@@ -331,6 +332,11 @@ public class RandomEventAnswer {
     }
     public static void next_fight()
     {
+        swi=true;
+        MainGamePageController.maingame_page.dispose();
+        MainGamePageController maingame_page_controller = new MainGamePageController();
+        maingame_page_controller.maingame_page.setVisible(true);
+        DialogPanelController.generateGeneralDialogues();
         FightMonsterController.fight_monster_page.dispose();
         Mainmusic_thread.thread.close();
         ConstantEventHandler.generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
@@ -1041,6 +1047,7 @@ public class RandomEventAnswer {
     }
 
     public static void Next_Turn(Player player) {
+        MainGamePageController.show_players();
         if (GameMaster.turn % 3 == 0) {
             GameMaster.setPortalAndMonsterRandomly();
             MainGamePageController.show_monsters();
@@ -1069,6 +1076,7 @@ public class RandomEventAnswer {
     }
 
     public static void Next_Player(Player player) {
+        MainGamePageController.show_players();
         Player.toggleCurrentPlayer();
 
         // Update turn value to MainGame_page(view)

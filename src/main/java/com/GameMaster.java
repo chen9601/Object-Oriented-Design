@@ -171,7 +171,7 @@ public class GameMaster {
 
             MonsterType monster = MonsterType.values()[tempNum2];
             Monster tempMon = new Monster(monster);
-            if (Map.tiles[tempNum1].getSummoned_monster() == null) {
+            if (Map.tiles[tempNum1].getSummoned_monster() == null&&Map.tiles[tempNum1].isSummoned_portal()==false) {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);
                 MainGamePageController.show_monsters();
 
@@ -180,7 +180,7 @@ public class GameMaster {
         }
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
-            if (isTherePlayer(Map.tiles[tempNum1])) continue;
+            if (isTherePlayer(Map.tiles[tempNum1])||Map.tiles[tempNum1].getSummoned_monster()!=null) continue;
             if (Map.tiles[tempNum1].isSummoned_portal() == false) {
                 Map.tiles[tempNum1].setSummoned_portal(true);
                 break;
