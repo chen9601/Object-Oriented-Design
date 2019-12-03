@@ -110,9 +110,19 @@ public class GameMaster {
     }
 
     public static boolean check_num_of_token_for_win() {
-        if (token == 10)
-            return true;
-        else return false;
+            if(GameMaster.current_boss.getType()==BossType.NYARLATHOTEP)
+            {
+                if(token==13)
+                    return true;
+                else return false;
+            }
+            else if(token==10)
+            {
+                return true;
+            }
+            else
+                return false;
+
     }
 
     public static boolean check_player_status_for_lost() {

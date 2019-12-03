@@ -53,8 +53,8 @@ public class SetBoss_page extends JFrame {
 
 
         String azartoth_win = "강림시 패배";
-        String nyarlathotep_win = " 가면 괴물이 등장할 수 있다.";
-        String chuthulu_win = "최대 정신력과 최대 체력이 1씩 줄어든다.";
+        String nyarlathotep_win = "토큰 필요량 +3";
+        String chuthulu_win = "전투 시 받는 데미지 +1";
 
 
         BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win);
