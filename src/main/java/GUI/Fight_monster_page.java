@@ -53,6 +53,14 @@ public class Fight_monster_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 checkWhoWin();
+                if(Player.getCurrentPlayer().getHealth() < 1){
+                    fight.setText("플레이어 패배");
+                    return;
+                }
+                else if(monster.getHealth() < 1){
+                    fight.setText("몬스터 패배");
+                    return;
+                }
                 if (turn % 2 == 0) {
                     fight.setText("몬스터의 공격");
                     attackedMonsterByPlayer();
@@ -65,14 +73,7 @@ public class Fight_monster_page extends JFrame {
                     System.out.println("몬스터가 플레이어 공격했음");
                     turn++;
                 }
-                if(Player.getCurrentPlayer().getHealth() < 1){
-                    fight.setText("플레이어 패배");
-                    return;
-                }
-                else if(monster.getHealth() < 1){
-                    fight.setText("몬스터 패배");
-                    return;
-                }
+
             }
         });
         setVisible(true);
