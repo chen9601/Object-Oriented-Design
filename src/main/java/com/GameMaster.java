@@ -173,6 +173,8 @@ public class GameMaster {
             Monster tempMon = new Monster(monster);
             if (Map.tiles[tempNum1].getSummoned_monster() == null) {
                 Map.tiles[tempNum1].setSummoned_monster(tempMon);
+                MainGamePageController.show_monsters();
+
                 break;
             } else continue;
         }

@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public enum MonsterType {
     Nightgaunt("나이트건트", 3, 3, 1, 1, 3,"src\\main\\java\\GUI\\imgaes\\monster\\nightgaunt2.png"),
-    Dagon("다곤", 1, 6, 2, 2, 5,"src\\main\\java\\GUI\\imgaes\\monster\\dagon2.png"),
+    Dagon("다곤", 1, 4, 2, 2, 5,"src\\main\\java\\GUI\\imgaes\\monster\\dagon2.png"),
     Byakhee("비야키", 2, 2, 1, 1, 1,"src\\main\\java\\GUI\\imgaes\\monster\\BYAKEE2.png"),
     Ghoul("구울", 4, 4, 2, 1, 4,"src\\main\\java\\GUI\\imgaes\\monster\\ghoul2.png"),
     Elder_Thing("옛 것", 5, 4, 1, 2, 5,"src\\main\\java\\GUI\\imgaes\\monster\\elder_thing.png");

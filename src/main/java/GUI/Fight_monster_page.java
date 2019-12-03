@@ -1,7 +1,9 @@
 package GUI;
 
+import GUI.music.Mainmusic_thread;
 import com.*;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -11,14 +13,14 @@ import java.awt.*;
 
 /**
  * boss나 monster와의 전투를 나타내는 페이지이다.
- *  TODO : 파이트 페이지 맘대로 못 나가게 x버튼 제거
+ * TODO : 파이트 페이지 맘대로 못 나가게 x버튼 제거
  */
 
 @Data
 public class Fight_monster_page extends JFrame {
 
 
-//    public static void main(String[] args) {
+    //    public static void main(String[] args) {
 //        Fight_monster_page frame = new Fight_monster_page();
 //        frame.setVisible(true);
 //    }
@@ -26,7 +28,11 @@ public class Fight_monster_page extends JFrame {
     MonsterPanel monsterPanel;
     PlayerPanel player_panel;
     Monster monster;
+
     public Fight_monster_page(Monster monster) {
+        Mainmusic_thread.thread.close();
+        Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\monster_fight.mp3", true);
+        music_thread.start();
         this.monster = monster;
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,15 +58,19 @@ public class Fight_monster_page extends JFrame {
 //        getContentPane().add(status);
     }
 
-
+    @Getter
     public class PlayerPanel extends JPanel {
+        JLabel power_text;
+        JLabel health_text;
+        JLabel mental_text;
+
         PlayerPanel(Player player) {
             JLabel lblpower = new JLabel("power");
-            JLabel power_text = new JLabel(Integer.toString(player.getPower()));
+            power_text = new JLabel(Integer.toString(player.getPower()));
             JLabel lblhealth = new JLabel("health");
-            JLabel health_text = new JLabel(Integer.toString(player.getHealth()));
+            health_text = new JLabel(Integer.toString(player.getHealth()));
             JLabel lblmental = new JLabel("mental");
-            JLabel mental_text = new JLabel(Integer.toString(player.getMental()));
+            mental_text = new JLabel(Integer.toString(player.getMental()));
 
             ImageIcon player_imgpath;
             ImageIcon player_nameimgpath;
@@ -110,19 +120,24 @@ public class Fight_monster_page extends JFrame {
         }
 
     }
+
+    @Getter
     public class MonsterPanel extends JPanel {
+        JLabel monster_health_txt;
+        JLabel monster_power_txt;
+        JLabel monster_name;
+
         MonsterPanel(Monster monster) {
 //            Monster monster = Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].getSummoned_monster();
             // 테스트를 위해 아래 코드 삽입 항상 다곤과 싸운다.
 
             JLabel monster_health = new JLabel("Health");
-            JLabel monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
-
+            monster_health_txt = new JLabel(Integer.toString(monster.getHealth()));
             JLabel monster_power = new JLabel("power");
-            JLabel monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
+            monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
 
             JLabel monster_img = new JLabel(new ImageIcon(monster.getImagepath()));
-            JLabel monster_name = new JLabel(monster.getMonster_type().getName());
+            monster_name = new JLabel(monster.getMonster_type().getName());
 
             {
                 monster_health.setBounds(957, 209, 79, 36);

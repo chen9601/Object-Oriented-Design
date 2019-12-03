@@ -61,6 +61,10 @@ public class Start_page extends JFrame {
         loadgame.setBounds(500, 600, 200, 70);
         exitgame.setBounds(500, 720, 200, 70);
 
+
+
+        Mainmusic_thread music = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3",true);
+        music.start();
     }
 
     static public void Start_pageView() {
