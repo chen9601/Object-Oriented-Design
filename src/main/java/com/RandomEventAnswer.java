@@ -215,9 +215,9 @@ public class RandomEventAnswer {
                             + Integer.toString(monster.getDamage())
                             + "의 피해를 주었습니다."
             );
-
             if (monster.getDamageType() == 1)
                 player.setHealth(player.getHealth() - monster.getDamage());
+                
             else if (monster.getDamageType() == 2)
                 player.setMental(player.getMental() - monster.getDamage());
         } else {
