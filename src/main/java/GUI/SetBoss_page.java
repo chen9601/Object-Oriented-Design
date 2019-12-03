@@ -106,13 +106,14 @@ public class SetBoss_page extends JFrame {
             bossbtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    //TODO : boss test code지우고 수정 bosstype과 연동
                     GameMaster.setBoss(
                             Boss
                                 .builder()
                                 .type(bosstype)
                                 .health(100)
                                 .damage(100)
-                                .requireVal(100)
+                                .requireVal(1)
                                 .build()
                     );
                     SetStatus_page next = new SetStatus_page();

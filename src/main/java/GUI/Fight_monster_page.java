@@ -60,13 +60,12 @@ public class Fight_monster_page extends JFrame {
 
     @Getter
     public class PlayerPanel extends JPanel {
-        JLabel power_text;
+
         JLabel health_text;
         JLabel mental_text;
 
         PlayerPanel(Player player) {
-            JLabel lblpower = new JLabel("power");
-            power_text = new JLabel(Integer.toString(player.getPower()));
+
             JLabel lblhealth = new JLabel("health");
             health_text = new JLabel(Integer.toString(player.getHealth()));
             JLabel lblmental = new JLabel("mental");
@@ -80,17 +79,16 @@ public class Fight_monster_page extends JFrame {
                 player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
             } else {
                 player_imgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
-                player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
+                player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png");
             }
-            JLabel player_img = new JLabel(player_imgpath);
+
+
+            Image player_tempimg = player_imgpath.getImage();
+            Image player_changedimg = player_tempimg.getScaledInstance(194,165,Image.SCALE_SMOOTH);
+            JLabel player_img = new JLabel(new ImageIcon(player_changedimg));
             JLabel player_nameimg = new JLabel(player_nameimgpath);
 
-            lblpower.setBounds(223, 682, 79, 36);
-            getContentPane().add(lblpower);
 
-
-            power_text.setBounds(302, 682, 119, 36);
-            getContentPane().add(power_text);
 
 
             lblhealth.setBounds(223, 747, 79, 36);
@@ -136,10 +134,15 @@ public class Fight_monster_page extends JFrame {
             JLabel monster_power = new JLabel("power");
             monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
 
-            JLabel monster_img = new JLabel(new ImageIcon(monster.getImagepath()));
+
+            ImageIcon monster_originimg = new ImageIcon(monster.getImagepath());
+            Image monster_tempimg = monster_originimg.getImage();
+            Image monster_changedimg = monster_tempimg.getScaledInstance(150,180,Image.SCALE_SMOOTH);
+            JLabel monster_img = new JLabel(new ImageIcon(monster_changedimg));
             monster_name = new JLabel(monster.getMonster_type().getName());
 
             {
+
                 monster_health.setBounds(957, 209, 79, 36);
                 getContentPane().add(monster_health);
 
