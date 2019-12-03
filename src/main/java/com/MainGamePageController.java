@@ -70,10 +70,10 @@ public class MainGamePageController {
         for (JLabel label : player1_array) {
             label.setVisible(false);
         }
-        if(Player.getPlayer(0).getStatus()!=2)
-        player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
-        if(Player.getPlayer(1).getStatus()!=2)
-        player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
+        if(Player.getPlayer(0).getStatus() == Player.ALIVE)
+            player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
+        if(Player.getPlayer(1).getStatus() == Player.ALIVE)
+            player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
     }
 
     public static void show_monsters(){
