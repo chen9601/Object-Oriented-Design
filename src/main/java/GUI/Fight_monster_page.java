@@ -97,10 +97,6 @@ public class Fight_monster_page extends JFrame {
     private void attackedMonsterByPlayer() {
         int dice_value = ConstantEventHandler.Dice();
         if (dice_value > monster.getRequireVal()) {
-            ImageIcon monster_originimg = new ImageIcon("src\\main\\java\\GUI\\imgaes\\monster\\dagon-");
-            JLabel monster_img = new JLabel(monster_originimg);
-            monster_img.setBounds(708, 99, 212, 215);
-            getContentPane().add(monster_img);
             monster.setHealth(monster.getHealth() - (dice_value - monster.getRequireVal()));
             FightMonsterController.fight_monster_page.monsterPanel.getMonster_health_txt().setText(Integer.toString(monster.getHealth()));
         }
