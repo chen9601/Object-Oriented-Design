@@ -2,7 +2,7 @@ package com;
 
 public enum BossType {
     AZATHOTH("아자투스",10, 10, 10,"src\\main\\java\\GUI\\imgaes\\boss\\azatoth.png"),
-    CHUTHULU("크툴루",10,3,5,"src\\main\\java\\GUI\\imgaes\\boss\\azatoth.png"),
+    CHUTHULU("크툴루",10,3,5,"src\\main\\java\\GUI\\imgaes\\boss\\CHUTHULU.png"),
     NYARLATHOTEP("니알라토텝",10,2,6,"src\\main\\java\\GUI\\imgaes\\boss\\NYARLATHOTEP.png");
 
     final private String name;
