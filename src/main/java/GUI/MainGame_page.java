@@ -78,8 +78,12 @@ public class MainGame_page extends JFrame {
     @Getter
     @Setter
     public class MainGameTabPanel extends JPanel {
+        Font tabFont = new Font("tabfont",Font.PLAIN,20);
+
         JButton status = new JButton("Status");
+
         JLabel token = new JLabel("token");
+
         JTextPane token_text = new JTextPane();
         JLabel turn = new JLabel("Turn");
         JTextPane turn_text = new JTextPane();
@@ -95,12 +99,15 @@ public class MainGame_page extends JFrame {
                 }
             });
 
-            token.setBounds(692, 36, 160, 45);
-            token_text.setBounds(780, 36, 76, 45);
+            token.setFont(tabFont);
+            turn.setFont(tabFont);
+
+            token.setBounds(692, 40, 160, 45);
+            token_text.setBounds(780, 40, 76, 30);
             token_text.setEditable(false);
             token_text.setText(Integer.toString(GameMaster.token));
             turn.setBounds(866, 40, 195, 36);
-            turn_text.setBounds(938, 36, 123, 45);
+            turn_text.setBounds(938, 40, 123, 30);
             turn_text.setEditable(false);
             turn_text.setText(Integer.toString(GameMaster.turn));
 
@@ -118,13 +125,23 @@ public class MainGame_page extends JFrame {
     public static class PlayerStatusPanel extends JPanel {
         @Getter
         @Setter
+
         public class Status_Components extends JPanel {
             JLabel lb_attribute_name;
-            JTextPane attribute_textpane;
 
+            JTextPane attribute_textpane;
+            Image dialog = new ImageIcon("src\\main\\java\\GUI\\imgaes\\DIALOG-PANEL.PNG").getImage();
             Status_Components(Player player, Dimension player_status_dimension, String attribute_name) {
+
+                Font lb_attributfont = new Font("attributfont",Font.BOLD,20);
+
                 lb_attribute_name = new JLabel(attribute_name);
+
+                lb_attribute_name.setFont(lb_attributfont);
+
+                lb_attribute_name.setForeground(Color.white);
                 lb_attribute_name.setPreferredSize(player_status_dimension);
+
                 attribute_textpane = new JTextPane();
                 String text_data = null;
 
@@ -153,14 +170,16 @@ public class MainGame_page extends JFrame {
         }
         Status_Components[] status_details;
         PlayerStatusPanel(Player player) {
-            Dimension player_status_dimension = new Dimension(40, 30);
+            Dimension player_status_dimension = new Dimension(70, 30);
             status_details = new Status_Components[4];
             for (StatusType status_type : StatusType.values()) {
                 status_details[status_type.ordinal()] = new Status_Components(player, player_status_dimension, status_type.getName());
                 this.add(status_details[status_type.ordinal()]);
             }
             setLayout(new GridLayout(4, 2, 20, 0));
+
         }
+
     }
 
     public MainGame_page() {
@@ -295,7 +314,7 @@ public class MainGame_page extends JFrame {
             panel.add(player1_name);
 
             player1_status_panel = new PlayerStatusPanel(Player.getPlayer(0));
-            player1_status_panel.setBounds(290, 670, 318, 225);
+            player1_status_panel.setBounds(200, 670, 318, 225);
             player1_status_panel.setOpaque(false);
             panel.add(player1_status_panel);
 
@@ -312,7 +331,7 @@ public class MainGame_page extends JFrame {
             panel.add(lb_player2_name);
 
             player2_status_panel = new PlayerStatusPanel(Player.getPlayer(1));
-            player2_status_panel.setBounds(864, 670, 318, 225);
+            player2_status_panel.setBounds(820, 670, 318, 225);
             player2_status_panel.setOpaque(false);
             panel.add(player2_status_panel);
         }
