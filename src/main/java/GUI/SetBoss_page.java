@@ -7,6 +7,8 @@ import com.GameMaster;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -110,7 +112,14 @@ public class SetBoss_page extends JFrame {
                 }
             });
             setLayout(new BorderLayout());
-            Image temp = new ImageIcon(img_path).getImage();
+            Image img_boss;
+            try {
+                img_boss = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(img_path));
+            } catch (IOException e) {
+                e.printStackTrace();
+                img_boss = null;
+            }
+            Image temp = new ImageIcon(img_boss).getImage();
             Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
 
             ImageIcon real = new ImageIcon(temp_2);

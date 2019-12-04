@@ -4,10 +4,12 @@ import com.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 
 /**
@@ -139,15 +141,31 @@ public class Fight_monster_page extends JFrame {
             JLabel lblmental = new JLabel("mental");
             mental_text = new JLabel(Integer.toString(player.getMental()));
 
-            ImageIcon player_imgpath;
-            ImageIcon player_nameimgpath;
+            ImageIcon player_imgpath = null;
+            ImageIcon player_nameimgpath = null;
 
             if (player == Player.getPlayer(0)) {
-                player_imgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png");
-                player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
+                try {
+                    player_imgpath = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1-portrait.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    player_nameimgpath = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1_name.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
-                player_imgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
-                player_nameimgpath = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png");
+                try {
+                    player_imgpath = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player2-portrait.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    player_nameimgpath = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player2_name.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
             Image player_tempimg = player_imgpath.getImage();
             Image player_changedimg = player_tempimg.getScaledInstance(194, 165, Image.SCALE_SMOOTH);
@@ -180,8 +198,14 @@ public class Fight_monster_page extends JFrame {
             JLabel monster_power = new JLabel("power");
             monster_power_txt = new JLabel(Integer.toString(monster.getDamage()));
 
-
-            ImageIcon monster_originimg = new ImageIcon(monster.getImagepath2());
+            Image img_monster;
+            try {
+                img_monster = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(monster.getImagepath2()));
+            } catch (IOException e) {
+                e.printStackTrace();
+                img_monster = null;
+            }
+            ImageIcon monster_originimg = new ImageIcon(img_monster);
             JLabel monster_img = new JLabel(monster_originimg);
             monster_name = new JLabel(monster.getMonster_type().getName());
 

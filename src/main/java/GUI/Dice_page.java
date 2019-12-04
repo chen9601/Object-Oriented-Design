@@ -3,7 +3,9 @@ package GUI;
 import lombok.Getter;
 
 import java.awt.*;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -20,15 +22,24 @@ public class Dice_page extends JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((dim.width/2)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
 
-        path = "src\\main\\java\\GUI\\imgaes\\diceForRoll-export.gif";
-        JLabel showDice = new JLabel(new ImageIcon(path));
+        path = "images/diceForRoll-export.gif";
+        JLabel showDice = null;
+        try {
+            showDice = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         showDice.setBounds(14, 22, 500, 500);
         getContentPane().add(showDice);
 
         savedDice_num = select_Dicenum();
         System.out.println(savedDice_num);
         System.out.println("Dice_page select_Dicenum");
-        showDice.setIcon(new ImageIcon(DiceImage(savedDice_num)));
+        try {
+            showDice.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(DiceImage(savedDice_num)))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String DiceImage(int Dice_num) {

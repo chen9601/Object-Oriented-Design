@@ -4,14 +4,26 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 @Getter
 @Setter
 public class DialogPanel extends JPanel {
 
-    Image dialog = new ImageIcon("src\\main\\java\\GUI\\imgaes\\DIALOG-PANEL.PNG").getImage();
+
+    Image dialog;
+
+    {
+        try {
+            dialog = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/DIALOG-PANEL.PNG"))).getImage();
+        } catch (IOException e) {
+            dialog = null;
+            e.printStackTrace();
+        }
+    }
 
     JLabel lb_just_text = new JLabel("Mac morning");
     JButton selectbtn3 = new JButton("Example3");

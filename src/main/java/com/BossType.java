@@ -1,9 +1,12 @@
 package com;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+
 public enum BossType {
-    AZATHOTH("아자투스",10, 10, 10,"src\\main\\java\\GUI\\imgaes\\boss\\azatoth.png","src\\main\\java\\GUI\\imgaes\\boss\\azatoth.png"),
-    CHUTHULU("크툴루",10,3,1,"src\\main\\java\\GUI\\imgaes\\boss\\CHUTHULU.png","src\\main\\java\\GUI\\imgaes\\boss\\cthulhu.gif"),
-    NYARLATHOTEP("니알라토텝",10,2,1,"src\\main\\java\\GUI\\imgaes\\boss\\NYARLATHOTEP.png","src\\main\\java\\GUI\\imgaes\\boss\\nyala.gif");
+    AZATHOTH("아자투스",10, 10, 10,"images/boss/azatoth.png","images/boss/azatoth.png"),
+    CHUTHULU("크툴루",10,3,1,"images/boss/CHUTHULU.png","images/boss/cthulhu.gif"),
+    NYARLATHOTEP("니알라토텝",10,2,1,"images/boss/NYARLATHOTEP.png","images/boss/nyala.gif");
 
     final private String name;
     private int damage;
