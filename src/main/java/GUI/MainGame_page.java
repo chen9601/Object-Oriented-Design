@@ -6,7 +6,9 @@ import lombok.Setter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
@@ -130,7 +132,16 @@ public class MainGame_page extends JFrame {
             JLabel lb_attribute_name;
 
             JTextPane attribute_textpane;
-            Image dialog = new ImageIcon("src\\main\\java\\GUI\\imgaes\\DIALOG-PANEL.PNG").getImage();
+            Image dialog;
+
+            {
+                try {
+                    dialog = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/DIALOG-PANEL.PNG"))).getImage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
             Status_Components(Player player, Dimension player_status_dimension, String attribute_name) {
 
                 Font lb_attributfont = new Font("attributfont",Font.BOLD,20);
@@ -277,38 +288,56 @@ public class MainGame_page extends JFrame {
                 city_btn_array[i].setBorderPainted(false);
                 panel.add(city_btn_array[i]);
             }
-            city_btn_array[8] = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\hospital.png"));
-            city_btn_array[8].setVisible(true);
-            city_btn_array[8].setFocusPainted(false);
-            city_btn_array[8].setContentAreaFilled(false);
-            city_btn_array[8].setBorderPainted(false);
-            panel.add(city_btn_array[8]);
-            city_btn_array[0] = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\store.png"));
-            city_btn_array[0].setVisible(true);
-            city_btn_array[0].setFocusPainted(false);
-            city_btn_array[0].setContentAreaFilled(false);
-            city_btn_array[0].setBorderPainted(false);
-            panel.add(city_btn_array[0]);
-            city_btn_array[11] = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\mospital.png"));
-            city_btn_array[11].setVisible(true);
-            city_btn_array[11].setFocusPainted(false);
-            city_btn_array[11].setContentAreaFilled(false);
-            city_btn_array[11].setBorderPainted(false);
-            panel.add(city_btn_array[11]);
+            try {
+                city_btn_array[TileType.HOSPITAL.ordinal()] = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/hospital.png"))));
+                city_btn_array[TileType.HOSPITAL.ordinal()].setFocusPainted(false);
+                city_btn_array[TileType.HOSPITAL.ordinal()].setContentAreaFilled(false);
+                city_btn_array[TileType.HOSPITAL.ordinal()].setBorderPainted(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            panel.add(city_btn_array[TileType.HOSPITAL.ordinal()]);
+            try {
+                city_btn_array[TileType.STORE.ordinal()] = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/store.png"))));
+                city_btn_array[TileType.STORE.ordinal()].setFocusPainted(false);
+                city_btn_array[TileType.STORE.ordinal()].setContentAreaFilled(false);
+                city_btn_array[TileType.STORE.ordinal()].setBorderPainted(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            panel.add(city_btn_array[TileType.STORE.ordinal()]);
+            try {
+                city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()] = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/mospital.png"))));
+                city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()].setFocusPainted(false);
+                city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()].setContentAreaFilled(false);
+                city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()].setBorderPainted(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             new city_btn_imglocation(city_btn_array);
         }
         // 플레이어들의 스탯 요약
         {
 
 
-            ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png");
+            ImageIcon player1_img = null;
+            try {
+                player1_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1-portrait.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Image player1_tempimg = player1_img.getImage();
             Image player1_changedimg = player1_tempimg.getScaledInstance(240,163,Image.SCALE_SMOOTH);
             lb_player1 = new JLabel(new ImageIcon(player1_changedimg));
             lb_player1.setBounds(41, 620, 240, 163);
             panel.add(lb_player1);
 
-            ImageIcon player1_name_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
+            ImageIcon player1_name_img = null;
+            try {
+                player1_name_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1_name.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             player1_name = new JLabel(player1_name_img);
             player1_name.setBounds(41, 780, 240, 61);
             panel.add(player1_name);
@@ -318,14 +347,23 @@ public class MainGame_page extends JFrame {
             player1_status_panel.setOpaque(false);
             panel.add(player1_status_panel);
 
-            ImageIcon player2_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
+            ImageIcon player2_img = null;
+            try {
+                player2_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player2-portrait.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Image player2_tempimg = player2_img.getImage();
             Image player2_changedimg = player2_tempimg.getScaledInstance(240,163,Image.SCALE_SMOOTH);
             lb_player2_img = new JLabel(new ImageIcon(player2_changedimg));
             lb_player2_img.setBounds(650, 620, 240, 163);
             panel.add(lb_player2_img);
 
-            lb_player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
+            try {
+                lb_player2_name = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player2_name.png"))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             lb_player2_name.setBounds(650, 780, 240, 61);
 
             panel.add(lb_player2_name);

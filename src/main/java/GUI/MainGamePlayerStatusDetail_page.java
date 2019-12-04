@@ -1,13 +1,16 @@
 package GUI;
 
 import com.ItemType;
+import com.MainGamePageController;
 import com.Player;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,17 +24,59 @@ import javax.swing.JTextPane;
 
 public class MainGamePlayerStatusDetail_page extends JFrame {
 
-    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+    Image img;
+
+    {
+        try {
+            img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/backgroundImage.jpg"))).getImage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     static JLabel player_name;
     static JLabel playerimg;
 
 
-    static ImageIcon player1_nameimg = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
-    static ImageIcon player1_potraitimg = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png");
+    static ImageIcon player1_nameimg;
 
-    static ImageIcon player2_nameimg = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png");
-    static ImageIcon player2_potraitimg = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
+    static {
+        try {
+            player1_nameimg = new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/player1_name.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static ImageIcon player1_potraitimg;
+
+    static {
+        try {
+            player1_potraitimg = new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/player1-portrait.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static ImageIcon player2_nameimg;
+
+    static {
+        try {
+            player2_nameimg = new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/player2_name.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static ImageIcon player2_potraitimg;
+
+    static {
+        try {
+            player2_potraitimg = new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/player2-portrait.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     MainGamePlayerStatusDetail_page(Player player) {
@@ -173,11 +218,19 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
         }
         // 이미지 패스 분기나누기
 
-        player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
+        try {
+            player_name = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1_name.png"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         player_name.setBounds(113, 559, 365, 155);
         panel.add(player_name);
 
-        playerimg = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png"));
+        try {
+            playerimg = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1-portrait.png"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         playerimg.setBounds(120, 209, 358, 356);
         panel.add(playerimg);
 
