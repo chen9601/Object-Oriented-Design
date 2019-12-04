@@ -1,9 +1,7 @@
 package com;
 import GUI.Dice_page;
 import GUI.Game_resultPage;
-import GUI.music.Mainmusic_thread;
-
-import GUI.MainGame_page;
+import GUI.Mainmusic_thread;
 
 
 import static com.Player.idx_of_cur_player;

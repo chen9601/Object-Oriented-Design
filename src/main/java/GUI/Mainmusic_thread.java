@@ -1,4 +1,4 @@
-package GUI.music;
+package GUI;
 
 import javazoom.jl.player.Player;
 import java.io.BufferedInputStream;
