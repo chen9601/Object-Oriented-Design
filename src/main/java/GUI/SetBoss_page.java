@@ -24,7 +24,12 @@ public class SetBoss_page extends JFrame {
         setBounds(0, 0, 1200, 960);
 
         JPanel movetab = new JPanel();
-        JButton next = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\next.png"));
+
+        JLabel help_text = new JLabel("Click the boss name you want");
+        Font font = new Font("font",Font.ITALIC,30);
+        help_text.setFont(font);
+        movetab.add(help_text);
+
         JButton prev = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\prev.png"));
 
 
@@ -40,7 +45,7 @@ public class SetBoss_page extends JFrame {
             }
         });
         movetab.setBounds(0, 0, 1182, 186);
-
+        help_text.setBounds(480,32,800,70);
         prev.setBounds(78, 32, 180, 70);
 
 
@@ -53,9 +58,9 @@ public class SetBoss_page extends JFrame {
         String chuthulu_win = "전투 시 받는 데미지 +1";
 
 
-        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win);
-        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win);
-        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win);
+        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win,"src\\main\\java\\GUI\\imgaes\\AZATOTH-NAME.PNG");
+        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win,"src\\main\\java\\GUI\\imgaes\\CTHULHU-NAME.PNG");
+        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win,"src\\main\\java\\GUI\\imgaes\\NYALA-NAME.PNG");
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
@@ -75,8 +80,15 @@ public class SetBoss_page extends JFrame {
 
     class BossPanel extends JPanel {
 
-        public BossPanel(String img_path, BossType bosstype, String boss_win) {
-            JButton bossbtn = new JButton(bosstype.getName());
+        public BossPanel(String img_path, BossType bosstype, String boss_win,String boss_name_imgpath) {
+            ImageIcon bossbtn_image = new ImageIcon(boss_name_imgpath);
+            JButton bossbtn = new JButton(bossbtn_image);
+
+            bossbtn.setPreferredSize(new Dimension(170,70));
+            bossbtn.setOpaque(false);
+            bossbtn.setFocusPainted(false);
+            bossbtn.setContentAreaFilled(false);
+
             bossbtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -104,8 +116,10 @@ public class SetBoss_page extends JFrame {
             ImageIcon real = new ImageIcon(temp_2);
 
             JLabel bossimg = new JLabel(real);
-            JTextField bosstxt = new JTextField();
-            bosstxt.setText(boss_win);
+            JLabel bosstxt = new JLabel(boss_win);
+            bosstxt.setPreferredSize(new Dimension(150, 50));
+
+
             bosstxt.setHorizontalAlignment(JTextField.CENTER);
 
             add(bossimg, BorderLayout.NORTH);
