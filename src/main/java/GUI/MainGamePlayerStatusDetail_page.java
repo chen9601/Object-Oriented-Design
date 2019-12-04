@@ -1,9 +1,9 @@
 package GUI;
+
 import com.ItemType;
 import com.Player;
 
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -20,10 +20,11 @@ import javax.swing.JTextPane;
  */
 
 public class MainGamePlayerStatusDetail_page extends JFrame {
-    ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon("src/imgaes/backgroundImage.jpg").getImage();
+
+    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+
     static JLabel player_name;
-    static  JLabel playerimg;
+    static JLabel playerimg;
 
 
     static ImageIcon player1_nameimg = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
@@ -34,8 +35,15 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 
 
     MainGamePlayerStatusDetail_page(Player player) {
+        ImagePanel panel = new ImagePanel();
+        getContentPane().add(panel);
+
+        Font statusfont = new Font("font", Font.BOLD, 20);
+
+
+        panel.setLayout(null);
         {
-            getContentPane().setLayout(null);
+
             setBounds(0, 0, 1200, 960);
 
             JPanel movetab = new JPanel();
@@ -48,7 +56,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
                 }
             });
 
-            getContentPane().add(movetab);
+            panel.add(movetab);
             movetab.setLayout(null);
             movetab.setBounds(0, 0, 1182, 146);
             prev.setBounds(40, 32, 180, 70);
@@ -86,58 +94,70 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
             movetab.add(pos_text);
 
             JLabel status_power = new JLabel("힘");
+            status_power.setForeground(Color.white);
+            status_power.setFont(statusfont);
             status_power.setBounds(546, 282, 116, 39);
-            getContentPane().add(status_power);
+            panel.add(status_power);
 
             JTextPane power_text = new JTextPane();
             power_text.setBounds(622, 282, 164, 39);
             power_text.setEditable(false);
             power_text.setText(Integer.toString(player.getPower()));
-            getContentPane().add(power_text);
+            panel.add(power_text);
 
             JLabel status_dex = new JLabel("민첩성");
+            status_dex.setFont(statusfont);
+            status_dex.setForeground(Color.white);
             status_dex.setBounds(546, 365, 116, 39);
-            getContentPane().add(status_dex);
+            panel.add(status_dex);
 
             JTextPane dex_text = new JTextPane();
             dex_text.setBounds(622, 365, 164, 39);
             dex_text.setEditable(false);
             dex_text.setText(Integer.toString(player.getDexterity()));
-            getContentPane().add(dex_text);
+            panel.add(dex_text);
 
             JLabel status_intelligence = new JLabel("지능");
+            status_intelligence.setFont(statusfont);
+            status_intelligence.setForeground(Color.white);
             status_intelligence.setBounds(546, 457, 116, 39);
-            getContentPane().add(status_intelligence);
+            panel.add(status_intelligence);
 
             JTextPane intelligence_text = new JTextPane();
             intelligence_text.setBounds(622, 457, 164, 39);
             intelligence_text.setEditable(false);
             intelligence_text.setText(Integer.toString(player.getIntelligence()));
-            getContentPane().add(intelligence_text);
+            panel.add(intelligence_text);
 
             JLabel status_mental = new JLabel("정신력");
+            status_mental.setFont(statusfont);
+            status_mental.setForeground(Color.white);
             status_mental.setBounds(546, 544, 116, 39);
-            getContentPane().add(status_mental);
+            panel.add(status_mental);
 
             JTextPane mental_text = new JTextPane();
             mental_text.setBounds(622, 544, 164, 39);
             mental_text.setEditable(false);
             mental_text.setText(Integer.toString(player.getMental()));
-            getContentPane().add(mental_text);
+            panel.add(mental_text);
 
             JLabel status_health = new JLabel("체력");
+            status_health.setFont(statusfont);
+            status_health.setForeground(Color.white);
             status_health.setBounds(870, 282, 116, 39);
-            getContentPane().add(status_health);
+            panel.add(status_health);
 
             JTextPane health_text = new JTextPane();
             health_text.setBounds(946, 282, 164, 39);
             health_text.setEditable(false);
             health_text.setText(Integer.toString(player.getHealth()));
-            getContentPane().add(health_text);
+            panel.add(health_text);
 
             JLabel item = new JLabel("Item");
+            item.setFont(statusfont);
+            item.setForeground(Color.white);
             item.setBounds(870, 365, 240, 39);
-            getContentPane().add(item);
+            panel.add(item);
 
             JTextPane item_text = new JTextPane();
             item_text.setBounds(865, 410, 245, 173);
@@ -148,20 +168,20 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
                 item_sb.append(cur_item.getName() + "\n");
             }
             item_text.setText(item_sb.toString());
-            getContentPane().add(item_text);
+            panel.add(item_text);
 
         }
         // 이미지 패스 분기나누기
 
         player_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png"));
         player_name.setBounds(113, 559, 365, 155);
-        getContentPane().add(player_name);
+        panel.add(player_name);
 
         playerimg = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png"));
         playerimg.setBounds(120, 209, 358, 356);
-        getContentPane().add(playerimg);
+        panel.add(playerimg);
 
-
+        panel.setVisible(true);
     }
 
     class ImagePanel extends JPanel {
@@ -189,7 +209,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 
             MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(player_to_show);
             temp.setVisible(true);
-			show_player(player_to_show);
+            show_player(player_to_show);
             dispose();
         }
     }
@@ -201,7 +221,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
             playerimg.setIcon(player1_potraitimg);
 
         } else {
-            player_name.setIcon( player2_nameimg);
+            player_name.setIcon(player2_nameimg);
             playerimg.setIcon(player2_potraitimg);
         }
     }
