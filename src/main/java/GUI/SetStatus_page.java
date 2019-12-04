@@ -83,7 +83,7 @@ public class SetStatus_page extends JFrame {
         imagePanel.add(perstatus);
         perstatus.add(status_power);
 
-        perstatus_set status_dex = new perstatus_set("src\\main\\java\\GUI\\imgaes\\2.png");
+        perstatus_set status_dex = new perstatus_set("/imgaes/2.png");
         statusImagePanel perstatus_1 = new statusImagePanel();
 
         perstatus_1.setOpaque(false);
@@ -169,13 +169,13 @@ public class SetStatus_page extends JFrame {
             status_value.setFont(font);
             status_value.setForeground(Color.white);
 
-            JButton plus = new JButton(new ImageIcon("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\plus-for-status.png"));
+            JButton plus = new JButton(new ImageIcon("imgaes/plus-for-status.png"));
             plus.setOpaque(false);
             plus.setFocusPainted(false);
             plus.setContentAreaFilled(false);
             plus.setBorderPainted(false);
 
-            JButton minus = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\minus-for-status.png"));
+            JButton minus = new JButton(new ImageIcon("imgaes/minus-for-status.png"));
             minus.setOpaque(false);
             minus.setFocusPainted(false);
             minus.setContentAreaFilled(false);

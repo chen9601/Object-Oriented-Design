@@ -58,9 +58,9 @@ public class SetBoss_page extends JFrame {
         String chuthulu_win = "전투 시 받는 데미지 +1";
 
 
-        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win,"src\\main\\java\\GUI\\imgaes\\AZATOTH-NAME.PNG");
-        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win,"src\\main\\java\\GUI\\imgaes\\CTHULHU-NAME.PNG");
-        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win,"src\\main\\java\\GUI\\imgaes\\NYALA-NAME.PNG");
+        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win,"imgaes/AZATOTH-NAME.PNG");
+        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win,"imgaes/CTHULHU-NAME.PNG");
+        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win,"imgaes/NYALA-NAME.PNG");
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);

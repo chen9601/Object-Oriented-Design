@@ -2,10 +2,12 @@ package GUI;
 
 import com.GameMaster;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 
 /**
@@ -14,11 +16,11 @@ import java.awt.event.ActionListener;
 public class Start_page extends JFrame {
 
     ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon(this.getClass().getClassLoader().getResource("images/main_title.png").getPath()).getImage();
-    JButton newgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/NewGame.png").getPath()));
+    Image img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("images/main_title.png")).getImage();
+    JButton newgame = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("images/NewGame.png")).getPath()));
     JButton exitgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/EXIT.png").getPath()));
 
-    public Start_page() {
+    public Start_page() throws IOException {
 
         setResizable(false);
         getContentPane().add(panel);
