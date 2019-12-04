@@ -68,7 +68,7 @@ public class ConstantEventHandler
         {
             hospital(player);
         }
-        else if(tile == TileType.MENTAL_HOSTPITAL)
+        else if(tile == TileType.MENTAL_HOSPITAL)
         {
             mospital(player);
         }

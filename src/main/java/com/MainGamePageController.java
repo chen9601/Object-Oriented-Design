@@ -1,9 +1,13 @@
 package com;
 
 import GUI.MainGame_page;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainGamePageController {
@@ -79,7 +83,14 @@ public class MainGamePageController {
         for (TileType tile_type : TileType.values()) {
             Monster monster = Map.getMonsterAt(tile_type);
             if (monster != null) {
-                monster_array[tile_type.ordinal()].setIcon(new ImageIcon(monster.getImagepath()));
+                Image img_monster;
+                try {
+                    img_monster = ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream(monster.getImagepath()));
+                } catch (IOException e) {
+                    img_monster = null;
+                    e.printStackTrace();
+                }
+                monster_array[tile_type.ordinal()].setIcon(new ImageIcon(img_monster));
                 monster_array[tile_type.ordinal()].setVisible(true);
             }
         }

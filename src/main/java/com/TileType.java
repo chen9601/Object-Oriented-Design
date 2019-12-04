@@ -18,7 +18,7 @@ public enum TileType {
     HOSPITAL("병원"),
     H("H"),
     I("I"),
-    MENTAL_HOSTPITAL("정신병원"),
+    MENTAL_HOSPITAL("정신병원"),
     J("J");
 
     final private String name;
