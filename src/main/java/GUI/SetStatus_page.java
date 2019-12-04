@@ -9,7 +9,9 @@ import lombok.Setter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,19 +27,19 @@ public class SetStatus_page extends JFrame {
     int distributable_point = 20;
     JLabel lb_distributable_point = new JLabel("You can use  "+ Integer.toString(distributable_point)+"  Point");
     JPanel movetab = new JPanel();
-    JButton next = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\next.png"));
-    JButton prev = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\prev.png"));
+    JButton next = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/next.png"))));
+    JButton prev = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("imgaes/prev.png"))));
 
-    String player_imgpath = "src\\main\\java\\GUI\\imgaes\\player1-portrait.png";
-    String player_name_imgpath = "src\\main\\java\\GUI\\imgaes\\player1_name.png";
+    String player_imgpath = "imgaes/player1-portrait.png";
+    String player_name_imgpath = "imgaes/player1_name.png";
 
     ImagePanel imagePanel = new ImagePanel();
-    Image status_background = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+    Image status_background = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/background.png"))).getImage();
 
 
     Image status_img = new ImageIcon("C:\\Object-Oriented-Design\\src\\main\\java\\GUI\\imgaes\\DIALOG-PANEL.PNG").getImage();
 
-    SetStatus_page() {
+    SetStatus_page() throws IOException {
         getContentPane().add(imagePanel);
         imagePanel.setLayout(null);
         //player 1 , 2  이름 및 이미지 변환
