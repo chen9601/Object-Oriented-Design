@@ -1,6 +1,5 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.GameMaster;
 import com.Player;
 
@@ -47,7 +46,7 @@ public class Fight_boss_page extends JFrame {
     public Fight_boss_page() {
 
         Mainmusic_thread.thread.close();
-        Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\boss_fight.mp3", true);
+        Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/boss_fight.mp3"), true);
         music_thread.start();
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,6 +1,5 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.GameMaster;
 
 import javax.swing.*;
@@ -15,10 +14,9 @@ import java.awt.event.ActionListener;
 public class Start_page extends JFrame {
 
     ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\main_title.png").getImage();
-
-    JButton newgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\NewGame.png"));
-    JButton exitgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\EXIT.png"));
+    Image img = new ImageIcon(this.getClass().getClassLoader().getResource("images/main_title.png").getPath()).getImage();
+    JButton newgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/NewGame.png").getPath()));
+    JButton exitgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/EXIT.png").getPath()));
 
     public Start_page() {
 
@@ -49,7 +47,7 @@ public class Start_page extends JFrame {
         newgame.setBounds(500, 480, 200, 70);
         exitgame.setBounds(500, 600, 200, 70);
 
-        Mainmusic_thread music = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
+        Mainmusic_thread music = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
         music.start();
     }
 

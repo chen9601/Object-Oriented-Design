@@ -1,8 +1,6 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,7 +29,7 @@ public class Fight_monster_page extends JFrame {
         frm_fight_monster_page = this;
         Mainmusic_thread.thread.close();
         setUndecorated(true);
-        Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\monster_fight.mp3", true);
+        Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/monster_fight.mp3"), true);
         music_thread.start();
         this.monster = monster;
 
@@ -59,7 +57,7 @@ public class Fight_monster_page extends JFrame {
                     DialogPanelController.Clear();
                     DialogPanelController.generateGeneralDialogues();
                     Mainmusic_thread.thread.close();
-                    Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
+                    Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
                     music_thread.start();
                     return;
                 } else if (fight.getText() == "몬스터 패배") {
@@ -69,7 +67,7 @@ public class Fight_monster_page extends JFrame {
                     DialogPanelController.Clear();
                     DialogPanelController.generateGeneralDialogues();
                     Mainmusic_thread.thread.close();
-                    Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
+                    Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
                     music_thread.start();
                     return;
                 }

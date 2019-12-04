@@ -1,24 +1,21 @@
-package GUI.music;
+package GUI;
 
 import javazoom.jl.player.Player;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class Mainmusic_thread extends Thread {
     static public Mainmusic_thread thread;
     static private Player player;
     static private boolean isLoop;
-    static private File file;
-    static private FileInputStream fis;
     static private BufferedInputStream bis;
 
-    public Mainmusic_thread(String filepath, boolean isLoop){
+    public Mainmusic_thread(InputStream file_stream, boolean isLoop){
         try {
 
-            File file = new File(filepath);
-            fis = new FileInputStream(file);
-            bis = new BufferedInputStream(fis);
+            bis = new BufferedInputStream(file_stream);
             player = new Player(bis);
 
         } catch (Exception e) {
@@ -32,8 +29,6 @@ public class Mainmusic_thread extends Thread {
         try{
             do{
                 player.play();
-                fis = new FileInputStream(file);
-                bis = new BufferedInputStream(fis);
                 player = new Player(bis);
             }while(isLoop);
         }catch(Exception e){}
