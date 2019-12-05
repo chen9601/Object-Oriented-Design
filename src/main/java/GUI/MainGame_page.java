@@ -6,6 +6,8 @@ import lombok.Setter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -42,7 +44,7 @@ public class MainGame_page extends JFrame {
     JLabel lb_player2_name;
     PlayerStatusPanel player2_status_panel;
 
-    ImageIcon portal_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\portal.png");
+    ImageIcon portal_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/portal.png")));
     JLabel portal_img_0 = new JLabel(portal_img);
     JLabel portal_img_1 = new JLabel(portal_img);
     JLabel portal_img_2 = new JLabel(portal_img);
@@ -195,6 +197,13 @@ public class MainGame_page extends JFrame {
     public MainGame_page() throws IOException {
         // 상단바
         {
+            this.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    super.windowClosing(e);
+                    Mainmusic_thread.thread.stop();
+                }
+            });
             getContentPane().add(panel);
             panel.setLayout(null);
             setResizable(false);

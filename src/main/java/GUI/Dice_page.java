@@ -1,11 +1,9 @@
 package GUI;
 
+import com.google.common.io.ByteStreams;
 import lombok.Getter;
-
 import java.awt.*;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
+import java.io.InputStream;
 import javax.swing.*;
 
 /**
@@ -14,32 +12,39 @@ import javax.swing.*;
 public class Dice_page extends JFrame {
  @Getter
     private int savedDice_num;
-    String path;
+    ImagePanel panel_dice_img;
+    class ImagePanel extends JPanel{
+        Image img_dice;
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawImage(img_dice, 0, 0, this);
+        }
+        public ImagePanel(){
+            JLabel showDice;
+            savedDice_num = select_Dicenum();
+            InputStream is = this.getClass().getClassLoader().getResourceAsStream(DiceImage(savedDice_num));
+            try {
+                img_dice = Toolkit.getDefaultToolkit().createImage(ByteStreams.toByteArray(is));
+                MediaTracker mt = new MediaTracker(this);
+                mt.addImage(img_dice, 0);
+                mt.waitForAll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public Dice_page() {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
         setUndecorated(false);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((dim.width/2)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
-
-        path = "images/diceForRoll-export.gif";
-        JLabel showDice = null;
-        try {
-            showDice = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        showDice.setBounds(14, 22, 500, 500);
-        getContentPane().add(showDice);
-
-        savedDice_num = select_Dicenum();
         System.out.println(savedDice_num);
-        System.out.println("Dice_page select_Dicenum");
-        try {
-            showDice.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(DiceImage(savedDice_num)))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println(DiceImage(savedDice_num));
+        panel_dice_img  = new ImagePanel();
+        panel_dice_img.setBounds(14, 22, 500, 500);
+        getContentPane().add(panel_dice_img);
     }
 
     public String DiceImage(int Dice_num) {

@@ -151,6 +151,7 @@ public class GameMaster {
     }
 
     public static void setPortalAndMonsterRandomly() {
+        // 몬스터 소환
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
             int tempNum2 = (int) Math.floor(Math.random() * 5);
@@ -166,13 +167,15 @@ public class GameMaster {
                 break;
             } else continue;
         }
+        // 포탈 소환
         while (true) {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
-            if (isTherePlayer(Map.tiles[tempNum1])||Map.tiles[tempNum1].getSummoned_monster()!=null) continue;
-            if (Map.tiles[tempNum1].isSummoned_portal() == false) {
+            if(TileType.HOSPITAL.ordinal() == tempNum1 || TileType.MENTAL_HOSPITAL.ordinal() == tempNum1) continue;
+            if(isTherePlayer(Map.tiles[tempNum1])||Map.tiles[tempNum1].isSummoned_portal() == true) continue;
+            else {
                 Map.tiles[tempNum1].setSummoned_portal(true);
                 break;
-            } else continue;
+            }
         }
     }
 
