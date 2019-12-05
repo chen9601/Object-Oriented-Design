@@ -45,16 +45,16 @@ public class Dice_page extends JFrame {
     public String DiceImage(int Dice_num) {
         setResizable(false);
         if (Dice_num == 1) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll-export.gif";
+            return "images/diceForRoll-export.gif";
         } else if (Dice_num == 2) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll2-export.gif";
+            return "images/diceForRoll2-export.gif";
         } else if (Dice_num == 3) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll3-export.gif";
+            return "images/diceForRoll3-export.gif";
         } else if (Dice_num == 4) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll4-export.gif";
+            return "images/diceForRoll4-export.gif";
         } else if (Dice_num == 5) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll5-export.gif";
-        } else return "src\\main\\java\\GUI\\imgaes\\diceForRoll6-export.gif";
+            return "images/diceForRoll5-export.gif";
+        } else return "images/diceForRoll6-export.gif";
 
     }
 
