@@ -53,7 +53,11 @@ public class MainGamePageController {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("Clicked " + movable_tile.ordinal());
-                    ConstantEventHandler.move(Player.getCurrentPlayer(), movable_tile);
+                    try {
+                        ConstantEventHandler.move(Player.getCurrentPlayer(), movable_tile);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     // 모든 빨간 점을 보이지 않게 만들기
                     for (JButton reddot : dot_array) {
                         reddot.setVisible(false);
