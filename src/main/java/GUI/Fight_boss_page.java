@@ -22,7 +22,15 @@ public class Fight_boss_page extends JFrame {
     public static JLabel boss_temphealth;
     public int turninboss = 0;
 
-    public static ImageIcon star = new ImageIcon("src\\main\\java\\GUI\\imgaes\\star.png");
+    public static ImageIcon star;
+
+    static {
+        try {
+            star = new ImageIcon(ImageIO.read(Fight_boss_page.class.getClassLoader().getResourceAsStream("images/star.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static JLabel boss_health_0 = new JLabel(star);
     public static JLabel boss_health_1 = new JLabel(star);
