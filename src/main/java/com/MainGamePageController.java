@@ -1,9 +1,13 @@
 package com;
 
 import GUI.MainGame_page;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainGamePageController {
@@ -14,7 +18,7 @@ public class MainGamePageController {
     static public JLabel[] monster_array;
     static public JLabel[] portal_array;
 
-    public MainGamePageController() {
+    public MainGamePageController() throws IOException {
         maingame_page = new MainGame_page();
         dot_array = maingame_page.getBtn_reddot_array();
         player1_array = maingame_page.getLb_player1_array();
@@ -49,7 +53,11 @@ public class MainGamePageController {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("Clicked " + movable_tile.ordinal());
-                    ConstantEventHandler.move(Player.getCurrentPlayer(), movable_tile);
+                    try {
+                        ConstantEventHandler.move(Player.getCurrentPlayer(), movable_tile);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     // 모든 빨간 점을 보이지 않게 만들기
                     for (JButton reddot : dot_array) {
                         reddot.setVisible(false);
@@ -67,9 +75,9 @@ public class MainGamePageController {
         for (JLabel label : player1_array) {
             label.setVisible(false);
         }
-        if (Player.getPlayer(0).getStatus() == Player.ALIVE)
+        if (Player.getPlayer(0).getHealth() > 0 && Player.getPlayer(0).getMental() > 0)
             player1_array[Player.getPlayer(0).getPos().ordinal()].setVisible(true);
-        if (Player.getPlayer(1).getStatus() == Player.ALIVE)
+        if (Player.getPlayer(1).getHealth() > 0 && Player.getPlayer(1).getMental() > 0)
             player2_array[Player.getPlayer(1).getPos().ordinal()].setVisible(true);
     }
 
@@ -79,7 +87,14 @@ public class MainGamePageController {
         for (TileType tile_type : TileType.values()) {
             Monster monster = Map.getMonsterAt(tile_type);
             if (monster != null) {
-                monster_array[tile_type.ordinal()].setIcon(new ImageIcon(monster.getImagepath()));
+                Image img_monster;
+                try {
+                    img_monster = ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream(monster.getImagepath()));
+                } catch (IOException e) {
+                    img_monster = null;
+                    e.printStackTrace();
+                }
+                monster_array[tile_type.ordinal()].setIcon(new ImageIcon(img_monster));
                 monster_array[tile_type.ordinal()].setVisible(true);
             }
         }

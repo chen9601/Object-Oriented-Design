@@ -1,9 +1,9 @@
 package GUI;
 
+import com.google.common.io.ByteStreams;
 import lombok.Getter;
-
 import java.awt.*;
-
+import java.io.InputStream;
 import javax.swing.*;
 
 /**
@@ -12,38 +12,54 @@ import javax.swing.*;
 public class Dice_page extends JFrame {
  @Getter
     private int savedDice_num;
-    String path;
+    ImagePanel panel_dice_img;
+    class ImagePanel extends JPanel{
+        Image img_dice;
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawImage(img_dice, 0, 0, this);
+        }
+        public ImagePanel(){
+            JLabel showDice;
+            savedDice_num = select_Dicenum();
+            InputStream is = this.getClass().getClassLoader().getResourceAsStream(DiceImage(savedDice_num));
+            try {
+                img_dice = Toolkit.getDefaultToolkit().createImage(ByteStreams.toByteArray(is));
+                MediaTracker mt = new MediaTracker(this);
+                mt.addImage(img_dice, 0);
+                mt.waitForAll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public Dice_page() {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
         setUndecorated(false);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((dim.width/2)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
-
-        path = "src\\main\\java\\GUI\\imgaes\\diceForRoll-export.gif";
-        JLabel showDice = new JLabel(new ImageIcon(path));
-        showDice.setBounds(14, 22, 500, 500);
-        getContentPane().add(showDice);
-
-        savedDice_num = select_Dicenum();
         System.out.println(savedDice_num);
-        System.out.println("Dice_page select_Dicenum");
-        showDice.setIcon(new ImageIcon(DiceImage(savedDice_num)));
+        System.out.println(DiceImage(savedDice_num));
+        panel_dice_img  = new ImagePanel();
+        panel_dice_img.setBounds(14, 22, 500, 500);
+        getContentPane().add(panel_dice_img);
     }
 
     public String DiceImage(int Dice_num) {
         setResizable(false);
         if (Dice_num == 1) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll-export.gif";
+            return "images/diceForRoll-export.gif";
         } else if (Dice_num == 2) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll2-export.gif";
+            return "images/diceForRoll2-export.gif";
         } else if (Dice_num == 3) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll3-export.gif";
+            return "images/diceForRoll3-export.gif";
         } else if (Dice_num == 4) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll4-export.gif";
+            return "images/diceForRoll4-export.gif";
         } else if (Dice_num == 5) {
-            return "src\\main\\java\\GUI\\imgaes\\diceForRoll5-export.gif";
-        } else return "src\\main\\java\\GUI\\imgaes\\diceForRoll6-export.gif";
+            return "images/diceForRoll5-export.gif";
+        } else return "images/diceForRoll6-export.gif";
 
     }
 

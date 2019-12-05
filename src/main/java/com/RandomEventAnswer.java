@@ -1,9 +1,10 @@
 package com;
 import GUI.Dice_page;
 import GUI.Game_resultPage;
+import GUI.Mainmusic_thread;
 
-import GUI.MainGame_page;
 
+import java.io.IOException;
 
 import static com.Player.idx_of_cur_player;
 
@@ -22,7 +23,7 @@ public class RandomEventAnswer {
      * @param answer <br>       메소드 지칭자를 포함하는 Answer 객체
      * @param player <br>       이벤트를 진행하는 플레이어
      */
-    public static void AnswerIndicator(Player player, Answer answer) {
+    public static void AnswerIndicator(Player player, Answer answer) throws IOException {
         switch (answer.getTag()) {
             case "1_1":
                 Ans1_1(player);
@@ -247,7 +248,7 @@ public class RandomEventAnswer {
         DialogPanelController.show_dialog_answer2(answer2);
     }
 
-    public static void Ans2_2(Player player) {
+    public static void Ans2_2(Player player) throws IOException {
         DialogPanelController.Clear();
         String message = "소리를 내는 기괴한 생물체를 발견했습니다.";
         DialogPanelController.show_dialog(message);
@@ -853,6 +854,7 @@ public class RandomEventAnswer {
         Game_resultPage game_result_page = new Game_resultPage("win");
         game_result_page.setVisible(true);
         MainGamePageController.maingame_page.dispose();
+        Mainmusic_thread.thread.stop();
     }
 
     public static void Defeat(Player player) {
@@ -872,6 +874,7 @@ public class RandomEventAnswer {
         Game_resultPage game_result_page = new Game_resultPage("defeat");
         game_result_page.setVisible(true);
         MainGamePageController.maingame_page.dispose();
+        Mainmusic_thread.thread.stop();
     }
 
     public static void checkBoss_Summon_condition(Player player) {

@@ -1,13 +1,16 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.GameMaster;
 import com.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import static com.Fight_boss_controller.*;
 
@@ -21,7 +24,15 @@ public class Fight_boss_page extends JFrame {
     public static JLabel boss_temphealth;
     public int turninboss = 0;
 
-    public static ImageIcon star = new ImageIcon("src\\main\\java\\GUI\\imgaes\\star.png");
+    public static ImageIcon star;
+
+    static {
+        try {
+            star = new ImageIcon(ImageIO.read(Fight_boss_page.class.getClassLoader().getResourceAsStream("images/star.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static JLabel boss_health_0 = new JLabel(star);
     public static JLabel boss_health_1 = new JLabel(star);
@@ -45,9 +56,16 @@ public class Fight_boss_page extends JFrame {
 
 
     public Fight_boss_page() {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                Mainmusic_thread.thread.stop();
+            }
+        });
 
         Mainmusic_thread.thread.close();
-        Mainmusic_thread music_thread = new Mainmusic_thread("src\\main\\java\\GUI\\music\\boss_fight.mp3", true);
+        Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/boss_fight.mp3"), true);
         music_thread.start();
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,14 +92,24 @@ public class Fight_boss_page extends JFrame {
         //플레이어들의 스테이터스
         {
 
-            ImageIcon player1_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1-portrait.png");
+            ImageIcon player1_img = null;
+            try {
+                player1_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1-portrait.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Image player1_tempimg = player1_img.getImage();
             Image player1_changedimg = player1_tempimg.getScaledInstance(240, 163, Image.SCALE_SMOOTH);
             JLabel lb_player1 = new JLabel(new ImageIcon(player1_changedimg));
             lb_player1.setBounds(41, 620, 240, 163);
             getContentPane().add(lb_player1);
 
-            ImageIcon player1_name_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_name.png");
+            ImageIcon player1_name_img = null;
+            try {
+                player1_name_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1_name.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             JLabel player1_name = new JLabel(player1_name_img);
             player1_name.setBounds(41, 780, 240, 61);
             getContentPane().add(player1_name);
@@ -90,14 +118,24 @@ public class Fight_boss_page extends JFrame {
             player1_status_panel.setBounds(290, 670, 318, 225);
             getContentPane().add(player1_status_panel);
 
-            ImageIcon player2_img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2-portrait.png");
+            ImageIcon player2_img = null;
+            try {
+                player2_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player2-portrait.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Image player2_tempimg = player2_img.getImage();
             Image player2_changedimg = player2_tempimg.getScaledInstance(240, 163, Image.SCALE_SMOOTH);
             JLabel lb_player2_img = new JLabel(new ImageIcon(player2_changedimg));
             lb_player2_img.setBounds(650, 620, 240, 163);
             getContentPane().add(lb_player2_img);
 
-            JLabel lb_player2_name = new JLabel(new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_name.png"));
+            JLabel lb_player2_name = null;
+            try {
+                lb_player2_name = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player2_name.png"))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             lb_player2_name.setBounds(650, 780, 240, 61);
             getContentPane().add(lb_player2_name);
 
@@ -105,8 +143,15 @@ public class Fight_boss_page extends JFrame {
             player2_status_panel.setBounds(864, 670, 318, 225);
             getContentPane().add(player2_status_panel);
         }
-        //
-        JLabel boss_panel = new JLabel(new ImageIcon(GameMaster.current_boss.getType().getActive_path()));
+
+        Image img_boss;
+        try {
+            img_boss = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(GameMaster.current_boss.getType().getActive_path()));
+        } catch (IOException e) {
+            e.printStackTrace();
+            img_boss = null;
+        }
+        JLabel boss_panel = new JLabel(new ImageIcon(img_boss));
         boss_panel.setBounds(75, 120, 1100, 480);
         getContentPane().add(boss_panel);
 

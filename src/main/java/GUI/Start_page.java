@@ -1,12 +1,13 @@
 package GUI;
 
-import GUI.music.Mainmusic_thread;
 import com.GameMaster;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 
 /**
@@ -15,12 +16,11 @@ import java.awt.event.ActionListener;
 public class Start_page extends JFrame {
 
     ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\main_title.png").getImage();
+    Image img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("images/main_title.png"))).getImage();
+    JButton newgame = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("images/NewGame.png"))));
+    JButton exitgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/EXIT.png")));
 
-    JButton newgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\NewGame.png"));
-    JButton exitgame = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\EXIT.png"));
-
-    public Start_page() {
+    public Start_page() throws IOException {
 
         setResizable(false);
         getContentPane().add(panel);
@@ -31,7 +31,12 @@ public class Start_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GameMaster.initiateGame();
-                SetBoss_page test = new SetBoss_page();
+                SetBoss_page test = null;
+                try {
+                    test = new SetBoss_page();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 test.setVisible(true);
                 dispose();
             }
@@ -49,11 +54,14 @@ public class Start_page extends JFrame {
         newgame.setBounds(500, 480, 200, 70);
         exitgame.setBounds(500, 600, 200, 70);
 
-        Mainmusic_thread music = new Mainmusic_thread("src\\main\\java\\GUI\\music\\Main.mp3", true);
+        Mainmusic_thread music = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
         music.start();
     }
 
-    static public void Start_pageView() {
+
+
+
+    static public void Start_pageView() throws IOException {
         Start_page frame = new Start_page();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

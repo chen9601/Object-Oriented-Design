@@ -4,6 +4,8 @@ import GUI.Dice_page;
 import GUI.Fight_monster_page;
 
 import static com.Map.*;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -27,8 +29,7 @@ public class ConstantEventHandler
         int event_num=(int)Math.floor(Math.random()*21);
         RandomEventHandler.RandomEventIndicator(player, event_num);
     }
-    static public void move(Player player, TileType tile)
-    {
+    static public void move(Player player, TileType tile) throws IOException {
         boolean valid = pathValid(player, tile);
 
         if(valid)
@@ -45,8 +46,7 @@ public class ConstantEventHandler
      * @param tile
      *        목적지
      */
-    static public void CheckEventHere(Player player, TileType tile)
-    {
+    static public void CheckEventHere(Player player, TileType tile) throws IOException {
         if(Map.getPortalAt(tile))
         {
             fight_remain=2;
@@ -68,7 +68,7 @@ public class ConstantEventHandler
         {
             hospital(player);
         }
-        else if(tile == TileType.MENTAL_HOSTPITAL)
+        else if(tile == TileType.MENTAL_HOSPITAL)
         {
             mospital(player);
         }
@@ -124,7 +124,7 @@ public class ConstantEventHandler
         DialogPanelController.show_dialog_answer2(ConstantEventAnswer.mospital2);
     }
 
-    static void generateFight(MonsterType monster){
+    static void generateFight(MonsterType monster) throws IOException {
         Fight_monster_page fightwithmonster = new Fight_monster_page(new Monster(monster));
     }
 

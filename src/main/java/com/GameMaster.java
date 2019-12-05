@@ -2,6 +2,7 @@ package com;
 
 import GUI.Start_page;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,7 +21,7 @@ public class GameMaster {
     public static int turn = 1;
     public static Boss current_boss;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Start_page.Start_pageView();
     }
 
@@ -91,7 +92,7 @@ public class GameMaster {
         player.setStatus(1);
         if (player.getMental() <= 0) {
             player.setMental(1);
-            player.setPos(TileType.MENTAL_HOSTPITAL);
+            player.setPos(TileType.MENTAL_HOSPITAL);
         }
         if (player.getHealth() <= 0) {
             player.setHealth(1);
@@ -150,6 +151,7 @@ public class GameMaster {
     }
 
     public static void setPortalAndMonsterRandomly() {
+        // 몬스터 소환
         while (true) {
             if(CheckBlankSpace1())
             {
@@ -159,6 +161,7 @@ public class GameMaster {
             int tempNum1 = (int) Math.floor(Math.random() * 13);
             int tempNum2 = (int) Math.floor(Math.random() * 5);
             if (isTherePlayer(Map.tiles[tempNum1])) continue;
+            if(TileType.HOSPITAL.ordinal() == tempNum1 || TileType.MENTAL_HOSPITAL.ordinal() == tempNum1) continue;
 
             MonsterType monster = MonsterType.values()[tempNum2];
             Monster tempMon = new Monster(monster);
@@ -174,6 +177,7 @@ public class GameMaster {
                 break;
             } else continue;
         }
+        // 포탈 소환
         while (true) {
             if(CheckBlankSpace2())
             {
@@ -188,7 +192,7 @@ public class GameMaster {
             {
                 Map.tiles[tempNum1].setSummoned_portal(true);
                 break;
-            } else continue;
+            }
         }
     }
 
