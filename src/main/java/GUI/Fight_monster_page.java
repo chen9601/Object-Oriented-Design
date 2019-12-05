@@ -48,11 +48,11 @@ public class Fight_monster_page extends JFrame {
         getContentPane().add(monsterPanel);
 
         fight = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/fight_start.png"))));
-//        fight.setFocusPainted(false);
-//        fight.setContentAreaFilled(false);
-//        fight.setBorderPainted(false);
+        fight.setFocusPainted(false);
+        fight.setContentAreaFilled(false);
+        fight.setBorderPainted(false);
         getContentPane().add(fight);
-        fight.setBounds(459, 615, 709, 300);
+        fight.setBounds(400, 600, 709, 300);
         fight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
