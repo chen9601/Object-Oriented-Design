@@ -18,7 +18,7 @@ public class MainGamePageController {
     static public JLabel[] monster_array;
     static public JLabel[] portal_array;
 
-    public MainGamePageController() {
+    public MainGamePageController() throws IOException {
         maingame_page = new MainGame_page();
         dot_array = maingame_page.getBtn_reddot_array();
         player1_array = maingame_page.getLb_player1_array();

@@ -2,10 +2,12 @@ package GUI;
 
 import com.GameMaster;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 
 /**
@@ -14,11 +16,11 @@ import java.awt.event.ActionListener;
 public class Start_page extends JFrame {
 
     ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon(this.getClass().getClassLoader().getResource("images/main_title.png").getPath()).getImage();
-    JButton newgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/NewGame.png").getPath()));
-    JButton exitgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/EXIT.png").getPath()));
+    Image img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("images/main_title.png"))).getImage();
+    JButton newgame = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("images/NewGame.png"))));
+    JButton exitgame = new JButton(new ImageIcon(this.getClass().getClassLoader().getResource("images/EXIT.png")));
 
-    public Start_page() {
+    public Start_page() throws IOException {
 
         setResizable(false);
         getContentPane().add(panel);
@@ -29,7 +31,12 @@ public class Start_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GameMaster.initiateGame();
-                SetBoss_page test = new SetBoss_page();
+                SetBoss_page test = null;
+                try {
+                    test = new SetBoss_page();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 test.setVisible(true);
                 dispose();
             }
@@ -51,7 +58,10 @@ public class Start_page extends JFrame {
         music.start();
     }
 
-    static public void Start_pageView() {
+
+
+
+    static public void Start_pageView() throws IOException {
         Start_page frame = new Start_page();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

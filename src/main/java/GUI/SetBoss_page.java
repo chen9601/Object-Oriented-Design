@@ -19,7 +19,7 @@ public class SetBoss_page extends JFrame {
     ImagePanel panel = new ImagePanel();
     Image boss_background = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
 
-    SetBoss_page() {
+    SetBoss_page() throws IOException {
         getContentPane().add(panel);
         panel.setLayout(null);
         setResizable(false);
@@ -32,7 +32,7 @@ public class SetBoss_page extends JFrame {
         help_text.setFont(font);
         movetab.add(help_text);
 
-        JButton prev = new JButton(new ImageIcon("src\\main\\java\\GUI\\imgaes\\prev.png"));
+        JButton prev = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/prev.png"))));
 
 
         movetab.setLayout(null);
@@ -41,7 +41,12 @@ public class SetBoss_page extends JFrame {
         prev.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Start_page prev = new Start_page();
+                Start_page prev = null;
+                try {
+                    prev = new Start_page();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 prev.setVisible(true);
                 dispose();
             }
@@ -60,9 +65,9 @@ public class SetBoss_page extends JFrame {
         String chuthulu_win = "전투 시 받는 데미지 +1";
 
 
-        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win,"src\\main\\java\\GUI\\imgaes\\AZATOTH-NAME.PNG");
-        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win,"src\\main\\java\\GUI\\imgaes\\CTHULHU-NAME.PNG");
-        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win,"src\\main\\java\\GUI\\imgaes\\NYALA-NAME.PNG");
+        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win,"images/AZATOTH-NAME.PNG");
+        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win,"images/CTHULHU-NAME.PNG");
+        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win,"images/NYALA-NAME.PNG");
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
@@ -82,9 +87,9 @@ public class SetBoss_page extends JFrame {
 
     class BossPanel extends JPanel {
 
-        public BossPanel(String img_path, BossType bosstype, String boss_win,String boss_name_imgpath) {
-            ImageIcon bossbtn_image = new ImageIcon(boss_name_imgpath);
-            JButton bossbtn = new JButton(bossbtn_image);
+        public BossPanel(String img_path, BossType bosstype, String boss_win,String boss_name_imgpath) throws IOException {
+
+            JButton bossbtn = new JButton(new ImageIcon(ImageIO.read(SetBoss_page.class.getClassLoader().getResourceAsStream(boss_name_imgpath))));
 
             bossbtn.setPreferredSize(new Dimension(170,70));
             bossbtn.setOpaque(false);
@@ -106,7 +111,12 @@ public class SetBoss_page extends JFrame {
                     );
                     System.out.println(GameMaster.current_boss.getRequireVal());
 
-                    SetStatus_page next = new SetStatus_page();
+                    SetStatus_page next = null;
+                    try {
+                        next = new SetStatus_page();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     next.setVisible(true);
                     dispose();
                 }

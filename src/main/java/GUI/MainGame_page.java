@@ -20,20 +20,20 @@ import javax.swing.*;
 @Setter
 public class MainGame_page extends JFrame {
     ImagePanel panel = new ImagePanel();
-    Image img = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+    Image img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/backgroundImage.jpg"))).getImage();
 
     DialogPanelController dialog_panel_controller;
     // TODO : 모든 경로를 아래와 같이 역슬래시 두개로 구분하는 방식으로 변경할 것!
-    Image img_MAIN = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+    Image img_MAIN  = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/backgroundImage.jpg"))).getImage();
     //몬스터랑 포탈 출력가능하게 만들기
     MainGameTabPanel tab;
-    ImageIcon city_img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\stage.png");
+    ImageIcon city_img_icon = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/stage.png")));
     JButton city_btn_array[];
-    ImageIcon reddot_img_icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\reddot.png");
+    ImageIcon reddot_img_icon = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/reddot.png")));
     JButton btn_reddot_array[];
-    ImageIcon player1_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player1_img.png");
+    ImageIcon player1_Icon = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player1_img.png")));
     JLabel lb_player1_array[];
-    ImageIcon player2_Icon = new ImageIcon("src\\main\\java\\GUI\\imgaes\\player2_img.png");
+    ImageIcon player2_Icon = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/player2_img.png")));
     JLabel lb_player2_array[];
 
     JLabel lb_player1;
@@ -193,7 +193,7 @@ public class MainGame_page extends JFrame {
 
     }
 
-    public MainGame_page() {
+    public MainGame_page() throws IOException {
         // 상단바
         {
             getContentPane().add(panel);
@@ -307,10 +307,11 @@ public class MainGame_page extends JFrame {
             }
             panel.add(city_btn_array[TileType.STORE.ordinal()]);
             try {
-                city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()] = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/mospital.png"))));
+                city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()] = new JButton(new ImageIcon(ImageIO.read(Start_page.class.getClassLoader().getResourceAsStream("images/mospital.png"))));
                 city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()].setFocusPainted(false);
                 city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()].setContentAreaFilled(false);
                 city_btn_array[TileType.MENTAL_HOSPITAL.ordinal()].setBorderPainted(false);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
