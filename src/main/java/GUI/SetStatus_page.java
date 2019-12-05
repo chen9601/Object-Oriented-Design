@@ -39,7 +39,7 @@ public class SetStatus_page extends JFrame {
     Image status_background = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/backgroundImage.jpg"))).getImage();
 
 
-    Image status_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/DIALOG-PANEL.PNG"))).getImage();
+    Image status_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))).getImage();
 
     SetStatus_page() throws IOException {
         this.addWindowListener(new WindowAdapter() {
@@ -86,7 +86,7 @@ public class SetStatus_page extends JFrame {
         player_img.setBounds(128, 216, 358, 356);
         imagePanel.add(player_img);
 
-        perstatus_set status_power = new perstatus_set("images/1.png");
+        perstatus_set status_power = new perstatus_set("images/POWER.PNG");
         statusImagePanel perstatus = new statusImagePanel();
 
         perstatus.setOpaque(false);
@@ -94,7 +94,7 @@ public class SetStatus_page extends JFrame {
         imagePanel.add(perstatus);
         perstatus.add(status_power);
 
-        perstatus_set status_dex = new perstatus_set("images/2.png");
+        perstatus_set status_dex = new perstatus_set("images/DEXTERITY.PNG");
         statusImagePanel perstatus_1 = new statusImagePanel();
 
         perstatus_1.setOpaque(false);
@@ -102,7 +102,7 @@ public class SetStatus_page extends JFrame {
         imagePanel.add(perstatus_1);
         perstatus_1.add(status_dex);
 
-        perstatus_set status_intelligence = new perstatus_set("images/3.png");
+        perstatus_set status_intelligence = new perstatus_set("images/INTEL.PNG");
         statusImagePanel perstatus_2 = new statusImagePanel();
 
         perstatus_2.setOpaque(false);
@@ -110,7 +110,7 @@ public class SetStatus_page extends JFrame {
         imagePanel.add(perstatus_2);
         perstatus_2.add(status_intelligence);
 
-        perstatus_set status_mental = new perstatus_set("images/4.png");
+        perstatus_set status_mental = new perstatus_set("images/MENTAL.PNG");
         statusImagePanel perstatus_3 = new statusImagePanel();
 
         perstatus_3.setOpaque(false);
@@ -118,7 +118,7 @@ public class SetStatus_page extends JFrame {
         imagePanel.add(perstatus_3);
         perstatus_3.add(status_mental);
 
-        perstatus_set statuts_health = new perstatus_set("images/5.png");
+        perstatus_set statuts_health = new perstatus_set("images/HEALTH.PNG");
         statusImagePanel perstatus_4 = new statusImagePanel();
 
         perstatus_4.setOpaque(false);

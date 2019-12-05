@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 @Data
 public class DialogPanelController {
@@ -150,8 +151,13 @@ public class DialogPanelController {
                         RandomEventAnswer.Purchase_Complete();
                     }
                 }
-                else
-                    RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                else {
+                    try {
+                        RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
                 dialog_panel.revalidate();
                 dialog_panel.repaint();
             }
@@ -177,8 +183,13 @@ public class DialogPanelController {
                         RandomEventAnswer.Purchase_Complete();
                     }
                 }
-                else
-                    RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                else {
+                    try {
+                        RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
                 dialog_panel.revalidate();
                 dialog_panel.repaint();
             }
@@ -204,8 +215,13 @@ public class DialogPanelController {
                         RandomEventAnswer.Purchase_Complete();
                     }
                 }
-                else
-                    RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                else {
+                    try {
+                        RandomEventAnswer.AnswerIndicator(Player.getCurrentPlayer(), answer);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
                 dialog_panel.revalidate();
                 dialog_panel.repaint();
             }

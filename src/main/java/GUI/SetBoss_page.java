@@ -115,9 +115,9 @@ public class SetBoss_page extends JFrame {
             Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
             ImageIcon real = new ImageIcon(temp_2);
 
-            JButton boss_btn = new JButton(real);
-            boss_btn.setFocusPainted(false);
-            boss_btn.setContentAreaFilled(false);
+            JButton bossimg = new JButton(real);
+            bossimg.setFocusPainted(false);
+            bossimg.setContentAreaFilled(false);
 
             JLabel bosstxt = new JLabel(boss_win);
             bosstxt.setPreferredSize(new Dimension(150, 50));
@@ -125,7 +125,7 @@ public class SetBoss_page extends JFrame {
 
             bosstxt.setHorizontalAlignment(JTextField.CENTER);
 
-            boss_btn.addActionListener(new ActionListener() {
+            bossimg.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //TODO : boss test code지우고 수정 bosstype과 연동
@@ -151,7 +151,7 @@ public class SetBoss_page extends JFrame {
                 }
             });
 
-            add(boss_btn, BorderLayout.CENTER);
+            add(bossimg, BorderLayout.CENTER);
             add(boss_name, BorderLayout.NORTH);
             add(bosstxt, BorderLayout.SOUTH);
 
