@@ -7,6 +7,8 @@ import com.GameMaster;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,9 +19,16 @@ import javax.swing.*;
 public class SetBoss_page extends JFrame {
 
     ImagePanel panel = new ImagePanel();
-    Image boss_background = new ImageIcon("src\\main\\java\\GUI\\imgaes\\backgroundImage.jpg").getImage();
+    Image boss_background = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/backgroundImage.jpg"))).getImage();
 
     SetBoss_page() throws IOException {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                Mainmusic_thread.thread.stop();
+            }
+        });
         getContentPane().add(panel);
         panel.setLayout(null);
         setResizable(false);

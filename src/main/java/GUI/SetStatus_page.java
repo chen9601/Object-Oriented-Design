@@ -9,6 +9,8 @@ import lombok.Setter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -40,6 +42,13 @@ public class SetStatus_page extends JFrame {
     Image status_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/DIALOG-PANEL.PNG"))).getImage();
 
     SetStatus_page() throws IOException {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                Mainmusic_thread.thread.stop();
+            }
+        });
         getContentPane().add(imagePanel);
         imagePanel.setLayout(null);
         //player 1 , 2  이름 및 이미지 변환
