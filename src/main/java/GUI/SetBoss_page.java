@@ -28,7 +28,7 @@ public class SetBoss_page extends JFrame {
         JPanel movetab = new JPanel();
 
         JLabel help_text = new JLabel("Click the boss name you want");
-        Font font = new Font("font",Font.ITALIC,30);
+        Font font = new Font("font", Font.ITALIC, 30);
         help_text.setFont(font);
         movetab.add(help_text);
 
@@ -52,9 +52,8 @@ public class SetBoss_page extends JFrame {
             }
         });
         movetab.setBounds(0, 0, 1182, 186);
-        help_text.setBounds(480,32,800,70);
+        help_text.setBounds(480, 32, 800, 70);
         prev.setBounds(78, 32, 180, 70);
-
 
 
         movetab.add(prev);
@@ -65,9 +64,9 @@ public class SetBoss_page extends JFrame {
         String chuthulu_win = "전투 시 받는 데미지 +1";
 
 
-        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win,"images/AZATOTH-NAME.PNG");
-        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win,"images/CTHULHU-NAME.PNG");
-        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win,"images/NYALA-NAME.PNG");
+        BossPanel Test1 = new BossPanel(BossType.AZATHOTH.getBoss_imgpath(), BossType.AZATHOTH, azartoth_win, "images/AZATOTH-NAME.PNG");
+        BossPanel Test2 = new BossPanel(BossType.CHUTHULU.getBoss_imgpath(), BossType.CHUTHULU, chuthulu_win, "images/CTHULHU-NAME.PNG");
+        BossPanel Test3 = new BossPanel(BossType.NYARLATHOTEP.getBoss_imgpath(), BossType.NYARLATHOTEP, nyarlathotep_win, "images/NYALA-NAME.PNG");
 
         JPanel boss1 = new JPanel();
         boss1.setBounds(0, 183, 394, 741);
@@ -87,16 +86,37 @@ public class SetBoss_page extends JFrame {
 
     class BossPanel extends JPanel {
 
-        public BossPanel(String img_path, BossType bosstype, String boss_win,String boss_name_imgpath) throws IOException {
+        public BossPanel(String img_path, BossType bosstype, String boss_win, String boss_name_imgpath) throws IOException {
 
-            JButton bossbtn = new JButton(new ImageIcon(ImageIO.read(SetBoss_page.class.getClassLoader().getResourceAsStream(boss_name_imgpath))));
+            JLabel boss_name = new JLabel(new ImageIcon(ImageIO.read(SetBoss_page.class.getClassLoader().getResourceAsStream(boss_name_imgpath))));
 
-            bossbtn.setPreferredSize(new Dimension(170,70));
-            bossbtn.setOpaque(false);
-            bossbtn.setFocusPainted(false);
-            bossbtn.setContentAreaFilled(false);
+            boss_name.setPreferredSize(new Dimension(170, 70));
+            boss_name.setOpaque(false);
 
-            bossbtn.addActionListener(new ActionListener() {
+            setLayout(new BorderLayout());
+
+            Image img_boss;
+            try {
+                img_boss = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(img_path));
+            } catch (IOException e) {
+                e.printStackTrace();
+                img_boss = null;
+            }
+            Image temp = new ImageIcon(img_boss).getImage();
+            Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon real = new ImageIcon(temp_2);
+
+            JButton boss_btn = new JButton(real);
+            boss_btn.setFocusPainted(false);
+            boss_btn.setContentAreaFilled(false);
+
+            JLabel bosstxt = new JLabel(boss_win);
+            bosstxt.setPreferredSize(new Dimension(150, 50));
+
+
+            bosstxt.setHorizontalAlignment(JTextField.CENTER);
+
+            boss_btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //TODO : boss test code지우고 수정 bosstype과 연동
@@ -121,28 +141,9 @@ public class SetBoss_page extends JFrame {
                     dispose();
                 }
             });
-            setLayout(new BorderLayout());
-            Image img_boss;
-            try {
-                img_boss = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(img_path));
-            } catch (IOException e) {
-                e.printStackTrace();
-                img_boss = null;
-            }
-            Image temp = new ImageIcon(img_boss).getImage();
-            Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
 
-            ImageIcon real = new ImageIcon(temp_2);
-
-            JLabel bossimg = new JLabel(real);
-            JLabel bosstxt = new JLabel(boss_win);
-            bosstxt.setPreferredSize(new Dimension(150, 50));
-
-
-            bosstxt.setHorizontalAlignment(JTextField.CENTER);
-
-            add(bossimg, BorderLayout.NORTH);
-            add(bossbtn, BorderLayout.CENTER);
+            add(boss_btn, BorderLayout.CENTER);
+            add(boss_name, BorderLayout.NORTH);
             add(bosstxt, BorderLayout.SOUTH);
 
         }
