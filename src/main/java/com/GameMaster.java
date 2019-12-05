@@ -2,6 +2,7 @@ package com;
 
 import GUI.Start_page;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,7 +21,7 @@ public class GameMaster {
     public static int turn = 1;
     public static Boss current_boss;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Start_page.Start_pageView();
     }
 
