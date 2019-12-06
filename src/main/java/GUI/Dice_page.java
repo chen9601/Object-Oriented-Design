@@ -20,7 +20,7 @@ public class Dice_page extends JFrame {
 
     public static void main(String args[]){
         Dice_page hi = new Dice_page();
-        
+
         hi.setVisible(false);
     }
 
