@@ -23,7 +23,7 @@ public class ConstantEventHandler
 
     static ArrayList<ItemType> itemlist=new ArrayList<ItemType>();
     static boolean shop_maintain_switch=false;
-    static int fight_remain=0;
+    public static int fight_remain=0;
 
     /**
      * 랜덤 이벤트를 발생시키는 메소드
@@ -78,6 +78,7 @@ public class ConstantEventHandler
         {
             fight_remain=2;
             generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
+
             if(player.getHealth() > 0)
             {
                 GameMaster.token++;
@@ -180,7 +181,7 @@ public class ConstantEventHandler
      * 전투할 몬스터
      * @throws IOException
      */
-    static void generateFight(MonsterType monster) throws IOException {
+    public static void generateFight(MonsterType monster) throws IOException {
         Fight_monster_page fightwithmonster = new Fight_monster_page(new Monster(monster));
     }
 

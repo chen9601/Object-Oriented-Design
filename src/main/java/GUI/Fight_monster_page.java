@@ -75,15 +75,24 @@ public class Fight_monster_page extends JFrame {
                     music_thread.start();
                     return;
                 } else if (fight.getText() == "몬스터 패배") {
+                    ConstantEventHandler.fight_remain--;
                     Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
                     MainGamePageController.show_monsters();
                     Fight_monster_page.frm_fight_monster_page.dispose();
-                    DialogPanelController.Clear();
+                    if(ConstantEventHandler.fight_remain==1) {
+                        try {
+                            ConstantEventHandler.generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                    else
+                    {DialogPanelController.Clear();
                     DialogPanelController.generateGeneralDialogues();
                     Mainmusic_thread.thread.close();
                     Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
                     music_thread.start();
-                    return;
+                    return;}
                 }
                 if (turn % 2 == 0) {
                     fight.setText("몬스터의 공격");
