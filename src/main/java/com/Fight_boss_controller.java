@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Fight_boss_controller {
     public static GUI.Fight_boss_page fight_boss_page;
 
-    public Fight_boss_controller() {
+    public Fight_boss_controller() throws IOException {
         fight_boss_page = new Fight_boss_page();
         fight_boss_page.setVisible(true);
     }
@@ -53,17 +53,19 @@ public class Fight_boss_controller {
     public static void checkWhoWin() {
         Boss boss = GameMaster.current_boss;
         Game_resultPage result;
-        if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
-            System.out.println("플레이어 패배");
-            fight_boss_page.dispose();
-            result = new Game_resultPage("defeat");
-            result.setVisible(true);
-        } else if (boss.getHealth() < 1) {
-            fight_boss_page.dispose();
-            result = new Game_resultPage("win");
-            result.setVisible(true);
-        }
-        MainGamePageController.maingame_page.dispose();
-    }
 
+        if (fight_boss_page.boss_result = true) {
+            if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
+                System.out.println("플레이어 패배");
+                fight_boss_page.dispose();
+                result = new Game_resultPage("defeat");
+                result.setVisible(true);
+            } else if (boss.getHealth() < 1) {
+                fight_boss_page.dispose();
+                result = new Game_resultPage("win");
+                result.setVisible(true);
+            }
+            MainGamePageController.maingame_page.dispose();
+        }
+    }
 }

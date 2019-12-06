@@ -60,7 +60,7 @@ public class Fight_monster_page extends JFrame {
 
         lblfight = new JLabel("");
         getContentPane().add(lblfight);
-        lblfight.setBounds(800, 500, 600, 150);
+        lblfight.setBounds(650, 500, 600, 150);
         Image fight_btn = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/fight_start.png"));
         fight_btn.getScaledInstance(500,300,Image.SCALE_SMOOTH);
         fight = new JButton(new ImageIcon(fight_btn));
@@ -79,7 +79,7 @@ public class Fight_monster_page extends JFrame {
 
                         MainGamePageController.show_players();
                         Fight_monster_page.frm_fight_monster_page.dispose();
-                        DialogPanelController.Clear();
+                        DialogPanelController.Clear(    );
                         DialogPanelController.generateGeneralDialogues();
                         Mainmusic_thread.thread.close();
                         Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);

@@ -97,7 +97,12 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+                    MainGamePlayerStatusDetail_page temp = null;
+                    try {
+                        temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     temp.setVisible(true);
                 }
             });

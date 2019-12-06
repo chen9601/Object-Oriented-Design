@@ -1101,7 +1101,7 @@ public class RandomEventAnswer {
     /**
      * 보스 소환 조건을 만족하여 보스를 소환하는 메소드
      */
-    public static void Boss_summon() {
+    public static void Boss_summon() throws IOException {
         Fight_boss_controller fight_boss_page = new Fight_boss_controller();
     }
 
