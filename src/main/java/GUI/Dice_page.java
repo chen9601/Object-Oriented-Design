@@ -12,22 +12,28 @@ import javax.swing.*;
  * 전투시 주사위를 굴릴수 있는 프레임이다
  */
 public class Dice_page extends JFrame {
-    @Getter
+ @Getter
     private int savedDice_num;
     String path;
     Dimension frameSize = this.getSize(); // 프레임 사이즈
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // 모니터 사이즈
 
 
+
+
+
+
+
     public Dice_page() {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
         setUndecorated(false);
+        this.setLocation((screenSize.width - frameSize.width), (screenSize.height - frameSize.height));
 
         path = "images/diceForRoll-export.gif";
         JLabel showDice = null;
         try {
-            showDice = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(DiceImage(savedDice_num)))));
+            showDice = new JLabel(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path))));
         } catch (IOException e) {
             e.printStackTrace();
         }
