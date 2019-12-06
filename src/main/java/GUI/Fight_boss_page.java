@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import static com.Fight_boss_controller.*;
@@ -54,6 +56,13 @@ public class Fight_boss_page extends JFrame {
 
 
     public Fight_boss_page() {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                Mainmusic_thread.thread.stop();
+            }
+        });
 
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/boss_fight.mp3"), true);

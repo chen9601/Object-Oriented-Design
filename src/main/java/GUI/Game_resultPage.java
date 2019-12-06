@@ -3,6 +3,8 @@ package GUI;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 public class Game_resultPage extends JFrame {
@@ -22,6 +24,13 @@ public class Game_resultPage extends JFrame {
             JLabel win = new JLabel(new ImageIcon(win_tempimg));
             getContentPane().add(win);
             win.setVisible(true);
+            this.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    super.windowClosing(e);
+                    Mainmusic_thread.thread.stop();
+                }
+            });
         }
         else if(result == "defeat"){
             Image defeat_img = null;
@@ -34,6 +43,14 @@ public class Game_resultPage extends JFrame {
             JLabel defeat = new JLabel(new ImageIcon(defeat_tempimg));
             getContentPane().add(defeat);
             defeat.setVisible(true);
+            this.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    super.windowClosing(e);
+                    Mainmusic_thread.thread.stop();
+                }
+            });
         }
+
     }
 }
