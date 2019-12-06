@@ -3,6 +3,8 @@ package com;
 import GUI.Fight_boss_page;
 import GUI.Game_resultPage;
 
+import java.io.IOException;
+
 public class Fight_boss_controller {
     public static GUI.Fight_boss_page fight_boss_page;
 
@@ -11,7 +13,7 @@ public class Fight_boss_controller {
         fight_boss_page.setVisible(true);
     }
 
-    public static void attackedPlayerByBoss() {
+    public static void attackedPlayerByBoss() throws IOException {
         int bonus_val=0;
         if(GameMaster.current_boss.getType()==BossType.CHUTHULU)
         {
@@ -35,7 +37,7 @@ public class Fight_boss_controller {
         }
     }
 
-    public static void attackedBossByPlayer() {
+    public static void attackedBossByPlayer() throws IOException {
 
         int dice_value = ConstantEventHandler.Dice();
         Boss boss = GameMaster.current_boss;

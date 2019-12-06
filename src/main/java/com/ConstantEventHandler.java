@@ -138,7 +138,7 @@ public class ConstantEventHandler
             public void run() {
                 Dice.dispose();
             }
-        },1*2*1000);
+        },1*1*1000);
         return Dice.getSavedDice_num();
     }
 

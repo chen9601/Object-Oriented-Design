@@ -19,7 +19,8 @@ import java.io.IOException;
 @Getter
 @Setter
 public class Fight_monster_page extends JFrame {
-
+     boolean monster_result = false;
+    JLabel lblfight;
     static Fight_monster_page frm_fight_monster_page;
     MonsterPanel monsterPanel;
     PlayerPanel player_panel;
@@ -28,6 +29,7 @@ public class Fight_monster_page extends JFrame {
     static JButton fight;
 
     public Fight_monster_page(Monster monster) throws IOException {
+        setBackground(Color.white);
         frm_fight_monster_page = this;
         Mainmusic_thread.thread.close();
         setUndecorated(true);
@@ -47,51 +49,82 @@ public class Fight_monster_page extends JFrame {
         monsterPanel = new MonsterPanel(this.monster);
         getContentPane().add(monsterPanel);
 
+
+        lblfight = new JLabel("");
+        getContentPane().add(lblfight);
+        lblfight.setBounds(800, 400, 600, 200);
+
         fight = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/fight_start.png"))));
         fight.setFocusPainted(false);
         fight.setContentAreaFilled(false);
         fight.setBorderPainted(false);
         getContentPane().add(fight);
-        fight.setBounds(400, 600, 709, 300);
+
+
+        fight.setBounds(400, 600, 600, 200);
         fight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (fight.getText() == "플레이어 패배") {
-                    MainGamePageController.show_players();
-                    Fight_monster_page.frm_fight_monster_page.dispose();
-                    DialogPanelController.Clear();
-                    DialogPanelController.generateGeneralDialogues();
-                    Mainmusic_thread.thread.close();
-                    Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
-                    music_thread.start();
-                    return;
-                } else if (fight.getText() == "몬스터 패배") {
-                    Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
-                    MainGamePageController.show_monsters();
-                    Fight_monster_page.frm_fight_monster_page.dispose();
-                    DialogPanelController.Clear();
-                    DialogPanelController.generateGeneralDialogues();
-                    Mainmusic_thread.thread.close();
-                    Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
-                    music_thread.start();
-                    return;
+                if (monster_result == true) {
+                    if (lblfight.getText() == "플레이어 패배") {
+
+                        MainGamePageController.show_players();
+                        Fight_monster_page.frm_fight_monster_page.dispose();
+                        DialogPanelController.Clear();
+                        DialogPanelController.generateGeneralDialogues();
+                        Mainmusic_thread.thread.close();
+                        Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
+                        music_thread.start();
+
+                        return;
+                    } else if (lblfight.getText() == "몬스터 패배") {
+
+                        Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
+                        MainGamePageController.show_monsters();
+                        Fight_monster_page.frm_fight_monster_page.dispose();
+                        DialogPanelController.Clear();
+                        DialogPanelController.generateGeneralDialogues();
+                        Mainmusic_thread.thread.close();
+                        Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
+                        music_thread.start();
+
+                        return;
+                    }
                 }
+
                 if (turn % 2 == 0) {
-                    fight.setText("몬스터의 공격");
-                    attackedMonsterByPlayer();
+                    lblfight.setText("몬스터의 공격");
+                    try {
+                        attackedMonsterByPlayer();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     System.out.println(Player.getCurrentPlayer());
                     turn++;
                 } else {
-                    fight.setText("플레이어의 공격");
-                    attackedPlayerByMonster();
+                    lblfight.setText("플레이어의 공격");
+                    try {
+                        attackedPlayerByMonster();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     turn++;
                 }
+
+                //monster fight 결과 출력
                 if (Player.getCurrentPlayer().getHealth() < 1 || Player.getCurrentPlayer().getMental() < 1) {
-                    fight.setText("플레이어 패배");
+                    fight.setIcon(null);
+                    lblfight.setText("플레이어 패배");
+                    fight.setText("다음 게임 진행을 위해 ----->    여기     <------------를 눌러주세요");
+                    monster_result = true;
                     return;
                 }
                 if (monster.getHealth() < 1) {
-                    fight.setText("몬스터 패배");
+                    fight.setIcon(null);
+                    lblfight.setText("몬스터 패배");
+                    fight.setText("다음 게임 진행을 위해 ----->      여기         <-------------를 눌러주세요");
+                   monster_result = true;
+
                     return;
                 }
             }
@@ -99,7 +132,7 @@ public class Fight_monster_page extends JFrame {
         setVisible(true);
     }
 
-    private void attackedPlayerByMonster() {
+    private void attackedPlayerByMonster() throws IOException {
         System.out.println("몬스터가 플레이어 공격했음");
         int bonus_val = 0;
         if (GameMaster.current_boss.getType() == BossType.CHUTHULU) {
@@ -118,7 +151,7 @@ public class Fight_monster_page extends JFrame {
         }
     }
 
-    private void attackedMonsterByPlayer() {
+    private void attackedMonsterByPlayer() throws IOException {
         System.out.println("플레이어가 공격했음");
         int bonus_val = 0;
         if (GameMaster.current_boss.getType() == BossType.CHUTHULU) {

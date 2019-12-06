@@ -287,7 +287,7 @@ public class RandomEventAnswer {
         DialogPanelController.show_dialog_answer2(answer2);
     }
 
-    public static void Ans4_1(Player player) {
+    public static void Ans4_1(Player player) throws IOException {
         DialogPanelController.Clear();
         String message1 = "그가 망토 속에서 기이한 물건 하나를 꺼내 당신에게 건네줍니다.";
         String message2 = "그는 갑자기 망토 속에서 독을 바른 칼날을 꺼내 당신을 찌릅니다.";
@@ -327,7 +327,7 @@ public class RandomEventAnswer {
         DialogPanelController.show_dialog_answer2(answer2);
     }
 
-    public static void Ans5_1(Player player) {
+    public static void Ans5_1(Player player) throws IOException {
         DialogPanelController.Clear();
         String message1 = "당신을 가격하는 몽둥이를 피했습니다.";
         String message2 = "당신을 가격하는 몽둥이를 피하지 못했습니다. 눈앞이 캄캄해집니다.";
@@ -392,7 +392,7 @@ public class RandomEventAnswer {
     }
 
 
-    public static void Ans7_1(Player player) {
+    public static void Ans7_1(Player player) throws IOException {
         // TODO : 디버깅 필요 !! 실패시 플레이어의 위치가 임의로 변경되는데 이 변경이 맵에 반영이 안된다.
         DialogPanelController.Clear();
         String message1 = "상자를 열고 신비로운 힘이 느껴지는 물건을 얻었습니다.";
@@ -489,7 +489,7 @@ public class RandomEventAnswer {
         DialogPanelController.show_dialog_answer2(answer2);
     }
 
-    public static void Ans10_1(Player player) {
+    public static void Ans10_1(Player player) throws IOException {
         DialogPanelController.Clear();
         String message1 = "그를 향해 뛰어올라 그를 붙잡는 순간 사라집니다. 신비로운 힘이 당신을 휘감습니다.";
         String message2 = "그가 당신의 눈 앞에서 소멸됩니다.";
@@ -530,7 +530,7 @@ public class RandomEventAnswer {
         DialogPanelController.show_dialog_answer2(answer2);
     }
 
-    public static void Ans12_1(Player player) {
+    public static void Ans12_1(Player player) throws IOException {
         DialogPanelController.Clear();
         String message1 = "\"거래 고맙네.\" 노인은 갑자기 사라졌고, 당신은 주머니가 허전해짐과 동시에 손에 정체모를 램프가 들려있는 것을 발견합니다.";
         String message2 = "\"이런..3달러도 없단 말인가?\" 노인이 갑자기 사라집니다.";
@@ -644,7 +644,7 @@ public class RandomEventAnswer {
         DialogPanelController.show_dialog_answer2(answer2);
     }
 
-    public static void Ans18_1(Player player) {
+    public static void Ans18_1(Player player) throws IOException {
         DialogPanelController.Clear();
         String message1 = "당신은 검은 정장의 사나이의 안으로 빨려들어가는 것을 느낍니다...";
         String message2 = "당신은 이 미친 거래에서 살아남았습니다. 사나이는 당신에게 힘을 주고 떠나갑니다. \"다음에 뵙겠습니다.\"";
@@ -803,7 +803,7 @@ public class RandomEventAnswer {
         DialogPanelController.show_dialog_answer2(answer2);
     }
 
-    public static void death_Ans(Player player) {
+    public static void death_Ans(Player player) throws IOException {
         if (player.getStatus() == 2)
             Win_check(player);
 

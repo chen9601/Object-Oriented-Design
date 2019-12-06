@@ -153,12 +153,20 @@ public class Fight_boss_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (turninboss % 2 == 0) {
-                    attackedBossByPlayer();
+                    try {
+                        attackedBossByPlayer();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     System.out.println(Player.getCurrentPlayer());
                     System.out.println("플레이어가 공격했음");
                     turninboss++;
                 } else if (turninboss % 2 == 1) {
-                    attackedPlayerByBoss();
+                    try {
+                        attackedPlayerByBoss();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     System.out.println("boss 공격가 공격했음");
                     turninboss++;
                 }
