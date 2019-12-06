@@ -20,9 +20,15 @@ import java.util.TimerTask;
  */
 public class ConstantEventHandler
 {
-
+    /** shop() 내부에서 쓰일 변수로, 아이템 arraylist 이다. */
     static ArrayList<ItemType> itemlist=new ArrayList<ItemType>();
+
+    /**
+     * shop()를 사용할 때 구매 후 잔여 아이템 목록의 존재여부로  화면에 출력할 아이템 목록을 정하는데 사용된다.
+     */
     static boolean shop_maintain_switch=false;
+
+    /** @Deprecated 아마 안쓰이니까 지워야 할듯?*/
     static int fight_remain=0;
 
     /**

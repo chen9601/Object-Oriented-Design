@@ -9,10 +9,11 @@ import java.util.Arrays;
 import static com.Player.*;
 
 /**
- * 게임마스터 객체 모델로, 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정할 수 있다.
- *
+ * 실제 게임마스터처럼 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정하는 클래스이다.
+ * 초기화, 세팅 페이지들간의 동기화를 위한 메소드, 즉사체크 및 보스 소환조건과 게임 승리 조건 체크,
+ * 턴 종료와, 몬스터와 포털 생성 관련 메소드들로 구성되어 있다.
  * @author Se-Ok Jeon
- * @version 1.0
+ * @version 1.1
  */
 public class GameMaster {
     public static int token = 0;
