@@ -18,7 +18,11 @@ public class Dice_page extends JFrame {
     Dimension frameSize = this.getSize(); // 프레임 사이즈
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // 모니터 사이즈
 
-
+    public static void main(String args[]){
+        Dice_page hi = new Dice_page();
+        
+        hi.setVisible(false);
+    }
 
 
 
@@ -28,7 +32,6 @@ public class Dice_page extends JFrame {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
         setUndecorated(false);
-        this.setLocation((screenSize.width - frameSize.width), (screenSize.height - frameSize.height));
 
         path = "images/diceForRoll-export.gif";
         JLabel showDice = null;
