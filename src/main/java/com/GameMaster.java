@@ -63,7 +63,7 @@ public class GameMaster {
     }
 
     /**
-     * 게임 시작 시 보스를 설정하는 메소드
+     * setBoss_page에서 선택한 보스를 저장하는 메소드
      * @param selected_boss
      * <br>선택된 보스
      */
@@ -159,7 +159,7 @@ public class GameMaster {
      * @return 패배 여부
      */
     public static boolean check_player_status_for_lost() {
-        if (players[0].getStatus() == 2 && players[1].getStatus() == 2)
+        if (players[0].getStatus() == DEAD && players[1].getStatus() == DEAD)
             return true;
         else return false;
     }

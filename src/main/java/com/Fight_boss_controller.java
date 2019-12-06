@@ -8,7 +8,7 @@ import GUI.Game_resultPage;
  * 보스와 전투할 때, 쓰일 데이터 처리에 관한 메소드들로 구성되어 있다.
  * 플레이어 공격 및 업데이트, 보스 공격 및 업데이트, 승패 결정 메소드들이 있다.
  *
- * @author SeOk Jeon
+ * @author Se-Ok Jeon
  */
 public class Fight_boss_controller {
     public static GUI.Fight_boss_page fight_boss_page;

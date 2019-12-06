@@ -13,7 +13,7 @@ import java.io.IOException;
  * 메인게임페이지에서 사용될 dialogpanel에 관한 controller이다.
  * 다이얼로그를 쉽게 업데이트 하기 위한 메소드와, clear, 자주 사용되는 다이얼로그를 출력하는 메소드로 구성되어 있다.
  *
- * @author SeOk Jeon
+ * @author Se-Ok Jeon
  */
 @Data
 public class DialogPanelController {

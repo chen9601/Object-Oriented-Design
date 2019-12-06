@@ -5,7 +5,7 @@ import java.awt.*;
 
 /**
  * 보스들의 설정값을 지칭하는 Enumeration
- * @author Chanho Park, SeOk Jeon
+ * @author Chanho Park, Se-Ok Jeon
  */
 public enum BossType {
     AZATHOTH("아자투스",10, 10, 10,"images/boss/azatoth.png","images/boss/azatoth.png"),
