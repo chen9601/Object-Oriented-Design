@@ -52,7 +52,7 @@ public class Fight_monster_page extends JFrame {
 
         lblfight = new JLabel("");
         getContentPane().add(lblfight);
-        lblfight.setBounds(800, 400, 600, 200);
+        lblfight.setBounds(800, 500, 600, 150);
 
         fight = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/fight_start.png"))));
         fight.setFocusPainted(false);
