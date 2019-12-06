@@ -74,6 +74,7 @@ public class Fight_monster_page extends JFrame {
         fight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 if (monster_result == true) {
                     if (lblfight.getText() == "플레이어 패배") {
 
@@ -100,6 +101,7 @@ public class Fight_monster_page extends JFrame {
                         Player.getCurrentPlayer().setMoney(player_money+20);
                         return;
                     }
+
                 }
 
                 if (turn % 2 == 0) {
