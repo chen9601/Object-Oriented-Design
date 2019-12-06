@@ -38,8 +38,10 @@ public class Dice_page extends JFrame {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
         setUndecorated(false);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((dim.width/2)-(getWidth()/2), (dim.height/2)-(getHeight()/2));
+        Dimension frameSize = this.getSize(); // 프레임 사이즈
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // 모니터 사이즈
+
+        this.setLocation((screenSize.width - frameSize.width), (screenSize.height - frameSize.height)); // 화면 우측 상단
         System.out.println(savedDice_num);
         System.out.println(DiceImage(savedDice_num));
         panel_dice_img  = new ImagePanel();

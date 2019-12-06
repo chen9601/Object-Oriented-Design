@@ -79,7 +79,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
     }
 
 
-    MainGamePlayerStatusDetail_page(Player player) {
+    MainGamePlayerStatusDetail_page(Player player) throws IOException {
         ImagePanel panel = new ImagePanel();
         getContentPane().add(panel);
 
@@ -92,7 +92,8 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
             setBounds(0, 0, 1200, 960);
 
             JPanel movetab = new JPanel();
-            JButton prev = new JButton("prev");
+            JButton prev = new JButton(new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/prev.png"))));
+
 
             prev.addActionListener(new ActionListener() {
                 @Override
@@ -260,7 +261,12 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
             if (cur_player == player_to_show)
                 return;
 
-            MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(player_to_show);
+            MainGamePlayerStatusDetail_page temp = null;
+            try {
+                temp = new MainGamePlayerStatusDetail_page(player_to_show);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             temp.setVisible(true);
             show_player(player_to_show);
             dispose();
@@ -279,7 +285,7 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         MainGamePlayerStatusDetail_page frame = new MainGamePlayerStatusDetail_page(Player.getPlayer(0));
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
