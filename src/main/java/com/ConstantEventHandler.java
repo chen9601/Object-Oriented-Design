@@ -15,26 +15,26 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * íŠ¹ì • ì¡°ê±´ì—ì„œ ë°˜ë“œì‹œ ì¼ì–´ë‚˜ì•¼í•˜ëŠ” ì´ë²¤íŠ¸ë“¤ì„ ì •ë¦¬í•œ í´ë˜ìŠ¤
+ * ?Š¹? • ì¡°ê±´?—?„œ ë°˜ë“œ?‹œ ?¼?–´?‚˜?•¼?•˜?Š” ?´ë²¤íŠ¸?“¤?„ ? •ë¦¬í•œ ?´?˜?Š¤
  * @author Chanho Park
  */
 public class ConstantEventHandler
 {
-    /** shop() ë‚´ë¶€ì—ì„œ ì“°ì¼ ë³€ìˆ˜ë¡œ, ì•„ì´í…œ arraylist ì´ë‹¤. */
+    /** shop() ?‚´ë¶??—?„œ ?“°?¼ ë³??ˆ˜ë¡?, ?•„?´?…œ arraylist ?´?‹¤. */
     static ArrayList<ItemType> itemlist=new ArrayList<ItemType>();
 
     /**
-     * shop()ë¥¼ ì‚¬ìš©í•  ë•Œ êµ¬ë§¤ í›„ ì”ì—¬ ì•„ì´í…œ ëª©ë¡ì˜ ì¡´ì¬ì—¬ë¶€ë¡œ  í™”ë©´ì— ì¶œë ¥í•  ì•„ì´í…œ ëª©ë¡ì„ ì •í•˜ëŠ”ë° ì‚¬ìš©ëœë‹¤.
+     * shop()ë¥? ?‚¬?š©?•  ?•Œ êµ¬ë§¤ ?›„ ?”?—¬ ?•„?´?…œ ëª©ë¡?˜ ì¡´ì¬?—¬ë¶?ë¡?  ?™”ë©´ì— ì¶œë ¥?•  ?•„?´?…œ ëª©ë¡?„ ? •?•˜?Š”?° ?‚¬?š©?œ?‹¤.
      */
     static boolean shop_maintain_switch=false;
 
-    /** @Deprecated ì•„ë§ˆ ì•ˆì“°ì´ë‹ˆê¹Œ ì§€ì›Œì•¼ í• ë“¯?*/
-    static int fight_remain=0;
+    /** @Deprecated ?•„ë§? ?•ˆ?“°?´?‹ˆê¹? ì§??›Œ?•¼ ?• ?“¯?*/
+    public static int fight_remain=0;
 
     /**
-     * ëœë¤ ì´ë²¤íŠ¸ë¥¼ ë°œìƒì‹œí‚¤ëŠ” ë©”ì†Œë“œ
+     * ?œ?¤ ?´ë²¤íŠ¸ë¥? ë°œìƒ?‹œ?‚¤?Š” ë©”ì†Œ?“œ
      * @param player
-     * ëœë¤ ì´ë²¤íŠ¸ë¥¼ ì§„í–‰í•  í”Œë ˆì´ì–´
+     * ?œ?¤ ?´ë²¤íŠ¸ë¥? ì§„í–‰?•  ?”Œ? ˆ?´?–´
      */
     static void generateRandomEvent(Player player)
     {
@@ -43,11 +43,11 @@ public class ConstantEventHandler
     }
 
     /**
-     * ë§µì„ í´ë¦­í•˜ì—¬ í”Œë ˆì´ì–´ê°€ ì´ë™í•˜ë ¤ê³  í•  ë•Œ ì´ë™ì‹œí‚¤ëŠ” ë©”ì†Œë“œ
+     * ë§µì„ ?´ë¦??•˜?—¬ ?”Œ? ˆ?´?–´ê°? ?´?™?•˜? ¤ê³? ?•  ?•Œ ?´?™?‹œ?‚¤?Š” ë©”ì†Œ?“œ
      * @param player
-     * í•´ë‹¹ í”Œë ˆì´ì–´
+     * ?•´?‹¹ ?”Œ? ˆ?´?–´
      * @param tile
-     * ëª©ì ì§€
+     * ëª©ì ì§?
      * @throws IOException
      */
     static public void move(Player player, TileType tile) throws IOException {
@@ -61,29 +61,30 @@ public class ConstantEventHandler
     }
 
     /**
-     * ì´ë²¤íŠ¸ë¡œ ì¸í•´ í”Œë ˆì´ì–´ê°€ ì´ë™í•´ì•¼ í•  ë•Œ ì´ë™ì‹œí‚¤ëŠ” ë©”ì†Œë“œ
-     * <br>ì´ ì´ë²¤íŠ¸ë¡œ ì¸í•´ ì´ë²¤íŠ¸ê°€ ë°œìƒí•´ì•¼í•˜ëŠ” ê³³ìœ¼ë¡œ ê°ˆ ê²½ìš°ì—ëŠ” ì´ë²¤íŠ¸ê°€ ë°œìƒí•˜ì§€ ì•ŠëŠ”ë‹¤.
+     * ?´ë²¤íŠ¸ë¡? ?¸?•´ ?”Œ? ˆ?´?–´ê°? ?´?™?•´?•¼ ?•  ?•Œ ?´?™?‹œ?‚¤?Š” ë©”ì†Œ?“œ
+     * <br>?´ ?´ë²¤íŠ¸ë¡? ?¸?•´ ?´ë²¤íŠ¸ê°? ë°œìƒ?•´?•¼?•˜?Š” ê³³ìœ¼ë¡? ê°? ê²½ìš°?—?Š” ?´ë²¤íŠ¸ê°? ë°œìƒ?•˜ì§? ?•Š?Š”?‹¤.
      * @param player
-     * í•´ë‹¹ í”Œë ˆì´ì–´
+     * ?•´?‹¹ ?”Œ? ˆ?´?–´
      * @param tile
-     * ëª©ì ì§€
+     * ëª©ì ì§?
      * @throws IOException
      */
     static void movebyTeleport(Player player, TileType tile) throws IOException {
         player.setPos(tile);
     }
     /**
-     * í”Œë ˆì´ì–´ê°€ ì›€ì§ì¸ ì´í›„ í˜¸ì¶œ, ì›€ì§ì¼ í”Œë ˆì´ì–´ì™€ ëª©ì ì§€ë¥¼ ë°›ì•„ ì´ë²¤íŠ¸ ì—¬ë¶€ë¥¼ í™•ì¸í•˜ëŠ” ë©”ì†Œë“œ
+     * ?”Œ? ˆ?´?–´ê°? ???ì§ì¸ ?´?›„ ?˜¸ì¶?, ???ì§ì¼ ?”Œ? ˆ?´?–´??? ëª©ì ì§?ë¥? ë°›ì•„ ?´ë²¤íŠ¸ ?—¬ë¶?ë¥? ?™•?¸?•˜?Š” ë©”ì†Œ?“œ
      * @param player
-     *        í•´ë‹¹ í”Œë ˆì´ì–´
+     *        ?•´?‹¹ ?”Œ? ˆ?´?–´
      * @param tile
-     *        ëª©ì ì§€
+     *        ëª©ì ì§?
      */
     static public void CheckEventHere(Player player, TileType tile) throws IOException {
         if(Map.getPortalAt(tile))
         {
             fight_remain=2;
             generateFight(MonsterType.values()[(int) Math.floor(Math.random() * 5)]);
+
             if(player.getHealth() > 0)
             {
                 GameMaster.token++;
@@ -118,11 +119,11 @@ public class ConstantEventHandler
     }
 
     /**
-     * í”Œë ˆì´ì–´ì—ê²Œ ì•„ì´í…œì„ ì¶”ê°€í•˜ê³  ê·¸ì— ëŒ€í•œ ëŠ¥ë ¥ ì¶”ê°€ì¹˜ë¥¼ ì ìš©ì‹œí‚¤ëŠ” ë©”ì†Œë“œ
+     * ?”Œ? ˆ?´?–´?—ê²? ?•„?´?…œ?„ ì¶”ê???•˜ê³? ê·¸ì— ????•œ ?Š¥? ¥ ì¶”ê??ì¹˜ë?? ? ?š©?‹œ?‚¤?Š” ë©”ì†Œ?“œ
      * @param player
-     * í•´ë‹¹ í”Œë ˆì´ì–´
+     * ?•´?‹¹ ?”Œ? ˆ?´?–´
      * @param item
-     * ì–»ê²Œ ë˜ëŠ” ì•„ì´í…œ
+     * ?–»ê²? ?˜?Š” ?•„?´?…œ
      */
     static void addItem(Player player, ItemType item)
     {
@@ -137,9 +138,9 @@ public class ConstantEventHandler
     }
 
     /**
-     * í”Œë ˆì´ì–´ì—ê²Œ ë¬´ì‘ìœ„ ì•„ì´í…œì„ ì¶”ê°€ì‹œí‚¤ê³  ëŠ¥ë ¥ ì¶”ê°€ì¹˜ë¥¼ ì ìš©í•˜ëŠ” ë©”ì†Œë“œ
+     * ?”Œ? ˆ?´?–´?—ê²? ë¬´ì‘?œ„ ?•„?´?…œ?„ ì¶”ê???‹œ?‚¤ê³? ?Š¥? ¥ ì¶”ê??ì¹˜ë?? ? ?š©?•˜?Š” ë©”ì†Œ?“œ
      * @param player
-     * í•´ë‹¹ í”Œë ˆì´ì–´
+     * ?•´?‹¹ ?”Œ? ˆ?´?–´
      */
     static void addRandomItem(Player player)
     {
@@ -156,44 +157,44 @@ public class ConstantEventHandler
 
 
     /**
-     * ë³‘ì› ì´ë²¤íŠ¸ì— ê´€í•œ ë©”ì†Œë“œ
+     * ë³‘ì› ?´ë²¤íŠ¸?— ê´??•œ ë©”ì†Œ?“œ
      * @param player
-     * ë³‘ì›ì— ë„ì°©í•œ í”Œë ˆì´ì–´
+     * ë³‘ì›?— ?„ì°©í•œ ?”Œ? ˆ?´?–´
      */
     static void hospital(Player player)
     {
-        String message="ë³‘ì›ì— ë„ì°©í–ˆìŠµë‹ˆë‹¤. ì¹˜ë£Œë°›ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ?";
+        String message="ë³‘ì›?— ?„ì°©í–ˆ?Šµ?‹ˆ?‹¤. ì¹˜ë£Œë°›ìœ¼?‹œê² ìŠµ?‹ˆê¹??";
         DialogPanelController.show_dialog(message);
-        DialogPanelController.show_dialog_answer1(new Answer("1. ì¹˜ë£Œí•œë‹¤","hospital1"));
-        DialogPanelController.show_dialog_answer2(new Answer("2. ë– ë‚œë‹¤","hospital2"));
+        DialogPanelController.show_dialog_answer1(new Answer("1. ì¹˜ë£Œ?•œ?‹¤","hospital1"));
+        DialogPanelController.show_dialog_answer2(new Answer("2. ?– ?‚œ?‹¤","hospital2"));
     }
     /**
-     * ì •ì‹ ë³‘ì› ì´ë²¤íŠ¸ì— ê´€í•œ ë©”ì†Œë“œ
+     * ? •?‹ ë³‘ì› ?´ë²¤íŠ¸?— ê´??•œ ë©”ì†Œ?“œ
      * @param player
-     * ì •ì‹ ë³‘ì›ì— ë„ì°©í•œ í”Œë ˆì´ì–´
+     * ? •?‹ ë³‘ì›?— ?„ì°©í•œ ?”Œ? ˆ?´?–´
      */
     static void mospital(Player player)
     {
-        String message="ì •ì‹ ë³‘ì›ì— ë„ì°©í–ˆìŠµë‹ˆë‹¤. ì¹˜ë£Œë°›ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ?";
+        String message="? •?‹ ë³‘ì›?— ?„ì°©í–ˆ?Šµ?‹ˆ?‹¤. ì¹˜ë£Œë°›ìœ¼?‹œê² ìŠµ?‹ˆê¹??";
         DialogPanelController.show_dialog(message);
-        DialogPanelController.show_dialog_answer1(new Answer("1. ì¹˜ë£Œí•œë‹¤","mospital1"));
-        DialogPanelController.show_dialog_answer2(new Answer("2. ë– ë‚œë‹¤","mospital2"));
+        DialogPanelController.show_dialog_answer1(new Answer("1. ì¹˜ë£Œ?•œ?‹¤","mospital1"));
+        DialogPanelController.show_dialog_answer2(new Answer("2. ?– ?‚œ?‹¤","mospital2"));
     }
 
     /**
-     * ì¼ë°˜ ëª¬ìŠ¤í„° ì „íˆ¬ ì°½ìœ¼ë¡œ ë„˜ì–´ê°€ê²Œ í•˜ëŠ” ë©”ì†Œë“œ
+     * ?¼ë°? ëª¬ìŠ¤?„° ? „?ˆ¬ ì°½ìœ¼ë¡? ?„˜?–´ê°?ê²? ?•˜?Š” ë©”ì†Œ?“œ
      * @param monster
-     * ì „íˆ¬í•  ëª¬ìŠ¤í„°
+     * ? „?ˆ¬?•  ëª¬ìŠ¤?„°
      * @throws IOException
      */
-    static void generateFight(MonsterType monster) throws IOException {
+    public static void generateFight(MonsterType monster) throws IOException {
         Fight_monster_page fightwithmonster = new Fight_monster_page(new Monster(monster));
     }
 
     /**
-     * ì£¼ì‚¬ìœ„ ì°½ì„ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œ
+     * ì£¼ì‚¬?œ„ ì°½ì„ ì¶œë ¥?•˜?Š” ë©”ì†Œ?“œ
      * @return Dice.getSavedDice_num()
-     * 1~6 ì¤‘ì— ë¬´ì‘ìœ„ë¡œ ì„ íƒëœ intí˜•ì˜ ê°’
+     * 1~6 ì¤‘ì— ë¬´ì‘?œ„ë¡? ?„ ?ƒ?œ int?˜•?˜ ê°?
      */
     public static int  Dice(){
         Dice_page Dice = new Dice_page();
@@ -205,17 +206,17 @@ public class ConstantEventHandler
             public void run() {
                 Dice.dispose();
             }
-        },1*2*1000);
+        },1*1*1000);
         return Dice.getSavedDice_num();
     }
 
     /**
-     * í•´ë‹¹ ì•„ì´í…œì´ í”Œë ˆì´ì–´ê°€ ì†Œì§€í•œ ê¸ˆì•¡ìœ¼ë¡œ êµ¬ë§¤í•  ìˆ˜ ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë©”ì†Œë“œ
+     * ?•´?‹¹ ?•„?´?…œ?´ ?”Œ? ˆ?´?–´ê°? ?†Œì§??•œ ê¸ˆì•¡?œ¼ë¡? êµ¬ë§¤?•  ?ˆ˜ ?ˆ?Š”ì§? ?™•?¸?•˜?Š” ë©”ì†Œ?“œ
      * @param player
-     * í”Œë ˆì´ì–´
+     * ?”Œ? ˆ?´?–´
      * @param item
-     * êµ¬ë§¤í•˜ë ¤ê³  í•˜ëŠ” ì•„ì´í…œ
-     * @return êµ¬ë§¤ ê°€ëŠ¥ ì—¬ë¶€
+     * êµ¬ë§¤?•˜? ¤ê³? ?•˜?Š” ?•„?´?…œ
+     * @return êµ¬ë§¤ ê°??Š¥ ?—¬ë¶?
      */
     static boolean isAffordable(Player player, ItemType item)
     {
@@ -226,12 +227,12 @@ public class ConstantEventHandler
     }
 
     /**
-     * ì•„ì´í…œ êµ¬ë§¤ ì‹œ êµ¬ë§¤ í›„ ì”ì•¡ì„ í”Œë ˆì´ì–´ì—ê²Œ ë„˜ê²¨ì£¼ëŠ” ë©”ì†Œë“œ
+     * ?•„?´?…œ êµ¬ë§¤ ?‹œ êµ¬ë§¤ ?›„ ?”?•¡?„ ?”Œ? ˆ?´?–´?—ê²? ?„˜ê²¨ì£¼?Š” ë©”ì†Œ?“œ
      * @param player
-     * í”Œë ˆì´ì–´
+     * ?”Œ? ˆ?´?–´
      * @param item
-     * êµ¬ë§¤í•œ ì•„ì´í…œ
-     * @return êµ¬ë§¤ í›„ ì”ì•¡
+     * êµ¬ë§¤?•œ ?•„?´?…œ
+     * @return êµ¬ë§¤ ?›„ ?”?•¡
      */
     static int getChange(Player player, ItemType item)
     {
@@ -239,8 +240,8 @@ public class ConstantEventHandler
     }
 
     /**
-     * ìƒì ì— ë„ì°©í•  ë•Œë§ˆë‹¤ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼ ê°±ì‹ í•˜ëŠ” ë©”ì†Œë“œ
-     * @return ë¬´ì‘ìœ„ë¡œ ì„ ì •ëœ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸
+     * ?ƒ? ?— ?„ì°©í•  ?•Œë§ˆë‹¤ ?•„?´?…œ ë¦¬ìŠ¤?Š¸ë¥? ê°±ì‹ ?•˜?Š” ë©”ì†Œ?“œ
+     * @return ë¬´ì‘?œ„ë¡? ?„ ? •?œ ?•„?´?…œ ë¦¬ìŠ¤?Š¸
      */
     static ArrayList<ItemType> getRandomItemList()
     {
@@ -264,12 +265,12 @@ public class ConstantEventHandler
     }
 
     /**
-     * ëª¬ìŠ¤í„°ë¥¼ ìƒì„±í•˜ëŠ” ë©”ì†Œë“œ
-     * <br>ëª¬ìŠ¤í„°ëŠ” ë³‘ì›, ìƒì , ì •ì‹ ë³‘ì›, í”Œë ˆì´ì–´ê°€ ìœ„ì¹˜í•˜ê³  ìˆëŠ” ê³³, í¬í„¸ì´ë‚˜ ëª¬ìŠ¤í„°ê°€ ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ê³³ì—ëŠ” ìƒì„±ë  ìˆ˜ ì—†ë‹¤.
+     * ëª¬ìŠ¤?„°ë¥? ?ƒ?„±?•˜?Š” ë©”ì†Œ?“œ
+     * <br>ëª¬ìŠ¤?„°?Š” ë³‘ì›, ?ƒ? , ? •?‹ ë³‘ì›, ?”Œ? ˆ?´?–´ê°? ?œ„ì¹˜í•˜ê³? ?ˆ?Š” ê³?, ?¬?„¸?´?‚˜ ëª¬ìŠ¤?„°ê°? ?´ë¯? ì¡´ì¬?•˜?Š” ê³³ì—?Š” ?ƒ?„±?  ?ˆ˜ ?—†?‹¤.
      * @param monster
-     * ìƒì„±ë  ëª¬ìŠ¤í„°
+     * ?ƒ?„±?  ëª¬ìŠ¤?„°
      * @param tile
-     * ëª¬ìŠ¤í„°ê°€ ìƒì„±ë  ì¥ì†Œ
+     * ëª¬ìŠ¤?„°ê°? ?ƒ?„±?  ?¥?†Œ
      */
     static void CreateMonster(MonsterType monster, TileType tile)
     {
@@ -286,11 +287,11 @@ public class ConstantEventHandler
     }
 
     /**
-     * ìƒì  ì´ë²¤íŠ¸ë¥¼ ì§„í–‰ì‹œí‚¤ëŠ” ë©”ì†Œë“œ
+     * ?ƒ?  ?´ë²¤íŠ¸ë¥? ì§„í–‰?‹œ?‚¤?Š” ë©”ì†Œ?“œ
      */
     static void shop()
     {
-        String message="ìƒì ì— ë„ì°©í–ˆìŠµë‹ˆë‹¤. êµ¬ë§¤í•˜ì‹¤ê²Œ ìˆìœ¼ì‹ ê°€ìš”?";
+        String message="?ƒ? ?— ?„ì°©í–ˆ?Šµ?‹ˆ?‹¤. êµ¬ë§¤?•˜?‹¤ê²? ?ˆ?œ¼?‹ ê°??š”?";
         DialogPanelController.show_dialog(message);
 
         if(!shop_maintain_switch)
@@ -302,7 +303,7 @@ public class ConstantEventHandler
         if(itemlist.get(0)!=null){
             itemInfo1.append(itemlist.get(0).getName());
             itemInfo1.append("  ");
-            itemInfo1.append("ê°€ê²©:");
+            itemInfo1.append("ê°?ê²?:");
             itemInfo1.append(itemlist.get(0).getPrice());}
 
 
@@ -310,7 +311,7 @@ public class ConstantEventHandler
         if(itemlist.get(1)!=null){
         itemInfo2.append(itemlist.get(1).getName());
         itemInfo2.append("  ");
-        itemInfo2.append("ê°€ê²©:");
+        itemInfo2.append("ê°?ê²?:");
         itemInfo2.append(itemlist.get(1).getPrice());}
 
 
@@ -318,7 +319,7 @@ public class ConstantEventHandler
         if(itemlist.get(2)!=null){
         itemInfo3.append(itemlist.get(2).getName());
         itemInfo3.append("  ");
-        itemInfo3.append("ê°€ê²©:");
+        itemInfo3.append("ê°?ê²?:");
         itemInfo3.append(itemlist.get(2).getPrice());}
 
         shop_maintain_switch=false;
@@ -336,9 +337,9 @@ public class ConstantEventHandler
         if(itemlist.get(0)==null&&itemlist.get(1)==null&&itemlist.get(2)==null)
         {
             DialogPanelController.Clear();
-            String message3="ì˜¤ëŠ˜ì˜ ë¬¼ê±´ë“¤ì€ ëª¨ë‘ íŒ”ë ¸ìŠµë‹ˆë‹¤. ë‹¤ìŒ ë²ˆì— ë°©ë¬¸í•´ì£¼ì‹œê¸¸.";
+            String message3="?˜¤?Š˜?˜ ë¬¼ê±´?“¤??? ëª¨ë‘ ?Œ”? ¸?Šµ?‹ˆ?‹¤. ?‹¤?Œ ë²ˆì— ë°©ë¬¸?•´ì£¼ì‹œê¸?.";
             DialogPanelController.show_dialog(message3);
-            Answer answer1 = new Answer("1. ìƒì  ë‚˜ê°€ê¸°", "continue");
+            Answer answer1 = new Answer("1. ?ƒ?  ?‚˜ê°?ê¸?", "continue");
             DialogPanelController.show_dialog_answer1(answer1);
         }
     }

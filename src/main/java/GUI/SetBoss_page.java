@@ -112,7 +112,7 @@ public class SetBoss_page extends JFrame {
                 img_boss = null;
             }
             Image temp = new ImageIcon(img_boss).getImage();
-            Image temp_2 = temp.getScaledInstance(400, 500, java.awt.Image.SCALE_SMOOTH);
+            Image temp_2 = temp.getScaledInstance(300, 400, java.awt.Image.SCALE_SMOOTH);
             ImageIcon real = new ImageIcon(temp_2);
 
             JButton bossimg = new JButton(real);

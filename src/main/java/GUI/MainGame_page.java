@@ -98,7 +98,12 @@ public class MainGame_page extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     final int FIRST_PLAYER_IDX = 0;
-                    MainGamePlayerStatusDetail_page temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+                    MainGamePlayerStatusDetail_page temp = null;
+                    try {
+                        temp = new MainGamePlayerStatusDetail_page(Player.getPlayer(FIRST_PLAYER_IDX));
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     temp.setVisible(true);
                 }
             });
@@ -354,7 +359,7 @@ public class MainGame_page extends JFrame {
             panel.add(player1_name);
 
             player1_status_panel = new PlayerStatusPanel(Player.getPlayer(0));
-            player1_status_panel.setBounds(200, 670, 318, 225);
+            player1_status_panel.setBounds(200, 620, 318, 225);
             player1_status_panel.setOpaque(false);
             panel.add(player1_status_panel);
 
@@ -380,7 +385,7 @@ public class MainGame_page extends JFrame {
             panel.add(lb_player2_name);
 
             player2_status_panel = new PlayerStatusPanel(Player.getPlayer(1));
-            player2_status_panel.setBounds(820, 670, 318, 225);
+            player2_status_panel.setBounds(820, 620, 318, 225);
             player2_status_panel.setOpaque(false);
             panel.add(player2_status_panel);
         }
