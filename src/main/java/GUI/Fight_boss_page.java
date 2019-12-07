@@ -64,7 +64,7 @@ public class Fight_boss_page extends JFrame {
                 Mainmusic_thread.thread.stop();
             }
         });
-
+        getContentPane().setBackground(Color.BLACK);
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/boss_fight.mp3"), true);
         music_thread.start();
@@ -117,6 +117,7 @@ public class Fight_boss_page extends JFrame {
 
             player1_status_panel = new MainGame_page.PlayerStatusPanel(Player.getPlayer(0));
             player1_status_panel.setBounds(290, 670, 318, 225);
+            player1_status_panel.setBackground(Color.BLACK);
             getContentPane().add(player1_status_panel);
 
             ImageIcon player2_img = null;
@@ -142,6 +143,7 @@ public class Fight_boss_page extends JFrame {
 
             player2_status_panel = new MainGame_page.PlayerStatusPanel(Player.getPlayer(1));
             player2_status_panel.setBounds(864, 670, 318, 225);
+            player2_status_panel.setBackground(Color.BLACK);
             getContentPane().add(player2_status_panel);
         }
 

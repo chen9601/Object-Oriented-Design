@@ -33,7 +33,10 @@ public class Dice_page extends JFrame {
             }
         }
     }
-
+    public static void main(String args[]){
+        Dice_page hi = new Dice_page();
+        hi.setVisible(true);
+    }
     public Dice_page() {
         setBounds(100, 100, 550, 600);
         getContentPane().setLayout(null);
