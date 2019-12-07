@@ -32,13 +32,18 @@ public class DialogPanelController {
         selectbtn1 = dialog_panel.getSelectbtn1();
         selectbtn2 = dialog_panel.getSelectbtn2();
         selectbtn3 = dialog_panel.getSelectbtn3();
+        selectbtn1.setHorizontalTextPosition(AbstractButton.CENTER);
+        selectbtn1.setVerticalTextPosition(AbstractButton.CENTER);
+        selectbtn1.setForeground(Color.white);
+        selectbtn2.setHorizontalTextPosition(AbstractButton.CENTER);
+        selectbtn2.setVerticalTextPosition(AbstractButton.CENTER);
+        selectbtn2.setForeground(Color.white);
+        selectbtn3.setHorizontalTextPosition(AbstractButton.CENTER);
+        selectbtn3.setVerticalTextPosition(AbstractButton.CENTER);
+        selectbtn3.setForeground(Color.white);
+
         generateGeneralDialogues();
-//        selectbtn1.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
-//        selectbtn1.setForeground(Color.white);
-//        selectbtn2.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
-//        selectbtn2.setForeground(Color.white);
-//        selectbtn3.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
-//        selectbtn3.setForeground(Color.white);
+
     }
 
     /**
