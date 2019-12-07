@@ -98,7 +98,7 @@ public class Fight_monster_page extends JFrame {
                         Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/Main.mp3"), true);
                         music_thread.start();
                         int player_money = Player.getCurrentPlayer().getMoney();
-                        Player.getCurrentPlayer().setMoney(player_money+20);
+                        Player.getCurrentPlayer().setMoney(player_money+monster.getMonster_result());
                         return;
                     }
 
