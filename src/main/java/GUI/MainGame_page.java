@@ -15,7 +15,7 @@ import javax.swing.*;
 
 
 /**
- * Dialog 창, map. 플레이어들의 간략화 된 스탯 및 token을 보여주는 클래스이다.
+ * Dialog 창, map 등, 플레이어들의 간략화 된 스탯 및 token을 보여주는 클래스이다.
  * @author Se-Ok Jeon Beomsu Ko
  */
 

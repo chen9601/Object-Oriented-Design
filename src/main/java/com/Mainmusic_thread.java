@@ -1,9 +1,7 @@
-package GUI;
+package com;
 
 import javazoom.jl.player.Player;
 import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**

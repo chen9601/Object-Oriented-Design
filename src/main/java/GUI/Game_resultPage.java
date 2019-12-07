@@ -1,5 +1,7 @@
 package GUI;
 
+import com.Mainmusic_thread;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -7,8 +9,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 /**
- * @author  Beomsu Ko
  * 게임의 결과를 출력하는 페이지이다.
+ * @author  Beomsu Ko
  */
 public class Game_resultPage extends JFrame {
 

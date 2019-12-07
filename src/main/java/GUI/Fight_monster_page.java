@@ -15,8 +15,8 @@ import java.io.IOException;
 
 
 /**
- * @author Beomsu Ko
  * monster와의 전투를 나타내는 페이지이다.
+ * @author Beomsu Ko
  */
 
 @Getter

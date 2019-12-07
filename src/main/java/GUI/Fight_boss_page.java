@@ -1,6 +1,7 @@
 package GUI;
 
 import com.GameMaster;
+import com.Mainmusic_thread;
 import com.Player;
 import com.google.common.io.ByteStreams;
 
@@ -18,8 +19,8 @@ import java.io.InputStream;
 import static com.Fight_boss_controller.*;
 
 /**
- * @author Beomsu Ko
  * boss와의 전투를 나타내는 페이지이다.
+ * @author Beomsu Ko
  */
 
 public class Fight_boss_page extends JFrame {
