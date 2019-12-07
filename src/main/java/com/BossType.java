@@ -5,7 +5,7 @@ import java.awt.*;
 
 /**
  * 보스들의 설정값을 지칭하는 Enumeration
- * @author Chanho Park
+ * @author Chanho Park, Se-Ok Jeon
  */
 public enum BossType {
     AZATHOTH("아자투스",10, 10, 10,"images/boss/azatoth.png","images/boss/azatoth.png"),
@@ -15,8 +15,12 @@ public enum BossType {
     final private String name;
     private int damage;
     private int health;
+
+    /** 공격을 가하거나, 공격을 할 때, 요구되는 주사위 눈의 값 */
     private int requireVal;
     private String boss_imgpath;
+
+    /** 움직이는 보스 파일 경로 */
     private String boss_activepath;
     BossType(String name, int health, int damage, int requireVal,String boss_imgpath,String boss_activepath){
         this.name = name;

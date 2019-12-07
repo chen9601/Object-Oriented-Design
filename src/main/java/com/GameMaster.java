@@ -9,10 +9,11 @@ import java.util.Arrays;
 import static com.Player.*;
 
 /**
- * 게임마스터 객체 모델로, 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정할 수 있다.
- *
+ * 실제 게임마스터처럼 게임의 전체적인 데이터를 가지고 게임 진행의 방향을 결정하는 클래스이다.
+ * 초기화, 세팅 페이지들간의 동기화를 위한 메소드, 즉사체크 및 보스 소환조건과 게임 승리 조건 체크,
+ * 턴 종료와, 몬스터와 포털 생성 관련 메소드들로 구성되어 있다.
  * @author Se-Ok Jeon
- * @version 1.0
+ * @version 1.1
  */
 public class GameMaster {
     public static int token = 0;
@@ -30,10 +31,10 @@ public class GameMaster {
             players[i] = Player
                     .builder()
                     .pos(TileType.A)
-                    .money(100)
+                    .money(5)
                     .items(null)
                     .characteristics("test")
-                    .items(new ArrayList<ItemType>(Arrays.asList(ItemType.PROBLEM_OF_TIME, ItemType.AMULET_OF_HOUND)))
+                    .items(new ArrayList<ItemType>())
                     .build();
         }
     }
@@ -62,7 +63,7 @@ public class GameMaster {
     }
 
     /**
-     * 게임 시작 시 보스를 설정하는 메소드
+     * setBoss_page에서 선택한 보스를 저장하는 메소드
      * @param selected_boss
      * <br>선택된 보스
      */
@@ -158,7 +159,7 @@ public class GameMaster {
      * @return 패배 여부
      */
     public static boolean check_player_status_for_lost() {
-        if (players[0].getStatus() == 2 && players[1].getStatus() == 2)
+        if (players[0].getStatus() == DEAD && players[1].getStatus() == DEAD)
             return true;
         else return false;
     }
