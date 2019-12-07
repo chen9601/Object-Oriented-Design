@@ -31,10 +31,10 @@ public class GameMaster {
             players[i] = Player
                     .builder()
                     .pos(TileType.A)
-                    .money(100)
+                    .money(5)
                     .items(null)
                     .characteristics("test")
-                    .items(new ArrayList<ItemType>(Arrays.asList(ItemType.PROBLEM_OF_TIME, ItemType.AMULET_OF_HOUND)))
+                    .items(new ArrayList<ItemType>())
                     .build();
         }
     }
