@@ -69,6 +69,7 @@ public class Fight_boss_page extends JFrame {
                 Mainmusic_thread.thread.stop();
             }
         });
+        getContentPane().setBackground(Color.BLACK);
         lblfight.setForeground(Color.white);
         getContentPane().setBackground(Color.BLACK);
         Mainmusic_thread.thread.close();
@@ -81,6 +82,7 @@ public class Fight_boss_page extends JFrame {
 
 
         JPanel BossHealthPanel = new JPanel();
+        BossHealthPanel.setBackground(Color.BLACK);
         BossHealthPanel.setBounds(0, 0, 1182, 153);
         getContentPane().add(BossHealthPanel);
         BossHealthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -97,7 +99,7 @@ public class Fight_boss_page extends JFrame {
 
         getContentPane().add(lblfight);
         lblfight.setVisible(true);
-        lblfight.setBounds(0, 200, 600, 150);
+        lblfight.setBounds(20, 300, 600, 100);
 
         //플레이어들의 스테이터스
         {
@@ -164,10 +166,12 @@ public class Fight_boss_page extends JFrame {
                     MediaTracker mt = new MediaTracker(this);
                     mt.addImage(img_boss, 0);
                     mt.waitForAll();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     img_boss = null;
                 }
+
             }
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -176,7 +180,8 @@ public class Fight_boss_page extends JFrame {
         }
 
         ImagePanel boss_panel = new ImagePanel(this.getClass().getClassLoader().getResourceAsStream(GameMaster.current_boss.getType().getActive_path()));
-        boss_panel.setBounds(75, 120, 1100, 480);
+        boss_panel.setBackground(Color.BLACK);
+        boss_panel.setBounds(400, 120, 1200, 480);
         getContentPane().add(boss_panel);
 
 
@@ -187,7 +192,7 @@ public class Fight_boss_page extends JFrame {
         JButton fight = new JButton(new ImageIcon(fight_btn));
         getContentPane().add(fight);
         fight.setForeground(Color.white);
-        fight.setBounds(20, 200, 300, 300);
+        fight.setBounds(50, 200, 300, 300);
         fight.setFocusPainted(false);
         fight.setContentAreaFilled(false);
         fight.setBorderPainted(false);
