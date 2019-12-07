@@ -8,6 +8,7 @@ import javax.swing.*;
 
 /**
  * 전투시 주사위를 굴릴수 있는 프레임이다
+ * @author Beomsu Ko
  */
 public class Dice_page extends JFrame {
  @Getter
@@ -67,7 +68,10 @@ public class Dice_page extends JFrame {
         } else return "images/diceForRoll6-export.gif";
 
     }
-
+    /**
+     * 다이스의 눈금을 랜덤으로 가져온다.
+     * @return intValue
+     */
     public int select_Dicenum() {
         double randomValue = Math.random();
         int intValue = (int) (randomValue * 6) + 1;

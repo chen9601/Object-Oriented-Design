@@ -14,6 +14,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
+ * @author Beomsu Ko
  * 새로 게임을 생성할 때 보스를 설정하는 페이지이다.
  */
 public class SetBoss_page extends JFrame {
@@ -92,7 +93,9 @@ public class SetBoss_page extends JFrame {
         boss3.add(Test3);
         panel.add(boss3);
     }
-
+    /**
+     * information about boss
+     */
     class BossPanel extends JPanel {
 
         public BossPanel(String img_path, BossType bosstype, String boss_win, String boss_name_imgpath) throws IOException {
@@ -158,7 +161,9 @@ public class SetBoss_page extends JFrame {
         }
 
     }
-
+    /**
+     * To paint background
+     */
     class ImagePanel extends JPanel {
 
         public void paintComponent(Graphics g) {

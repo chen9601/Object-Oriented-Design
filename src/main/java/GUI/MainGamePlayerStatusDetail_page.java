@@ -20,6 +20,9 @@ import javax.swing.JTextPane;
 
 /**
  * 게임을 진행하면서 바뀌는 플레이어의 현재 스테이터스와 아이템을 보여주는 페이지이다.
+ * /**
+ *  * @author  Beomsu Ko
+ *
  */
 
 public class MainGamePlayerStatusDetail_page extends JFrame {
@@ -78,7 +81,9 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
         }
     }
 
-
+    /**
+     * 플레이어의 모든 스테이터스를 보여주는 패널이다.
+     */
     MainGamePlayerStatusDetail_page(Player player) throws IOException {
         ImagePanel panel = new ImagePanel();
         getContentPane().add(panel);
@@ -108,12 +113,12 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
             prev.setBounds(40, 32, 180, 70);
             movetab.add(prev);
 
-            JButton player1 = new JButton("player1");
+            JButton player1 = new JButton(new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/PLAYER1.PNG"))));
             player1.setBounds(297, 40, 160, 54);
             movetab.add(player1);
             player1.addActionListener(new BtnPlayerSwapAction(player, 0));
 
-            JButton player2 = new JButton("player2");
+            JButton player2 = new JButton(new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/PLAYER2.PNG"))));
             player2.setBounds(494, 40, 144, 54);
             movetab.add(player2);
 
@@ -237,7 +242,9 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
 
         panel.setVisible(true);
     }
-
+    /**
+     * To paint background
+     */
     class ImagePanel extends JPanel {
 
         public void paintComponent(Graphics g) {
