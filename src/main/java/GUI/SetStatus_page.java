@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 
 
 /**
+ * @author Beomsu Ko
  * 각각의 플레이어들의 초기 스탯 분배하는 페이지이다.
  */
 public class SetStatus_page extends JFrame {
@@ -242,6 +243,9 @@ public class SetStatus_page extends JFrame {
         }
 
     }
+    /**
+     * To paint background
+     */
     class ImagePanel extends JPanel {
 
         public void paintComponent(Graphics g) {
@@ -249,6 +253,9 @@ public class SetStatus_page extends JFrame {
             g.drawImage(status_background, 0, 0, 1200, 960, this);
         }
     }
+    /**
+     * To paint status Paenl
+     */
     class statusImagePanel extends JPanel {
 
         public void paintComponent(Graphics g) {

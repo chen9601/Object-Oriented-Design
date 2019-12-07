@@ -15,7 +15,8 @@ import java.io.IOException;
 import static com.Fight_boss_controller.*;
 
 /**
- * boss나 monster와의 전투를 나타내는 페이지이다.
+ * @author Beomsu Ko
+ * boss와의 전투를 나타내는 페이지이다.
  */
 
 public class Fight_boss_page extends JFrame {
@@ -210,7 +211,9 @@ public class Fight_boss_page extends JFrame {
 
 
     }
-
+    /**
+     * boss의 체력을 star로 바꿔준다.
+     */
     public static void show_stars() {
         for (int i = 10; i > GameMaster.current_boss.getHealth(); i--) {
             boss_health[i].setVisible(false);

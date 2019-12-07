@@ -15,7 +15,8 @@ import java.io.IOException;
 
 
 /**
- * boss나 monster와의 전투를 나타내는 페이지이다.
+ * @author Beomsu Ko
+ * monster와의 전투를 나타내는 페이지이다.
  */
 
 @Getter
@@ -143,7 +144,9 @@ public class Fight_monster_page extends JFrame {
         });
         setVisible(true);
     }
-
+    /**
+     * 몬스터의 공격 실행 메소드이다.
+     */
     private void attackedPlayerByMonster() throws IOException {
         System.out.println("몬스터가 플레이어 공격했음");
         int bonus_val = 0;
@@ -162,7 +165,9 @@ public class Fight_monster_page extends JFrame {
             }
         }
     }
-
+    /**
+     * 플레이어의 공격 실행 메소드
+     */
     private void attackedMonsterByPlayer() throws IOException {
         System.out.println("플레이어가 공격했음");
         int bonus_val = 0;
@@ -175,7 +180,9 @@ public class Fight_monster_page extends JFrame {
             Fight_monster_page.frm_fight_monster_page.monsterPanel.getMonster_health_txt().setText(Integer.toString(monster.getHealth()));
         }
     }
-
+    /**
+     * 현재 싸우고 있는 플레이어의 정보를 출력하는 패널
+     */
     @Getter
     public class PlayerPanel extends JPanel {
 
