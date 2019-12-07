@@ -9,6 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * @author Se-Ok Jeon
+ */
 @Getter
 @Setter
 public class DialogPanel extends JPanel {

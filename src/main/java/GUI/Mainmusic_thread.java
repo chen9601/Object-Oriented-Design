@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
+/**
+ *
+ */
 public class Mainmusic_thread extends Thread {
     static public Mainmusic_thread thread;
     static private Player player;
