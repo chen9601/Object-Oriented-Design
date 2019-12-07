@@ -113,12 +113,12 @@ public class MainGamePlayerStatusDetail_page extends JFrame {
             prev.setBounds(40, 32, 180, 70);
             movetab.add(prev);
 
-            JButton player1 = new JButton("player1");
+            JButton player1 = new JButton(new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/PLAYER1.PNG"))));
             player1.setBounds(297, 40, 160, 54);
             movetab.add(player1);
             player1.addActionListener(new BtnPlayerSwapAction(player, 0));
 
-            JButton player2 = new JButton("player2");
+            JButton player2 = new JButton(new ImageIcon(ImageIO.read(MainGamePageController.class.getClassLoader().getResourceAsStream("images/PLAYER2.PNG"))));
             player2.setBounds(494, 40, 144, 54);
             movetab.add(player2);
 
