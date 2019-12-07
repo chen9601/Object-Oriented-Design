@@ -2,6 +2,7 @@ package GUI;
 
 import com.GameMaster;
 import com.MainGamePageController;
+import com.Mainmusic_thread;
 import com.Player;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,6 +48,7 @@ public class SetStatus_page extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
+                System.exit(0);
                 Mainmusic_thread.thread.stop();
             }
         });
