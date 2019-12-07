@@ -6,7 +6,10 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-
+/**
+ * @author  Beomsu Ko
+ * 게임의 결과를 출력하는 페이지이다.
+ */
 public class Game_resultPage extends JFrame {
 
     public Game_resultPage(String result){

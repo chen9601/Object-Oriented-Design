@@ -7,7 +7,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
- *
+ * @author Beomsu ko
+ * 게임의 노래를 트는 곳이다.
  */
 public class Mainmusic_thread extends Thread {
     static public Mainmusic_thread thread;

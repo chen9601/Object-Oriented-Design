@@ -11,7 +11,8 @@ import java.io.IOException;
 
 
 /**
- * New Game Load Game EXIT 3개의 버튼으로 게임 시작 및 종료를 담당하는 페이지이다.
+ * @author Beomsu Ko
+ * New Game EXIT 2개의 버튼으로 게임 시작 및 종료를 담당하는 페이지이다.
  */
 public class Start_page extends JFrame {
 
