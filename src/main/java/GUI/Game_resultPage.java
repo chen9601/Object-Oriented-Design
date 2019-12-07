@@ -15,6 +15,9 @@ public class Game_resultPage extends JFrame {
 
         if(result == "win"){
             Image win_img = null;
+            Mainmusic_thread.thread.close();
+            Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/victory.mp3"), true);
+            music_thread.start();
             try {
                 win_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/Victory.png"))).getImage();
             } catch (IOException e) {
@@ -34,6 +37,9 @@ public class Game_resultPage extends JFrame {
         }
         else if(result == "defeat"){
             Image defeat_img = null;
+            Mainmusic_thread.thread.close();
+            Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/defeat.mp3"), true);
+            music_thread.start();
             try {
                 defeat_img = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/Defeat.png"))).getImage();
             } catch (IOException e) {
