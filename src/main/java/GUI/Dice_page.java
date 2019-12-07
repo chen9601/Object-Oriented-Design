@@ -46,8 +46,6 @@ public class Dice_page extends JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // 모니터 사이즈
 
         this.setLocation((screenSize.width - frameSize.width), (screenSize.height - frameSize.height)); // 화면 우측 상단
-        System.out.println(savedDice_num);
-        System.out.println(DiceImage(savedDice_num));
         panel_dice_img  = new ImagePanel();
         panel_dice_img.setBounds(14, 22, 500, 500);
         getContentPane().add(panel_dice_img);

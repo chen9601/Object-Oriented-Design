@@ -1103,6 +1103,7 @@ public class RandomEventAnswer {
      */
     public static void Boss_summon() throws IOException {
         Fight_boss_controller fight_boss_page = new Fight_boss_controller();
+        MainGamePageController.maingame_page.dispose();
     }
 
     /**
