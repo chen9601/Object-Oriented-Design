@@ -3,7 +3,9 @@ package com;
 import GUI.DialogPanel;
 import lombok.Data;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -24,13 +26,24 @@ public class DialogPanelController {
     static public JButton selectbtn2;
     static public JButton selectbtn3;
 
-    public DialogPanelController() {
+    public DialogPanelController() throws IOException {
         dialog_panel = new DialogPanel();
         lb_just_text = dialog_panel.getLb_just_text();
         selectbtn1 = dialog_panel.getSelectbtn1();
         selectbtn2 = dialog_panel.getSelectbtn2();
         selectbtn3 = dialog_panel.getSelectbtn3();
+        selectbtn1.setHorizontalTextPosition(AbstractButton.CENTER);
+        selectbtn1.setVerticalTextPosition(AbstractButton.CENTER);
+        selectbtn1.setForeground(Color.white);
+        selectbtn2.setHorizontalTextPosition(AbstractButton.CENTER);
+        selectbtn2.setVerticalTextPosition(AbstractButton.CENTER);
+        selectbtn2.setForeground(Color.white);
+        selectbtn3.setHorizontalTextPosition(AbstractButton.CENTER);
+        selectbtn3.setVerticalTextPosition(AbstractButton.CENTER);
+        selectbtn3.setForeground(Color.white);
+
         generateGeneralDialogues();
+
     }
 
     /**

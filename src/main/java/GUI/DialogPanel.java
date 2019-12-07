@@ -29,11 +29,14 @@ public class DialogPanel extends JPanel {
     }
 
     JLabel lb_just_text = new JLabel("Mac morning");
-    JButton selectbtn3 = new JButton("Example3");
-    JButton selectbtn2 = new JButton("Example2");
-    JButton selectbtn1 = new JButton("Example1");
+    JButton selectbtn3 = new JButton("",new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
+    JButton selectbtn2 = new JButton("",new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
+    JButton selectbtn1 = new JButton("",new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
 
-    public DialogPanel() {
+
+
+
+    public DialogPanel() throws IOException {
       setLayout(null);
 //        add(turnEnd);
 //        setLayout(new GridLayout(4, 1, 0, 20));
