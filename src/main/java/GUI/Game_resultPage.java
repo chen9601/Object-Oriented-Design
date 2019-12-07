@@ -15,7 +15,14 @@ public class Game_resultPage extends JFrame {
     public Game_resultPage(String result){
         setResizable(false);
         setBounds(100, 100, 600, 480);
-
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                System.exit(0);
+                Mainmusic_thread.thread.stop();
+            }
+        });
         if(result == "win"){
             Image win_img = null;
             Mainmusic_thread.thread.close();
@@ -30,13 +37,6 @@ public class Game_resultPage extends JFrame {
             JLabel win = new JLabel(new ImageIcon(win_tempimg));
             getContentPane().add(win);
             win.setVisible(true);
-            this.addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowClosing(WindowEvent e) {
-                    super.windowClosing(e);
-                    Mainmusic_thread.thread.stop();
-                }
-            });
         }
         else if(result == "defeat"){
             Image defeat_img = null;
@@ -52,13 +52,7 @@ public class Game_resultPage extends JFrame {
             JLabel defeat = new JLabel(new ImageIcon(defeat_tempimg));
             getContentPane().add(defeat);
             defeat.setVisible(true);
-            this.addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowClosing(WindowEvent e) {
-                    super.windowClosing(e);
-                    Mainmusic_thread.thread.stop();
-                }
-            });
+
         }
 
     }

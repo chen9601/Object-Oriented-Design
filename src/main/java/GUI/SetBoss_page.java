@@ -27,6 +27,7 @@ public class SetBoss_page extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
+                System.exit(0);
                 Mainmusic_thread.thread.stop();
             }
         });
