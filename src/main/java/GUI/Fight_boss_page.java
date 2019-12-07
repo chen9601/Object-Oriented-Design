@@ -2,6 +2,7 @@ package GUI;
 
 import com.GameMaster;
 import com.Player;
+import com.google.common.io.ByteStreams;
 
 
 import javax.imageio.ImageIO;
@@ -12,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.io.InputStream;
 
 import static com.Fight_boss_controller.*;
 
@@ -154,14 +156,26 @@ public class Fight_boss_page extends JFrame {
             getContentPane().add(player2_status_panel);
         }
 
-        Image img_boss;
-        try {
-            img_boss = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(GameMaster.current_boss.getType().getActive_path()));
-        } catch (IOException e) {
-            e.printStackTrace();
-            img_boss = null;
+        class ImagePanel extends JPanel{
+            Image img_boss;
+            ImagePanel(InputStream is){
+                try {
+                    img_boss = Toolkit.getDefaultToolkit().createImage(ByteStreams.toByteArray(is));
+                    MediaTracker mt = new MediaTracker(this);
+                    mt.addImage(img_boss, 0);
+                    mt.waitForAll();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    img_boss = null;
+                }
+            }
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(img_boss, 0, 0, this);
+            }
         }
-        JLabel boss_panel = new JLabel(new ImageIcon(img_boss));
+
+        ImagePanel boss_panel = new ImagePanel(this.getClass().getClassLoader().getResourceAsStream(GameMaster.current_boss.getType().getActive_path()));
         boss_panel.setBounds(75, 120, 1100, 480);
         getContentPane().add(boss_panel);
 
