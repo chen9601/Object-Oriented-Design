@@ -2,7 +2,9 @@ package com;
 import GUI.DialogPanel;
 import lombok.Data;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -16,13 +18,19 @@ public class DialogPanelController {
     static public JButton selectbtn2;
     static public JButton selectbtn3;
 
-    public DialogPanelController(){
+    public DialogPanelController() throws IOException {
         dialog_panel = new DialogPanel();
         lb_just_text = dialog_panel.getLb_just_text();
         selectbtn1 = dialog_panel.getSelectbtn1();
         selectbtn2 = dialog_panel.getSelectbtn2();
         selectbtn3 = dialog_panel.getSelectbtn3();
         generateGeneralDialogues();
+//        selectbtn1.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
+//        selectbtn1.setForeground(Color.white);
+//        selectbtn2.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
+//        selectbtn2.setForeground(Color.white);
+//        selectbtn3.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/SELECTOR.PNG"))));
+//        selectbtn3.setForeground(Color.white);
     }
 
     static public void Clear(){
@@ -30,6 +38,8 @@ public class DialogPanelController {
         selectbtn1.setText("");
         selectbtn2.setText("");
         selectbtn3.setText("");
+
+
 
         if(selectbtn1.getActionListeners().length > 0)
             selectbtn1.removeActionListener(selectbtn1.getActionListeners()[0]);

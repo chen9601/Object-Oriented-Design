@@ -30,6 +30,9 @@ public class DialogPanel extends JPanel {
     JButton selectbtn2 = new JButton("Example2");
     JButton selectbtn1 = new JButton("Example1");
 
+
+
+
     public DialogPanel() {
       setLayout(null);
 //        add(turnEnd);
