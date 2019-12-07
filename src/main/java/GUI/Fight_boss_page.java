@@ -3,6 +3,7 @@ package GUI;
 import com.GameMaster;
 import com.Player;
 
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -22,10 +23,11 @@ import static com.Fight_boss_controller.*;
 public class Fight_boss_page extends JFrame {
     public static MainGame_page.PlayerStatusPanel player1_status_panel;
     public static MainGame_page.PlayerStatusPanel player2_status_panel;
-    public static JLabel boss_temphealth;
+    public JLabel lblfight = new JLabel("");
     public static boolean boss_result = false;
     public int turninboss = 0;
 
+    public int count = 0;
     public static ImageIcon star;
 
     static {
@@ -65,6 +67,7 @@ public class Fight_boss_page extends JFrame {
                 Mainmusic_thread.thread.stop();
             }
         });
+        lblfight.setForeground(Color.white);
         getContentPane().setBackground(Color.BLACK);
         Mainmusic_thread.thread.close();
         Mainmusic_thread music_thread = new Mainmusic_thread(this.getClass().getClassLoader().getResourceAsStream("music/boss_fight.mp3"), true);
@@ -90,6 +93,9 @@ public class Fight_boss_page extends JFrame {
 
         }
 
+        getContentPane().add(lblfight);
+        lblfight.setVisible(true);
+        lblfight.setBounds(0, 200, 600, 150);
 
         //플레이어들의 스테이터스
         {
@@ -161,48 +167,61 @@ public class Fight_boss_page extends JFrame {
 
 
         Image fight_btn = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/fight_start.png"));
-        fight_btn.getScaledInstance(300,300,Image.SCALE_SMOOTH);
+        fight_btn.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+
 
         JButton fight = new JButton(new ImageIcon(fight_btn));
         getContentPane().add(fight);
+        fight.setForeground(Color.white);
         fight.setBounds(20, 200, 300, 300);
         fight.setFocusPainted(false);
         fight.setContentAreaFilled(false);
         fight.setBorderPainted(false);
+
+
         fight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (turninboss % 2 == 0) {
-                    try {
-                        attackedBossByPlayer();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
+                if (boss_result == false) {
+                    if (turninboss % 2 == 0) {
+                        try {
+                            attackedBossByPlayer();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        turninboss++;
+                    } else if (turninboss % 2 == 1) {
+                        try {
+                            attackedPlayerByBoss();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                        turninboss++;
                     }
-                    System.out.println(Player.getCurrentPlayer());
-                    System.out.println("플레이어가 공격했음");
-                    turninboss++;
-                } else if (turninboss % 2 == 1) {
-                    try {
-                        attackedPlayerByBoss();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    System.out.println("boss 공격가 공격했음");
-                    turninboss++;
                 }
-
-
+                else{
+                    if (lblfight.getText() == "플레이어 패배 -----> 클릭해주세요    <-------" || lblfight.getText() == "플레이어 승리 -----> 클릭해주세요    <-------") {
+                        checkWhoWin();
+                        return;
+                    }
+                }
                 if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
                     fight.setIcon(null);
-                    fight.setText("플레이어 패배 -----> 클릭해주세요    <-------");
+                    fight.setForeground(Color.white);
+                    lblfight.setText("플레이어 패배 -----> 클릭해주세요    <-------");
                     boss_result = true;
 
-                } else if(GameMaster.current_boss.getHealth()<1) {
+                    return;
+
+                } else if (GameMaster.current_boss.getHealth() < 1) {
                     fight.setIcon(null);
-                    fight.setText("플레이어 승리 ---->     클릭 해주세요  <------");
+                    fight.setForeground(Color.white);
+                    lblfight.setText("플레이어 승리 -----> 클릭해주세요    <-------");
                     boss_result = true;
+                    return;
                 }
-                checkWhoWin();
+
 
             }
 
@@ -211,6 +230,7 @@ public class Fight_boss_page extends JFrame {
 
 
     }
+
     /**
      * boss의 체력을 star로 바꿔준다.
      */

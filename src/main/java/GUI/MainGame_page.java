@@ -84,7 +84,7 @@ public class MainGame_page extends JFrame {
     public class MainGameTabPanel extends JPanel {
         Font tabFont = new Font("tabfont",Font.PLAIN,20);
 
-        JButton status = new JButton("Status");
+        JButton status = new JButton(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/STATUS.PNG"))));
 
         JLabel token = new JLabel("token");
 
@@ -92,7 +92,7 @@ public class MainGame_page extends JFrame {
         JLabel turn = new JLabel("Turn");
         JTextPane turn_text = new JTextPane();
 
-        MainGameTabPanel() {
+        MainGameTabPanel() throws IOException {
             status.setBounds(126, 36, 173, 53);
             status.addActionListener(new ActionListener() {
                 @Override
