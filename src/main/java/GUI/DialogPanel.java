@@ -10,7 +10,7 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * @author Se-Ok Jeon
+ * @author Se-Ok Jeon, Beomsu Ko
  */
 @Getter
 @Setter
@@ -52,6 +52,9 @@ public class DialogPanel extends JPanel {
         add(selectbtn3);
 
     }
+    /**
+     * @author Se-Ok Jeon, Beomsu Ko
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(dialog, 0, 0, 569, 430, this);
