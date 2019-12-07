@@ -5,9 +5,8 @@ import GUI.Game_resultPage;
 import java.io.IOException;
 
 /**
- * ?‚¬?‹¤ μ»¨νΈλ΅¤λ¬?Ό ?•κΈ°μ—” ?• λ§¤ν•?‹¤.
- * λ³΄μ¤??? ? „?¬?•  ?•, ?“°?Ό ?°?΄?„° μ²λ¦¬?— κ΄??• λ©”μ†?“?“¤λ΅? κµ¬μ„±??–΄ ??‹¤.
- * ?”? ?΄?–΄ κ³µκ²© λ°? ?—…?°?΄?Έ, λ³΄μ¤ κ³µκ²© λ°? ?—…?°?΄?Έ, ?Ή?¨ κ²°μ • λ©”μ†?“?“¤?΄ ??‹¤.
+ * λ³΄μ¤μ™€ μ „ν¬ν•  λ•, μ“°μΌ λ°μ΄ν„° μ²λ¦¬μ— κ΄€ν• λ©”μ†λ“λ“¤λ΅ κµ¬μ„±λμ–΄ μλ‹¤.
+ * ν”λ μ΄μ–΄ κ³µκ²© λ° μ—…λ°μ΄νΈ, λ³΄μ¤ κ³µκ²© λ° μ—…λ°μ΄νΈ, μΉν¨ κ²°μ • λ©”μ†λ“λ“¤μ΄ μλ‹¤.
  *
  * @author Se-Ok Jeon
  */
@@ -20,8 +19,8 @@ public class Fight_boss_controller {
     }
 
     /**
-     * λ³΄μ¤κ°? ?”? ?΄?–΄λ¥? κ³µκ²©?•  ?•, λ³΄μ¤ κ°μ²΄? ?†?„±κ°’κ³Ό μ£Όμ‚¬?„ κ°’μ„ ?΄?©?•΄ ?”? ?΄?–΄? μ²΄λ ¥?„ ?—…?°?΄?Έ ?•?” λ©”μ†?“
-     * μ£½μ?? ?”? ?΄?–΄?” ?•λ¦¬μ?? ?•?”?‹¤.
+     * λ³΄μ¤κ°€ ν”λ μ΄μ–΄λ¥Ό κ³µκ²©ν•  λ•, λ³΄μ¤ κ°μ²΄μ μ†μ„±κ°’κ³Ό μ£Όμ‚¬μ„ κ°’μ„ μ΄μ©ν•΄ ν”λ μ΄μ–΄μ μ²΄λ ¥μ„ μ—…λ°μ΄νΈ ν•λ” λ©”μ†λ“
+     * μ£½μ€ ν”λ μ΄μ–΄λ” λ•λ¦¬μ§€ μ•λ”λ‹¤.
      */
     public static void attackedPlayerByBoss() throws IOException {
         int bonus_val=0;
@@ -48,7 +47,7 @@ public class Fight_boss_controller {
     }
 
     /**
-     * ?”? ?΄?–΄κ°? λª¬μ¤?„°λ¥? κ³µκ²©?•  ?•, ?”? ?΄?–΄? ?†?„±κ³?, μ£Όμ‚¬?„ κ°’μ„ ?΄?©?•΄ λª¬μ¤?„°? μ²΄λ ¥?„ ?—…?°?΄?Έ?•?” λ©”μ†?“.
+     * ν”λ μ΄μ–΄κ°€ λª¬μ¤ν„°λ¥Ό κ³µκ²©ν•  λ•, ν”λ μ΄μ–΄μ μ†μ„±κ³Ό, μ£Όμ‚¬μ„ κ°’μ„ μ΄μ©ν•΄ λª¬μ¤ν„°μ μ²΄λ ¥μ„ μ—…λ°μ΄νΈν•λ” λ©”μ†λ“.
      */
     public static void attackedBossByPlayer() throws IOException {
 
@@ -64,7 +63,7 @@ public class Fight_boss_controller {
     }
 
     /**
-     * ?”? ?΄?–΄? ?Ή?¨?— ?”°?Ό, κ΄?? ¨ μ°½μ„ ?„?›μ£Όλ” λ©”μ†?“
+     * ν”λ μ΄μ–΄μ μΉν¨μ— λ”°λΌ, κ΄€λ ¨ μ°½μ„ λ„μ›μ£Όλ” λ©”μ†λ“
      */
     public static void checkWhoWin() {
         Boss boss = GameMaster.current_boss;
@@ -72,7 +71,7 @@ public class Fight_boss_controller {
 
         if (fight_boss_page.boss_result = true) {
             if (Player.getPlayer(0).getHealth() < 1 && Player.getPlayer(1).getHealth() < 1) {
-                System.out.println("?”? ?΄?–΄ ?¨λ°?");
+                System.out.println("ν”λ μ΄μ–΄ ν¨λ°°");
                 fight_boss_page.dispose();
                 result = new Game_resultPage("defeat");
                 result.setVisible(true);
