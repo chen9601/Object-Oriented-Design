@@ -79,7 +79,6 @@ public class Fight_monster_page extends JFrame {
 
                 if (monster_result == true) {
                     if (lblfight.getText() == "플레이어 패배") {
-                        ConstantEventHandler.fight_remain--;
                         MainGamePageController.show_players();
                         Fight_monster_page.frm_fight_monster_page.dispose();
                         DialogPanelController.Clear(    );
@@ -90,7 +89,6 @@ public class Fight_monster_page extends JFrame {
 
                         return;
                     } else if (lblfight.getText() == "몬스터 패배") {
-                        ConstantEventHandler.fight_remain--;
                         Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
                         MainGamePageController.show_monsters();
                         Fight_monster_page.frm_fight_monster_page.dispose();
@@ -142,14 +140,24 @@ public class Fight_monster_page extends JFrame {
                     return;
                 }
                 if (monster.getHealth() < 1) {
-                    if(ConstantEventHandler.fight_remain<1)
+                    ConstantEventHandler.fight_remain--;
+                    if(ConstantEventHandler.fight_remain<0)
                     {
                         fight.setIcon(null);
-                    }
+
                         lblfight.setText("몬스터 패배");
                         fight.setText("다음 게임 진행을 위해 ----->      여기         <-------------를 눌러주세요");
                         monster_result = true;
                         return;
+                    }
+                    else
+                    {
+                        lblfight.setText("몬스터 패배");
+                        fight.setText("다음 게임 진행을 위해 ----->      여기         <-------------를 눌러주세요");
+                        monster_result = true;
+                        return;
+                    }
+
                 }
 
                 }
