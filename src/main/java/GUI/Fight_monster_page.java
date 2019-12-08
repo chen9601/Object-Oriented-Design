@@ -88,7 +88,7 @@ public class Fight_monster_page extends JFrame {
                         music_thread.start();
 
                         return;
-                    } else if (lblfight.getText() == "몬스터 패배") {
+                    } else if (lblfight.getText() == "몬스터 패배"||lblfight.getText() == "아직 적이 남았습니다! 전투 버튼을 눌러 다음 전투를 시작하세요") {
                         Map.tiles[Player.getCurrentPlayer().getPos().ordinal()].setSummoned_monster(null);
                         MainGamePageController.show_monsters();
                         Fight_monster_page.frm_fight_monster_page.dispose();
@@ -152,8 +152,7 @@ public class Fight_monster_page extends JFrame {
                     }
                     else
                     {
-                        lblfight.setText("몬스터 패배");
-                        fight.setText("다음 게임 진행을 위해 ----->      여기         <-------------를 눌러주세요");
+                        lblfight.setText("아직 적이 남았습니다! 전투 버튼을 눌러 다음 전투를 시작하세요");
                         monster_result = true;
                         return;
                     }
