@@ -1,7 +1,6 @@
 package com;
 import GUI.Dice_page;
 import GUI.Game_resultPage;
-import GUI.Mainmusic_thread;
 
 
 import java.io.IOException;
@@ -1103,6 +1102,7 @@ public class RandomEventAnswer {
      */
     public static void Boss_summon() throws IOException {
         Fight_boss_controller fight_boss_page = new Fight_boss_controller();
+        MainGamePageController.maingame_page.dispose();
     }
 
     /**
