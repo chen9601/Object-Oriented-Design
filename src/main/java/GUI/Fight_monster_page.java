@@ -15,8 +15,8 @@ import java.io.IOException;
 
 
 /**
- * @author Beomsu Ko
  * monster와의 전투를 나타내는 페이지이다.
+ * @author Beomsu Ko
  */
 
 @Getter
@@ -36,6 +36,7 @@ public class Fight_monster_page extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
+                System.exit(0);
                 Mainmusic_thread.thread.stop();
             }
         });

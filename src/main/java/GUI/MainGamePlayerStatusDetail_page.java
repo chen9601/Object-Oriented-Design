@@ -20,8 +20,7 @@ import javax.swing.JTextPane;
 
 /**
  * 게임을 진행하면서 바뀌는 플레이어의 현재 스테이터스와 아이템을 보여주는 페이지이다.
- * /**
- *  * @author  Beomsu Ko
+ * @author  Beomsu Ko
  *
  */
 

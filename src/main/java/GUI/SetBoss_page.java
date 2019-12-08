@@ -3,6 +3,7 @@ package GUI;
 import com.Boss;
 import com.BossType;
 import com.GameMaster;
+import com.Mainmusic_thread;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,8 +15,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
- * @author Beomsu Ko
  * 새로 게임을 생성할 때 보스를 설정하는 페이지이다.
+ * @author Beomsu Ko
  */
 public class SetBoss_page extends JFrame {
 
@@ -27,6 +28,7 @@ public class SetBoss_page extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
+                System.exit(0);
                 Mainmusic_thread.thread.stop();
             }
         });
